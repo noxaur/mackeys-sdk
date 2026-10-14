@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = ["crates/mackeys-core", "crates/mackeys-gpui"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+license = "MIT"
+
+[profile.dev.package."*"]
+opt-level = 1

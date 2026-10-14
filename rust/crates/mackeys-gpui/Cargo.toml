@@ -1,0 +1,19 @@
+[package]
+name = "mackeys-gpui"
+description = "GPUI components for MacKeys: interactive Mac keyboards, MacBook top cases and Force Touch trackpads."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[features]
+default = ["sound"]
+sound = ["dep:rodio"]
+
+[dependencies]
+mackeys-core = { path = "../mackeys-core", version = "0.1.0" }
+gpui = { version = "0.2.2", features = ["runtime_shaders"] }
+rodio = { version = "0.21", default-features = false, features = ["playback"], optional = true }
+
+[[example]]
+name = "showcase"
