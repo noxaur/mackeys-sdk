@@ -250,7 +250,9 @@ export interface MacBookProps extends MacKeyboardProps, Omit<MacTrackpadProps, '
   lid?: boolean;
 }
 
+// The open lid leans toward the viewer, so its top edge projects wider than the base.
 const LID_SPACE = 200;
+const LID_SIDE = 120;
 
 function Lid({ finish, width, height }: { finish: FinishId; width: number; height: number }) {
   const m = lidModel(finish, height);
@@ -345,10 +347,11 @@ export function MacBook(props: MacBookProps) {
   const f = getFinish(d.finish);
   const showLid = (props.lid ?? true) && d.tc.full;
   const top = showLid ? LID_SPACE : 0;
+  const side = showLid ? LID_SIDE : 0;
   const tp = d.tc.trackpad;
   return (
-    <Scaled w={d.tc.width} h={d.tc.height + 10 + top} scale={props.scale} view={props.view} className={props.className} style={props.style}>
-      <div style={{ position: 'absolute', left: 0, top, width: d.tc.width, height: d.tc.height }}>
+    <Scaled w={d.tc.width + 2 * side} h={d.tc.height + 10 + top} scale={props.scale} view={props.view} className={props.className} style={props.style}>
+      <div style={{ position: 'absolute', left: side, top, width: d.tc.width, height: d.tc.height }}>
         {showLid && <Lid finish={d.finish} width={d.tc.width} height={d.tc.height} />}
         <Deck
           tc={d.tc}

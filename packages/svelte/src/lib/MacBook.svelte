@@ -43,7 +43,9 @@
     style
   }: MacBookProps = $props();
 
+  // The open lid leans toward the viewer, so its top edge projects wider than the base.
   const LID_SPACE = 200;
+  const LID_SIDE = 120;
   onMount(() => injectStyles());
   const controller = new KeyboardController();
   const kb = keyboardState(controller);
@@ -68,6 +70,7 @@
   let f = $derived(getFinish(finish));
   let showLid = $derived(lid && tc.full);
   let top = $derived(showLid ? LID_SPACE : 0);
+  let side = $derived(showLid ? LID_SIDE : 0);
   let padStyle = $derived(
     tc.trackpad
       ? 'left:' + tc.trackpad.x + 'px;top:' + tc.trackpad.y + 'px;width:' + tc.trackpad.w + 'px;height:' + tc.trackpad.h + 'px;border-radius:' + tc.trackpad.radius + 'px;background:' + gradientCss(grad2(f.pad)) + ';box-shadow:' + shadowsCss(trackpadShadows(finish))
@@ -75,8 +78,8 @@
   );
 </script>
 
-<Scaled w={tc.width} h={tc.height + 10 + top} {scale} {view} class={className} {style}>
-  <div style={'position:absolute;left:0;top:' + top + 'px;width:' + tc.width + 'px;height:' + tc.height + 'px'}>
+<Scaled w={tc.width + 2 * side} h={tc.height + 10 + top} {scale} {view} class={className} {style}>
+  <div style={'position:absolute;left:' + side + 'px;top:' + top + 'px;width:' + tc.width + 'px;height:' + tc.height + 'px'}>
     {#if showLid}<Lid {finish} width={tc.width} height={tc.height} />{/if}
     <Deck {tc}>
       {#snippet trackpad()}
