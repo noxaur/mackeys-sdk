@@ -3,13 +3,26 @@
   "version": "0.1.0",
   "description": "Interactive Mac keyboards and Force Touch trackpads for Svelte 5.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noxaur/mackeys-sdk.git",
+    "directory": "packages/svelte"
+  },
+  "homepage": "https://github.com/noxaur/mackeys-sdk#readme",
+  "bugs": "https://github.com/noxaur/mackeys-sdk/issues",
   "type": "module",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "svelte": "./dist/index.js", "default": "./dist/index.js" }
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "svelte-package -i src/lib -o dist",
