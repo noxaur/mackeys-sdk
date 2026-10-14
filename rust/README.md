@@ -8,7 +8,7 @@ The workspace has two crates:
 | Crate | Purpose | Dependencies |
 | --- | --- | --- |
 | `mackeys-core` | The engine. A one-to-one port of the TypeScript engine in `packages/core/src`. It passes every fixture in `spec/fixtures`. | `serde`, `serde_json` |
-| `mackeys-gpui` | GPUI views: `MacKeyboard`, `MacBook`, `MacTrackpad`. | `gpui` 0.2.2, `rodio` 0.21 (feature `sound`) |
+| `mackeys-gpui` | GPUI views: `MacKeyboard`, `MacBook` (with the open lid), `MacTrackpad`. | `gpui` 0.2.2, `resvg` 0.45, `tiny-skia`, `rustybuzz`, `fontdb`, `rodio` 0.21 (feature `sound`); on macOS `objc2`, `objc2-app-kit`, `block2` |
 
 ## Install
 
@@ -47,16 +47,21 @@ Showcase controls:
 | control-up, control-down | Backlight level |
 | control-R | Daylight or dark room |
 | control-S | Sound on or off |
+| control-D | Lid on or off |
 | command-Q | Quit |
 
 The toolbar buttons do the same.
 
 ## Use the GPUI components
 
-1. Register `MacKeysAssets` as the asset source. The components draw key glyphs and speaker grilles as SVG
-   documents that they generate at run time. GPUI loads every SVG through the asset source.
-2. Create a view with `cx.new`.
-3. Focus the view to receive physical key input. A click on the view also focuses it.
+1. Create a view with `cx.new`.
+2. Focus the view to receive physical key input. A click on the view also focuses it.
+3. Optional: register `MacKeysAssets` as the asset source. Only the `render` module's plain `div`
+   builders need it (they load generated SVG glyphs). The views draw raster art and do not need it.
+
+The views make their images on GPUI's background executor. The first frame after a change of finish,
+layout, backlight or scale shows the previous images (or nothing) until the new images are ready.
+In a release build this takes about 0.4 s for a keyboard and 1.3 s for a MacBook with its lid.
 
 ```rust
 use gpui::{prelude::*, px, size, Application, Bounds, WindowBounds, WindowOptions};
@@ -116,17 +121,32 @@ book.update(cx, |b, cx| {
 | `backlight(Backlight)` | `set_backlight(Backlight, cx)` | `on`, `level` 0 to 16, `room`, `bleed` 0 to 1, `color`, `idle_off`. |
 | `sound(bool)` | `set_sound(bool, cx)` | Click sounds. Default on. |
 | `scale(f32)` | `set_scale(f32, cx)` | Uniform scale. 1 = 64 px per key pitch. |
+| `show_lid(bool)` | `set_show_lid(bool, cx)` | `MacBook` only: the open lid. Default on. It needs 200 px above and 120 px left and right of the deck (at scale 1). Magic Keyboard finishes have no lid. |
 
-Other methods: `press(id, cx)`, `release(id, cx)`, `tap(id, cx)`, `state()`, `geometry()`, `top_case()`,
-`trackpad_phase()`, `backlight_settings()`, `sound_enabled()`, `page_background()`, `focus_handle()`, `size()`.
+Other methods: `press(id, cx)`, `release(id, cx)`, `tap(id, cx)`, `state()`, `key_press_amount(id)`,
+`geometry()`, `top_case()`, `trackpad_phase()`, `backlight_settings()`, `sound_enabled()`, `lid_shown()`,
+`native_input()`, `page_background()`, `focus_handle()`, `size()`, `deck_origin()`.
 Events: `KeyEvent`, `TrackpadEvent`.
 
 `MacTrackpad`: `finish`, `sound`, `scale`, `force_delay` (builders); `set_finish`, `set_sound`, `set_scale`;
 `press_with_pressure`, `force`, `release` (for hosts with real pressure input); `phase()`, `geometry()`,
 `size()`. Event: `TrackpadEvent`.
 
-Other public items: `MacKeysAssets`, `ClickSound` (the shared click player), `keymap::code_for_key`,
-`render::key_cap`, `render::top_case_layers`, `render::pad_surface`, and the `paint` helpers.
+Other public items:
+
+| Module | Contents |
+| --- | --- |
+| `scene` | `DeviceScene`, `trackpad_layers`, `key_layers`, `Layer`, `compose` (draws layers offscreen), `Tween`, the transition times. |
+| `art` | The SVG documents of every part (`key_face`, `key_content`, `top_case`, `pad_surface`, `pad_side`), with CSS box shadows. |
+| `raster` | Rasterization with `resvg`, the image cache, `top_case_art`, `pad_art`. |
+| `lid` | `lid_model`, `flat_lid`, `project` (the CSS perspective), `lid_art`. |
+| `text` | Legend shaping with SF Pro (`shape`, `TextStyle`). |
+| `grain` | The `feTurbulence` fractal noise and the overlay blend. |
+| `css` | A parser for CSS gradients, colors and box shadows. |
+| `keycodes`, `native` | The macOS key code table and the native event monitor. |
+| `sound` | `ClickSound` (the shared player), `ClipBank`, `render_voice`, `mix_into`. |
+| `keymap` | `code_for_key` (the GPUI keystroke fallback). |
+| `render`, `paint`, `assets` | Plain GPUI `div` builders of the old vector renderer (`key_cap`, `top_case_layers`, `pad_surface`) and `MacKeysAssets`. |
 
 ## Use the engine (`mackeys-core`)
 
@@ -188,31 +208,79 @@ cargo test --workspace
 strings exact, colors within 1 unit per channel, same array lengths, `null` stays `null`, and no missing or
 extra fields. It also tests the keyboard and trackpad controllers.
 
+`crates/mackeys-gpui/tests/views.rs` opens the views in a GPUI test window (`#[gpui::test]`). It clicks
+a key and checks the pressed state, the press transition and the `KeyEvent`s; it sends keystrokes,
+modifier and caps lock changes; it clicks the trackpad and forces it. `tests/sound.rs` decodes the
+clips, renders voices with the SPEC rate and gain, mixes them into a buffer and checks the level (no
+audio device needed).
+
+Compare the GPUI art with the web reference screenshots:
+
+```sh
+cargo run --release -p mackeys-gpui --example compare
+```
+
+It draws the eight configurations of `spec/reference/screens` offscreen with the same layers the views
+draw, writes `target/compare/<name>.png` and `target/compare/<name>-side.png` (reference left), and
+prints the mean channel difference. `DIFF=1` also writes a difference image. `CROP=x,y,w,h` writes the
+same crop of both images.
+
 ## Rendering notes and limits
 
-The views follow the SPEC "Rendering contract" with GPUI `div()` elements. GPUI 0.2.2 has some limits, so
-some parts are approximations:
+The views draw raster images, not GPUI `div` styles. Each part is an SVG document that follows
+`MACKEYS_CSS` and the SPEC "Rendering contract". `resvg` rasterizes it at the view scale times the
+window's scale factor, and GPUI draws it with `img()`. The images are cached.
 
-- Key face: GPUI has no radial gradient. The face is a vertical linear gradient from `face0` (top) to
-  `face1` (bottom).
-- Inset shadows: GPUI has no inset box shadows. A spread ring becomes a border. An offset line becomes a top
-  or bottom border. A blurred inset shadow becomes a short vertical fade along one edge.
-- Gradients with more than two stops (hinge barrels, front notch) are drawn as stacked bands.
-- The ISO and JIS return keys are paths (`canvas` + `PathBuilder`). The drop shadow has no blur.
-- Not drawn: the aluminium grain, legend and icon glow (GPUI has no text shadow or filter), and letter
-  spacing (`tracking`).
-- Touch ID: the conic ring of the `dark` style is a vertical gradient.
-- Pressed keys move down 0.45 px, shrink by 1.4 %, and get darker. There is no press or release animation.
-- The legend font is `.SystemUIFont` (SF Pro on macOS).
-- Physical keys: GPUI reports the typed character, not the physical key. `keymap::code_for_key` first looks
-  for a key of the drawn layout whose legend shows the character, then uses the US ANSI map. The result is
-  correct only when the drawn layout matches the macOS input source. Dead keys are not found. Modifier
-  keys have no left or right side in GPUI, so they light the left key.
-- Force click: GPUI 0.2.2 has no pressure event, so the force click always comes from the 500 ms timer.
-  Hosts with pressure input can call `MacTrackpad::press_with_pressure` and `MacTrackpad::force`.
-- Sound: `rodio` plays the clips with the SPEC's random take, rate and gain. The trackpad filter (high shelf
-  2 kHz -14 dB, then low-pass 5 kHz Q 0.5) is a pair of RBJ biquads applied once when the clips load. When
-  no audio device exists, the player does nothing. Build without sound with `--no-default-features`.
+| Part | How it is drawn |
+| --- | --- |
+| Key face | The radial gradient (125 % x 110 % at the bottom middle), the 1 px outline and the 1.8 px highlight as inset shadows, and `capShadows` with Gaussian blur. One image per size, theme and state. |
+| ISO and JIS return | The `iso` path with the radial gradient, the outline and highlight strokes, and the drop shadow (0, 1, blur 1). |
+| Legends | Shaped with `rustybuzz` from `/System/Library/Fonts/SFNS.ttf` (SF Pro): weight 400, letter spacing `tracking`, kerning, and the optical size from the size in device pixels (as Chrome on macOS). Hangul, kana and kanji come from the first system font that has them (Apple SD Gothic Neo, Hiragino Sans ...). The glow is a blurred copy under the text. Baselines snap to device pixels. |
+| Icons | The glyph paths in the legend color, with the `iconGlow` blur. |
+| Caps lock LED, home bar, Touch ID | As in the CSS. The `dark` Touch ID ring is a conic gradient of 120 wedges. |
+| Shadows | CSS box shadows: outer shadows are clipped to the outside of the box; inset shadows are a blurred frame clipped to the box. Large boxes are done in bands along their edges. Soft shadows (blur 12 px or more) are rasterized at 0.5 pixels per px and scaled up. |
+| Gradients | Every stop of the core gradients (3-stop hinge barrels, notch). |
+| Grain | The SVG `feTurbulence` fractal noise (seed 0, two octaves, frequency 0.95 on the deck and 1.1 on a standalone trackpad), made gray in linear RGB, blended with `overlay` at the `grain` opacity. |
+| Lid | A port of the web `Lid`: shell, bezel, wallpaper (the CSS `wall` layers are parsed), the four ribbons with their blur, vignette, menu bar, widgets, dock, glass, glimmer, notch and camera. It is drawn flat, then projected with `perspective(4200px) rotateX(-80deg)` about its bottom center (3 x 3 samples per pixel, after a 4 x vertical box filter; the blurred ribbons are rasterized at a quarter of the resolution). One image per finish, size and scale. |
+| Key boxes | Snap to device pixels, as browsers do. |
+
+Animation: a pressed key moves down 0.45 px, scales to 0.986 and fades to the pressed image
+(brightness `pressedBrightness`, no highlight). It goes in over 26 ms and out over 95 ms with
+`cubic-bezier(.2, .75, .3, 1)`. The trackpad moves 1 px (down) or 1.8 px (force) and fades to the darker
+image with the inner shadow, in 35 ms and out in 140 ms. The views request animation frames only while a
+transition runs.
+
+Physical keys and Force Touch (macOS): each view adds an `NSEvent` local monitor for its window
+(key down, key up, flags changed and pressure). It does not consume events.
+
+- Keys: the monitor maps `keyCode` with the macOS virtual key code table (`keycodes.rs`): left and right
+  modifiers, F-keys, the ISO section key (swapped on ISO keyboards, as Chromium does), and the JIS keys
+  (`IntlYen`, `IntlRo`, `Lang1`, `Lang2`). Keys go to the controller only while the view has focus.
+  Caps lock gives one tap per toggle.
+- Pressure: at stage 2, while the pointer holds the trackpad, the view starts the force click at once
+  and plays `NSHapticFeedbackManager` generic feedback. The 500 ms timer stays as the fallback (a
+  mouse, or a trackpad without Force Touch).
+- On other platforms, and in GPUI test windows, the views use GPUI keystrokes: `keymap::code_for_key`
+  looks for a key of the drawn layout whose legend shows the typed character, then uses the US ANSI
+  map. Modifiers have no side there, so they light the left key.
+
+Remaining differences from the web reference (see `target/compare/*-side.png`; mean channel
+difference 0.5 to 1.6 of 255):
+
+- Glyph edges: resvg and Core Text rasterize text differently, so letter edges differ by a fraction of
+  a pixel. The lid text has no `antialiased` smoothing in the web CSS, so macOS draws it a little heavier;
+  a thin stroke imitates that.
+- A pressed key is a scaled copy of the pressed image. Chrome draws the transformed key from vectors,
+  so its 1 px outline is a little sharper.
+- The grain uses the same algorithm, but its contrast and phase differ a little from Chrome's GPU
+  filter.
+- The legend font file is `/System/Library/Fonts/SFNS.ttf` (then `HelveticaNeue.ttc`). Without them (not
+  macOS), legends are not drawn.
+- The first frame after a change waits for the background images (see above).
+- Sound: `rodio` plays the clips with the SPEC's random take, rate and gain (the clip is resampled
+  for the rate). The trackpad filter (high shelf 2 kHz -14 dB, then low-pass 5 kHz Q 0.5) is a pair of RBJ
+  biquads applied once when the clips load. When no audio device exists, the player does nothing.
+  Build without sound with `--no-default-features`.
 
 ## GPUI version
 

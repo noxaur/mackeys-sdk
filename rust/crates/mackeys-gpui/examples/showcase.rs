@@ -8,6 +8,7 @@
 //! - control-B: backlight on or off; control-up / control-down: backlight level
 //! - control-R: daylight or dark room
 //! - control-S: sound on or off
+//! - control-D: lid on or off
 //! - command-Q: quit
 use gpui::{
     div, prelude::*, px, size, App, Application, Bounds, Context, Entity, KeyDownEvent, MouseButton, SharedString, Subscription,
@@ -22,6 +23,7 @@ struct Showcase {
     layout: usize,
     backlight: Backlight,
     sound: bool,
+    lid: bool,
     last: SharedString,
     _subs: Vec<Subscription>,
 }
@@ -59,7 +61,7 @@ impl Showcase {
         .detach();
         let focus = book.read(cx).focus_handle();
         window.focus(&focus);
-        Showcase { book, pad, finish: fi, layout: li, backlight, sound: true, last: "Click a key or type".into(), _subs: vec![s1, s2, s3] }
+        Showcase { book, pad, finish: fi, layout: li, backlight, sound: true, lid: true, last: "Click a key or type".into(), _subs: vec![s1, s2, s3] }
     }
 
     fn apply(&mut self, cx: &mut Context<Self>) {
@@ -67,7 +69,9 @@ impl Showcase {
         let l = layout_ids()[self.layout];
         let bl = self.backlight.clone();
         let sound = self.sound;
+        let lid = self.lid;
         self.book.update(cx, |b, cx| {
+            b.set_show_lid(lid, cx);
             b.set_finish(f, cx);
             b.set_layout(l, cx);
             b.set_backlight(bl, cx);
@@ -97,6 +101,7 @@ impl Showcase {
             "down" => self.backlight.level = (self.backlight.level - 2.0).max(0.0),
             "room" => self.backlight.room = if self.backlight.room == Room::Dark { Room::Daylight } else { Room::Dark },
             "sound" => self.sound = !self.sound,
+            "lid" => self.lid = !self.lid,
             _ => return,
         }
         self.apply(cx);
@@ -147,6 +152,7 @@ impl Render for Showcase {
                     "b" => "backlight",
                     "r" => "room",
                     "s" => "sound",
+                    "d" => "lid",
                     "up" => "up",
                     "down" => "down",
                     _ => return,
@@ -165,9 +171,10 @@ impl Render for Showcase {
                     .child(button(format!("Level {}", self.backlight.level), "up", cx))
                     .child(button(format!("Room: {}", if dark { "dark" } else { "daylight" }), "room", cx))
                     .child(button(format!("Sound: {}", if self.sound { "on" } else { "off" }), "sound", cx))
+                    .child(button(format!("Lid: {}", if self.lid { "on" } else { "off" }), "lid", cx))
                     .child(div().text_size(px(12.)).opacity(0.7).child(self.last.clone())),
             )
-            .child(div().flex().flex_row().gap(px(36.)).items_start().child(self.book.clone()).child(div().pt(px(40.)).child(self.pad.clone())))
+            .child(div().flex().flex_row().gap(px(36.)).items_start().child(self.book.clone()).child(div().pt(px(200.)).child(self.pad.clone())))
     }
 }
 
@@ -182,7 +189,7 @@ fn main() {
         .flat_map(|p| p.split(',').map(String::from).collect::<Vec<_>>())
         .collect();
     Application::new().with_assets(MacKeysAssets::new()).run(move |cx: &mut App| {
-        let bounds = Bounds::centered(None, size(px(1180.), px(640.)), cx);
+        let bounds = Bounds::centered(None, size(px(1340.), px(800.)), cx);
         cx.open_window(
             WindowOptions {
                 window_bounds: Some(WindowBounds::Windowed(bounds)),

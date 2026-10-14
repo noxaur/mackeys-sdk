@@ -10,3 +10,7 @@ license = "MIT"
 
 [profile.dev.package."*"]
 opt-level = 1
+
+# The art pipeline (resvg, grain, lid projection) is slow without optimization.
+[profile.dev.package.mackeys-gpui]
+opt-level = 2

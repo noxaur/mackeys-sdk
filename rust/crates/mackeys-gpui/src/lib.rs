@@ -1,11 +1,12 @@
 //! # mackeys-gpui
 //!
-//! GPUI components for MacKeys: interactive Mac keyboards ([`MacKeyboard`]), MacBook top cases
-//! ([`MacBook`]) and Force Touch trackpads ([`MacTrackpad`]), drawn from the geometry and themes of
+//! GPUI components for MacKeys: interactive Mac keyboards ([`MacKeyboard`]), MacBooks with the open
+//! lid ([`MacBook`]) and Force Touch trackpads ([`MacTrackpad`]), drawn from the geometry and themes of
 //! [`mackeys_core`].
 //!
-//! Register [`MacKeysAssets`] as the app's asset source: the components draw key glyphs and speaker
-//! grilles as generated SVGs.
+//! The views draw full-color raster art: every part is an SVG document ([`art`], [`lid`]) that
+//! `resvg` rasterizes ([`raster`]) on a background thread; [`scene`] places the images. On macOS a
+//! native event monitor ([`native`]) adds physical key codes and Force Touch pressure.
 //!
 //! ```no_run
 //! use gpui::{prelude::*, Application};
@@ -18,13 +19,23 @@
 //!     .unwrap();
 //! });
 //! ```
+pub mod art;
 pub mod assets;
+pub mod css;
 mod device;
+pub mod grain;
+pub mod keycodes;
 pub mod keymap;
+pub mod lid;
+pub mod native;
 pub mod paint;
+pub mod painter;
+pub mod raster;
 pub mod render;
+pub mod scene;
 pub mod sound;
 mod timer;
+pub mod text;
 mod trackpad;
 
 pub use assets::MacKeysAssets;

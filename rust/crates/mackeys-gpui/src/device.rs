@@ -1,12 +1,16 @@
-//! `MacKeyboard` (keyboard deck) and `MacBook` (full top case with the built-in trackpad).
+//! `MacKeyboard` (keyboard deck) and `MacBook` (full top case with the built-in trackpad and the
+//! open lid).
 use crate::keymap::code_for_key;
+use crate::native::{self, NativeEvent};
+use crate::painter::{art_key, drop_unused, layer_element, prepare, ArtState, HasArt};
 use crate::paint::spx;
-use crate::render::{key_cap, pad_surface, top_case_layers};
+use crate::scene::{phase_depth, DeviceScene, Tween, KEY_PRESS, KEY_RELEASE, LID_SIDE, LID_SPACE, PAD_PRESS, PAD_RELEASE};
 use crate::sound::{ClickSound, GatedSink};
 use crate::timer::{ensure_timer, Timed, TimerState};
+use futures::StreamExt;
 use gpui::{
     div, prelude::*, App, Context, EventEmitter, FocusHandle, KeyDownEvent, KeyUpEvent, Modifiers, ModifiersChangedEvent,
-    MouseButton, MouseDownEvent, MouseUpEvent, SharedString, Subscription, Window,
+    MouseButton, MouseDownEvent, MouseUpEvent, SharedString, Subscription, Task, Window,
 };
 use mackeys_core::{
     build_keyboard, keyboard_theme, top_case, trackpad_shadows, BacklightOptions, CustomLayoutPatch, Gradient, InputSource,
@@ -14,6 +18,7 @@ use mackeys_core::{
     KeyboardTheme, Parts, Room, TopCaseGeometry, TopCaseOptions, TrackpadController, TrackpadEvent, TrackpadPhase,
 };
 use std::cell::RefCell;
+use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 use std::time::{Duration, Instant};
 
@@ -67,6 +72,7 @@ pub struct DeviceCore {
     backlight: Backlight,
     sound_on: Rc<RefCell<bool>>,
     scale: f32,
+    show_lid: bool,
     kb: KeyboardGeometry,
     tc: TopCaseGeometry,
     pad_surface: Gradient,
@@ -74,9 +80,16 @@ pub struct DeviceCore {
     pad: TrackpadController,
     focus: FocusHandle,
     pointer_key: Option<String>,
+    pad_pointer: bool,
     mods: Modifiers,
     capslock: bool,
     timer: TimerState,
+    key_tweens: HashMap<String, Tween>,
+    pad_tween: Tween,
+    down: HashSet<String>,
+    art: ArtState,
+    native: Option<native::Monitor>,
+    _native_task: Option<Task<()>>,
     _subs: Vec<Subscription>,
 }
 
@@ -95,6 +108,7 @@ impl DeviceCore {
             backlight: Backlight::default(),
             sound_on,
             scale: 1.0,
+            show_lid: true,
             kb: build_keyboard(&KeyboardOptions::default()),
             tc: top_case("pro-space-black", &build_keyboard(&KeyboardOptions::default()), &TopCaseOptions::default()),
             pad_surface: Gradient { stops: vec![] },
@@ -102,9 +116,16 @@ impl DeviceCore {
             pad,
             focus: cx.focus_handle(),
             pointer_key: None,
+            pad_pointer: false,
             mods: Modifiers::default(),
             capslock: false,
             timer: TimerState::default(),
+            key_tweens: HashMap::new(),
+            pad_tween: Tween::still(0.0),
+            down: HashSet::new(),
+            art: ArtState::default(),
+            native: None,
+            _native_task: None,
             _subs: vec![],
         };
         c.rebuild();
@@ -131,10 +152,50 @@ impl DeviceCore {
         keyboard_theme(&self.kb.finish, &self.backlight.options(self.keys.idle()))
     }
 
+    fn lid(&self) -> bool {
+        self.show_lid && self.tc.full
+    }
+
+    /// The deck's top-left corner in the view (CSS px).
+    fn origin(&self) -> (f64, f64) {
+        if self.lid() {
+            (LID_SIDE, LID_SPACE)
+        } else {
+            (0.0, 0.0)
+        }
+    }
+
+    fn view_size(&self) -> (f64, f64) {
+        let (ox, oy) = self.origin();
+        (self.tc.width + 2.0 * ox, self.tc.height + 10.0 + oy)
+    }
+
     fn release_pointer(&mut self) {
         if let Some(id) = self.pointer_key.take() {
             self.keys.release(&id, InputSource::Pointer);
         }
+    }
+
+    /// Starts the press and release transitions for changed keys and the trackpad.
+    fn animate(&mut self) {
+        let now = Instant::now();
+        let state = self.keys.state();
+        let down: HashSet<String> = state.down.iter().cloned().collect();
+        for id in down.difference(&self.down) {
+            self.key_tweens.entry(id.clone()).or_insert_with(|| Tween::still(0.0)).go(1.0, KEY_PRESS, now);
+        }
+        for id in self.down.difference(&down) {
+            self.key_tweens.entry(id.clone()).or_insert_with(|| Tween::still(1.0)).go(0.0, KEY_RELEASE, now);
+        }
+        self.down = down;
+        self.key_tweens.retain(|_, t| t.running(now) || t.target() > 0.0);
+        let target = phase_depth(self.pad.phase());
+        let dur = if target > self.pad_tween.target() { PAD_PRESS } else { PAD_RELEASE };
+        self.pad_tween.go(target, dur, now);
+    }
+
+    fn animating(&self, now: Instant) -> bool {
+        self.pad_tween.running(now) || self.key_tweens.values().any(|t| t.running(now))
     }
 
     fn modifiers_changed(&mut self, e: &ModifiersChangedEvent) {
@@ -166,6 +227,34 @@ impl DeviceCore {
         }
         self.keys.set_caps(on);
     }
+
+    /// Applies a native macOS event: keys while focused, pressure while the trackpad is pressed.
+    fn native_event(&mut self, e: NativeEvent, focused: bool) {
+        match e {
+            NativeEvent::Pressure { stage } => {
+                if self.pad_pointer && stage >= 2 && self.pad.phase() == TrackpadPhase::Down {
+                    self.pad.force(InputSource::Pointer);
+                    native::haptic();
+                }
+            }
+            _ if !focused => {}
+            NativeEvent::KeyDown { code, repeat, meta, ctrl } => {
+                self.keys.handle_key_down(&KeyDownInput { code: code.into(), repeat, meta_key: meta, ctrl_key: ctrl });
+            }
+            NativeEvent::KeyUp { code } => self.keys.handle_key_up(code),
+            NativeEvent::Modifier { code, down, meta, ctrl, caps } => {
+                if code == "CapsLock" {
+                    self.keys.handle_key_down(&KeyDownInput { code: code.into(), ..Default::default() });
+                    self.keys.set_caps(caps);
+                    self.capslock = caps;
+                } else if down {
+                    self.keys.handle_key_down(&KeyDownInput { code: code.into(), repeat: false, meta_key: meta, ctrl_key: ctrl });
+                } else {
+                    self.keys.handle_key_up(code);
+                }
+            }
+        }
+    }
 }
 
 /// The parts of a view that hold a [`DeviceCore`].
@@ -180,6 +269,7 @@ fn flush<V: HasCore>(v: &mut V, cx: &mut Context<V>) {
     let tev = c.pad.take_events();
     // The idle switch changes the top case light too.
     c.retheme();
+    c.animate();
     for e in kev {
         cx.emit(e);
     }
@@ -220,25 +310,84 @@ fn subscribe<V: HasCore>(v: &mut V, window: &mut Window, cx: &mut Context<V>) {
         }
     });
     v.core()._subs.extend([blur, active]);
+    // Native macOS keys (left and right modifiers, physical codes) and Force Touch pressure.
+    if let Some((monitor, mut rx)) = native::Monitor::install(window) {
+        let task = cx.spawn_in(window, async move |this, cx| {
+            while let Some(e) = rx.next().await {
+                let alive = this.update_in(cx, |v: &mut V, window, cx| {
+                    let focused = v.core_ref().focus.is_focused(window);
+                    v.core().native_event(e, focused);
+                    flush(v, cx);
+                });
+                if alive.is_err() {
+                    break;
+                }
+            }
+        });
+        let c = v.core();
+        c.native = Some(monitor);
+        c._native_task = Some(task);
+    }
 }
 
-fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut Context<V>) -> gpui::Stateful<gpui::Div> {
+fn render_device<V: HasCore + Timed + HasArt>(v: &mut V, window: &mut Window, cx: &mut Context<V>) -> gpui::Stateful<gpui::Div> {
     ensure_timer(v, cx);
+    drop_unused(window, cx);
+    let now = Instant::now();
+    let dpr = window.scale_factor();
     let c = v.core_ref();
     let s = c.scale;
+    let raster = (s * dpr) as f64;
     let theme = c.theme();
-    let state = c.keys.state();
-    let light = c.kb.light_keys;
+    let caps = c.keys.state().caps;
+    let lid = c.lid();
+    // Everything the images depend on.
+    let key = art_key(&format!("{:?}|{:?}|{:?}|{:?}|{}|{}", c.kb.keys, theme, c.tc, c.pad_surface, lid, raster));
+    let layers = if c.art.is_ready(key) {
+        let pad_shadows = trackpad_shadows(&c.kb.finish);
+        let scene = DeviceScene {
+            kb: &c.kb,
+            tc: &c.tc,
+            theme: &theme,
+            caps,
+            pad_surface: &c.pad_surface,
+            pad_shadows: &pad_shadows,
+            pad_depth: c.pad_tween.value(now),
+            lid,
+            scale: raster,
+        };
+        let layers = scene.layers(|k| c.key_tweens.get(&k.id).map(|t| t.value(now)).unwrap_or(0.0));
+        v.art_state().store(layers)
+    } else {
+        // Rasterize released and pressed images of every key in the background.
+        let (kb, tc, pad_surface) = (c.kb.clone(), c.tc.clone(), c.pad_surface.clone());
+        let theme = theme.clone();
+        let job = move || {
+            let pad_shadows = trackpad_shadows(&kb.finish);
+            for (depth, p) in [(0.0, 0.0), (2.0, 1.0)] {
+                let scene = DeviceScene { kb: &kb, tc: &tc, theme: &theme, caps, pad_surface: &pad_surface, pad_shadows: &pad_shadows, pad_depth: depth, lid, scale: raster };
+                prepare(&scene.layers(|_| p));
+            }
+        };
+        let st = v.art_state();
+        st.request(key, job, cx);
+        st.last()
+    };
+    let c = v.core_ref();
+    if c.animating(now) {
+        window.request_animation_frame();
+    }
+    let (vw, vh) = c.view_size();
+    let (ox, oy) = c.origin();
     let tc = &c.tc;
-    let (base, over) = top_case_layers(tc, s);
 
     let mut root = div()
         .id("mackeys-device")
         .track_focus(&c.focus)
         .key_context("MacKeys")
         .relative()
-        .w(spx(tc.width, s))
-        .h(spx(tc.height + 10.0, s))
+        .w(spx(vw, s))
+        .h(spx(vh, s))
         .on_mouse_down(
             MouseButton::Left,
             cx.listener(|v: &mut V, _: &MouseDownEvent, window, _| {
@@ -249,6 +398,13 @@ fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut C
             let c = v.core();
             let Some(code) = code_for_key(&e.keystroke.key, &c.kb) else { return };
             let m = &e.keystroke.modifiers;
+            if c.native.is_some() {
+                // The native monitor presses the key; only stop GPUI's default handling here.
+                if c.kb.key(&code).is_some() && code != "Tab" && !m.platform && !m.control {
+                    cx.stop_propagation();
+                }
+                return;
+            }
             let prevent = c.keys.handle_key_down(&KeyDownInput { code, repeat: e.is_held, meta_key: m.platform, ctrl_key: m.control });
             if prevent {
                 cx.stop_propagation();
@@ -257,34 +413,39 @@ fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut C
         }))
         .on_key_up(cx.listener(|v: &mut V, e: &KeyUpEvent, _, cx| {
             let c = v.core();
+            if c.native.is_some() {
+                return;
+            }
             if let Some(code) = code_for_key(&e.keystroke.key, &c.kb) {
                 c.keys.handle_key_up(&code);
                 flush(v, cx);
             }
         }))
         .on_modifiers_changed(cx.listener(|v: &mut V, e: &ModifiersChangedEvent, _, cx| {
+            if v.core_ref().native.is_some() {
+                return;
+            }
             v.core().modifiers_changed(e);
             flush(v, cx);
         }))
-        .children(base);
+        .children(layers.iter().map(|l| layer_element(l, s)));
 
     if let Some(tp) = &tc.trackpad {
-        let shadows = trackpad_shadows(&c.kb.finish);
-        let phase = c.pad.phase();
         root = root.child(
             div()
                 .id("mackeys-trackpad")
                 .absolute()
-                .left(spx(tp.x, s))
-                .top(spx(tp.y, s))
+                .left(spx(ox + tp.x, s))
+                .top(spx(oy + tp.y, s))
                 .w(spx(tp.w, s))
                 .h(spx(tp.h, s))
-                .child(pad_surface(&c.pad_surface, &shadows, tp.radius, tp.w, tp.h, phase, s))
                 .on_mouse_down(
                     MouseButton::Left,
                     cx.listener(|v: &mut V, _: &MouseDownEvent, window, cx| {
                         window.focus(&v.core_ref().focus);
-                        v.core().pad.press(InputSource::Pointer, true);
+                        let c = v.core();
+                        c.pad_pointer = true;
+                        c.pad.press(InputSource::Pointer, true);
                         cx.stop_propagation();
                         flush(v, cx);
                     }),
@@ -292,7 +453,9 @@ fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut C
                 .on_mouse_up(
                     MouseButton::Left,
                     cx.listener(|v: &mut V, _: &MouseUpEvent, _, cx| {
-                        v.core().pad.release(InputSource::Pointer);
+                        let c = v.core();
+                        c.pad_pointer = false;
+                        c.pad.release(InputSource::Pointer);
                         flush(v, cx);
                     }),
                 )
@@ -300,21 +463,27 @@ fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut C
                     MouseButton::Left,
                     cx.listener(|v: &mut V, _: &MouseUpEvent, _, cx| {
                         if v.core_ref().pad.phase() != TrackpadPhase::Up {
-                            v.core().pad.release(InputSource::Pointer);
+                            let c = v.core();
+                            c.pad_pointer = false;
+                            c.pad.release(InputSource::Pointer);
                             flush(v, cx);
                         }
                     }),
                 ),
         );
     }
-    root = root.children(over);
 
-    let mut keys = div().absolute().left(spx(tc.keyboard.x, s)).top(spx(tc.keyboard.y, s)).w(spx(c.kb.width, s)).h(spx(c.kb.height, s));
+    let (kx, ky) = (ox + tc.keyboard.x, oy + tc.keyboard.y);
     for k in &c.kb.keys {
-        let pressed = state.down.iter().any(|d| d == &k.id);
         let id = k.id.clone();
-        let el = key_cap(k, &theme, pressed, state.caps, light, s)
+        let el = div()
             .id(SharedString::from(format!("mk-{}", k.id)))
+            .absolute()
+            .left(spx(kx + k.x, s))
+            .top(spx(ky + k.y, s))
+            .w(spx(k.w, s))
+            .h(spx(k.h, s))
+            .cursor_pointer()
             .on_mouse_down(
                 MouseButton::Left,
                 cx.listener(move |v: &mut V, _: &MouseDownEvent, window, cx| {
@@ -343,9 +512,9 @@ fn render_device<V: HasCore + Timed>(v: &mut V, _window: &mut Window, cx: &mut C
                     }
                 }),
             );
-        keys = keys.child(el);
+        root = root.child(el);
     }
-    root.child(keys)
+    root
 }
 
 macro_rules! device_view {
@@ -367,6 +536,12 @@ macro_rules! device_view {
             }
             fn core_ref(&self) -> &DeviceCore {
                 &self.core
+            }
+        }
+
+        impl HasArt for $name {
+            fn art_state(&mut self) -> &mut ArtState {
+                &mut self.core.art
             }
         }
 
@@ -436,6 +611,14 @@ macro_rules! device_view {
                 self
             }
 
+            /// Draw the open lid with its screen behind the keyboard (MacBook finishes with a full
+            /// top case only). Default true. The lid needs 200 px above and 120 px left and right of
+            /// the deck (at scale 1).
+            pub fn show_lid(mut self, on: bool) -> Self {
+                self.core.show_lid = on;
+                self
+            }
+
             pub fn set_finish(&mut self, finish: impl Into<String>, cx: &mut Context<Self>) {
                 self.core.finish = finish.into();
                 self.core.rebuild();
@@ -474,6 +657,11 @@ macro_rules! device_view {
                 cx.notify();
             }
 
+            pub fn set_show_lid(&mut self, on: bool, cx: &mut Context<Self>) {
+                self.core.show_lid = on;
+                cx.notify();
+            }
+
             /// Presses a key by `KeyboardEvent.code` id, as an API call.
             pub fn press(&mut self, id: &str, cx: &mut Context<Self>) {
                 self.core.keys.press(id, InputSource::Api);
@@ -500,6 +688,10 @@ macro_rules! device_view {
                 *self.core.sound_on.borrow()
             }
 
+            pub fn lid_shown(&self) -> bool {
+                self.core.lid()
+            }
+
             pub fn geometry(&self) -> &KeyboardGeometry {
                 &self.core.kb
             }
@@ -516,6 +708,12 @@ macro_rules! device_view {
                 self.core.pad.phase()
             }
 
+            /// The press amount of a key now, 0 (up) to 1 (down), along the press and release
+            /// transitions.
+            pub fn key_press_amount(&self, id: &str) -> f64 {
+                self.core.key_tweens.get(id).map(|t| t.value(Instant::now())).unwrap_or(0.0)
+            }
+
             /// The page background the canvas uses behind this device (dark in a dark room).
             pub fn page_background(&self) -> gpui::Hsla {
                 crate::paint::hsla(&self.core.tc.page_background, 1.0)
@@ -526,9 +724,21 @@ macro_rules! device_view {
                 self.core.focus.clone()
             }
 
-            /// Drawn size at the current scale.
+            /// True when native macOS input (physical keys, Force Touch pressure) is active.
+            pub fn native_input(&self) -> bool {
+                self.core.native.is_some()
+            }
+
+            /// Drawn size at the current scale, including the room for the lid.
             pub fn size(&self) -> gpui::Size<gpui::Pixels> {
-                gpui::size(spx(self.core.tc.width, self.core.scale), spx(self.core.tc.height + 10.0, self.core.scale))
+                let (w, h) = self.core.view_size();
+                gpui::size(spx(w, self.core.scale), spx(h, self.core.scale))
+            }
+
+            /// Where the deck's top-left corner is in the view, at the current scale.
+            pub fn deck_origin(&self) -> gpui::Point<gpui::Pixels> {
+                let (x, y) = self.core.origin();
+                gpui::point(spx(x, self.core.scale), spx(y, self.core.scale))
             }
         }
     };
@@ -542,6 +752,5 @@ device_view!(
 device_view!(
     MacBook,
     Parts::Full,
-    "An interactive MacBook top case: deck, keyboard well, speaker grilles, hinge, built-in Force Touch trackpad and front notch. The lid is not drawn."
+    "An interactive MacBook: the open lid with its screen, deck, keyboard well, speaker grilles, hinge, built-in Force Touch trackpad and front notch."
 );
-

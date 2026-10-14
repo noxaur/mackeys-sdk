@@ -14,6 +14,26 @@ sound = ["dep:rodio"]
 mackeys-core = { path = "../mackeys-core", version = "0.1.0" }
 gpui = { version = "0.2.2", features = ["runtime_shaders"] }
 rodio = { version = "0.21", default-features = false, features = ["playback"], optional = true }
+# Full-color art: SVG documents rasterized with resvg, legends shaped with rustybuzz from the system font.
+resvg = { version = "0.45", default-features = false }
+tiny-skia = "0.11"
+rustybuzz = "0.20"
+# SF Pro has more than 32 gvar tuples per glyph; `gvar-alloc` lets ttf-parser read them.
+ttf-parser = { version = "0.25", default-features = false, features = ["std", "variable-fonts", "gvar-alloc", "opentype-layout", "apple-layout"] }
+fontdb = "0.23"
+image = { version = "0.25", default-features = false }
+smallvec = "1"
+futures = "0.3"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", default-features = false, features = ["std"] }
+objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "block2", "NSEvent", "NSHapticFeedback", "NSResponder", "NSView", "NSWindow", "NSGraphics"] }
+block2 = "0.6"
+raw-window-handle = "0.6"
+
+[dev-dependencies]
+gpui = { version = "0.2.2", features = ["runtime_shaders", "test-support"] }
 
 [[example]]
 name = "showcase"
