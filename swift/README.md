@@ -51,8 +51,11 @@ import MacKeysCore
 struct ContentView: View {
     var body: some View {
         VStack {
-            // The full MacBook top case: keyboard, grilles, hinge, built-in trackpad, front notch.
+            // The full MacBook: open lid with its screen, keyboard, grilles, hinge, built-in trackpad, front notch.
             MacBookView(finish: .proSpaceBlack, layout: .enUS, sizing: .fitWidth)
+
+            // The top case only, without the lid.
+            MacBookView(finish: .airStarlight, layout: .de, sizing: .fitWidth, showLid: false)
 
             // The keyboard deck only, with the backlight on in a dark room.
             MacKeyboardView(finish: .airMidnight, layout: .de,
@@ -66,7 +69,8 @@ struct ContentView: View {
 }
 ```
 
-Each view has a fixed size in px at scale 1 (as in the spec). Use `sizing: .scale(s)` for a fixed
+Each view has a fixed size in px at scale 1 (as in the spec). With the lid (the default for MacBook finishes),
+`MacBookView` reserves 200 px above the deck and 120 px on each side, as the web `MacBook` does. Use `sizing: .scale(s)` for a fixed
 scale, or `sizing: .fitWidth` to scale to the available width.
 
 ### Key events
@@ -103,7 +107,9 @@ through to the app. When the window loses focus, all keys go up.
 
 ### Trackpad
 
-A click enters `down`. On Force Touch hardware, a deep press (pressure stage 2) enters `force` and plays
+A click enters `down`. The surface moves 1 px down at brightness 0.97 with an inner shadow (1.8 px and 0.94 in
+`force`). As in the `.mk-tp` CSS, it eases in 35 ms into `down` or `force` and in 140 ms back to `up`
+(cubic-bezier(.2,.8,.3,1)). On Force Touch hardware, a deep press (pressure stage 2) enters `force` and plays
 haptic feedback. Without pressure input, a hold of 500 ms enters `force`.
 
 ### Sound
@@ -149,7 +155,7 @@ let color = Color(mk: device.theme.legend)   // MacKeysUI helper
 `MacKeysUI`
 
 - `MacKeyboardView(finish:layout:custom:backlight:sound:captureKeyboard:idleOff:sizing:controller:)`
-- `MacBookView(finish:layout:custom:backlight:sound:captureKeyboard:idleOff:sizing:controller:trackpadController:)`
+- `MacBookView(finish:layout:custom:backlight:sound:captureKeyboard:idleOff:sizing:showLid:controller:trackpadController:)`
 - `MacTrackpadView(finish:sound:sizing:controller:)`
 - `MacKeysSizing` (`.scale(CGFloat)`, `.fitWidth`)
 - `ClickSound` (`shared`, `enabled`, `volume`, `close()`)
@@ -176,12 +182,57 @@ swift test
   `topcases.json` (68) and `trackpads.json` (17); controller behavior; SVG path parser; key codes; clips.
 - `MacKeysUITests`: renders views with `ImageRenderer` to `swift/.build/snapshots/*.png`, plus path,
   color and sound checks.
+- `MacKeysUITests` "Reference comparison": renders the 8 configurations of `spec/reference/screens` at 2x on the
+  same page and writes `swift/.build/snapshots/compare/<name>.png` (the Swift render), `<name>-side.png`
+  (reference left, Swift right), `<name>-diff.png` (absolute difference x4) and `<name>-crop<N>.png`
+  (reference above Swift, native pixels). It prints the mean difference and, per key, the offset of the legend
+  ink between the reference and the Swift render. Set `MACKEYS_REF_FONT="Helvetica Neue"` to draw legends in
+  the font that the reference screenshots fell back to (see Limits).
 
 ## Notes
 
-- The views do not draw the aluminium grain overlay (the spec makes it optional) or the lid.
 - With Command Line Tools only (no Xcode), the macOS 27 SDK cannot expand the SwiftUI `@State` macro.
   The package therefore declares its view state with `State(initialValue:)` and builds with either toolchain.
+
+## How the views match the web
+
+- Lid: a port of the web `Lid` (shell, bezel, wallpaper, ribbons, vignette, menu bar, widgets, dock, glass,
+  glimmer, notch, camera). `CSSBackground` parses the `linear-gradient(<angle>deg, ...)` and
+  `radial-gradient(<w>% <h>% at <x>% <y>%, ...)` layers of `finish.wall`. The ribbon groups are blurred with
+  Core Image in linear light, as SVG filters blur in linearRGB. The flat lid is projected with
+  `projectionEffect` and a `CATransform3D` equal to CSS `perspective(4200px) rotateX(-80deg)` about its bottom
+  center.
+- Grain: the SVG `feTurbulence` fractal noise (seed 0, 2 octaves, stitched 256 px tile, desaturated in linearRGB),
+  made once per frequency and drawn with `.overlay` blend at opacity `grain` on the deck (0.95) and the standalone
+  trackpad (1.1).
+- Text: legends and lid text use CoreText with the system font and no font smoothing
+  (`-webkit-font-smoothing: antialiased`). The baseline follows Blink: ascent and descent rounded to whole px,
+  the content area centered in a line box of height = font size, the half leading floored.
+- Pixel snapping: key faces are snapped to device pixels as Blink snaps boxes, and key and trackpad layers sit on
+  whole device pixels (a layer at a fractional offset is resampled and looks soft).
+- Pressed keys: the canvas draws `translateY(.45px) scale(.986)`, `brightness(pressedBrightness)` and the
+  fading top highlight itself, so the cap stays sharp. Press 26 ms, release 95 ms. ISO and JIS return keys keep
+  their highlight stroke when pressed, as on the web (`spec/SPEC.md` says to drop the top highlight; the web
+  drops it only for box keys).
+
+## Limits
+
+Compared with `spec/reference/screens` (2x, same page), the mean absolute difference is 0.8 to 2.0 levels of 255
+per channel. The remaining differences:
+
+- Font: the reference screenshots use Helvetica Neue, because headless Chrome did not resolve `-apple-system`
+  and SF Pro Text is not installed as a named font. The spec and the Swift views use SF Pro (the system font).
+  Glyph shapes and widths therefore differ (for example `/`, `;`, the menu bar). With
+  `MACKEYS_REF_FONT="Helvetica Neue"`, the legend ink lies within 0.1 to 0.3 px of the reference on average
+  and within about 1 px for every key.
+- Pressed keys: the reference keeps a brighter backlight ring around a pressed key (about 62 against 47 of 255 in
+  the dark room). Chrome rasterizes the scaled, filtered key differently; the face, legend and brightness match.
+- Text pixels: Chrome snaps the baseline and the small icon boxes to device pixels. Small glyphs can sit up to
+  about 0.5 px from the reference.
+- The lid is drawn with `projectionEffect`, so hit testing and accessibility ignore it (it is decorative, as
+  `aria-hidden` on the web). At large scales the projected lid is resampled from the flat drawing.
+- The spec makes the grain optional. The Swift grain is the same noise algorithm, but not the same pixels as
+  Chrome's (Chrome evaluates the noise at its own sample positions).
 
 ## Sound attribution
 

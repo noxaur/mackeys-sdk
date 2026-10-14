@@ -61,11 +61,13 @@ struct BoxShape {
 
 extension GraphicsContext {
     /// Draws CSS outer box shadows (the list is front to back, as in CSS). Clipped to the outside of the box.
-    func drawOuterShadows(_ shadows: [Shadow], _ box: BoxShape) {
+    /// `under` (px) lets the shadow reach that far under the box edge: use it when an opaque face covers the box,
+    /// so that an anti-aliased edge does not lose the shadow twice (once by the clip, once by the face).
+    func drawOuterShadows(_ shadows: [Shadow], _ box: BoxShape, under: CGFloat = 0) {
         for s in shadows.reversed() where !s.inset {
             var c = self
             var clip = Path(box.rect.insetBy(dx: -4000, dy: -4000))
-            clip.addPath(box.path())
+            clip.addPath(box.path(spread: -under))
             c.clip(to: clip, style: FillStyle(eoFill: true))
             if s.blur > 0 { c.addFilter(.blur(radius: gaussian(s.blur))) }
             c.fill(box.path(offset: CGSize(width: s.x, height: s.y), spread: s.spread), with: .color(Color(mk: s.color)))
@@ -100,11 +102,11 @@ extension GraphicsContext {
     }
 
     /// Draws glows (blurred copies, offset 0) of something drawn by `body`, then nothing else.
-    func drawGlows(_ glows: [TextGlow], _ body: (inout GraphicsContext, Color) -> Void) {
+    func drawGlows(_ glows: [TextGlow], _ body: (inout GraphicsContext, MKColor) -> Void) {
         for g in glows.reversed() {
             drawLayer { l in
                 if g.blur > 0 { l.addFilter(.blur(radius: gaussian(g.blur))) }
-                body(&l, Color(mk: g.color))
+                body(&l, g.color)
             }
         }
     }
@@ -117,5 +119,62 @@ enum FontMetrics {
         let f = NSFont.systemFont(ofSize: size)
         let a = f.ascender, d = -f.descender
         return (size - (a + d)) / 2 + a
+    }
+}
+
+/// Text set like a CSS inline box with `line-height: 1` and `-webkit-font-smoothing: antialiased`:
+/// CoreText with the system font, no font smoothing, the baseline placed as Blink places it.
+struct CSSText {
+    let line: CTLine
+    let size: CGFloat
+    /// Advance width, including the letter spacing after the last glyph (as CSS).
+    let width: CGFloat
+
+    /// Test hook: a font family to use in place of the system font (for example the font a reference
+    /// screenshot fell back to).
+    nonisolated(unsafe) static var familyOverride: String?
+
+    static func font(size: CGFloat, weight: NSFont.Weight) -> NSFont {
+        if let name = familyOverride {
+            let d = NSFontDescriptor(fontAttributes: [.family: name, .traits: [NSFontDescriptor.TraitKey.weight: weight]])
+            if let f = NSFont(descriptor: d, size: size) { return f }
+        }
+        return NSFont.systemFont(ofSize: size, weight: weight)
+    }
+
+    init(_ s: String, size: CGFloat, weight: NSFont.Weight = .regular, tracking: CGFloat = 0) {
+        let font = CSSText.font(size: size, weight: weight)
+        var attrs: [NSAttributedString.Key: Any] = [.font: font, NSAttributedString.Key(kCTForegroundColorFromContextAttributeName as String): true]
+        if tracking != 0 { attrs[.kern] = tracking }
+        line = CTLineCreateWithAttributedString(NSAttributedString(string: s, attributes: attrs))
+        self.size = size
+        width = CGFloat(CTLineGetTypographicBounds(line, nil, nil, nil))
+    }
+
+    /// Distance from the top of the line box to the baseline. Blink rounds the ascent and descent to whole px
+    /// and centers the content area (ascent + descent) in the line box (height = font size).
+    static func baseline(size: CGFloat, weight: NSFont.Weight = .regular) -> CGFloat {
+        let f = font(size: size, weight: weight)
+        let a = f.ascender.rounded(), d = (-f.descender).rounded()
+        return ((size - (a + d)) / 2).rounded(.down) + a
+    }
+
+    /// Draws the text with the top-left of its line box at `p`.
+    func draw(_ ctx: inout GraphicsContext, at p: CGPoint, color: MKColor, weight: NSFont.Weight = .regular) {
+        let c = (try? parseColor(color)) ?? RGBA(r: 0, g: 0, b: 0, a: 1)
+        let base = CSSText.baseline(size: size, weight: weight)
+        let line = line
+        ctx.withCGContext { cg in
+            cg.setAllowsFontSmoothing(false)
+            cg.setShouldSmoothFonts(false)
+            cg.setAllowsFontSubpixelPositioning(true)
+            cg.setShouldSubpixelPositionFonts(true)
+            cg.setAllowsFontSubpixelQuantization(false)
+            cg.setShouldSubpixelQuantizeFonts(false)
+            cg.setFillColor(CGColor(srgbRed: c.r / 255, green: c.g / 255, blue: c.b / 255, alpha: c.a))
+            cg.textMatrix = CGAffineTransform(scaleX: 1, y: -1)
+            cg.textPosition = CGPoint(x: p.x, y: p.y + base)
+            CTLineDraw(line, cg)
+        }
     }
 }

@@ -24,6 +24,7 @@ final class DemoModel {
     var idle: IdleDelay = .never
     var sound = true
     var capture = true
+    var lid = true
     var lastEvent = "Click a key or type."
     let keyboard = KeyboardController()
     let trackpad = TrackpadController()
@@ -81,6 +82,7 @@ struct DemoView: View {
                 }.frame(width: 140)
                 Toggle("Sound", isOn: bind(\.sound))
                 Toggle("Capture keyboard", isOn: bind(\.capture))
+                Toggle("Lid", isOn: bind(\.lid))
             }
             Text(m.lastEvent).font(.system(.body, design: .monospaced)).foregroundStyle(dark ? .white : .secondary)
             ScrollView {
@@ -88,7 +90,7 @@ struct DemoView: View {
                     switch m.kind {
                     case .macbook:
                         MacBookView(finish: m.finish, layout: m.layout, backlight: m.backlight, sound: m.sound,
-                                    captureKeyboard: m.capture, idleOff: m.idle, sizing: .fitWidth,
+                                    captureKeyboard: m.capture, idleOff: m.idle, sizing: .fitWidth, showLid: m.lid,
                                     controller: m.keyboard, trackpadController: m.trackpad)
                     case .keyboard:
                         MacKeyboardView(finish: m.finish, layout: m.layout, backlight: m.backlight, sound: m.sound,

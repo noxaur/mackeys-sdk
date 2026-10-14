@@ -16,6 +16,8 @@ enum TopCaseDrawing {
         ctx.drawOuterShadows(tc.deckShadows, deck)
         ctx.fillVertical(deck.path(), tc.deck, in: deck.rect)
         ctx.drawInsetShadows(tc.deckShadows, deck)
+        // 3. Grain (fractal noise, overlay blend), clipped to the deck.
+        Grain.draw(&ctx, in: deck.path(), opacity: tc.grain, baseFrequency: 0.95)
         // 4. Hinge and notch (full top case only).
         if let h = tc.hinge {
             let bar = CGRect(x: h.x, y: 0, width: h.w, height: h.h)
@@ -74,28 +76,60 @@ enum TopCaseDrawing {
     }
 
     /// The trackpad: optional side, then the surface with its phase (SPEC "Trackpad").
-    /// `rect` is the surface rect; the phase moves only the surface.
+    /// `rect` is the surface rect; the phase moves only the surface. `look` holds the animated phase values.
     static func drawTrackpad(_ ctx: inout GraphicsContext, rect: CGRect, radius: CGFloat, surface: MacKeysCore.Gradient,
-                             shadows: [Shadow], side: (MacKeysCore.Gradient, Double, [Shadow])?, phase: TrackpadPhase) {
+                             shadows: [Shadow], side: (MacKeysCore.Gradient, Double, [Shadow])?, grain: Double,
+                             look: TrackpadLook) {
         let radii = Array(repeating: radius, count: 4)
         if let side {
             let sb = BoxShape(rect: rect.offsetBy(dx: 0, dy: side.1), radii: radii)
             ctx.drawOuterShadows(side.2, sb)
             ctx.fillVertical(sb.path(), side.0, in: sb.rect)
         }
-        let dy: CGFloat = phase == .force ? 1.8 : phase == .down ? 1 : 0
-        let bright: Double = phase == .force ? 0.94 : phase == .down ? 0.97 : 1
-        let box = BoxShape(rect: rect.offsetBy(dx: 0, dy: dy), radii: radii)
+        let box = BoxShape(rect: rect.offsetBy(dx: 0, dy: look.dy), radii: radii)
+        // `filter: brightness()` covers the whole button: its shadows, surface, grain and the ::after shadow.
         ctx.drawLayer { g in
-            if bright != 1 { g.addFilter(.colorMultiply(Color(white: bright))) }
+            if look.brightness < 0.9999 { g.addFilter(.colorMultiply(Color(white: look.brightness))) }
             g.drawOuterShadows(shadows, box)
             g.fillVertical(box.path(), surface, in: box.rect)
             g.drawInsetShadows(shadows, box)
+            Grain.draw(&g, in: box.path(), opacity: grain, baseFrequency: 1.1)
+            if look.shadowAlpha > 0.001 {
+                g.drawInsetShadows([Shadow(x: 0, y: look.shadowY, blur: look.shadowBlur, spread: 0,
+                                           color: rgba(0, 0, 0, look.shadowAlpha), inset: true)], box)
+            }
         }
+    }
+}
+
+/// The animated values of a trackpad phase (the `.mk-tp` CSS states).
+struct TrackpadLook: Equatable {
+    var dy: Double, brightness: Double, shadowY: Double, shadowBlur: Double, shadowAlpha: Double
+
+    init(dy: Double, brightness: Double, shadowY: Double, shadowBlur: Double, shadowAlpha: Double) {
+        self.dy = dy; self.brightness = brightness; self.shadowY = shadowY; self.shadowBlur = shadowBlur; self.shadowAlpha = shadowAlpha
+    }
+
+    /// up: no move; down: 1 px, brightness .97, inset 0 1 5 rgba(0,0,0,.22); force: 1.8 px, .94, inset 0 2 9 rgba(0,0,0,.32).
+    /// The `::after` shadow animates from `inset 0 0 0 0 rgba(0,0,0,0)`.
+    init(_ phase: TrackpadPhase) {
         switch phase {
-        case .down: ctx.drawInsetShadows([MacKeysCore.shadow(0, 1, 5, 0, "rgba(0,0,0,.22)", true)], box)
-        case .force: ctx.drawInsetShadows([MacKeysCore.shadow(0, 2, 9, 0, "rgba(0,0,0,.32)", true)], box)
-        case .up: break
+        case .up: self.init(dy: 0, brightness: 1, shadowY: 0, shadowBlur: 0, shadowAlpha: 0)
+        case .down: self.init(dy: 1, brightness: 0.97, shadowY: 1, shadowBlur: 5, shadowAlpha: 0.22)
+        case .force: self.init(dy: 1.8, brightness: 0.94, shadowY: 2, shadowBlur: 9, shadowAlpha: 0.32)
         }
+    }
+
+    var vector: AnimatablePair<AnimatablePair<Double, Double>, AnimatablePair<AnimatablePair<Double, Double>, Double>> {
+        get { AnimatablePair(AnimatablePair(dy, brightness), AnimatablePair(AnimatablePair(shadowY, shadowBlur), shadowAlpha)) }
+        set {
+            dy = newValue.first.first; brightness = newValue.first.second
+            shadowY = newValue.second.first.first; shadowBlur = newValue.second.first.second; shadowAlpha = newValue.second.second
+        }
+    }
+
+    /// CSS: into `down` or `force` (class `mk-dn`) in 35 ms, back to up in 140 ms, cubic-bezier(.2,.8,.3,1).
+    static func animation(to phase: TrackpadPhase) -> Animation {
+        .timingCurve(0.2, 0.8, 0.3, 1, duration: phase == .up ? 0.140 : 0.035)
     }
 }
