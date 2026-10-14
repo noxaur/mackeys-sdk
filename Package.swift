@@ -20,12 +20,13 @@ let package = Package(
     targets: [
         .target(
             name: "MacKeysCore",
+            path: "swift/Sources/MacKeysCore",
             resources: [.copy("Resources/mackeys-data.json"), .copy("Resources/keyboard-clicks.json"), .copy("Resources/trackpad-clicks.json")]
         ),
-        .target(name: "MacKeysUI", dependencies: ["MacKeysCore"]),
-        .executableTarget(name: "MacKeysDemo", dependencies: ["MacKeysUI", "MacKeysCore"]),
-        .testTarget(name: "MacKeysCoreTests", dependencies: ["MacKeysCore"], resources: [.copy("Fixtures")], swiftSettings: testSettings),
-        .testTarget(name: "MacKeysUITests", dependencies: ["MacKeysUI", "MacKeysCore"], swiftSettings: testSettings)
+        .target(name: "MacKeysUI", dependencies: ["MacKeysCore"], path: "swift/Sources/MacKeysUI"),
+        .executableTarget(name: "MacKeysDemo", dependencies: ["MacKeysUI", "MacKeysCore"], path: "swift/Sources/MacKeysDemo"),
+        .testTarget(name: "MacKeysCoreTests", dependencies: ["MacKeysCore"], path: "swift/Tests/MacKeysCoreTests", resources: [.copy("Fixtures")], swiftSettings: testSettings),
+        .testTarget(name: "MacKeysUITests", dependencies: ["MacKeysUI", "MacKeysCore"], path: "swift/Tests/MacKeysUITests", swiftSettings: testSettings)
     ],
     swiftLanguageModes: [.v6]
 )

@@ -22,7 +22,7 @@ Add the package with Swift Package Manager:
 ```swift
 // Package.swift
 dependencies: [
-    .package(path: "../mackeys-sdk/swift") // or .package(url: "<repository URL>", branch: "main")
+    .package(url: "https://github.com/noxaur/mackeys-sdk.git", from: "0.1.0") // or .package(path: "../mackeys-sdk")
 ],
 targets: [
     .target(name: "MyApp", dependencies: [
@@ -32,10 +32,9 @@ targets: [
 ]
 ```
 
-Run the demo:
+`Package.swift` is in the repository root. The sources are in `swift/`. Run the demo from the repository root:
 
 ```sh
-cd swift
 swift run MacKeysDemo
 ```
 
