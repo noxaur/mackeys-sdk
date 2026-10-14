@@ -1,0 +1,5276 @@
+{
+ "pro-space-black/off": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "pro-space-black/on": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "pro-space-black/dark-room-off": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "pro-space-black/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "pro-space-black/idle": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "pro-space-black/low-no-bleed": {
+  "input": {
+   "finish": "pro-space-black",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "pro-silver/off": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "pro-silver/on": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "pro-silver/dark-room-off": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "pro-silver/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "pro-silver/idle": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "pro-silver/low-no-bleed": {
+  "input": {
+   "finish": "pro-silver",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "air-midnight/off": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-midnight/on": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "air-midnight/dark-room-off": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "air-midnight/dark-room-full-warm": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "air-midnight/idle": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-midnight/low-no-bleed": {
+  "input": {
+   "finish": "air-midnight",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "air-starlight/off": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-starlight/on": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "air-starlight/dark-room-off": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "air-starlight/dark-room-full-warm": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "air-starlight/idle": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-starlight/low-no-bleed": {
+  "input": {
+   "finish": "air-starlight",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "air-sky-blue/off": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-sky-blue/on": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "air-sky-blue/dark-room-off": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "air-sky-blue/dark-room-full-warm": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "air-sky-blue/idle": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-sky-blue/low-no-bleed": {
+  "input": {
+   "finish": "air-sky-blue",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "air-silver/off": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-silver/on": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#303032ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1.75,
+     "spread": 0,
+     "color": "#f2f5ff26",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 5.5,
+     "spread": 0,
+     "color": "#f2f5ff12",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff48"
+    },
+    {
+     "blur": 2,
+     "color": "#f2f5ff2c"
+    },
+    {
+     "blur": 5,
+     "color": "#f2f5ff14"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#f2f5ff44"
+    },
+    {
+     "blur": 2.5,
+     "color": "#f2f5ff20"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.315
+  }
+ },
+ "air-silver/dark-room-off": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#141416ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 0
+  }
+ },
+ "air-silver/dark-room-full-warm": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#0b0b0cff",
+   "face1": "#212021ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff08",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 2.5,
+     "spread": 0,
+     "color": "#fff4e3f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 8,
+     "spread": 0,
+     "color": "#fff4e373",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3e6"
+    },
+    {
+     "blur": 2,
+     "color": "#fff4e38c"
+    },
+    {
+     "blur": 5,
+     "color": "#fff4e340"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#fff4e3d9"
+    },
+    {
+     "blur": 2.5,
+     "color": "#fff4e366"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#2c2c2eff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#3c3c4099",
+   "touchId": "dark",
+   "touchIdBrightness": 0.32,
+   "glow": 1
+  }
+ },
+ "air-silver/idle": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000080",
+     "inset": false
+    }
+   ],
+   "legend": "#dcdcdfff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "air-silver/low-no-bleed": {
+  "input": {
+   "finish": "air-silver",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#1c1c1eff",
+   "face1": "#2e2e30ff",
+   "outline": "#050506ff",
+   "highlight": "#ffffff26",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 1,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 3,
+     "spread": 0,
+     "color": "#ffffff00",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000099",
+     "inset": false
+    }
+   ],
+   "legend": "#ffffffff",
+   "legendGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff12"
+    },
+    {
+     "blur": 2,
+     "color": "#ffffff0b"
+    },
+    {
+     "blur": 5,
+     "color": "#ffffff05"
+    }
+   ],
+   "iconGlow": [
+    {
+     "blur": 0.6,
+     "color": "#ffffff11"
+    },
+    {
+     "blur": 2.5,
+     "color": "#ffffff08"
+    }
+   ],
+   "pressedBrightness": 0.84,
+   "capsLedOff": "#8e8e93ff",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#dedee28c",
+   "touchId": "dark",
+   "touchIdBrightness": 1,
+   "glow": 0.07875
+  }
+ },
+ "neo-silver/off": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-silver/on": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-silver/dark-room-off": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-silver/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-silver/idle": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-silver/low-no-bleed": {
+  "input": {
+   "finish": "neo-silver",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#eaebedff",
+   "face1": "#e2e3e5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#434446ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#434446ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/off": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/on": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/dark-room-off": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/idle": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-blush/low-no-bleed": {
+  "input": {
+   "finish": "neo-blush",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f1dfdfff",
+   "face1": "#e9d7d7ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4d4845ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4d4845ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/off": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/on": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/dark-room-off": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/idle": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-citrus/low-no-bleed": {
+  "input": {
+   "finish": "neo-citrus",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f4f3bcff",
+   "face1": "#ebeab5ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#47414bff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#47414bff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/off": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/on": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/dark-room-off": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/idle": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "neo-indigo/low-no-bleed": {
+  "input": {
+   "finish": "neo-indigo",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#8e99b7ff",
+   "face1": "#8994b1ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#2c3232ff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#2c3232ff",
+   "touchId": "flush",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/off": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/on": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/dark-room-off": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/idle": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-silver/low-no-bleed": {
+  "input": {
+   "finish": "imac-silver",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/off": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/on": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/dark-room-off": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/idle": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-blue/low-no-bleed": {
+  "input": {
+   "finish": "imac-blue",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/off": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/on": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/dark-room-off": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/idle": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-purple/low-no-bleed": {
+  "input": {
+   "finish": "imac-purple",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/off": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/on": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/dark-room-off": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/idle": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-pink/low-no-bleed": {
+  "input": {
+   "finish": "imac-pink",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/off": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/on": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/dark-room-off": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/idle": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-orange/low-no-bleed": {
+  "input": {
+   "finish": "imac-orange",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/off": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/on": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/dark-room-off": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/idle": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-yellow/low-no-bleed": {
+  "input": {
+   "finish": "imac-yellow",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/off": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {}
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/on": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {
+    "on": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/dark-room-off": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {
+    "room": "dark"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/idle": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {
+    "on": true,
+    "idle": true
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ },
+ "imac-green/low-no-bleed": {
+  "input": {
+   "finish": "imac-green",
+   "backlight": {
+    "on": true,
+    "level": 3,
+    "bleed": 0,
+    "color": "#ffffff"
+   }
+  },
+  "output": {
+   "face0": "#f6f7f9ff",
+   "face1": "#edeef0ff",
+   "outline": "#000000cc",
+   "highlight": "#ffffff80",
+   "capShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1.5,
+     "spread": 0,
+     "color": "#00000024",
+     "inset": false
+    }
+   ],
+   "legend": "#4a4a4cff",
+   "legendGlow": [],
+   "iconGlow": [],
+   "pressedBrightness": 0.93,
+   "capsLedOff": "#0000005c",
+   "capsLedOn": "#3ddc5cff",
+   "capsLedGlow": [
+    {
+     "blur": 2,
+     "color": "#3ddc5ce6"
+    },
+    {
+     "blur": 6,
+     "color": "#3ddc5c73"
+    }
+   ],
+   "homeBar": "#4a4a4cff",
+   "touchId": "light",
+   "touchIdBrightness": 1,
+   "glow": 0
+  }
+ }
+}
