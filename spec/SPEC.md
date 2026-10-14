@@ -90,6 +90,7 @@ reference; `MACKEYS_CSS` in `packages/core/src/dom.ts` holds the exact CSS.
 - ISO and JIS return (`iso` not null): draw `iso.path` (viewBox `0 0 w h`) with the same face gradient
   and a 1 px `outline` stroke, `iso.highlight` as a 0.8 px `highlight` stroke, and a drop shadow
   (0, 1, blur 1) of `rgba(0,0,0,.4)` (dark keys) or `rgba(0,0,0,.14)` (light keys). No box face.
+  A pressed ISO key keeps its highlight stroke; only the move, scale and brightness apply.
 - Legends: font SF Pro Text regular (system font), size `size`, letter spacing `tracking` em, color
   `legend`, glow `legendGlow` (text shadows, offset 0). The line box is `size` high and its top is at
   `top`. `align: center` centers across the key width; `left`/`right` put the text `inset` px from
