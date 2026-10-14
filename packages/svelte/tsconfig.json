@@ -1,0 +1,1 @@
+{ "extends": "../../tsconfig.base.json", "compilerOptions": { "verbatimModuleSyntax": true, "types": ["svelte"] }, "include": ["src", "test"] }
