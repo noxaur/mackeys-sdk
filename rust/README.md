@@ -12,7 +12,7 @@ The workspace has two crates:
 
 ## Install
 
-The crates are not on crates.io yet. Use a path or git dependency:
+Add the crates from crates.io, or use a path dependency:
 
 ```toml
 [dependencies]
