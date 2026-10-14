@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MacBook Trackpad</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3a3a3c}a:hover{color:#000}
+.tp{margin:0;padding:0;border:0;cursor:default;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tp:focus{outline:none}
+.tp{transition:transform 140ms cubic-bezier(.2,.8,.3,1),filter 140ms ease-out}
+.tp::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 0 rgba(0,0,0,0);transition:box-shadow 140ms ease-out}
+.tp.dn{transform:translateY(1px);filter:brightness(.97);transition-duration:35ms}
+.tp.dn::after{box-shadow:inset 0 1px 5px rgba(0,0,0,.22);transition-duration:35ms}
+.tp.force{transform:translateY(1.8px);filter:brightness(.94)}
+.tp.force::after{box-shadow:inset 0 2px 9px rgba(0,0,0,.32)}
+.tp:focus-visible{outline:2px solid #0a84ff;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 760px; height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; background: #f2f2f2;">
+<div style="position: relative; width: {{s.w}}px; height: {{s.hh}}px;">
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 6px; height: {{s.h}}px; border-radius: 10px; background: {{s.side}}; box-shadow: 0 1px 1px rgba(0,0,0,.2), 0 10px 20px rgba(0,0,0,.10), 0 30px 50px -18px rgba(0,0,0,.38);"></div>
+<button type="button" class="tp {{tpCls}}" aria-label="{{s.aria}}" style="position: absolute; left: 0; top: 0; width: {{s.w}}px; height: {{s.h}}px; border-radius: 10px; overflow: hidden; background: {{s.pad}}; box-shadow: {{s.padShadow}};" onPointerDown="{{tp.down}}" onPointerUp="{{tp.up}}" onPointerLeave="{{tp.up}}" onPointerCancel="{{tp.up}}" onKeyDown="{{tp.keyDown}}" onKeyUp="{{tp.keyUp}}">
+<svg aria-hidden="true" width="100%" height="100%" style="position: absolute; inset: 0; display: block; opacity: {{s.grain}}; mix-blend-mode: overlay;"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"finish":{"editor":"enum","options":["MacBook Pro · Space Black","MacBook Pro · Silver","MacBook Air · Midnight","MacBook Air · Starlight","MacBook Air · Sky Blue","MacBook Air · Silver","MacBook Neo · Silver","MacBook Neo · Blush","MacBook Neo · Citrus","MacBook Neo · Indigo"],"default":"MacBook Pro · Space Black"},"sound":{"editor":"boolean","default":true,"section":"Clicks"},"$preview":{"width":760,"height":500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tp: '' };
+  }
+  componentDidMount() {
+    // Force Touch press, release and force click, from a CC0 recording of a 2019 MacBook Pro
+    // (Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf).
+    if (typeof fetch === 'function') fetch('/_blob/b1301b1b039cd3955614f837ec4341e7').then((r) => r.json()).then((j) => { this.tclips = j; }).catch(() => {});
+  }
+  componentWillUnmount() {
+    clearTimeout(this.tpT);
+    if (this.ac && this.ac.close) this.ac.close();
+  }
+  // The trackpad never moves: a haptic engine clicks it. A press clicks, holding past the force threshold
+  // gives a deeper force click, and lifting gives a lighter release click.
+  tpSound(kind) {
+    if ((this.props.sound ?? true) === false || !this.tclips) return;
+    const AC = typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext);
+    if (!AC) return;
+    try {
+      const ctx = this.ac || (this.ac = new AC());
+      if (ctx.state === 'suspended') ctx.resume();
+      if (this.tCtx !== ctx) {
+        const j = this.tclips;
+        const dec = (b64) => { const bin = atob(b64), n = bin.length >> 1, buf = ctx.createBuffer(1, n, j.sr), d = buf.getChannelData(0); for (let i = 0; i < n; i++) { let v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8); if (v > 32767) v -= 65536; d[i] = v / 32768; } return buf; };
+        this.tbufs = { press: j.press.map(dec), release: j.release.map(dec), force: j.force.map(dec) };
+        this.tCtx = ctx;
+      }
+      const list = this.tbufs[kind];
+      const src = ctx.createBufferSource(); src.buffer = list[Math.floor(Math.random() * list.length)];
+      src.playbackRate.value = (kind === 'force' ? 0.9 : 1) * (0.99 + Math.random() * 0.02);
+      const g = ctx.createGain(); g.gain.value = kind === 'force' ? 0.85 : 0.75;
+      // Tame the brittle top end of the recording: shelf down above 2 kHz and roll off above 5 kHz.
+      const shelf = ctx.createBiquadFilter(); shelf.type = 'highshelf'; shelf.frequency.value = 2000; shelf.gain.value = -14;
+      const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 5000; lp.Q.value = 0.5;
+      src.connect(shelf); shelf.connect(lp); lp.connect(g); g.connect(ctx.destination); src.start();
+    } catch (err) { /* audio is optional */ }
+  }
+  tpDown(e) {
+    if ((e && e.button > 0) || this.tpOn) return;
+    this.tpOn = true;
+    this.tpSound('press');
+    this.setState({ tp: 'dn' });
+    clearTimeout(this.tpT);
+    this.tpT = setTimeout(() => { if (this.tpOn) { this.tpSound('force'); this.setState({ tp: 'dn force' }); } }, 500);
+  }
+  tpUp() {
+    if (!this.tpOn) return;
+    this.tpOn = false;
+    clearTimeout(this.tpT);
+    this.tpSound('release');
+    this.setState({ tp: '' });
+  }
+  renderVals() {
+    const FINISHES = {
+      'MacBook Pro · Space Black': { pro: true, dark: true, pad: ['#423f43', '#2b292c'], side: ['#1d1c1e', '#0f0e10'], edge: 'rgba(255,255,255,.13)' },
+      'MacBook Pro · Silver': { pro: true, dark: false, pad: ['#dadbdd', '#e0e1e3'], side: ['#bdbec1', '#9c9da0'], edge: 'rgba(255,255,255,.95)' },
+      'MacBook Air · Midnight': { pro: false, dark: true, pad: ['#4a525e', '#545c69'], side: ['#343a44', '#22262d'], edge: 'rgba(225,232,245,.22)' },
+      'MacBook Air · Starlight': { pro: false, dark: false, pad: ['#e8e1d7', '#ede6dc'], side: ['#d3cabc', '#b2a899'], edge: 'rgba(255,253,248,.95)' },
+      'MacBook Air · Sky Blue': { pro: false, dark: false, pad: ['#c9d4da', '#cfdae0'], side: ['#b3c0c7', '#94a1a8'], edge: 'rgba(250,253,255,.95)' },
+      'MacBook Neo · Silver': { neo: true, dark: false, pad: ['#dadbdd', '#dcdddf'], side: ['#bfc0c3', '#a2a3a6'], edge: 'rgba(255,255,255,.95)' },
+      'MacBook Neo · Blush': { neo: true, dark: false, pad: ['#e6cdcd', '#e8d0d0'], side: ['#d4b9b9', '#b99d9d'], edge: 'rgba(255,248,248,.95)' },
+      'MacBook Neo · Citrus': { neo: true, dark: false, pad: ['#e6e592', '#e8e794'], side: ['#d0ce7c', '#b3b163'], edge: 'rgba(255,255,235,.9)' },
+      'MacBook Neo · Indigo': { neo: true, dark: true, pad: ['#4d586e', '#525d73'], side: ['#38425a', '#262e40'], edge: 'rgba(220,228,250,.2)' },
+      'MacBook Air · Silver': { pro: false, dark: false, pad: ['#d3d4d6', '#d8d9db'], side: ['#bdbec1', '#9fa0a3'], edge: 'rgba(255,255,255,.95)' }
+    };
+    const finishName = this.props.finish ?? 'MacBook Pro · Space Black';
+    const f = FINISHES[finishName] || FINISHES['MacBook Pro · Space Black'];
+    const grad = (a) => 'linear-gradient(180deg, ' + a[0] + ' 0%, ' + a[1] + ' 100%)';
+    // Sizes measured on Apple's top-down product images (64 px = 19.0 mm key pitch).
+    const w = f.neo ? 390.5 : f.pro ? 437 : 432.5;
+    const h = f.neo ? 243.5 : f.pro ? 272.7 : 270.1;
+    const s = {
+      w: w,
+      h: h,
+      hh: h + 6,
+      pad: grad(f.pad),
+      side: grad(f.side),
+      grain: f.pro && f.dark ? 0.25 : 0.14,
+      aria: finishName + ' Force Touch trackpad. Click, or press and hold for a force click.',
+      padShadow: '0 0 0 1px ' + f.edge + ', inset 0 0 0 1px rgba(0,0,0,' + (f.dark ? '.55' : '.13') + '), inset 0 2px 0 ' + f.edge
+    };
+    const tp = {
+      down: (e) => this.tpDown(e),
+      up: () => this.tpUp(),
+      keyDown: (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!e.repeat) this.tpDown(); } },
+      keyUp: (e) => { if (e.key === ' ' || e.key === 'Enter') this.tpUp(); }
+    };
+    return { s: s, tp: tp, tpCls: (this.state && this.state.tp) || '' };
+  }
+}
+</script>
+</body>
+</html>

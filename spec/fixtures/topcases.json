@@ -1,0 +1,10194 @@
+{
+ "pro-space-black/full/off": {
+  "input": {
+   "finish": "pro-space-black",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "pro",
+   "full": true,
+   "width": 1053,
+   "height": 745,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4a484bff",
+      "at": 0
+     },
+     {
+      "color": "#2d2b2eff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "dim": 0,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#121416ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#ffffff21",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": {
+    "x": 308,
+    "y": 454,
+    "w": 437,
+    "h": 272.7,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 125,
+    "w": 803,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#3c3b3eff",
+       "at": 0
+      },
+      {
+       "color": "#232224ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 438.5,
+    "y": 745,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#232224ff",
+       "at": 0
+      },
+      {
+       "color": "#3c3b3eff",
+       "at": 0.6
+      },
+      {
+       "color": "#7a787dff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "pro-space-black/full/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-space-black",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "pro",
+   "full": true,
+   "width": 1053,
+   "height": 745,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4a484bff",
+      "at": 0
+     },
+     {
+      "color": "#2d2b2eff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "dim": 0.8,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#181717ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#ffffff21",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": {
+    "x": 308,
+    "y": 454,
+    "w": 437,
+    "h": 272.7,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 125,
+    "w": 803,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#3c3b3eff",
+       "at": 0
+      },
+      {
+       "color": "#232224ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 438.5,
+    "y": 745,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#232224ff",
+       "at": 0
+      },
+      {
+       "color": "#3c3b3eff",
+       "at": 0.6
+      },
+      {
+       "color": "#7a787dff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "pro-space-black/keyboard/off": {
+  "input": {
+   "finish": "pro-space-black",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "pro",
+   "full": false,
+   "width": 1053,
+   "height": 498.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4a484bff",
+      "at": 0
+     },
+     {
+      "color": "#2d2b2eff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "dim": 0,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#121416ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#ffffff21",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "pro-space-black/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-space-black",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "pro",
+   "full": false,
+   "width": 1053,
+   "height": 498.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4a484bff",
+      "at": 0
+     },
+     {
+      "color": "#2d2b2eff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "dim": 0.8,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#181717ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#ffffff21",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#0000008c",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "pro-silver/full/off": {
+  "input": {
+   "finish": "pro-silver",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "pro",
+   "full": true,
+   "width": 1053,
+   "height": 745,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdfe1ff",
+      "at": 0
+     },
+     {
+      "color": "#e5e6e8ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9c9da0ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#121416ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#fffffff2",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": {
+    "x": 308,
+    "y": 454,
+    "w": 437,
+    "h": 272.7,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 125,
+    "w": 803,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#cbccceff",
+       "at": 0
+      },
+      {
+       "color": "#a5a6a9ff",
+       "at": 0.7
+      },
+      {
+       "color": "#9c9da0ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 438.5,
+    "y": 745,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#a5a6a9ff",
+       "at": 0
+      },
+      {
+       "color": "#cbccceff",
+       "at": 0.6
+      },
+      {
+       "color": "#f0f0f2ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "pro-silver/full/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-silver",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "pro",
+   "full": true,
+   "width": 1053,
+   "height": 745,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdfe1ff",
+      "at": 0
+     },
+     {
+      "color": "#e5e6e8ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9c9da0ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#181717ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#fffffff2",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": {
+    "x": 308,
+    "y": 454,
+    "w": 437,
+    "h": 272.7,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 125,
+    "w": 803,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#cbccceff",
+       "at": 0
+      },
+      {
+       "color": "#a5a6a9ff",
+       "at": 0.7
+      },
+      {
+       "color": "#9c9da0ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 438.5,
+    "y": 745,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#a5a6a9ff",
+       "at": 0
+      },
+      {
+       "color": "#cbccceff",
+       "at": 0.6
+      },
+      {
+       "color": "#f0f0f2ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "pro-silver/keyboard/off": {
+  "input": {
+   "finish": "pro-silver",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "pro",
+   "full": false,
+   "width": 1053,
+   "height": 498.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdfe1ff",
+      "at": 0
+     },
+     {
+      "color": "#e5e6e8ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9c9da0ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#121416ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#fffffff2",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "pro-silver/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "pro-silver",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "pro",
+   "full": false,
+   "width": 1053,
+   "height": 498.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdfe1ff",
+      "at": 0
+     },
+     {
+      "color": "#e5e6e8ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9c9da0ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 58,
+    "y": 57.8,
+    "w": 937,
+    "h": 382.9,
+    "radius": 12,
+    "pad": 8,
+    "fill": "#181717ff",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#000000ff",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 3,
+      "spread": 0,
+      "color": "#000000cc",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#fffffff2",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 66,
+    "y": 65.8
+   },
+   "grilles": [
+    {
+     "x": 5,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    },
+    {
+     "x": 1003,
+     "y": 72.8,
+     "w": 45,
+     "h": 354.9,
+     "dot": "#1e1e2299",
+     "pitch": 3.3,
+     "dotRadius": 0.75
+    }
+   ],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-midnight/full/off": {
+  "input": {
+   "finish": "air-midnight",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#48505cff",
+      "at": 0
+     },
+     {
+      "color": "#535b68ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#e1e8f538",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#343a44ff",
+      "at": 0
+     },
+     {
+      "color": "#22262dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#7d838cff",
+       "at": 0
+      },
+      {
+       "color": "#464c56ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#464c56ff",
+       "at": 0
+      },
+      {
+       "color": "#7d838cff",
+       "at": 0.6
+      },
+      {
+       "color": "#c6c9ceff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-midnight/full/dark-room-full-warm": {
+  "input": {
+   "finish": "air-midnight",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#48505cff",
+      "at": 0
+     },
+     {
+      "color": "#535b68ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#e1e8f538",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#343a44ff",
+      "at": 0
+     },
+     {
+      "color": "#22262dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#7d838cff",
+       "at": 0
+      },
+      {
+       "color": "#464c56ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#464c56ff",
+       "at": 0
+      },
+      {
+       "color": "#7d838cff",
+       "at": 0.6
+      },
+      {
+       "color": "#c6c9ceff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-midnight/keyboard/off": {
+  "input": {
+   "finish": "air-midnight",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#48505cff",
+      "at": 0
+     },
+     {
+      "color": "#535b68ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#e1e8f538",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#343a44ff",
+      "at": 0
+     },
+     {
+      "color": "#22262dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-midnight/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "air-midnight",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#48505cff",
+      "at": 0
+     },
+     {
+      "color": "#535b68ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#e1e8f538",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#343a44ff",
+      "at": 0
+     },
+     {
+      "color": "#22262dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#e1e8f538",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-starlight/full/off": {
+  "input": {
+   "finish": "air-starlight",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e8e1d7ff",
+      "at": 0
+     },
+     {
+      "color": "#eee7ddff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffdf8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3cabcff",
+      "at": 0
+     },
+     {
+      "color": "#b2a899ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ddd6cbff",
+       "at": 0
+      },
+      {
+       "color": "#b9b0a2ff",
+       "at": 0.7
+      },
+      {
+       "color": "#b2a899ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#b9b0a2ff",
+       "at": 0
+      },
+      {
+       "color": "#ddd6cbff",
+       "at": 0.6
+      },
+      {
+       "color": "#f7f4f0ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-starlight/full/dark-room-full-warm": {
+  "input": {
+   "finish": "air-starlight",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e8e1d7ff",
+      "at": 0
+     },
+     {
+      "color": "#eee7ddff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffdf8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3cabcff",
+      "at": 0
+     },
+     {
+      "color": "#b2a899ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ddd6cbff",
+       "at": 0
+      },
+      {
+       "color": "#b9b0a2ff",
+       "at": 0.7
+      },
+      {
+       "color": "#b2a899ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#b9b0a2ff",
+       "at": 0
+      },
+      {
+       "color": "#ddd6cbff",
+       "at": 0.6
+      },
+      {
+       "color": "#f7f4f0ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-starlight/keyboard/off": {
+  "input": {
+   "finish": "air-starlight",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e8e1d7ff",
+      "at": 0
+     },
+     {
+      "color": "#eee7ddff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffdf8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3cabcff",
+      "at": 0
+     },
+     {
+      "color": "#b2a899ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-starlight/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "air-starlight",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e8e1d7ff",
+      "at": 0
+     },
+     {
+      "color": "#eee7ddff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffdf8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3cabcff",
+      "at": 0
+     },
+     {
+      "color": "#b2a899ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffdf8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-sky-blue/full/off": {
+  "input": {
+   "finish": "air-sky-blue",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#cdd8deff",
+      "at": 0
+     },
+     {
+      "color": "#d5e0e6ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fafdfff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3c0c7ff",
+      "at": 0
+     },
+     {
+      "color": "#94a1a8ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ced8ddff",
+       "at": 0
+      },
+      {
+       "color": "#a7b4bbff",
+       "at": 0.7
+      },
+      {
+       "color": "#94a1a8ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#a7b4bbff",
+       "at": 0
+      },
+      {
+       "color": "#ced8ddff",
+       "at": 0.6
+      },
+      {
+       "color": "#eff2f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-sky-blue/full/dark-room-full-warm": {
+  "input": {
+   "finish": "air-sky-blue",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#cdd8deff",
+      "at": 0
+     },
+     {
+      "color": "#d5e0e6ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fafdfff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3c0c7ff",
+      "at": 0
+     },
+     {
+      "color": "#94a1a8ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ced8ddff",
+       "at": 0
+      },
+      {
+       "color": "#a7b4bbff",
+       "at": 0.7
+      },
+      {
+       "color": "#94a1a8ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#a7b4bbff",
+       "at": 0
+      },
+      {
+       "color": "#ced8ddff",
+       "at": 0.6
+      },
+      {
+       "color": "#eff2f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-sky-blue/keyboard/off": {
+  "input": {
+   "finish": "air-sky-blue",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#cdd8deff",
+      "at": 0
+     },
+     {
+      "color": "#d5e0e6ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fafdfff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3c0c7ff",
+      "at": 0
+     },
+     {
+      "color": "#94a1a8ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-sky-blue/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "air-sky-blue",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#cdd8deff",
+      "at": 0
+     },
+     {
+      "color": "#d5e0e6ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fafdfff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3c0c7ff",
+      "at": 0
+     },
+     {
+      "color": "#94a1a8ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fafdfff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-silver/full/off": {
+  "input": {
+   "finish": "air-silver",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9fa0a3ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#d4d5d7ff",
+       "at": 0
+      },
+      {
+       "color": "#adaeb1ff",
+       "at": 0.7
+      },
+      {
+       "color": "#9fa0a3ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#adaeb1ff",
+       "at": 0
+      },
+      {
+       "color": "#d4d5d7ff",
+       "at": 0.6
+      },
+      {
+       "color": "#f3f3f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-silver/full/dark-room-full-warm": {
+  "input": {
+   "finish": "air-silver",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": true,
+   "width": 1024,
+   "height": 724,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9fa0a3ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 295.75,
+    "y": 437,
+    "w": 432.5,
+    "h": 270.1,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 120,
+    "w": 784,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#d4d5d7ff",
+       "at": 0
+      },
+      {
+       "color": "#adaeb1ff",
+       "at": 0.7
+      },
+      {
+       "color": "#9fa0a3ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 424,
+    "y": 724,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#adaeb1ff",
+       "at": 0
+      },
+      {
+       "color": "#d4d5d7ff",
+       "at": 0.6
+      },
+      {
+       "color": "#f3f3f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#060607ff"
+  }
+ },
+ "air-silver/keyboard/off": {
+  "input": {
+   "finish": "air-silver",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9fa0a3ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "air-silver/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "air-silver",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "air",
+   "full": false,
+   "width": 1024,
+   "height": 468.09999999999997,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9fa0a3ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0.8,
+   "well": {
+    "x": 44.5,
+    "y": 43.6,
+    "w": 935,
+    "h": 380.9,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#fff4e312",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 51.5,
+    "y": 50.6
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#060607ff"
+  }
+ },
+ "neo-silver/full/off": {
+  "input": {
+   "finish": "neo-silver",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dcdde0ff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a2a3a6ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#e0e1e3ff",
+       "at": 0
+      },
+      {
+       "color": "#b6b7baff",
+       "at": 0.7
+      },
+      {
+       "color": "#a2a3a6ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#b6b7baff",
+       "at": 0
+      },
+      {
+       "color": "#e0e1e3ff",
+       "at": 0.6
+      },
+      {
+       "color": "#f2f2f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-silver/full/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-silver",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dcdde0ff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a2a3a6ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#e0e1e3ff",
+       "at": 0
+      },
+      {
+       "color": "#b6b7baff",
+       "at": 0.7
+      },
+      {
+       "color": "#a2a3a6ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#b6b7baff",
+       "at": 0
+      },
+      {
+       "color": "#e0e1e3ff",
+       "at": 0.6
+      },
+      {
+       "color": "#f2f2f4ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-silver/keyboard/off": {
+  "input": {
+   "finish": "neo-silver",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dcdde0ff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a2a3a6ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-silver/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-silver",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dcdde0ff",
+      "at": 0
+     },
+     {
+      "color": "#e2e3e5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a2a3a6ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fffffff2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-blush/full/off": {
+  "input": {
+   "finish": "neo-blush",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e9d0d0ff",
+      "at": 0
+     },
+     {
+      "color": "#edd5d5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fff8f8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b9b9ff",
+      "at": 0
+     },
+     {
+      "color": "#b99d9dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ead0cfff",
+       "at": 0
+      },
+      {
+       "color": "#c9ababff",
+       "at": 0.7
+      },
+      {
+       "color": "#b99d9dff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#c9ababff",
+       "at": 0
+      },
+      {
+       "color": "#ead0cfff",
+       "at": 0.6
+      },
+      {
+       "color": "#f7e6e5ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-blush/full/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-blush",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e9d0d0ff",
+      "at": 0
+     },
+     {
+      "color": "#edd5d5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fff8f8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b9b9ff",
+      "at": 0
+     },
+     {
+      "color": "#b99d9dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#ead0cfff",
+       "at": 0
+      },
+      {
+       "color": "#c9ababff",
+       "at": 0.7
+      },
+      {
+       "color": "#b99d9dff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#c9ababff",
+       "at": 0
+      },
+      {
+       "color": "#ead0cfff",
+       "at": 0.6
+      },
+      {
+       "color": "#f7e6e5ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-blush/keyboard/off": {
+  "input": {
+   "finish": "neo-blush",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e9d0d0ff",
+      "at": 0
+     },
+     {
+      "color": "#edd5d5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fff8f8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b9b9ff",
+      "at": 0
+     },
+     {
+      "color": "#b99d9dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-blush/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-blush",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e9d0d0ff",
+      "at": 0
+     },
+     {
+      "color": "#edd5d5ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fff8f8f2",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b9b9ff",
+      "at": 0
+     },
+     {
+      "color": "#b99d9dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#fff8f8f2",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-citrus/full/off": {
+  "input": {
+   "finish": "neo-citrus",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e7e593ff",
+      "at": 0
+     },
+     {
+      "color": "#edeb98ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffebe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d0ce7cff",
+      "at": 0
+     },
+     {
+      "color": "#b3b163ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#e2e08dff",
+       "at": 0
+      },
+      {
+       "color": "#bebc69ff",
+       "at": 0.7
+      },
+      {
+       "color": "#b3b163ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#bebc69ff",
+       "at": 0
+      },
+      {
+       "color": "#e2e08dff",
+       "at": 0.6
+      },
+      {
+       "color": "#f3f1b0ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-citrus/full/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-citrus",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e7e593ff",
+      "at": 0
+     },
+     {
+      "color": "#edeb98ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffebe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d0ce7cff",
+      "at": 0
+     },
+     {
+      "color": "#b3b163ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#e2e08dff",
+       "at": 0
+      },
+      {
+       "color": "#bebc69ff",
+       "at": 0.7
+      },
+      {
+       "color": "#b3b163ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#bebc69ff",
+       "at": 0
+      },
+      {
+       "color": "#e2e08dff",
+       "at": 0.6
+      },
+      {
+       "color": "#f3f1b0ff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.1
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-citrus/keyboard/off": {
+  "input": {
+   "finish": "neo-citrus",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e7e593ff",
+      "at": 0
+     },
+     {
+      "color": "#edeb98ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffebe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d0ce7cff",
+      "at": 0
+     },
+     {
+      "color": "#b3b163ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-citrus/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-citrus",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e7e593ff",
+      "at": 0
+     },
+     {
+      "color": "#edeb98ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffebe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d0ce7cff",
+      "at": 0
+     },
+     {
+      "color": "#b3b163ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000029",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000012",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#ffffebe6",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000000d",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-indigo/full/off": {
+  "input": {
+   "finish": "neo-indigo",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4f5a70ff",
+      "at": 0
+     },
+     {
+      "color": "#59647aff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#dce4fa33",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#38425aff",
+      "at": 0
+     },
+     {
+      "color": "#262e40ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#5d6880ff",
+       "at": 0
+      },
+      {
+       "color": "#353f55ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#353f55ff",
+       "at": 0
+      },
+      {
+       "color": "#5d6880ff",
+       "at": 0.6
+      },
+      {
+       "color": "#8a94abff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-indigo/full/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-indigo",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": true,
+   "width": 1002,
+   "height": 695,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4f5a70ff",
+      "at": 0
+     },
+     {
+      "color": "#59647aff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#dce4fa33",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#38425aff",
+      "at": 0
+     },
+     {
+      "color": "#262e40ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": {
+    "x": 305.75,
+    "y": 434.9,
+    "w": 390.5,
+    "h": 243.5,
+    "radius": 9
+   },
+   "hinge": {
+    "x": 131,
+    "w": 740,
+    "h": 14,
+    "barrelW": 52,
+    "barrel": {
+     "stops": [
+      {
+       "color": "#5d6880ff",
+       "at": 0
+      },
+      {
+       "color": "#353f55ff",
+       "at": 0.7
+      },
+      {
+       "color": "#141315ff",
+       "at": 1
+      }
+     ]
+    }
+   },
+   "notch": {
+    "x": 413,
+    "y": 695,
+    "w": 176,
+    "h": 10,
+    "fill": {
+     "stops": [
+      {
+       "color": "#353f55ff",
+       "at": 0
+      },
+      {
+       "color": "#5d6880ff",
+       "at": 0.6
+      },
+      {
+       "color": "#8a94abff",
+       "at": 1
+      }
+     ]
+    },
+    "scoopOpacity": 0.35
+   },
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-indigo/keyboard/off": {
+  "input": {
+   "finish": "neo-indigo",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4f5a70ff",
+      "at": 0
+     },
+     {
+      "color": "#59647aff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#dce4fa33",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#38425aff",
+      "at": 0
+     },
+     {
+      "color": "#262e40ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "neo-indigo/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "neo-indigo",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "neo",
+   "full": false,
+   "width": 1002,
+   "height": 465.5,
+   "radius": [
+    22,
+    22,
+    22,
+    22
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#4f5a70ff",
+      "at": 0
+     },
+     {
+      "color": "#59647aff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#dce4fa33",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000059",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#38425aff",
+      "at": 0
+     },
+     {
+      "color": "#262e40ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 33.64999999999998,
+    "y": 42.4,
+    "w": 934.7,
+    "h": 380.7,
+    "radius": 12,
+    "pad": 7,
+    "fill": "#00000000",
+    "shadows": [
+     {
+      "x": 0,
+      "y": 1.5,
+      "blur": 2.5,
+      "spread": 0,
+      "color": "#00000073",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 0,
+      "blur": 0,
+      "spread": 1,
+      "color": "#00000047",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": true
+     },
+     {
+      "x": 0,
+      "y": 1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#dce4fa33",
+      "inset": false
+     },
+     {
+      "x": 0,
+      "y": -1,
+      "blur": 0,
+      "spread": 0,
+      "color": "#0000002e",
+      "inset": false
+     }
+    ]
+   },
+   "keyboard": {
+    "x": 40.64999999999998,
+    "y": 49.4
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-silver/full/off": {
+  "input": {
+   "finish": "imac-silver",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e1e2e4ff",
+      "at": 0
+     },
+     {
+      "color": "#d4d5d9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a1a2a5ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-silver/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-silver",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e1e2e4ff",
+      "at": 0
+     },
+     {
+      "color": "#d4d5d9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a1a2a5ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-silver/keyboard/off": {
+  "input": {
+   "finish": "imac-silver",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e1e2e4ff",
+      "at": 0
+     },
+     {
+      "color": "#d4d5d9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a1a2a5ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-silver/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-silver",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#e1e2e4ff",
+      "at": 0
+     },
+     {
+      "color": "#d4d5d9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a1a2a5ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-blue/full/off": {
+  "input": {
+   "finish": "imac-blue",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d8e0ebff",
+      "at": 0
+     },
+     {
+      "color": "#c7d2e2ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3bdcbff",
+      "at": 0
+     },
+     {
+      "color": "#97a0acff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-blue/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-blue",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d8e0ebff",
+      "at": 0
+     },
+     {
+      "color": "#c7d2e2ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3bdcbff",
+      "at": 0
+     },
+     {
+      "color": "#97a0acff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-blue/keyboard/off": {
+  "input": {
+   "finish": "imac-blue",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d8e0ebff",
+      "at": 0
+     },
+     {
+      "color": "#c7d2e2ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3bdcbff",
+      "at": 0
+     },
+     {
+      "color": "#97a0acff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-blue/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-blue",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d8e0ebff",
+      "at": 0
+     },
+     {
+      "color": "#c7d2e2ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b3bdcbff",
+      "at": 0
+     },
+     {
+      "color": "#97a0acff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-purple/full/off": {
+  "input": {
+   "finish": "imac-purple",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdce9ff",
+      "at": 0
+     },
+     {
+      "color": "#d1cde0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bcb8caff",
+      "at": 0
+     },
+     {
+      "color": "#9f9caaff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-purple/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-purple",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdce9ff",
+      "at": 0
+     },
+     {
+      "color": "#d1cde0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bcb8caff",
+      "at": 0
+     },
+     {
+      "color": "#9f9caaff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-purple/keyboard/off": {
+  "input": {
+   "finish": "imac-purple",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdce9ff",
+      "at": 0
+     },
+     {
+      "color": "#d1cde0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bcb8caff",
+      "at": 0
+     },
+     {
+      "color": "#9f9caaff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-purple/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-purple",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#dfdce9ff",
+      "at": 0
+     },
+     {
+      "color": "#d1cde0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#bcb8caff",
+      "at": 0
+     },
+     {
+      "color": "#9f9caaff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-pink/full/off": {
+  "input": {
+   "finish": "imac-pink",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f0d8deff",
+      "at": 0
+     },
+     {
+      "color": "#eac7d0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3b3bbff",
+      "at": 0
+     },
+     {
+      "color": "#b2979eff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-pink/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-pink",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f0d8deff",
+      "at": 0
+     },
+     {
+      "color": "#eac7d0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3b3bbff",
+      "at": 0
+     },
+     {
+      "color": "#b2979eff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-pink/keyboard/off": {
+  "input": {
+   "finish": "imac-pink",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f0d8deff",
+      "at": 0
+     },
+     {
+      "color": "#eac7d0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3b3bbff",
+      "at": 0
+     },
+     {
+      "color": "#b2979eff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-pink/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-pink",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f0d8deff",
+      "at": 0
+     },
+     {
+      "color": "#eac7d0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d3b3bbff",
+      "at": 0
+     },
+     {
+      "color": "#b2979eff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-orange/full/off": {
+  "input": {
+   "finish": "imac-orange",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f1dcd3ff",
+      "at": 0
+     },
+     {
+      "color": "#ebcdc0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b8adff",
+      "at": 0
+     },
+     {
+      "color": "#b39c92ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-orange/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-orange",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f1dcd3ff",
+      "at": 0
+     },
+     {
+      "color": "#ebcdc0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b8adff",
+      "at": 0
+     },
+     {
+      "color": "#b39c92ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-orange/keyboard/off": {
+  "input": {
+   "finish": "imac-orange",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f1dcd3ff",
+      "at": 0
+     },
+     {
+      "color": "#ebcdc0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b8adff",
+      "at": 0
+     },
+     {
+      "color": "#b39c92ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-orange/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-orange",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#f1dcd3ff",
+      "at": 0
+     },
+     {
+      "color": "#ebcdc0ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b8adff",
+      "at": 0
+     },
+     {
+      "color": "#b39c92ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-yellow/full/off": {
+  "input": {
+   "finish": "imac-yellow",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#ece4ceff",
+      "at": 0
+     },
+     {
+      "color": "#e4d9b9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#cdc3a6ff",
+      "at": 0
+     },
+     {
+      "color": "#ada58dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-yellow/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-yellow",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#ece4ceff",
+      "at": 0
+     },
+     {
+      "color": "#e4d9b9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#cdc3a6ff",
+      "at": 0
+     },
+     {
+      "color": "#ada58dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-yellow/keyboard/off": {
+  "input": {
+   "finish": "imac-yellow",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#ece4ceff",
+      "at": 0
+     },
+     {
+      "color": "#e4d9b9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#cdc3a6ff",
+      "at": 0
+     },
+     {
+      "color": "#ada58dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-yellow/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-yellow",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#ece4ceff",
+      "at": 0
+     },
+     {
+      "color": "#e4d9b9ff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#cdc3a6ff",
+      "at": 0
+     },
+     {
+      "color": "#ada58dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-green/full/off": {
+  "input": {
+   "finish": "imac-green",
+   "parts": "full",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d6e3dbff",
+      "at": 0
+     },
+     {
+      "color": "#c4d7ccff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b0c2b8ff",
+      "at": 0
+     },
+     {
+      "color": "#95a39bff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-green/full/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-green",
+   "parts": "full",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d6e3dbff",
+      "at": 0
+     },
+     {
+      "color": "#c4d7ccff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b0c2b8ff",
+      "at": 0
+     },
+     {
+      "color": "#95a39bff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-green/keyboard/off": {
+  "input": {
+   "finish": "imac-green",
+   "parts": "keyboard",
+   "backlight": {}
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d6e3dbff",
+      "at": 0
+     },
+     {
+      "color": "#c4d7ccff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b0c2b8ff",
+      "at": 0
+     },
+     {
+      "color": "#95a39bff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ },
+ "imac-green/keyboard/dark-room-full-warm": {
+  "input": {
+   "finish": "imac-green",
+   "parts": "keyboard",
+   "backlight": {
+    "on": true,
+    "room": "dark",
+    "level": 16,
+    "bleed": 1,
+    "color": "#fff4e3"
+   }
+  },
+  "output": {
+   "model": "mk",
+   "full": false,
+   "width": 939,
+   "height": 387,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ],
+   "deck": {
+    "stops": [
+     {
+      "color": "#d6e3dbff",
+      "at": 0
+     },
+     {
+      "color": "#c4d7ccff",
+      "at": 1
+     }
+    ]
+   },
+   "deckShadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffffe6",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": -1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#0000000f",
+     "inset": true
+    }
+   ],
+   "side": {
+    "stops": [
+     {
+      "color": "#b0c2b8ff",
+      "at": 0
+     },
+     {
+      "color": "#95a39bff",
+      "at": 1
+     }
+    ]
+   },
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000038",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 12,
+     "blur": 24,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 40,
+     "blur": 70,
+     "spread": -26,
+     "color": "#00000066",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "dim": 0,
+   "well": {
+    "x": 9.800000000000011,
+    "y": 11,
+    "w": 919.4,
+    "h": 365.3,
+    "radius": 12,
+    "pad": 0,
+    "fill": "#00000000",
+    "shadows": []
+   },
+   "keyboard": {
+    "x": 9.800000000000011,
+    "y": 11
+   },
+   "grilles": [],
+   "trackpad": null,
+   "hinge": null,
+   "notch": null,
+   "pageBackground": "#f2f2f2ff"
+  }
+ }
+}

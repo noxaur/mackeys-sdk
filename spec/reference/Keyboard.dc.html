@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MacBook Keyboard Only</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#3a3a3c}a:hover{color:#000}
+.kbd{--tidf:none;--f0:#1c1c1e;--f1:#2e2e30;--ol:#050506;--hl:rgba(255,255,255,.15);--lc:#dcdcdf;--ls:none;--icf:none;--lk:0 1px 1.5px rgba(0,0,0,.5);--dot:#8e8e93;--hb:rgba(222,222,226,.55)}
+.kbd.lightkeys{--f0:var(--kf);--f1:var(--kf2);--ol:rgba(0,0,0,.8);--hl:rgba(255,255,255,.5);--lc:var(--kl);--lk:0 1px 1.5px rgba(0,0,0,.14);--dot:rgba(0,0,0,.36);--hb:var(--kl)}
+.k{position:absolute;box-sizing:border-box;margin:0;padding:0;border:0;border-radius:5px;cursor:pointer;color:var(--lc);text-shadow:var(--ls);font-family:-apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;-webkit-user-select:none;background:radial-gradient(125% 110% at 50% 100%,var(--f1) 0%,var(--f0) 100%);box-shadow:inset 0 0 0 1px var(--ol),inset 0 1.8px 0 var(--hl),var(--lk);transition:transform 95ms cubic-bezier(.2,.75,.3,1),filter 95ms ease-out,box-shadow 95ms ease-out,color 600ms ease,text-shadow 600ms ease}
+.k.dn,.k:active{transform:translateY(.45px) scale(.986);filter:brightness(.84);box-shadow:inset 0 0 0 1px var(--ol),var(--lk);transition-duration:26ms}
+.lightkeys .k.dn,.lightkeys .k:active{filter:brightness(.93)}
+.k:focus{outline:none}
+.k:focus-visible{outline:2px solid #0a84ff;outline-offset:2px}
+.k .t,.k .b,.k .c3,.k .c4{position:absolute;white-space:nowrap;line-height:1}
+.k .ic{position:absolute;display:block;overflow:visible;filter:var(--icf)}
+.mb .char .t{left:0;right:0;top:18.7px;text-align:center;font-size:18.4px}
+.mk .char .t{left:0;right:0;top:18.8px;text-align:center;font-size:17.6px}
+.mb .dual .t{left:0;right:0;top:var(--dt);text-align:center;font-size:14.4px}
+.mb .dual .b{left:0;right:0;bottom:var(--db);text-align:center;font-size:17.8px}
+.mk .dual .t{left:0;right:0;top:var(--dt);text-align:center;font-size:12.6px}
+.mk .dual .b{left:0;right:0;bottom:var(--db);text-align:center;font-size:17.6px}
+.mb .brk .t{top:7.5px;font-size:15.5px}
+.mb .brk .b{bottom:8.4px;font-size:16px}
+.mk .brk .t{top:8.4px;font-size:13.6px}
+.mk .brk .b{bottom:7.4px;font-size:14.6px}
+.k .c3{right:9px;bottom:9px;font-size:10.5px}
+.dual .c3{bottom:11px}
+.mb .wl .b,.mb .wr .b,.mb .fnb .b{bottom:var(--wb);font-size:12.2px;letter-spacing:.005em}
+.mk .wl .b,.mk .wr .b,.mk .fnb .b{bottom:var(--wb);font-size:11.2px;letter-spacing:.02em}
+.wl .b{left:var(--ws)}
+.wr .b{right:var(--ws)}
+.fnb .b{left:auto;right:var(--fnr)}
+.fnt .t{right:9.2px;top:7.25px;font-size:12.2px}
+.mb .fkey .b{left:0;right:0;bottom:var(--fb);text-align:center;font-size:7.6px;letter-spacing:.02em}
+.mk .fkey .b{left:0;right:0;bottom:var(--fb);text-align:center;font-size:7.5px;letter-spacing:.02em}
+.arrow{border-radius:4px}
+.caps::before{content:"";position:absolute;left:var(--cx);top:var(--cy);width:3.8px;height:3.8px;border-radius:50%;background:var(--dot);transition:background-color 120ms ease-out,box-shadow 120ms ease-out}
+.caps.on::before{background:#3ddc5c;box-shadow:0 0 2px rgba(61,220,92,.9),0 0 6px rgba(61,220,92,.45)}
+.home{position:absolute;left:50%;top:43.3px;width:10.8px;height:1.6px;margin-left:-5.4px;border-radius:1px;background:var(--hb);text-shadow:none}
+.tid{position:absolute;left:50%;top:50%;width:var(--td);height:var(--td);margin:calc(var(--td) / -2) 0 0 calc(var(--td) / -2);border-radius:50%;filter:var(--tidf);transition:filter 600ms ease}
+.tid::after{content:"";position:absolute;border-radius:50%}
+.mb .tid{--td:33.3px;background:conic-gradient(from 0deg,#5a5a5e 0deg,#48484c 60deg,#3a3a3d 140deg,#444448 215deg,#3a3a3d 290deg,#5a5a5e 360deg);box-shadow:0 0 0 .5px rgba(0,0,0,.65)}
+.mb .tid::after{inset:.7px;background:#1b1b1d;box-shadow:inset 0 .8px 1px rgba(0,0,0,.45)}
+.lightkeys .tid{--td:33.2px;background:#c4c4c8;box-shadow:0 0 0 .6px rgba(60,60,66,.55)}
+.lightkeys .tid::after{inset:1.1px;background:#eeeef0;box-shadow:inset 0 0 0 .5px rgba(70,70,76,.45),inset 0 1px 1px rgba(0,0,0,.06)}
+.m-neo .tid{--td:34.4px;background:var(--kf2);box-shadow:inset 0 1px 1px rgba(0,0,0,.10),inset 0 -.8px 0 rgba(255,255,255,.6),0 .6px 0 rgba(255,255,255,.5),0 -.4px 0 rgba(0,0,0,.08)}
+.m-neo .tid::after{content:none}
+.iso{background:transparent;box-shadow:none}
+.iso.dn,.iso:active{box-shadow:none}
+.iso .isoshape{position:absolute;left:0;top:0;filter:drop-shadow(0 1px 1px rgba(0,0,0,.4))}
+.lightkeys .iso .isoshape{filter:drop-shadow(0 1px 1px rgba(0,0,0,.14))}
+.isoshape .fc{stroke:var(--ol)}
+.isoshape .hl{stroke:var(--hl)}
+.quad .t{left:9px;top:8px;font-size:12px}
+.quad .b{left:9px;bottom:8px;font-size:13.5px}
+.quad .c4{right:9px;top:8px;font-size:12px}
+.quad .c3{right:9px;bottom:8px;font-size:13.5px}
+.qbig .t,.qbig .b,.qbig .c3,.qbig .c4{font-size:15px}
+.quad .home{top:50%;margin-top:-1px;left:50%;margin-left:-4.5px;width:9px}
+.jis .t{left:0;right:0;top:7px;text-align:center;font-size:10.5px}
+.jis .b{left:10px;top:50%;margin-top:-8px;font-size:16px}
+.jis .c3{left:0;right:0;bottom:7px;text-align:center;font-size:10.5px}
+.jis .c4{right:9px;top:50%;margin-top:-5px;font-size:9.5px}
+.jisL .t{left:10px;right:auto;top:50%;margin-top:-10px;text-align:left;font-size:16px}
+.capsj::before{top:50%;margin-top:-1.9px}
+.capsj .ic{left:20px !important}
+.jis .home{top:50%;margin-top:-1px;left:55%;margin-left:-3px;width:6px}
+.cent .b{left:0;right:0;top:50%;margin-top:-6.5px;text-align:center;font-size:12.5px}
+.lid .menubar{position:absolute;left:0;right:0;top:0;height:30px;box-sizing:border-box;padding:0 16px;display:flex;align-items:center;justify-content:space-between;font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;font-size:14px;font-weight:500;line-height:1;opacity:.8}
+.lid .mb-bat{position:relative;display:inline-block;width:24px;height:12px;box-sizing:border-box;border:1.5px solid currentColor;border-radius:4px;opacity:.95}
+.lid .mb-bat span{position:absolute;left:1.5px;top:1.5px;bottom:1.5px;width:48%;border-radius:1.5px;background:currentColor}
+.lid .mb-bat::after{content:"";position:absolute;right:-4px;top:3px;width:2px;height:4px;border-radius:0 1px 1px 0;background:currentColor}
+.lid .mb-wifi{display:inline-block;width:16px;height:16px;border-radius:16px 16px 0 0;background:conic-gradient(from -45deg at 50% 100%,currentColor 0 90deg,transparent 0);clip-path:polygon(50% 100%,0 0,100% 0);opacity:.95;margin-top:2px}
+.lid .mb-search{display:inline-block;width:10px;height:10px;box-sizing:border-box;border:1.8px solid currentColor;border-radius:50%;position:relative}
+.lid .mb-search::after{content:"";position:absolute;right:-4px;bottom:-3px;width:5px;height:1.8px;background:currentColor;transform:rotate(45deg)}
+.lid .mb-cc{display:inline-flex;flex-direction:column;gap:2px}
+.lid .mb-cc span{display:block;width:16px;height:5px;border-radius:3px;border:1.4px solid currentColor;box-sizing:border-box}
+.lid .dock{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:3px;padding:5px 6px;border-radius:13px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 3px 10px rgba(0,0,0,.12)}
+.lid .app{display:flex;align-items:center;justify-content:center;width:22px;height:42px;border-radius:7px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.25)}
+.lid .gl{display:block;box-sizing:border-box;transform:scale(.8,1.5)}
+.lid .dock-sep{display:block;width:1px;height:34px;background:rgba(255,255,255,.45);margin:0 2px}
+.lid .widgets{position:absolute;left:34px;top:52px;display:flex;flex-direction:column;gap:10px}
+.lid .widget{width:100px;height:104px;box-sizing:border-box;padding:11px 12px;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;font-family:-apple-system,"SF Pro Text","Helvetica Neue",sans-serif;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 4px 12px rgba(0,0,0,.18)}
+.lid .w-temp{font-size:34px;font-weight:400;line-height:1;letter-spacing:-.02em}
+.lid .w-sun{display:block;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle,#ffd84d 0 45%,rgba(255,216,77,0) 47%),conic-gradient(from 0deg,#ffd84d 0 6%,transparent 0 12.5%,#ffd84d 0 18.5%,transparent 0 25%,#ffd84d 0 31%,transparent 0 37.5%,#ffd84d 0 43.5%,transparent 0 50%,#ffd84d 0 56%,transparent 0 62.5%,#ffd84d 0 68.5%,transparent 0 75%,#ffd84d 0 81%,transparent 0 87.5%,#ffd84d 0 93.5%,transparent 0);align-self:flex-end}
+.lid .w-ring{display:block;width:40px;height:40px;box-sizing:border-box;border-radius:50%;border:4px solid #30d158;border-right-color:rgba(160,160,165,.45);border-bottom-color:rgba(160,160,165,.45);transform:rotate(-45deg)}
+.lid .glass{position:absolute;inset:0;background:linear-gradient(155deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 28%,rgba(255,255,255,0) 45%);pointer-events:none}
+.lid .glimmer{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.lid .glimmer::before{content:"";position:absolute;top:-40%;width:9%;height:180%;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.14) 35%,rgba(255,255,255,.38) 50%,rgba(255,255,255,.14) 65%,rgba(255,255,255,0) 100%);transform:rotate(18deg);left:66%;opacity:.14}
+.tp{margin:0;padding:0;border:0;cursor:default;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tp:focus{outline:none}
+.tp{transition:transform 140ms cubic-bezier(.2,.8,.3,1),filter 140ms ease-out}
+.tp::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 0 rgba(0,0,0,0);transition:box-shadow 140ms ease-out}
+.tp.dn{transform:translateY(1px);filter:brightness(.97);transition-duration:35ms}
+.tp.dn::after{box-shadow:inset 0 1px 5px rgba(0,0,0,.22);transition-duration:35ms}
+.tp.force{transform:translateY(1.8px);filter:brightness(.94)}
+.tp.force::after{box-shadow:inset 0 2px 9px rgba(0,0,0,.32)}
+.tp:focus-visible{outline:2px solid #0a84ff;outline-offset:2px}
+.grille{position:absolute;width:45px;border-radius:3px;background-image:radial-gradient(circle,var(--dot) 0.75px,transparent 1.05px);background-size:3.3px 3.3px;background-position:center}
+</style>
+</helmet>
+<div style="width: {{s.aw}}px; height: {{s.ah}}px; box-sizing: border-box; padding-top: {{s.rootPadTop}}px; display: flex; align-items: center; justify-content: center; background: {{s.bg}}; transition: background-color 300ms ease;">
+<div role="img" aria-label="{{s.aria}}" style="position: relative; width: {{s.W}}px; height: {{s.H}}px; --dot: {{s.dot}}; transform: {{s.tilt}}; transform-origin: 50% 55%;">
+
+<sc-if value="{{s.full}}" hint-placeholder-val="{{true}}">
+<div aria-hidden="true" class="lid" style="position: absolute; left: 0; width: {{s.W}}px; top: -{{s.lidH}}px; height: {{s.lidH}}px; transform: perspective(4200px) rotateX(-80deg); transform-origin: 50% 100%;">
+<div style="position: absolute; inset: 0; border-radius: 20px 20px 12px 12px; background: {{s.lid}}; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.4), 0 0 0 1px rgba(0,0,0,.3);"></div>
+<div style="position: absolute; top: 3px; bottom: 3px; left: 2px; right: 2px; border-radius: 17px 17px 9px 9px; background: #050506; box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.12);"></div>
+<div style="position: absolute; left: 6px; right: 6px; top: 14px; bottom: 18px; border-radius: 10px 10px 2px 2px; overflow: hidden; background: {{s.wall}};">
+<svg aria-hidden="true" width="100%" height="100%" viewBox="0 0 1000 650" preserveAspectRatio="none" style="position: absolute; inset: 0; display: block;"><defs><filter id="ribbonblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter><filter id="ribbonsoft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="22"></feGaussianBlur></filter><linearGradient id="ribbonA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{{s.w1}}" stop-opacity="0.55"></stop><stop offset="0.5" stop-color="{{s.w1}}" stop-opacity="1"></stop><stop offset="1" stop-color="{{s.w2}}" stop-opacity="0.5"></stop></linearGradient><linearGradient id="ribbonB" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{{s.w2}}" stop-opacity="0.85"></stop><stop offset="1" stop-color="{{s.w3}}" stop-opacity="0.3"></stop></linearGradient></defs><g filter="url(#ribbonsoft)"><path d="M-60 600C170 470 330 380 490 420S790 560 1060 230L1060 330C820 680 600 600 470 520S200 600 -60 680Z" fill="{{s.w3}}" opacity="0.35"></path></g><g filter="url(#ribbonblur)"><path d="M300 -30C450 110 520 210 700 225S950 150 1060 255L1060 300C900 265 760 320 615 300S420 160 300 -30Z" fill="{{s.w4}}" opacity="0.85"></path><path d="M-60 520C150 380 300 250 480 300S780 520 1060 110L1060 165C820 620 600 560 470 470S200 520 -60 565Z" fill="url(#ribbonA)"></path><path d="M-60 545C170 440 322 330 482 365S762 520 1060 140L1060 158C802 560 602 500 482 430S182 515 -60 555Z" fill="{{s.w3}}" opacity="0.95"></path></g><path d="M-60 520C150 380 300 250 480 300S780 520 1060 110" fill="none" stroke="#f4fbff" stroke-opacity="0.9" stroke-width="5" filter="url(#ribbonblur)"></path><path d="M300 -30C450 110 520 210 700 225S950 150 1060 255" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" filter="url(#ribbonblur)"></path></svg>
+<div style="position: absolute; inset: 0; background: radial-gradient(120% 95% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,.28) 100%), linear-gradient(180deg, rgba(0,0,0,.14) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 80%, rgba(0,0,0,.18) 100%);"></div>
+<div class="menubar" style="color: {{s.ink}}; background: {{s.barBg}};">
+<span style="display: flex; gap: 14px; align-items: center;"><span style="font-weight: 700;">Finder</span><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span><span>Help</span></span>
+<span style="display: flex; gap: 13px; align-items: center;"><span class="mb-wifi"></span><span class="mb-bat"><span></span></span><span class="mb-search"></span><span class="mb-cc"><span></span><span></span></span><span>Tue 9:41</span></span>
+</div>
+<div class="widgets">
+<div class="widget" style="background: {{s.widBg}}; color: {{s.ink}}; box-shadow: {{s.widShadow}};"><span class="w-temp">14°</span><span class="w-sun"></span></div>
+<div class="widget" style="background: {{s.widBg}}; color: {{s.ink}}; box-shadow: {{s.widShadow}};"><span class="w-ring"></span><span class="w-temp">49%</span></div>
+</div>
+<div class="dock" style="background: {{s.dockBg}};">
+<sc-for list="{{s.apps}}" as="a" hint-placeholder-count="12"><span class="app" style="background: {{a.bg}};"><span class="gl" style="{{a.gl}}"></span></span></sc-for>
+<span class="dock-sep"></span>
+<span class="app" style="background: linear-gradient(160deg, #f2f2f4 0%, #c9cbd1 100%);"></span>
+</div>
+<div class="glass"></div>
+<div class="glimmer"></div>
+</div>
+<div style="position: absolute; left: 50%; top: 3px; width: 108px; height: 22px; margin-left: -54px; border-radius: 0 0 9px 9px; background: #050506;"></div>
+<div style="position: absolute; left: 50%; top: 9px; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #2a3550 0%, #0b0d14 60%);"></div>
+</div>
+</sc-if>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 10px; height: {{s.H}}px; border-radius: {{s.radius}}; background: {{s.side}}; box-shadow: 0 1px 1px rgba(0,0,0,.22), 0 12px 24px rgba(0,0,0,.10), 0 40px 70px -26px rgba(0,0,0,.40);"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: {{s.W}}px; height: {{s.H}}px; border-radius: {{s.radius}}; background: {{s.deck}}; box-shadow: {{s.deckShadow}};"></div>
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: {{s.W}}px; height: {{s.H}}px; border-radius: {{s.radius}}; overflow: hidden; pointer-events: none;">
+<svg width="100%" height="100%" style="display: block; opacity: {{s.grain}}; mix-blend-mode: overlay;"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+</div>
+
+<sc-if value="{{s.full}}" hint-placeholder-val="{{true}}">
+<div aria-hidden="true" style="position: absolute; left: {{s.hingeX}}px; right: {{s.hingeX}}px; top: 0; height: 14px; border-radius: 0 0 3px 3px; background: linear-gradient(180deg, #000 0%, #0b0b0c 100%);"></div>
+<div aria-hidden="true" style="position: absolute; left: {{s.hingeX}}px; width: 52px; top: 0; height: 14px; border-radius: 0 0 2px 3px; background: {{s.barrel}};"></div>
+<div aria-hidden="true" style="position: absolute; right: {{s.hingeX}}px; width: 52px; top: 0; height: 14px; border-radius: 0 0 3px 2px; background: {{s.barrel}};"></div>
+<button type="button" class="tp {{tpCls}}" aria-label="Force Touch trackpad. Click, or press and hold for a force click." style="position: absolute; left: {{s.padX}}px; top: {{s.padY}}px; width: {{s.padW}}px; height: {{s.padH}}px; border-radius: 9px; background: {{s.pad}}; box-shadow: {{s.padShadow}};" onPointerDown="{{tp.down}}" onPointerUp="{{tp.up}}" onPointerLeave="{{tp.up}}" onPointerCancel="{{tp.up}}" onKeyDown="{{tp.keyDown}}" onKeyUp="{{tp.keyUp}}"></button>
+<div aria-hidden="true" style="position: absolute; left: 50%; top: {{s.H}}px; width: 176px; height: 10px; margin-left: -88px; border-radius: 0 0 5px 5px; background: {{s.notch}}; box-shadow: inset 4px 0 3px -2px rgba(0,0,0,.35), inset -4px 0 3px -2px rgba(0,0,0,.35);"></div>
+<div aria-hidden="true" style="position: absolute; left: 50%; top: {{s.notchTop}}px; width: 176px; height: 6px; margin-left: -88px; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: {{s.scoop}};"></div>
+</sc-if>
+
+<sc-if value="{{s.grille}}" hint-placeholder-val="{{true}}">
+<div class="grille" aria-hidden="true" style="left: 5px; top: {{s.grilleY}}px; height: {{s.grilleH}}px;"></div>
+<div class="grille" aria-hidden="true" style="right: 5px; top: {{s.grilleY}}px; height: {{s.grilleH}}px;"></div>
+</sc-if>
+
+<div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: {{s.W}}px; height: {{s.H}}px; border-radius: {{s.radius}}; background: #000; opacity: {{s.dim}}; pointer-events: none; transition: opacity 300ms ease;"></div>
+
+<div style="position: absolute; left: {{s.wellX}}px; top: {{s.wellY}}px; width: {{s.wellW}}px; height: {{s.wellH}}px; box-sizing: border-box; padding: {{s.wellPad}}px; border-radius: 12px; background: {{s.well}}; box-shadow: {{s.wellShadow}}; transition: background-color 300ms ease;">
+<div role="group" class="kbd {{s.groupCls}}" aria-label="{{s.kbAria}}" style="position: relative; width: {{s.kbW}}px; height: {{s.kbH}}px; --kf: {{s.kf}}; --kf2: {{s.kf2}}; --kl: {{s.kl}}; {{s.gvars}}" onKeyDown="{{onKeyDown}}" onKeyUp="{{onKeyUp}}" onBlur="{{onBlur}}">
+<sc-for list="{{keys}}" as="k" hint-placeholder-count="80">
+<button type="button" class="k {{k.cls}}" aria-label="{{k.aria}}" style="left: {{k.x}}px; top: {{k.y}}px; width: {{k.w}}px; height: {{k.h}}px;" onPointerDown="{{k.down}}" onPointerUp="{{k.up}}" onPointerLeave="{{k.up}}" onPointerCancel="{{k.up}}">
+<sc-if value="{{k.iso}}" hint-placeholder-val="{{false}}"><svg class="isoshape" width="{{k.w}}" height="{{k.h}}" viewBox="{{k.vb}}" aria-hidden="true"><defs><radialGradient id="isoface" cx="50%" cy="100%" r="90%"><stop offset="0" style="stop-color: var(--f1);"></stop><stop offset="1" style="stop-color: var(--f0);"></stop></radialGradient></defs><path class="fc" d="{{k.lp}}" fill="url(#isoface)" stroke-width="1"></path><path class="hl" d="{{k.lt}}" fill="none" stroke-width="0.8"></path></svg></sc-if>
+<span class="t" aria-hidden="true">{{k.t}}</span>
+<sc-if value="{{k.icon}}" hint-placeholder-val="{{false}}"><svg class="ic" viewBox="{{k.ivb}}" style="{{k.isty}}" aria-hidden="true"><path d="{{k.fd}}" fill="currentColor"></path><path d="{{k.sd}}" fill="none" stroke="currentColor" stroke-width="{{k.isw}}" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if>
+<span class="b" aria-hidden="true">{{k.b}}</span>
+<span class="c3" aria-hidden="true">{{k.c}}</span>
+<span class="c4" aria-hidden="true">{{k.d}}</span>
+<sc-if value="{{k.home}}" hint-placeholder-val="{{false}}"><span class="home" aria-hidden="true"></span></sc-if>
+<sc-if value="{{k.tid}}" hint-placeholder-val="{{false}}"><span class="tid" aria-hidden="true"></span></sc-if>
+</button>
+</sc-for>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"finish":{"editor":"enum","options":["MacBook Pro · Space Black","MacBook Pro · Silver","MacBook Air · Midnight","MacBook Air · Starlight","MacBook Air · Sky Blue","MacBook Air · Silver","MacBook Neo · Silver","MacBook Neo · Blush","MacBook Neo · Citrus","MacBook Neo · Indigo","iMac · Silver","iMac · Blue","iMac · Purple","iMac · Pink","iMac · Orange","iMac · Yellow","iMac · Green"],"default":"MacBook Pro · Space Black"},"layout":{"editor":"enum","options":["English (US)","English (UK)","German","French","Spanish","Swedish / Finnish","Norwegian","Danish","Italian","Japanese","Dutch","English (International)","Swiss","Portuguese","Russian","Korean","Custom"],"default":"English (US)"},"customKind":{"editor":"enum","options":["ISO","ANSI"],"default":"ISO","section":"Custom layout"},"customNum":{"editor":"text","default":"§ 1 2 3 4 5 6 7 8 9 0 - =","section":"Custom layout"},"customQ":{"editor":"text","default":"Q W E R T Y U I O P [ ]","section":"Custom layout"},"customA":{"editor":"text","default":"A S D F G H J K L ; &#39; \\","section":"Custom layout"},"customX":{"editor":"text","default":"`","section":"Custom layout"},"customZ":{"editor":"text","default":"Z X C V B N M , . /","section":"Custom layout"},"view":{"editor":"enum","options":["Top-down","Angled"],"default":"Top-down"},"backlight":{"editor":"boolean","default":false,"section":"Backlight"},"brightness":{"editor":"range","default":12,"min":0,"max":16,"step":1,"unit":"/16","section":"Backlight"},"room":{"editor":"enum","options":["Daylight","Dark room"],"default":"Daylight","section":"Backlight"},"bleed":{"editor":"range","default":50,"min":0,"max":100,"step":1,"unit":"%","section":"Backlight"},"glowColor":{"editor":"color","default":"#f2f5ff","options":["#f2f5ff","#ffffff","#fff4e3"],"section":"Backlight"},"idleOff":{"editor":"enum","options":["Never","5 seconds","10 seconds","30 seconds","1 minute","5 minutes"],"default":"Never","section":"Backlight"},"sound":{"editor":"boolean","default":true,"section":"Clicks"},"$preview":{"width":1200,"height":600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { down: {}, caps: false, idle: false };
+    this.timers = [];
+  }
+  componentDidMount() {
+    this.armIdle();
+    // Real key clicks: a press, its release and a space bar, cut from a CC0 recording of a 2021 14-inch MacBook Pro
+    // (Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip).
+    if (typeof fetch === 'function') fetch('/_blob/29b6f171410f0554a6dfe5800f071886').then((r) => r.json()).then((j) => { this.clips = j; }).catch(() => {});
+    // Trackpad clicks: Force Touch press, release and force click, from a CC0 recording of a 2019 MacBook Pro
+    // (Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf).
+    if (typeof fetch === 'function') fetch('/_blob/b1301b1b039cd3955614f837ec4341e7').then((r) => r.json()).then((j) => { this.tclips = j; }).catch(() => {});
+  }
+  // The trackpad never moves: a haptic engine clicks it. A press clicks, holding past the force threshold
+  // gives a deeper force click, and lifting gives a lighter release click.
+  tpSound(kind) {
+    if ((this.props.sound ?? true) === false || !this.tclips) return;
+    const AC = typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext);
+    if (!AC) return;
+    try {
+      const ctx = this.ac || (this.ac = new AC());
+      if (ctx.state === 'suspended') ctx.resume();
+      if (this.tCtx !== ctx) {
+        const j = this.tclips;
+        const dec = (b64) => { const bin = atob(b64), n = bin.length >> 1, buf = ctx.createBuffer(1, n, j.sr), d = buf.getChannelData(0); for (let i = 0; i < n; i++) { let v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8); if (v > 32767) v -= 65536; d[i] = v / 32768; } return buf; };
+        this.tbufs = { press: j.press.map(dec), release: j.release.map(dec), force: j.force.map(dec) };
+        this.tCtx = ctx;
+      }
+      const list = this.tbufs[kind];
+      const src = ctx.createBufferSource(); src.buffer = list[Math.floor(Math.random() * list.length)];
+      src.playbackRate.value = (kind === 'force' ? 0.9 : 1) * (0.99 + Math.random() * 0.02);
+      const g = ctx.createGain(); g.gain.value = kind === 'force' ? 0.85 : 0.75;
+      // Tame the brittle top end of the recording: shelf down above 2 kHz and roll off above 5 kHz.
+      const shelf = ctx.createBiquadFilter(); shelf.type = 'highshelf'; shelf.frequency.value = 2000; shelf.gain.value = -14;
+      const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 5000; lp.Q.value = 0.5;
+      src.connect(shelf); shelf.connect(lp); lp.connect(g); g.connect(ctx.destination); src.start();
+    } catch (err) { /* audio is optional */ }
+  }
+  tpDown(e) {
+    if ((e && e.button > 0) || this.tpOn) return;
+    this.tpOn = true;
+    this.tpSound('press');
+    this.setState({ tp: 'dn' });
+    clearTimeout(this.tpT);
+    this.tpT = setTimeout(() => { if (this.tpOn) { this.tpSound('force'); this.setState({ tp: 'dn force' }); } }, 500);
+  }
+  tpUp() {
+    if (!this.tpOn) return;
+    this.tpOn = false;
+    clearTimeout(this.tpT);
+    this.tpSound('release');
+    this.setState({ tp: '' });
+  }
+  clipBuffers(ctx) {
+    if (this.clipCtx === ctx) return this.bufs;
+    const j = this.clips;
+    const dec = (b64) => {
+      const bin = atob(b64), n = bin.length >> 1, buf = ctx.createBuffer(1, n, j.sr), d = buf.getChannelData(0);
+      for (let i = 0; i < n; i++) { let v = bin.charCodeAt(2 * i) | (bin.charCodeAt(2 * i + 1) << 8); if (v > 32767) v -= 65536; d[i] = v / 32768; }
+      return buf;
+    };
+    this.bufs = { press: j.press.map(dec), release: j.release.map(dec), space: j.space.map(dec) };
+    this.clipCtx = ctx;
+    return this.bufs;
+  }
+  // Plays a recorded click as recorded, on every model; a different take each time, never the same one twice in a row.
+  play(ctx, kind, up, model) {
+    const B = this.clipBuffers(ctx);
+    const list = up ? B.release : kind === 'space' ? B.space : B.press;
+    let i = Math.floor(Math.random() * list.length);
+    if (list.length > 1 && i === this.lastClip) i = (i + 1) % list.length;
+    this.lastClip = i;
+    const src = ctx.createBufferSource(); src.buffer = list[i];
+    src.playbackRate.value = 0.985 + Math.random() * 0.03;
+    const g = ctx.createGain(); g.gain.value = 0.85 * (0.85 + Math.random() * 0.15);
+    src.connect(g); g.connect(ctx.destination); src.start();
+  }
+  // System Settings > Keyboard > "Turn keyboard backlight off after inactivity": the light goes out after the delay and any key brings it back.
+  armIdle() {
+    clearTimeout(this.idleT);
+    const ms = { '5 seconds': 5e3, '10 seconds': 1e4, '30 seconds': 3e4, '1 minute': 6e4, '5 minutes': 3e5 }[this.props.idleOff ?? 'Never'];
+    if (ms) this.idleT = setTimeout(() => this.setState({ idle: true }), ms);
+  }
+  componentWillUnmount() {
+    this.timers.forEach((t) => clearTimeout(t));
+    clearTimeout(this.idleT);
+    clearTimeout(this.tpT);
+    if (this.ac && this.ac.close) this.ac.close();
+  }
+  // Scissor-switch sound, synthesised: a short filtered tick (keycap hitting the stop) plus a small body thump.
+  // The release is quieter and brighter. The space bar adds its stabiliser rattle.
+  sound(kind, up, model) {
+    if ((this.props.sound ?? true) === false) return;
+    const AC = typeof window !== 'undefined' && (window.AudioContext || window.webkitAudioContext);
+    if (!AC) return;
+    try {
+      const ctx = this.ac || (this.ac = new AC());
+      if (ctx.state === 'suspended') ctx.resume();
+      if (this.clips) { this.play(ctx, kind, up, model); return; }
+      // Until the recorded clicks arrive, a synthesised stand-in.
+      if (!this.nb) {
+        const len = Math.floor(ctx.sampleRate * 0.12), b = ctx.createBuffer(1, len, ctx.sampleRate), d = b.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+        this.nb = b;
+      }
+      const t = ctx.currentTime + 0.002;
+      const big = kind === 'space' ? 1 : kind === 'wide' ? 0.45 : 0;
+      const mk = model === 'mk' ? 1 : 0;
+      const jit = 1 + (Math.random() - 0.5) * 0.14;
+      const out = ctx.createGain();
+      out.gain.value = (up ? 0.32 : 0.62) * (0.9 + Math.random() * 0.2);
+      out.connect(ctx.destination);
+      const tick = (at, freq, q, peak, decay) => {
+        const n = ctx.createBufferSource(); n.buffer = this.nb; n.playbackRate.value = jit;
+        const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = Math.max(450, freq * 0.45);
+        const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = freq * jit; bp.Q.value = q;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, at); g.gain.exponentialRampToValueAtTime(peak, at + 0.0008); g.gain.exponentialRampToValueAtTime(0.0001, at + decay);
+        n.connect(hp); hp.connect(bp); bp.connect(g); g.connect(out); n.start(at); n.stop(at + decay + 0.01);
+      };
+      const thump = (at, f0, f1, peak, decay) => {
+        const o = ctx.createOscillator(); o.type = 'sine';
+        o.frequency.setValueAtTime(f0 * jit, at); o.frequency.exponentialRampToValueAtTime(f1 * jit, at + decay);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, at); g.gain.exponentialRampToValueAtTime(peak, at + 0.001); g.gain.exponentialRampToValueAtTime(0.0001, at + decay);
+        o.connect(g); g.connect(out); o.start(at); o.stop(at + decay + 0.01);
+      };
+      // Targets from published MacBook keystroke recordings: a 5-10 ms press event, energy mostly between 0.4 and 12 kHz.
+      if (up) {
+        tick(t, 4600 - mk * 500, 1.2, 0.55, 0.012 + big * 0.006);
+        tick(t, 1900 - mk * 300, 1.4, 0.22, 0.011);
+      } else {
+        tick(t, 3600 - big * 900 - mk * 600, 0.9, 0.95, 0.018 + big * 0.012);
+        tick(t, 1500 - big * 400 - mk * 300, 1.3, 0.55, 0.016 + big * 0.012);
+        thump(t, 900 - big * 250 - mk * 150, 600 - big * 150, 0.14 + big * 0.06, 0.02 + big * 0.012);
+        if (big === 1) tick(t + 0.009, 2100, 1.1, 0.45, 0.02);
+      }
+    } catch (err) { /* audio is optional */ }
+  }
+  press(id, kind, model) {
+    if (this.state.down[id]) return;
+    this.sound(kind, false, model);
+    const next = { down: Object.assign({}, this.state.down, { [id]: true }) };
+    if (id === 'CapsLock') next.caps = !this.state.caps;
+    if (this.state.idle) next.idle = false;
+    this.setState(next);
+    this.armIdle();
+  }
+  release(id, kind, model) {
+    if (!this.state.down[id]) return;
+    this.sound(kind, true, model);
+    const d = Object.assign({}, this.state.down); delete d[id];
+    this.setState({ down: d });
+  }
+  renderVals() {
+    const PARTS = 'keyboard';
+    const FIXED = null;
+    const DEF = { backlight: false, room: 'Daylight' };
+    // Real outlines at 1 key pitch (19.0 mm) = 64 px: width and depth from Apple's tech specs (Pro 14", Air 13", Neo);
+    // keyboard and trackpad offsets measured on Apple's top-down product images.
+    const MODELS = {
+      pro: { W: 1053, H: 745, kbY: 65.8, wellPad: 8, padW: 437, padY: 454, padH: 272.7, hingeX: 125, grille: true, radius: '20px 20px 26px 26px' },
+      neo: { W: 1002, H: 695, kbY: 49.4, wellPad: 7, padW: 390.5, padY: 434.9, padH: 243.5, hingeX: 131, grille: false, radius: '30px 30px 32px 32px' },
+      mk: { W: 939, H: 387, kbY: 11, wellPad: 0, padW: 0, padY: 0, padH: 0, hingeX: 0, grille: false, radius: '18px' },
+      air: { W: 1024, H: 724, kbY: 50.6, wellPad: 7, padW: 432.5, padY: 437, padH: 270.1, hingeX: 120, grille: false, radius: '20px 20px 26px 26px' }
+    };
+    const FINISHES = {
+      'MacBook Pro · Space Black': { m: 'pro', dark: true, deck: ['#4a484b', '#2d2b2e'], pad: ['#423f43', '#2b292c'], side: ['#1d1c1e', '#0f0e10'], lid: ['#7a787d', '#3c3b3e', '#232224'], edge: 'rgba(255,255,255,.13)', dot: 'rgba(0,0,0,.55)' },
+      'MacBook Pro · Silver': { m: 'pro', dark: false, deck: ['#dfdfe1', '#e5e6e8'], pad: ['#dadbdd', '#e0e1e3'], side: ['#bdbec1', '#9c9da0'], lid: ['#f0f0f2', '#cbccce', '#a5a6a9'], edge: 'rgba(255,255,255,.95)', dot: 'rgba(30,30,34,.6)' },
+      'MacBook Air · Midnight': { m: 'air', dark: true, deck: ['#48505c', '#535b68'], pad: ['#4a525e', '#545c69'], side: ['#343a44', '#22262d'], lid: ['#c6c9ce', '#7d838c', '#464c56'], edge: 'rgba(225,232,245,.22)', dot: 'rgba(0,0,0,.6)' },
+      'MacBook Air · Starlight': { m: 'air', dark: false, deck: ['#e8e1d7', '#eee7dd'], pad: ['#e8e1d7', '#ede6dc'], side: ['#d3cabc', '#b2a899'], lid: ['#f7f4f0', '#ddd6cb', '#b9b0a2'], edge: 'rgba(255,253,248,.95)', dot: 'rgba(60,50,30,.5)' },
+      'MacBook Air · Sky Blue': { m: 'air', dark: false, deck: ['#cdd8de', '#d5e0e6'], pad: ['#c9d4da', '#cfdae0'], side: ['#b3c0c7', '#94a1a8'], lid: ['#eff2f4', '#ced8dd', '#a7b4bb'], edge: 'rgba(250,253,255,.95)', dot: 'rgba(30,40,50,.5)' },
+      'MacBook Neo · Silver': { m: 'neo', dark: false, deck: ['#dcdde0', '#e2e3e5'], pad: ['#dadbdd', '#dcdddf'], side: ['#bfc0c3', '#a2a3a6'], lid: ['#f2f2f4', '#e0e1e3', '#b6b7ba'], edge: 'rgba(255,255,255,.95)', dot: 'transparent', kf: '#eaebed', kl: '#434446' },
+      'MacBook Neo · Blush': { m: 'neo', dark: false, deck: ['#e9d0d0', '#edd5d5'], pad: ['#e6cdcd', '#e8d0d0'], side: ['#d4b9b9', '#b99d9d'], lid: ['#f7e6e5', '#ead0cf', '#c9abab'], edge: 'rgba(255,248,248,.95)', dot: 'transparent', kf: '#f1dfdf', kl: '#4d4845' },
+      'MacBook Neo · Citrus': { m: 'neo', dark: false, deck: ['#e7e593', '#edeb98'], pad: ['#e6e592', '#e8e794'], side: ['#d0ce7c', '#b3b163'], lid: ['#f3f1b0', '#e2e08d', '#bebc69'], edge: 'rgba(255,255,235,.9)', dot: 'transparent', kf: '#f4f3bc', kl: '#47414b' },
+      'MacBook Neo · Indigo': { m: 'neo', dark: true, deck: ['#4f5a70', '#59647a'], pad: ['#4d586e', '#525d73'], side: ['#38425a', '#262e40'], lid: ['#8a94ab', '#5d6880', '#353f55'], edge: 'rgba(220,228,250,.2)', dot: 'transparent', kf: '#8e99b7', kl: '#2c3232' },
+      'iMac · Blue': { m: 'mk', dark: false, deck: ['#d8e0eb', '#c7d2e2'], pad: ['#d8e0eb', '#c7d2e2'], side: ['#b3bdcb', '#97a0ac'], lid: ['#e6ebf2', '#c7d2e2', '#9fa8b5'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Purple': { m: 'mk', dark: false, deck: ['#dfdce9', '#d1cde0'], pad: ['#dfdce9', '#d1cde0'], side: ['#bcb8ca', '#9f9caa'], lid: ['#eae8f1', '#d1cde0', '#a7a4b3'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Pink': { m: 'mk', dark: false, deck: ['#f0d8de', '#eac7d0'], pad: ['#f0d8de', '#eac7d0'], side: ['#d3b3bb', '#b2979e'], lid: ['#f6e6ea', '#eac7d0', '#bb9fa6'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Orange': { m: 'mk', dark: false, deck: ['#f1dcd3', '#ebcdc0'], pad: ['#f1dcd3', '#ebcdc0'], side: ['#d4b8ad', '#b39c92'], lid: ['#f6e8e3', '#ebcdc0', '#bca49a'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Yellow': { m: 'mk', dark: false, deck: ['#ece4ce', '#e4d9b9'], pad: ['#ece4ce', '#e4d9b9'], side: ['#cdc3a6', '#ada58d'], lid: ['#f3eee0', '#e4d9b9', '#b6ae94'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Green': { m: 'mk', dark: false, deck: ['#d6e3db', '#c4d7cc'], pad: ['#d6e3db', '#c4d7cc'], side: ['#b0c2b8', '#95a39b'], lid: ['#e4ede8', '#c4d7cc', '#9daca3'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'iMac · Silver': { m: 'mk', dark: false, deck: ['#e1e2e4', '#d4d5d9'], pad: ['#e1e2e4', '#d4d5d9'], side: ['#bfc0c3', '#a1a2a5'], lid: ['#ececee', '#d4d5d9', '#aaaaae'], edge: 'rgba(255,255,255,.9)', dot: 'transparent', kf: '#f6f7f9', kl: '#4a4a4c' },
+      'MacBook Air · Silver': { m: 'air', dark: false, deck: ['#dadbdd', '#e2e3e5'], pad: ['#d3d4d6', '#d8d9db'], side: ['#bdbec1', '#9fa0a3'], lid: ['#f3f3f4', '#d4d5d7', '#adaeb1'], edge: 'rgba(255,255,255,.95)', dot: 'rgba(30,30,34,.5)' }
+    };
+    const LAYOUTS = {
+      'English (US)': { iso: false, en: true,
+        num: "~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=", q: "Q W E R T Y U I O P {[ }] |\\", a: "A S D F G H J K L :; \"'", z: "Z X C V B N M <, >. ?/" },
+      'English (UK)': { iso: true, en: false,
+        num: "±§ !1 @2€ £3# $4 %5 ^6 &7 *8 (9 )0 _- +=", q: "Q W E R T Y U I O P {[ }]", a: "A S D F G H J K L :; \"' |\\", x: "~`", z: "Z X C V B N M <, >. ?/" },
+      'German': { iso: true, en: false,
+        num: "°^ !1 \"2 §3 $4 %5 &6 /7 (8 )9 =0 ?ß `´", q: "Q W E|€ R T Z U I O P Ü *+", a: "A S D F G H J K L|@ Ö Ä '#", x: "><", z: "Y X C V B N M ;, :. _-" },
+      'French': { iso: true, en: false,
+        num: "#@ 1& 2é 3\" 4' 5( 6§ 7è 8! 9ç 0à °) _-", q: "A Z E R T Y U I O P ¨^ *$€", a: "Q S D F G H J K L M %ù £`", x: "><", z: "W X C V B N ?, .; /: +=" },
+      'Spanish': { iso: true, en: false,
+        num: "ªº\\ !1| \"2@ ·3# $4 %5 &6 /7 (8 )9 =0 ?' ¿¡", q: "Q W E|€ R T Y U I O P ^`[ *+]", a: "A S D F G H J K L Ñ ¨´{ Ç|}", x: "><", z: "Z X C V B N M ;, :. _-" },
+      'Swedish / Finnish': { iso: true, en: false,
+        num: "°§ !1 \"2@ #3 €4 %5 &6 /7 (8 )9 =0 ?+ `´", q: "Q W E R T Y U I O P Å ^¨", a: "A S D F G H J K L Ö Ä *'", x: "><", z: "Z X C V B N M ;, :. _-" },
+      'Norwegian': { iso: true, en: false,
+        num: "§' !1 \"2 #3 $4€ %5 &6 /7 (8 )9 =0 ?+ `´", q: "Q W E R T Y U I O P Å ^¨", a: "A S D F G H J K L Ø Æ *@", x: "><", z: "Z X C V B N M ;, :. _-" },
+      'Italian': { iso: true, en: false,
+        num: "|\\ !1 \"2 £3 $4 %5 &6 /7 (8 )9 =0 ?' ^ì", q: "Q W E|€ R T Y U I O P éè[ *+]", a: "A S D F G H J K L çò@ °à# §ù", x: "><", z: "Z X C V B N M ;, :. _-" },
+      'Dutch': { iso: true, en: false,
+        num: "±§ !1 @2€ #3 $4 %5 ^6 &7 *8 (9 )0 _- +=", q: "Q W E R T Y U I O P {[ }]", a: "A S D F G H J K L :; \"' |\\", x: "~`", z: "Z X C V B N M <, >. ?/" },
+      'English (International)': { iso: true, en: false,
+        num: "±§ !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=", q: "Q W E R T Y U I O P {[ }]", a: "A S D F G H J K L :; \"' |\\", x: "~`", z: "Z X C V B N M <, >. ?/" },
+      'Swiss': { iso: true, en: false,
+        num: "°§ +1 \"2 *3# ç4 %5 &6 /7 (8 )9 =0 ?' `^", q: "Q W E|€ R T Z U I O P èü !¨", a: "A S D F G|@ H J K L éö àä £$", x: "><", z: "Y X C V B N M ;, :. _-" },
+      'Portuguese': { iso: true, en: false,
+        num: "±§ !1 \"2@ #3€ $4 %5 &6 /7 (8 )9 =0 ?' *+", q: "Q W E R T Y U I O P ªº `´", a: "A S D F G H J K L Ç ^~ |\\", x: "><", z: "Z X C V B N M ;, :. _-" },
+      'Russian': { iso: true, en: false,
+        num: "±§¦<> !1 @2¦\"· #3¦№· $4¦%· %5¦:· ^6¦,· &7¦.· *8¦;· (9 )0 _- +=", q: "Q¦Й W¦Ц E¦У R¦К T¦Е Y¦Н U¦Г I¦Ш O¦Щ P¦З {[¦·Х }]¦·Ъ", a: "A¦Ф S¦Ы D¦В F¦А G¦П H¦₽Р J¦О K¦Л L¦Д :;¦·Ж \"'¦·Э |\\¦·Ё", x: "~`¦[]", z: "Z¦Я X¦Ч C¦С V¦М B¦И N¦Т M¦Ь <,¦·Б >.¦·Ю ?/" },
+      'Korean': { iso: false, en: false, caps: '한/A',
+        num: "~₩ !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=", q: "ㅃㅂ¦Q· ㅉㅈ¦W· ㄸㄷ¦E· ㄲㄱ¦R· ㅆㅅ¦T· ·ㅛ¦Y· ·ㅕ¦U· ·ㅑ¦I· ㅒㅐ¦O· ㅖㅔ¦P· {[ }] |\\", a: "·ㅁ¦A· ·ㄴ¦S· ·ㅇ¦D· ·ㄹ¦F· ·ㅎ¦G· ·ㅗ¦H· ·ㅓ¦J· ·ㅏ¦K· ·ㅣ¦L· :; \"'", z: "·ㅋ¦Z· ·ㅌ¦X· ·ㅊ¦C· ·ㅍ¦V· ·ㅠ¦B· ·ㅜ¦N· ·ㅡ¦M· <, >. ?/" },
+      'Japanese': { jis: true, en: false },
+      'Danish': { iso: true, en: false,
+        num: "§$ !1 \"2 #3 €4 %5 &6 /7 (8 )9 =0 ?+ `´", q: "Q W E R T Y U I O P Å ^¨", a: "A S D F G H J K L Æ Ø *'@", x: "><", z: "Z X C V B N M ;, :. _-" }
+    };
+    const rr = (x, y, w, h, r) => 'M' + (x + r) + ' ' + y + 'h' + (w - 2 * r) + 'a' + r + ' ' + r + ' 0 0 1 ' + r + ' ' + r + 'v' + (h - 2 * r) + 'a' + r + ' ' + r + ' 0 0 1 -' + r + ' ' + r + 'h-' + (w - 2 * r) + 'a' + r + ' ' + r + ' 0 0 1 -' + r + ' -' + r + 'v-' + (h - 2 * r) + 'a' + r + ' ' + r + ' 0 0 1 ' + r + ' -' + r + 'z';
+    const ring = (cx, cy, r) => 'M' + (cx - r) + ' ' + cy + 'a' + r + ' ' + r + ' 0 1 0 ' + 2 * r + ' 0a' + r + ' ' + r + ' 0 1 0 -' + 2 * r + ' 0';
+    const sun = (c, rc, r0, r1) => { let d = ring(c, c, rc); for (let a = 0; a < 8; a++) { const t = a * Math.PI / 4, co = Math.cos(t), si = Math.sin(t); d += 'M' + (c + r0 * co).toFixed(2) + ' ' + (c + r0 * si).toFixed(2) + 'L' + (c + r1 * co).toFixed(2) + ' ' + (c + r1 * si).toFixed(2); } return d; };
+    // Function-row glyphs: [name, width, height, path, optional viewBox, optional stroke width]. Drawn at 1.07x to match the measured caps.
+    const FKEYS = [
+      ['brightness down', 10.5, 10.5, sun(5.25, 1.6, 3.4, 4.6)],
+      ['brightness up', 11.4, 11.4, sun(5.7, 2.2, 3.6, 5.1)],
+      ['Mission Control', 15.8, 10.5, rr(0.55, 0.55, 5.9, 4.2, 1) + rr(0.55, 5.75, 5.9, 4.2, 1) + rr(9.4, 0.55, 5.85, 9.4, 1)],
+      ['Spotlight', 10.5, 10.5, ring(4.3, 4.3, 3.6) + 'M6.9 6.9L9.95 9.95'],
+      ['Dictation', 8.2, 12.3, rr(2.4, 0.55, 3.4, 6.2, 1.7) + 'M.6 5.2a3.5 3.5 0 0 0 7 0M4.1 8.75v2.6M2.55 11.75h3.1', '0 0 8.2 12.3'],
+      ['Do Not Disturb', 10.5, 10.5, 'M19.5 14.6A7.6 7.6 0 0 1 9.4 4.5a7.6 7.6 0 1 0 10.1 10.1z', '5 3.8 15.2 15.2', 1.6],
+      ['previous track', 14.9, 8.8, 'M7 .55L.55 4.4L7 8.25zM14.35 .55L7.8 4.4L14.35 8.25z'],
+      ['play or pause', 14, 8.8, 'M.55 .55L6.7 4.4L.55 8.25zM9.7 .55v7.7M13.45 .55v7.7'],
+      ['next track', 15.8, 8.8, 'M.55 .55L7.2 4.4L.55 8.25zM8.2 .55L15.25 4.4L8.2 8.25z'],
+      ['mute', 9.6, 9.6, 'M.55 3.5h2.1L5.4 1.1v7.4L2.65 6.1H.55zM.9 .8L9.05 8.8'],
+      ['volume down', 10.5, 9.6, 'M.55 3.5h2.2L5.8 .75v8.1L2.75 6.1H.55zM7.7 2.9A2.6 2.6 0 0 1 7.7 6.8'],
+      ['volume up', 14.9, 10.5, 'M.55 3.9h2.3L6.1 .8v8.9L2.85 6.6H.55zM7.9 3.3A2.4 2.4 0 0 1 7.9 7.2M9.7 2A4.2 4.2 0 0 1 9.7 8.5M11.5 .8A6 6 0 0 1 11.5 9.7']
+    ];
+    // Modifier symbols (control, option, command), measured: ^ 10.2 x 6, option 12.6 x 11.2, command 11.6 x 11.6.
+    const MOD = {
+      ctrl: { w: 10.2, h: 6, vb: '0 0 10.2 6', sd: 'M.6 5.4L5.1 .6L9.6 5.4', sw: 1.1 },
+      opt: { w: 12.6, h: 11.2, vb: '0 0 12.6 11.2', sd: 'M.6 .9H4.6L8.4 10.3H12M8.5 .9H12', sw: 1.1 },
+      cmd: { w: 11.6, h: 11.6, vb: '3.2 3.2 17.6 17.6', sd: 'M9 9V6.5A2.5 2.5 0 1 0 6.5 9H17.5A2.5 2.5 0 1 0 15 6.5V17.5A2.5 2.5 0 1 0 17.5 15H6.5A2.5 2.5 0 1 0 9 17.5Z', sw: 1.6 }
+    };
+    // Icon legends used by Magic Keyboard, MacBook Neo and every non-English layout.
+    const ICONS = {
+      tab: [12.3, 9, 'M.6 4.5H10.3M6.85 1.05L10.3 4.5L6.85 7.95M11.7 .6V8.4'],
+      caps: [12.4, 12.6, 'M6.2 .65L11.75 5.85H8.85V8.45H3.55V5.85H.65ZM3.55 10.3H8.85V11.95H3.55Z'],
+      shift: [12.7, 11, 'M6.35 .65L12.05 6.35H9.05V10.35H3.65V6.35H.65Z'],
+      del: [12.7, 11, 'M4.3 .65H11.05A1 1 0 0 1 12.05 1.65V9.35A1 1 0 0 1 11.05 10.35H4.3L.65 5.5ZM6.2 3.4L9.6 7.6M9.6 3.4L6.2 7.6'],
+      ret: [12.3, 11, 'M11.65 .6V6.1A1.2 1.2 0 0 1 10.45 7.3H1.3M4.5 4.1L1.2 7.3L4.5 10.5']
+    };
+    const GLOBE = 'M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0M3 12h18M12 3c2.6 2.5 3.8 5.6 3.8 9s-1.2 6.5-3.8 9c-2.6-2.5-3.8-5.6-3.8-9s1.2-6.5 3.8-9z';
+    const WALL = {
+      'MacBook Pro · Space Black': 'radial-gradient(60% 45% at 52% 12%, #f8dcb4 0%, rgba(248,220,180,0) 75%), radial-gradient(55% 45% at 86% 92%, #f2b47c 0%, rgba(242,180,124,0) 72%), radial-gradient(90% 70% at 20% 30%, #f2c58a 0%, rgba(242,197,138,0) 60%), radial-gradient(80% 80% at 85% 70%, #2f7fe0 0%, rgba(47,127,224,0) 65%), linear-gradient(160deg, #3d7fd0 0%, #9fc3ea 30%, #f3d7aa 52%, #e8a868 66%, #2f66b8 100%)',
+      'MacBook Pro · Silver': 'radial-gradient(60% 45% at 52% 12%, #fbe8cf 0%, rgba(251,232,207,0) 75%), radial-gradient(55% 45% at 86% 92%, #f7d3a8 0%, rgba(247,211,168,0) 72%), radial-gradient(90% 70% at 20% 30%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(80% 80% at 85% 70%, #4f9cf0 0%, rgba(79,156,240,0) 65%), linear-gradient(160deg, #6aaef5 0%, #cfe3fa 32%, #f6e8d2 52%, #b8c8f2 70%, #4d84d8 100%)',
+      'MacBook Air · Midnight': 'radial-gradient(90% 70% at 25% 30%, #6f9de6 0%, rgba(111,157,230,0) 60%), radial-gradient(80% 80% at 85% 75%, #1f4fa3 0%, rgba(31,79,163,0) 65%), linear-gradient(160deg, #1d3a74 0%, #3f74c9 38%, #9dbdec 58%, #2b5aa8 78%, #142a58 100%)',
+      'MacBook Air · Starlight': 'radial-gradient(110% 80% at 25% 105%, #f0c98a 0%, rgba(240,201,138,0) 55%), radial-gradient(80% 70% at 85% 10%, #fff3dc 0%, rgba(255,243,220,0) 60%), radial-gradient(60% 50% at 55% 55%, #d9a463 0%, rgba(217,164,99,0) 60%), linear-gradient(165deg, #f6e9d3 0%, #e3c597 55%, #b98a52 100%)',
+      'MacBook Air · Sky Blue': 'radial-gradient(110% 80% at 25% 105%, #6fb4e8 0%, rgba(111,180,232,0) 55%), radial-gradient(80% 70% at 85% 10%, #e9f6ff 0%, rgba(233,246,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #9fd3f2 0%, rgba(159,211,242,0) 60%), linear-gradient(165deg, #d9eefb 0%, #9cc9ea 55%, #5b95c7 100%)',
+      'MacBook Neo · Silver': 'radial-gradient(110% 80% at 25% 105%, #c3c9e6 0%, rgba(195,201,230,0) 55%), radial-gradient(80% 70% at 85% 10%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #dcdff0 0%, rgba(220,223,240,0) 60%), linear-gradient(165deg, #f3f4f8 0%, #d3d7e6 55%, #9ea5c0 100%)',
+      'MacBook Neo · Blush': 'radial-gradient(110% 80% at 25% 105%, #f2a7b4 0%, rgba(242,167,180,0) 55%), radial-gradient(80% 70% at 85% 10%, #fff1f1 0%, rgba(255,241,241,0) 60%), radial-gradient(60% 50% at 55% 55%, #f7c6c6 0%, rgba(247,198,198,0) 60%), linear-gradient(165deg, #fbe7e7 0%, #efbcbf 55%, #c98390 100%)',
+      'MacBook Neo · Citrus': 'radial-gradient(110% 80% at 25% 105%, #d9e04a 0%, rgba(217,224,74,0) 55%), radial-gradient(80% 70% at 85% 10%, #fffbd6 0%, rgba(255,251,214,0) 60%), radial-gradient(60% 50% at 55% 55%, #f0ec7a 0%, rgba(240,236,122,0) 60%), linear-gradient(165deg, #fbf8c9 0%, #ece57c 55%, #b9b23a 100%)',
+      'MacBook Neo · Indigo': 'radial-gradient(90% 70% at 25% 30%, #a79cf2 0%, rgba(167,156,242,0) 60%), radial-gradient(80% 80% at 85% 75%, #3a46c8 0%, rgba(58,70,200,0) 65%), linear-gradient(160deg, #262c78 0%, #5560d8 38%, #c3b8f6 58%, #4a52c8 78%, #1c2160 100%)',
+      'iMac · Silver': 'linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)',
+      'MacBook Air · Silver': 'radial-gradient(110% 80% at 25% 105%, #b9c2d0 0%, rgba(185,194,208,0) 55%), radial-gradient(80% 70% at 85% 10%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #d6dce6 0%, rgba(214,220,230,0) 60%), linear-gradient(165deg, #f1f3f6 0%, #cfd5de 55%, #9aa3b1 100%)'
+    };
+    const RIB = {
+      'MacBook Pro · Space Black': ['#1a4fc0', '#fff0d4', '#123a94', 1, '#7fd0ff'],
+      'MacBook Pro · Silver': ['#2f78e0', '#fff4e0', '#1f5cc0', 0, '#8fd8ff'],
+      'MacBook Air · Midnight': ['#1c3f96', '#d6e4fa', '#122d70', 1, '#8fb8f0'],
+      'MacBook Air · Starlight': ['#7f9fcf', '#fff1d8', '#5f80b8', 0, '#f2b27a'],
+      'MacBook Air · Sky Blue': ['#4f9be0', '#f2fbff', '#f2b27a', 0, '#9fd6ff'],
+      'MacBook Air · Silver': ['#8fa6c8', '#ffffff', '#c9a7d8', 0],
+      'MacBook Neo · Silver': ['#9aa6e0', '#ffffff', '#e0b3d0', 0],
+      'MacBook Neo · Blush': ['#f07f98', '#ffe6e9', '#b98fe0', 0],
+      'MacBook Neo · Citrus': ['#c9d22e', '#fffbd6', '#5fc7a8', 0],
+      'MacBook Neo · Indigo': ['#3a3fc0', '#ece6ff', '#262a96', 1, '#a9a6ff'],
+      'iMac · Silver': ['#d0d6e0', '#ffffff', '#a8b0bd', 0]
+    };
+    RIB['iMac · Blue'] = RIB['iMac · Purple'] = RIB['iMac · Pink'] = RIB['iMac · Orange'] = RIB['iMac · Yellow'] = RIB['iMac · Green'] = RIB['iMac · Silver'];
+    let finishName = this.props.finish ?? 'MacBook Pro · Space Black';
+    if (!FINISHES[finishName]) finishName = 'MacBook Pro · Space Black';
+    if (FIXED) finishName = FIXED;
+    const f = FINISHES[finishName];
+    const layoutName = this.props.layout ?? 'English (US)';
+    const M = MODELS[f.m];
+    // Legend style per model, from Apple's images: Pro aligns modifier legends toward the space bar and prints fn top-right;
+    // Air, Neo and Magic Keyboard align them to the outer edge. Neo and Magic Keyboard print icons instead of words.
+    const ST = {
+      pro: { mb: true, words: true, inner: true, fn: 'top', lrFull: false },
+      air: { mb: true, words: true, inner: false, fn: 'pair', lrFull: false },
+      neo: { mb: false, words: false, inner: false, fn: 'pair', lrFull: false },
+      mk: { mb: false, words: false, inner: false, fn: 'globe', lrFull: true }
+    }[f.m];
+    // Legend offsets in px from the key edge, measured per model on the official images.
+    const LM = {
+      mb: { ws: 9.6, wb: 7.15, dt: 8.1, db: 7.9, fb: 8.6, cx: 10.8, cy: 11.1, fnr: 9.3, symTop: 8.7, symSide: 9.3, side: 9.6, icB: 9.0, fIcon: 19.6, globe: ST.fn === 'top' ? 'left:10.6px;bottom:8.6px' : 'left:9.6px;bottom:8.4px' },
+      mk: { ws: 10.1, wb: 7.9, dt: 9.7, db: 6.7, fb: 8.8, cx: 10, cy: 10.6, fnr: 9.6, symTop: 10.3, symSide: 10, side: 9.8, icB: 9.2, fIcon: 19.3, globe: 'left:11px;bottom:10.5px' },
+      neo: { ws: 10.9, wb: 8, dt: 9.8, db: 7.8, fb: 8.5, cx: 11, cy: 11, fnr: 9.7, symTop: 10.3, symSide: 11, side: 11, icB: 9.6, fIcon: 20.6, globe: 'left:11px;bottom:9.6px' }
+    }[ST.mb ? 'mb' : f.m];
+    const lmVars = ['ws', 'wb', 'dt', 'db', 'fb', 'cx', 'cy', 'fnr'].map((k) => '--' + k + ': ' + LM[k] + 'px').join('; ') + ';';
+    const fit = (str, n) => { const a = String(str || '').trim().split(/\s+/).filter(Boolean); while (a.length < n) a.push('·'); return a.slice(0, n).join(' '); };
+    const cIso = (this.props.customKind ?? 'ISO') === 'ISO';
+    const L = layoutName === 'Custom' ? {
+      iso: cIso, en: false,
+      num: fit(this.props.customNum ?? "§ 1 2 3 4 5 6 7 8 9 0 - =", 13),
+      q: fit(this.props.customQ ?? 'Q W E R T Y U I O P [ ]', cIso ? 12 : 13),
+      a: fit(this.props.customA ?? "A S D F G H J K L ; ' \\", cIso ? 12 : 11),
+      x: fit(this.props.customX ?? '`', 1),
+      z: fit(this.props.customZ ?? 'Z X C V B N M , . /', 10)
+    } : (LAYOUTS[layoutName] || LAYOUTS['English (US)']);
+    const full = PARTS === 'full' && f.m !== 'mk';
+    const lightStyle = f.m === 'neo' || f.m === 'mk';
+    const backlit = !lightStyle;
+
+    // Grid: 19.0 mm across, 18.5 mm down. Gap and cap height differ per keyboard.
+    const U = 64, V = 62.3;
+    const G = ST.mb ? 7 : f.m === 'mk' ? 8.6 : 7.3;
+    const KH = ST.mb ? 55.4 : f.m === 'mk' ? 53.8 : 55.2;
+    const kw = (u) => u * U - G;
+    const keys = [];
+    const add = (o) => {
+      const k = Object.assign({ t: '', b: '', c: '', d: '', cls: '', icon: false, iso: false, home: false, tid: false, fd: '', sd: '', ivb: '0 0 24 24', isty: '', isw: 1.7, aria: '', h: KH, code: '' }, o);
+      k.id = k.code || 'k' + keys.length;
+      keys.push(k);
+    };
+    const tok = (s) => {
+      if (s.indexOf('¦') > 0) {
+        const parts = s.split('¦'), lc = [...parts[0]].map((ch) => ch === '·' ? '' : ch), rc = [...parts[1]].map((ch) => ch === '·' ? '' : ch);
+        const tl = lc.length > 1 ? lc[0] : lc[0] || '', bl = lc.length > 1 ? lc[1] : '';
+        const tr = rc.length > 1 ? rc[0] : '', br = rc.length > 1 ? rc[1] : rc[0] || '';
+        const big = /\p{L}/u.test(tl + bl + tr + br);
+        const lat = [tl, bl, tr, br].find((ch) => /[A-Z]/.test(ch)) || '';
+        return { cls: 'quad' + (big ? ' qbig' : ''), t: tl, b: bl, d: tr, c: br, aria: [tl, bl, tr, br].filter(Boolean).join(' '), home: lat === 'F' || lat === 'J' };
+      }
+      if (s.length === 1 || s[1] === '|') return { cls: 'char', t: s[0] || '', c: s.slice(2), aria: s[0] || 'blank', home: s === 'F' || s === 'J' };
+      return { cls: '{}|'.includes(s[0]) ? 'dual brk' : 'dual', t: s[0], b: s[1], c: s.slice(2), aria: s[1] + ' ' + s[0] };
+    };
+    const row = (r, items, codes) => {
+      let x = 0;
+      items.forEach((it, i) => {
+        const u = it.u ?? 1;
+        add(Object.assign({}, it, { code: (codes && codes[i]) || it.code || '', x: x, y: r * V, w: kw(u) }));
+        x += u * U;
+      });
+      return x;
+    };
+    const chars = (s) => s.split(' ').map(tok);
+    const en = L.en && ST.words;
+    const iconAt = (name, side, top) => {
+      const ic = ICONS[name];
+      return { icon: true, sd: ic[2], ivb: '0 0 ' + ic[0] + ' ' + ic[1], isw: 1.05, isty: (side === 'l' ? 'left:' : 'right:') + LM.side + 'px;' + (top ? 'top:' + top : 'bottom:' + LM.icB) + 'px;width:' + ic[0] + 'px;height:' + ic[1] + 'px' };
+    };
+    const word = (u, side, enWord, icName, aria, extra, code) => {
+      if (en) return { u: u, cls: (side === 'l' ? 'wl' : 'wr') + (extra || ''), b: enWord, aria: aria, code: code };
+      if (icName === 'caps' && L.caps) return { u: u, cls: 'wl' + (extra || ''), b: L.caps, aria: aria, code: code };
+      return Object.assign({ u: u, cls: (extra || '').trim(), aria: aria, code: code }, iconAt(icName, side));
+    };
+    // Symbol and word sit together: toward the space bar on Pro, toward the outer edge elsewhere.
+    const modKey = (kind, side, label, aria, u, code) => {
+      const m = MOD[kind], symRight = (side === 'l') === ST.inner;
+      return { u: u || 1, cls: symRight ? 'wr' : 'wl', icon: true, sd: m.sd, ivb: m.vb, isw: m.sw, isty: (symRight ? 'right:' : 'left:') + LM.symSide + 'px;top:' + LM.symTop + 'px;width:' + m.w + 'px;height:' + m.h + 'px', b: label, aria: aria, code: code };
+    };
+    const globe = (style) => ({ icon: true, sd: GLOBE, ivb: '3 3 18 18', isw: 1.45, isty: style + ';width:13px;height:13px' });
+    const lshape = (w, h, topW, botW, j) => {
+      const e = 0.5, r = 5, R = 5, xT = w - topW + e, xB = w - botW + e, rt = w - e, tp = e, bt = h - e;
+      let d = 'M' + (xT + r) + ' ' + tp + 'H' + (rt - r) + 'A' + r + ' ' + r + ' 0 0 1 ' + rt + ' ' + (tp + r) + 'V' + (bt - r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (rt - r) + ' ' + bt + 'H' + (xB + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + xB + ' ' + (bt - r);
+      if (xB > xT) d += 'V' + (j + R) + 'A' + R + ' ' + R + ' 0 0 0 ' + (xB - R) + ' ' + j + 'H' + (xT + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + xT + ' ' + (j - r);
+      else d += 'V' + (j + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (xB + r) + ' ' + j + 'H' + (xT - R) + 'A' + R + ' ' + R + ' 0 0 0 ' + xT + ' ' + (j - R);
+      d += 'V' + (tp + r) + 'A' + r + ' ' + r + ' 0 0 1 ' + (xT + r) + ' ' + tp + 'Z';
+      return { vb: '0 0 ' + w + ' ' + h, lp: d, lt: 'M' + (xT + 3) + ' 1.4H' + (rt - 3) };
+    };
+    const seq = (a, n) => Array.from({ length: n }, (_, i) => a + i);
+    const LET = (s) => s.split('').map((c) => 'Key' + c);
+    const DIG = ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0'];
+
+    const frow = [{ u: 1.5, cls: 'wl', b: 'esc', aria: 'escape' }];
+    FKEYS.forEach((fk, i) => {
+      const w = +(fk[1] * 1.07).toFixed(2), h = +(fk[2] * 1.07).toFixed(2);
+      frow.push({ cls: 'fkey', icon: true, sd: fk[3], fd: '', ivb: fk[4] || '0 0 ' + fk[1] + ' ' + fk[2], isw: fk[5] || 1.05, isty: 'left:50%;top:' + LM.fIcon + 'px;width:' + w + 'px;height:' + h + 'px;margin:-' + h / 2 + 'px 0 0 -' + w / 2 + 'px', b: 'F' + (i + 1), aria: 'F' + (i + 1) + ', ' + fk[0] });
+    });
+    frow.push({ cls: 'touch', tid: true, aria: 'Touch ID' });
+    row(0, frow, ['Escape'].concat(seq(1, 12).map((n) => 'F' + n)));
+
+    if (L.jis) {
+      const J = (arr) => arr.map((a) => ({ u: a[4] || 1, cls: 'jis', t: a[0], b: a[1], c: a[2], d: a[3] || '', aria: (a[1] || a[0]) + ' ' + a[2] }));
+      const JL = (arr) => arr.map((a) => ({ cls: 'jis jisL', t: a[0], c: a[1], d: a[2] || '', aria: a[0] + ' ' + a[1], home: a[0] === 'F' || a[0] === 'J' }));
+      row(1, J([['!', '1', 'ぬ', '', 1.25], ['"', '2', 'ふ'], ['#', '3', 'あ', 'ぁ'], ['$', '4', 'う', 'ぅ'], ['%', '5', 'え', 'ぇ'], ['&', '6', 'お', 'ぉ'], ["'", '7', 'や', 'ゃ'], ['(', '8', 'ゆ', 'ゅ'], [')', '9', 'よ', 'ょ'], ['', '0', 'わ', 'を'], ['=', '-', 'ほ'], ['~', '^', 'へ'], ['|', '¥', 'ー']]).concat([word(1.25, 'r', 'delete', 'del', 'delete')]), DIG.concat(['Minus', 'Equal', 'IntlYen', 'Backspace']));
+      row(2, [word(1, 'l', 'tab', 'tab', 'tab')].concat(JL([['Q', 'た'], ['W', 'て'], ['E', 'い', 'ぃ'], ['R', 'す'], ['T', 'か'], ['Y', 'ん'], ['U', 'な'], ['I', 'に'], ['O', 'ら'], ['P', 'せ']]), J([['`', '@', '゛'], ['{', '[', '゜', '「']])), ['Tab'].concat(LET('QWERTYUIOP'), ['BracketLeft', 'BracketRight']));
+      add(Object.assign(word(1.5, 'r', 'return', 'ret', 'return'), { code: 'Enter', cls: 'iso' + (en ? ' wr' : ''), x: 13 * U, y: 2 * V, w: kw(1.5), h: KH + V, iso: true }, lshape(kw(1.5), KH + V, kw(1.5), kw(1.25), KH)));
+      row(3, [modKey('ctrl', 'l', 'control', 'control', 1.25)].concat(JL([['A', 'ち'], ['S', 'と'], ['D', 'し'], ['F', 'は'], ['G', 'き'], ['H', 'く'], ['J', 'ま'], ['K', 'の'], ['L', 'り']]), J([['+', ';', 'れ'], ['*', ':', 'け'], ['}', ']', 'む', '」']])), ['ControlLeft'].concat(LET('ASDFGHJKL'), ['Semicolon', 'Quote', 'Backslash']));
+      row(4, [word(1.75, 'l', 'shift', 'shift', 'shift')].concat(JL([['Z', 'つ', 'っ'], ['X', 'さ'], ['C', 'そ'], ['V', 'ひ'], ['B', 'こ'], ['N', 'み'], ['M', 'も']]), J([['<', ',', 'ね', '、'], ['>', '.', 'る', '。'], ['?', '/', 'め', '・'], ['_', '', 'ろ']]), [word(1.75, 'r', 'shift', 'shift', 'right shift')]), ['ShiftLeft'].concat(LET('ZXCVBNM'), ['Comma', 'Period', 'Slash', 'IntlRo', 'ShiftRight']));
+    } else if (!L.iso) {
+      row(1, chars(L.num).concat([word(1.5, 'r', 'delete', 'del', 'delete')]), ['Backquote'].concat(DIG, ['Minus', 'Equal', 'Backspace']));
+      row(2, [word(1.5, 'l', 'tab', 'tab', 'tab')].concat(chars(L.q)), ['Tab'].concat(LET('QWERTYUIOP'), ['BracketLeft', 'BracketRight', 'Backslash']));
+      row(3, [word(1.75, 'l', 'caps lock', 'caps', 'caps lock', ' caps')].concat(chars(L.a), [word(1.75, 'r', 'return', 'ret', 'return')]), ['CapsLock'].concat(LET('ASDFGHJKL'), ['Semicolon', 'Quote', 'Enter']));
+      row(4, [word(2.25, 'l', 'shift', 'shift', 'shift')].concat(chars(L.z), [word(2.25, 'r', 'shift', 'shift', 'right shift')]), ['ShiftLeft'].concat(LET('ZXCVBNM'), ['Comma', 'Period', 'Slash', 'ShiftRight']));
+    } else {
+      row(1, chars(L.num).concat([word(1.5, 'r', 'delete', 'del', 'delete')]), ['IntlBackslash'].concat(DIG, ['Minus', 'Equal', 'Backspace']));
+      const x = row(2, [word(1.25, 'l', 'tab', 'tab', 'tab')].concat(chars(L.q)), ['Tab'].concat(LET('QWERTYUIOP'), ['BracketLeft', 'BracketRight']));
+      add(Object.assign(word(1.25, 'r', 'return', 'ret', 'return'), { code: 'Enter', x: x, y: 2 * V, w: kw(1.25), h: KH + V, iso: true }, lshape(kw(1.25), KH + V, kw(1.25), kw(1), KH)));
+      keys[keys.length - 1].cls = (keys[keys.length - 1].cls + ' iso').trim();
+      row(3, [word(1.5, 'l', 'caps lock', 'caps', 'caps lock', ' caps')].concat(chars(L.a)), ['CapsLock'].concat(LET('ASDFGHJKL'), ['Semicolon', 'Quote', 'Backslash']));
+      row(4, [word(1.25, 'l', 'shift', 'shift', 'shift')].concat(chars(L.x), chars(L.z), [word(2.25, 'r', 'shift', 'shift', 'right shift')]), ['ShiftLeft', 'Backquote'].concat(LET('ZXCVBNM'), ['Comma', 'Period', 'Slash', 'ShiftRight']));
+    }
+
+    const fnKey = ST.fn === 'top'
+      ? Object.assign({ cls: 'fnt', t: 'fn', aria: 'fn, globe' }, globe(LM.globe))
+      : ST.fn === 'pair'
+        ? Object.assign({ cls: 'fnb', b: 'fn', aria: 'fn, globe' }, globe(LM.globe))
+        : Object.assign({ cls: '', aria: 'globe' }, globe(LM.globe));
+    const ax = L.jis ? row(5, [
+      Object.assign({ cls: 'caps capsj', aria: 'caps lock' }, iconAt('caps', 'l', 21)),
+      modKey('opt', 'l', 'option', 'option'),
+      modKey('cmd', 'l', 'command', 'command', 1.25),
+      { u: 1.25, cls: 'cent', b: '英数', aria: 'eisu' },
+      { u: 3.5, cls: 'space', aria: 'space' },
+      { u: 1.25, cls: 'cent', b: 'かな', aria: 'kana' },
+      modKey('cmd', 'r', 'command', 'right command', 1.25),
+      fnKey
+    ], ['CapsLock', 'AltLeft', 'MetaLeft', 'Lang2', 'Space', 'Lang1', 'MetaRight']) : row(5, [
+      fnKey,
+      modKey('ctrl', 'l', 'control', 'control'),
+      modKey('opt', 'l', 'option', 'option'),
+      modKey('cmd', 'l', 'command', 'command', 1.25),
+      { u: 5, cls: 'space', aria: 'space' },
+      modKey('cmd', 'r', 'command', 'right command', 1.25),
+      modKey('opt', 'r', 'option', 'right option')
+    ], ['', 'ControlLeft', 'AltLeft', 'MetaLeft', 'Space', 'MetaRight', 'AltRight']);
+    // Inverted T. Up and down share one cap height with a hairline between them; Magic Keyboard has full-height left and right.
+    const ah = (KH - 1.6) / 2, y5 = 5 * V;
+    const tri = (dir) => dir === 'up' ? [6.4, 5.6, 'M3.2 .3L6.1 5.3H.3Z'] : dir === 'down' ? [6.4, 5.6, 'M3.2 5.3L.3 .3H6.1Z'] : dir === 'left' ? [5.6, 6.4, 'M.3 3.2L5.3 .3V6.1Z'] : [5.6, 6.4, 'M5.3 3.2L.3 .3V6.1Z'];
+    const arr = (x, y, h, dir, code) => { const t = tri(dir); add({ x: x, y: y, w: kw(1), h: h, cls: 'arrow', icon: true, fd: t[2], sd: '', ivb: '0 0 ' + t[0] + ' ' + t[1], isw: 0, isty: 'left:50%;top:50%;width:' + t[0] + 'px;height:' + t[1] + 'px;margin:-' + t[1] / 2 + 'px 0 0 -' + t[0] / 2 + 'px', aria: dir + ' arrow', code: code }); };
+    arr(ax, ST.lrFull ? y5 : y5 + ah + 1.6, ST.lrFull ? KH : ah, 'left', 'ArrowLeft');
+    arr(ax + U, y5, ah, 'up', 'ArrowUp');
+    arr(ax + U, y5 + ah + 1.6, ah, 'down', 'ArrowDown');
+    arr(ax + 2 * U, ST.lrFull ? y5 : y5 + ah + 1.6, ST.lrFull ? KH : ah, 'right', 'ArrowRight');
+
+    // Pressing: pointer on any key, or the real keyboard while a key has focus. Each key keeps its own sound class.
+    const down = this.state.down;
+    const kindOf = {};
+    keys.forEach((k) => {
+      k.snd = k.cls.indexOf('space') >= 0 ? 'space' : k.w > 1.4 * U ? 'wide' : 'key';
+      kindOf[k.id] = k.snd;
+      if (down[k.id]) k.cls += ' dn';
+      if (k.id === 'CapsLock' && this.state.caps) k.cls += ' on';
+      k.down = (e) => { if (e && e.button > 0) return; if (e && e.currentTarget && e.currentTarget.focus) e.currentTarget.focus({ preventScroll: true }); this.press(k.id, k.snd, f.m); };
+      k.up = () => this.release(k.id, k.snd, f.m);
+    });
+    const tap = (id) => { this.press(id, kindOf[id], f.m); this.timers.push(setTimeout(() => this.release(id, kindOf[id], f.m), 110)); };
+    const releaseAll = () => { if (Object.keys(this.state.down).length) { this.sound('key', true, f.m); this.setState({ down: {} }); } };
+    const onKeyDown = (e) => {
+      const id = e.code;
+      if (!kindOf[id]) return;
+      const chord = (e.metaKey || e.ctrlKey) && !/^(Meta|Control|Alt|Shift)/.test(id);
+      if (!chord && id !== 'Tab') e.preventDefault();
+      if (id === 'CapsLock') { tap(id); return; }
+      if (e.repeat) return;
+      this.press(id, kindOf[id], f.m);
+    };
+    const onKeyUp = (e) => {
+      const id = e.code;
+      if (id === 'CapsLock') { tap(id); return; }
+      // macOS sends no key-up for keys typed while command is held, so command's release lets go of everything.
+      if (id === 'MetaLeft' || id === 'MetaRight') { releaseAll(); return; }
+      if (kindOf[id]) this.release(id, kindOf[id], f.m);
+    };
+    const onBlur = (e) => { if (!e.currentTarget.contains(e.relatedTarget)) releaseAll(); };
+
+    // Backlight (Pro and Air only; Neo and Magic Keyboard have none). macOS steps the level in sixteenths.
+    const clamp01 = (v, d) => Math.max(0, Math.min(100, Number.isFinite(+v) ? +v : d)) / 100;
+    const dark = (this.props.room ?? DEF.room) === 'Dark room';
+    const on = backlit && (this.props.backlight ?? DEF.backlight) && !this.state.idle;
+    // macOS keyboard brightness has 16 steps (the slider and keys move one step at a time).
+    const rawB = Number.isFinite(+this.props.brightness) ? +this.props.brightness : 12;
+    const step = Math.max(0, Math.min(16, Math.round(rawB > 16 ? rawB / 100 * 16 : rawB)));
+    const g = on ? step / 16 : 0;
+    const bl = clamp01(this.props.bleed, 50);
+    const hx = String(this.props.glowColor ?? '#f2f5ff').replace('#', '').padEnd(6, 'f').slice(0, 6);
+    const LC = [0, 2, 4].map((i) => parseInt(hx.substr(i, 2), 16) || 0);
+    const mix = (a, b, t) => 'rgb(' + a.map((v, i) => Math.round(v + (b[i] - v) * t)).join(',') + ')';
+    const rgba = (a) => 'rgba(' + LC.join(',') + ',' + Math.max(0, a).toFixed(3) + ')';
+    // One light source: the keyboard emits the same light in any room. Only the surroundings change:
+    // daylight lights everything else and the eye adapts to it (lower exposure), so the same light reads weaker.
+    const E = dark ? 1 : 0.42;
+    const e = g * E;
+    const addLight = (base, k) => 'rgb(' + base.map((v, i) => Math.min(255, Math.round(v + LC[i] * k))).join(',') + ')';
+    const parts = [];
+    if (backlit && dark) parts.push('--f0: #0b0b0c', '--f1: #141416', '--hl: rgba(255,255,255,.03)', '--dot: #2c2c2e', '--hb: rgba(60,60,64,.6)', '--tidf: brightness(.32)');
+    if (e > 0) parts.push(
+      // Legends: the light shining through the cut-out print, added to what the room already shows.
+      '--lc: ' + addLight(dark ? [40, 40, 43] : [220, 220, 223], Math.pow(e, 0.6)),
+      '--ls: 0 0 0.6px ' + rgba(0.9 * e) + ', 0 0 2px ' + rgba(0.55 * e) + ', 0 0 5px ' + rgba(0.25 * e),
+      '--icf: drop-shadow(0 0 0.6px ' + rgba(0.85 * e) + ') drop-shadow(0 0 2.5px ' + rgba(0.4 * e) + ')',
+      // Light spilling out around each cap: a bright rim at the edge and a softer pool in the gap.
+      '--lk: 0 0 ' + (1 + 1.5 * bl).toFixed(2) + 'px ' + rgba(0.95 * e * bl) + ', 0 0 ' + (3 + 5 * bl).toFixed(2) + 'px ' + rgba(0.45 * e * bl) + ', 0 1px 1.5px rgba(0,0,0,.6)',
+      '--f1: ' + addLight(dark ? [20, 20, 22] : [46, 46, 48], 0.05 * e * bl)
+    );
+    const gvars = parts.length ? parts.join('; ') + ';' : '';
+    const wellGlow = backlit && e > 0 ? 0.07 * e * bl : 0;
+
+    const grad = (a) => 'linear-gradient(180deg, ' + a[0] + ' 0%, ' + a[1] + ' 100%)';
+    const isPro = f.m === 'pro';
+    const kbW = 14.5 * U - G, kbH = 5 * V + KH;
+    const pad = M.wellPad;
+    const W = M.W;
+    const kbX = (W - kbW) / 2;
+    const wellH = kbH + 2 * pad;
+    const H = full || f.m === 'mk' ? M.H : M.kbY * 2 + kbH;
+    const kf = f.kf || '#000';
+    const kfDark = (() => { const h = kf.replace('#', ''); return '#' + [0, 2, 4].map((i) => Math.round((parseInt(h.substr(i, 2), 16) || 0) * 0.965).toString(16).padStart(2, '0')).join(''); })();
+    const s = {
+      tilt: (this.props.view ?? 'Top-down') === 'Angled' ? 'perspective(2600px) rotateX(32deg) scale(.96)' : 'none',
+      groupCls: [ST.mb ? 'mb' : 'mk', 'm-' + f.m, lightStyle ? 'lightkeys' : ''].join(' ').trim(),
+      gvars: lmVars + ' ' + gvars,
+      kf: kf,
+      kf2: kfDark,
+      kl: f.kl || '#fff',
+      full: full,
+      grille: M.grille,
+      W: W,
+      H: H,
+      kbW: kbW,
+      kbH: kbH,
+      wellX: kbX - pad,
+      wellY: M.kbY - pad,
+      wellW: kbW + 2 * pad,
+      wellH: wellH,
+      wellPad: pad,
+      aw: full ? 1400 : 1200,
+      ah: full ? 1100 : 600,
+      rootPadTop: full ? 200 : 0,
+      bg: backlit && dark ? '#060607' : '#f2f2f2',
+      dim: backlit && dark ? '0.8' : '0',
+      lidH: M.H,
+      wall: WALL[finishName],
+      w1: RIB[finishName][0],
+      w2: RIB[finishName][1],
+      w3: RIB[finishName][2],
+      w4: RIB[finishName][4] || RIB[finishName][0],
+      ink: RIB[finishName][3] ? '#ffffff' : '#111114',
+      barBg: RIB[finishName][3] ? 'rgba(0,0,0,.06)' : 'rgba(255,255,255,.12)',
+      widBg: RIB[finishName][3] ? 'rgba(255,255,255,.16)' : 'rgba(40,30,20,.12)',
+      widShadow: RIB[finishName][3] ? 'inset 0 0 0 1px rgba(255,255,255,.28), 0 4px 12px rgba(0,0,0,.18)' : 'inset 0 0 0 1px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.5), 0 4px 12px rgba(0,0,0,.12)',
+      dockBg: RIB[finishName][3] ? 'rgba(255,255,255,.14)' : 'rgba(255,255,255,.26)',
+      apps: [
+        ['linear-gradient(180deg, #ffffff 0%, #e4e8ef 100%)', 'width: 16px; height: 14px; border-radius: 3px; background: linear-gradient(90deg, #2d7cf6 50%, #9fd0ff 50%);'],
+        ['linear-gradient(180deg, #6fd3ff 0%, #1f7cff 100%)', 'width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid rgba(255,255,255,.95);'],
+        ['linear-gradient(180deg, #7cf08a 0%, #23b14d 100%)', 'width: 14px; height: 10px; border-radius: 6px; background: rgba(255,255,255,.95);'],
+        ['linear-gradient(180deg, #ffffff 0%, #eceff3 100%)', 'width: 14px; height: 15px; border-radius: 3px; background: linear-gradient(180deg, #ff3b30 0 30%, #ffffff 30%); box-shadow: inset 0 0 0 1px #d6d9df;'],
+        ['linear-gradient(180deg, #ffd84d 0%, #ff9f0a 100%)', 'width: 6px; height: 16px; border-radius: 3px; background: rgba(255,255,255,.95); transform: rotate(35deg);'],
+        ['linear-gradient(180deg, #ff8a80 0%, #ff3b30 100%)', 'width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.95);'],
+        ['linear-gradient(180deg, #fffbe6 0%, #f4e6a6 100%)', 'width: 14px; height: 3px; border-radius: 2px; background: #c9a227; box-shadow: 0 5px 0 #d9b94a, 0 -5px 0 #c9a227;'],
+        ['linear-gradient(180deg, #d7a8ff 0%, #8e44ff 100%)', 'width: 14px; height: 14px; border-radius: 4px; border: 2.5px solid rgba(255,255,255,.9);'],
+        ['linear-gradient(180deg, #5ee0d0 0%, #10a39a 100%)', 'width: 12px; height: 12px; background: rgba(255,255,255,.95); clip-path: polygon(50% 0, 100% 100%, 0 100%);'],
+        ['linear-gradient(180deg, #3a3a40 0%, #141417 100%)', 'width: 14px; height: 9px; border-radius: 2px; border: 2px solid #4cd964;'],
+        ['linear-gradient(180deg, #ffffff 0%, #e9ecf1 100%)', 'width: 14px; height: 14px; border-radius: 50%; background: conic-gradient(#ff3b30 0 25%, #ffcc00 0 50%, #34c759 0 75%, #007aff 0);'],
+        ['linear-gradient(180deg, #9be7ff 0%, #2bb7f0 100%)', 'width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid rgba(255,255,255,.9); border-top-color: transparent;']
+      ].map((p) => ({ bg: p[0], gl: p[1] })),
+      radius: full || f.m === 'mk' ? M.radius : '22px',
+      lid: 'linear-gradient(180deg, ' + f.lid[0] + ' 0%, ' + f.lid[1] + ' 45%, ' + f.lid[2] + ' 100%)',
+      hingeX: M.hingeX,
+      barrel: 'linear-gradient(180deg, ' + f.lid[1] + ' 0%, ' + f.lid[2] + ' 70%, ' + (f.dark ? '#141315' : f.side[1]) + ' 100%)',
+      deck: grad(f.deck),
+      side: grad(f.side),
+      pad: grad(f.pad),
+      dot: f.dot,
+      grain: f.m === 'pro' && f.dark ? 0.25 : 0.14,
+      deckShadow: 'inset 0 0 0 1px ' + f.edge + ', inset 0 -1px 1px rgba(0,0,0,' + (f.dark ? '.35' : '.06') + ')',
+      grilleY: M.kbY + 7,
+      grilleH: wellH - 28,
+      well: isPro ? addLight(dark ? [6, 6, 7] : [18, 20, 22], wellGlow) : f.m === 'air' && wellGlow > 0 ? 'rgba(' + LC.join(',') + ',' + wellGlow.toFixed(3) + ')' : 'transparent',
+      wellShadow: f.m === 'mk' ? 'none' : isPro
+        ? 'inset 0 0 0 1px #000, inset 0 1px 3px rgba(0,0,0,.8), 0 0 0 1px ' + f.edge
+        : 'inset 0 1.5px 2.5px rgba(0,0,0,' + (f.dark ? '.45' : '.16') + '), inset 0 0 0 1px rgba(0,0,0,' + (f.dark ? '.28' : '.07') + '), inset 0 -1px 0 ' + f.edge + ', 0 1px 0 ' + f.edge + ', 0 -1px 0 rgba(0,0,0,' + (f.dark ? '.18' : '.05') + ')',
+      padX: (M.W - M.padW) / 2,
+      padY: M.padY,
+      padW: M.padW,
+      padH: M.padH,
+      padShadow: '0 0 0 1px ' + f.edge + ', inset 0 0 0 1px rgba(0,0,0,' + (f.dark ? '.55' : '.13') + '), inset 0 2px 0 ' + f.edge,
+      notch: 'linear-gradient(180deg, ' + f.lid[2] + ' 0%, ' + f.lid[1] + ' 60%, ' + f.lid[0] + ' 100%)',
+      notchTop: M.H - 6,
+      scoop: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,' + (f.dark ? '.35' : '.10') + ') 100%)',
+      aria: finishName + ' top case, ' + layoutName + ' keyboard',
+      kbAria: finishName + ' keyboard, ' + layoutName + ' layout. Click or type to press keys.'
+    };
+    const tp = {
+      down: (e) => this.tpDown(e),
+      up: () => this.tpUp(),
+      keyDown: (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!e.repeat) this.tpDown(); } },
+      keyUp: (e) => { if (e.key === ' ' || e.key === 'Enter') this.tpUp(); }
+    };
+    return { keys: keys, s: s, tp: tp, tpCls: this.state.tp || '', onKeyDown: onKeyDown, onKeyUp: onKeyUp, onBlur: onBlur };
+  }
+}
+</script>
+</body>
+</html>

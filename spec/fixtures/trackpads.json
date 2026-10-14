@@ -1,0 +1,1515 @@
+{
+ "pro-space-black": {
+  "input": {
+   "finish": "pro-space-black"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "pro-silver": {
+  "input": {
+   "finish": "pro-silver"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#e0e1e3ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9c9da0ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fffffff2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Pro · Silver Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "air-midnight": {
+  "input": {
+   "finish": "air-midnight"
+  },
+  "output": {
+   "width": 432.5,
+   "height": 270.1,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#4a525eff",
+      "at": 0
+     },
+     {
+      "color": "#545c69ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#343a44ff",
+      "at": 0
+     },
+     {
+      "color": "#22262dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#e1e8f538",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#e1e8f538",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Air · Midnight Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "air-starlight": {
+  "input": {
+   "finish": "air-starlight"
+  },
+  "output": {
+   "width": 432.5,
+   "height": 270.1,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#e8e1d7ff",
+      "at": 0
+     },
+     {
+      "color": "#ede6dcff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#d3cabcff",
+      "at": 0
+     },
+     {
+      "color": "#b2a899ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffdf8f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fffdf8f2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Air · Starlight Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "air-sky-blue": {
+  "input": {
+   "finish": "air-sky-blue"
+  },
+  "output": {
+   "width": 432.5,
+   "height": 270.1,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#c9d4daff",
+      "at": 0
+     },
+     {
+      "color": "#cfdae0ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#b3c0c7ff",
+      "at": 0
+     },
+     {
+      "color": "#94a1a8ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fafdfff2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fafdfff2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Air · Sky Blue Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "air-silver": {
+  "input": {
+   "finish": "air-silver"
+  },
+  "output": {
+   "width": 432.5,
+   "height": 270.1,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#d3d4d6ff",
+      "at": 0
+     },
+     {
+      "color": "#d8d9dbff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#bdbec1ff",
+      "at": 0
+     },
+     {
+      "color": "#9fa0a3ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fffffff2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Air · Silver Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "neo-silver": {
+  "input": {
+   "finish": "neo-silver"
+  },
+  "output": {
+   "width": 390.5,
+   "height": 243.5,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#dadbddff",
+      "at": 0
+     },
+     {
+      "color": "#dcdddfff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#bfc0c3ff",
+      "at": 0
+     },
+     {
+      "color": "#a2a3a6ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fffffff2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fffffff2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Neo · Silver Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "neo-blush": {
+  "input": {
+   "finish": "neo-blush"
+  },
+  "output": {
+   "width": 390.5,
+   "height": 243.5,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#e6cdcdff",
+      "at": 0
+     },
+     {
+      "color": "#e8d0d0ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#d4b9b9ff",
+      "at": 0
+     },
+     {
+      "color": "#b99d9dff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#fff8f8f2",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#fff8f8f2",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Neo · Blush Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "neo-citrus": {
+  "input": {
+   "finish": "neo-citrus"
+  },
+  "output": {
+   "width": 390.5,
+   "height": 243.5,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#e6e592ff",
+      "at": 0
+     },
+     {
+      "color": "#e8e794ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#d0ce7cff",
+      "at": 0
+     },
+     {
+      "color": "#b3b163ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffebe6",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#00000021",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffebe6",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Neo · Citrus Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "neo-indigo": {
+  "input": {
+   "finish": "neo-indigo"
+  },
+  "output": {
+   "width": 390.5,
+   "height": 243.5,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#4d586eff",
+      "at": 0
+     },
+     {
+      "color": "#525d73ff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#38425aff",
+      "at": 0
+     },
+     {
+      "color": "#262e40ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#dce4fa33",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#dce4fa33",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.14,
+   "label": "MacBook Neo · Indigo Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-silver": {
+  "input": {
+   "finish": "imac-silver"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-blue": {
+  "input": {
+   "finish": "imac-blue"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-purple": {
+  "input": {
+   "finish": "imac-purple"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-pink": {
+  "input": {
+   "finish": "imac-pink"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-orange": {
+  "input": {
+   "finish": "imac-orange"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-yellow": {
+  "input": {
+   "finish": "imac-yellow"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ },
+ "imac-green": {
+  "input": {
+   "finish": "imac-green"
+  },
+  "output": {
+   "width": 437,
+   "height": 272.7,
+   "radius": 10,
+   "surface": {
+    "stops": [
+     {
+      "color": "#423f43ff",
+      "at": 0
+     },
+     {
+      "color": "#2b292cff",
+      "at": 1
+     }
+    ]
+   },
+   "side": {
+    "stops": [
+     {
+      "color": "#1d1c1eff",
+      "at": 0
+     },
+     {
+      "color": "#0f0e10ff",
+      "at": 1
+     }
+    ]
+   },
+   "sideDepth": 6,
+   "shadows": [
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#ffffff21",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 0,
+     "blur": 0,
+     "spread": 1,
+     "color": "#0000008c",
+     "inset": true
+    },
+    {
+     "x": 0,
+     "y": 2,
+     "blur": 0,
+     "spread": 0,
+     "color": "#ffffff21",
+     "inset": true
+    }
+   ],
+   "sideShadows": [
+    {
+     "x": 0,
+     "y": 1,
+     "blur": 1,
+     "spread": 0,
+     "color": "#00000033",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 10,
+     "blur": 20,
+     "spread": 0,
+     "color": "#0000001a",
+     "inset": false
+    },
+    {
+     "x": 0,
+     "y": 30,
+     "blur": 50,
+     "spread": -18,
+     "color": "#00000061",
+     "inset": false
+    }
+   ],
+   "grain": 0.25,
+   "label": "MacBook Pro · Space Black Force Touch trackpad. Click, or press and hold for a force click."
+  }
+ }
+}
