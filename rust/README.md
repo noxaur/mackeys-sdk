@@ -265,7 +265,7 @@ Physical keys and Force Touch (macOS): each view adds an `NSEvent` local monitor
   map. Modifiers have no side there, so they light the left key.
 
 Remaining differences from the web reference (see `target/compare/*-side.png`; mean channel
-difference 0.5 to 1.6 of 255):
+difference 0.5 to 1.5 of 255):
 
 - Glyph edges: resvg and Core Text rasterize text differently, so letter edges differ by a fraction of
   a pixel. The lid text has no `antialiased` smoothing in the web CSS, so macOS draws it a little heavier;

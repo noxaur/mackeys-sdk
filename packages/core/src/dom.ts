@@ -6,7 +6,7 @@ import { Gradient, Shadow, cssColor, cssGradient, cssShadows } from './util';
 
 export type StyleMap = Record<string, string>;
 
-export const FONT_STACK = '-apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif';
+export const FONT_STACK = 'system-ui, -apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif';
 
 /** The stylesheet every DOM renderer injects once. All selectors start with `mk-`. */
 export const MACKEYS_CSS = `

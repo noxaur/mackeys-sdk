@@ -186,8 +186,8 @@ swift test
   same page and writes `swift/.build/snapshots/compare/<name>.png` (the Swift render), `<name>-side.png`
   (reference left, Swift right), `<name>-diff.png` (absolute difference x4) and `<name>-crop<N>.png`
   (reference above Swift, native pixels). It prints the mean difference and, per key, the offset of the legend
-  ink between the reference and the Swift render. Set `MACKEYS_REF_FONT="Helvetica Neue"` to draw legends in
-  the font that the reference screenshots fell back to (see Limits).
+  ink between the reference and the Swift render. `MACKEYS_REF_FONT="<font name>"` draws the legends in another
+  font, for a check of layout apart from glyph shapes.
 
 ## Notes
 
@@ -212,19 +212,14 @@ swift test
   whole device pixels (a layer at a fractional offset is resampled and looks soft).
 - Pressed keys: the canvas draws `translateY(.45px) scale(.986)`, `brightness(pressedBrightness)` and the
   fading top highlight itself, so the cap stays sharp. Press 26 ms, release 95 ms. ISO and JIS return keys keep
-  their highlight stroke when pressed, as on the web (`spec/SPEC.md` says to drop the top highlight; the web
-  drops it only for box keys).
+  their highlight stroke when pressed, as on the web (the web drops the top highlight only for box keys;
+  `spec/SPEC.md` says the same).
 
 ## Limits
 
-Compared with `spec/reference/screens` (2x, same page), the mean absolute difference is 0.8 to 2.0 levels of 255
-per channel. The remaining differences:
+Compared with `spec/reference/screens` (2x, same page, SF Pro in both), the mean absolute difference is 0.6 to
+1.5 levels of 255 per channel. The remaining differences:
 
-- Font: the reference screenshots use Helvetica Neue, because headless Chrome did not resolve `-apple-system`
-  and SF Pro Text is not installed as a named font. The spec and the Swift views use SF Pro (the system font).
-  Glyph shapes and widths therefore differ (for example `/`, `;`, the menu bar). With
-  `MACKEYS_REF_FONT="Helvetica Neue"`, the legend ink lies within 0.1 to 0.3 px of the reference on average
-  and within about 1 px for every key.
 - Pressed keys: the reference keeps a brighter backlight ring around a pressed key (about 62 against 47 of 255 in
   the dark room). Chrome rasterizes the scaled, filtered key differently; the face, legend and brightness match.
 - Text pixels: Chrome snaps the baseline and the small icon boxes to device pixels. Small glyphs can sit up to
