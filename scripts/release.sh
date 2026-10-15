@@ -13,7 +13,7 @@ set -eu
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-NPM_PACKAGES="packages/core/package.json packages/react/package.json packages/svelte/package.json"
+NPM_PACKAGES="packages/core/package.json packages/react/package.json packages/svelte/package.json packages/vue/package.json packages/elements/package.json"
 CARGO_WORKSPACE="rust/Cargo.toml"
 CARGO_GPUI="rust/crates/mackeys-gpui/Cargo.toml"
 CARGO_LOCK="rust/Cargo.lock"
