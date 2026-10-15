@@ -23,7 +23,9 @@ The canonical implementation is the TypeScript engine in `packages/core/src`. A 
 - `fixtures/themes.json`: `keyboardTheme(finish, backlight)` results for 17 finishes x 6 backlight cases.
 - `fixtures/topcases.json`: `topCase(finish, buildKeyboard({finish}), {parts, backlight})` results.
 - `fixtures/trackpads.json`: `trackpad(finish)` results.
-- `keyboard-clicks.json`, `trackpad-clicks.json`: CC0 click recordings (see Sound).
+- `keyboard-clicks.json`, `trackpad-clicks.json`: click recordings (see Sound).
+- `recordings/`: the source recordings of the keyboard clicks. `scripts/cut-clicks.py` cuts them into
+  `keyboard-clicks.json`.
 
 Each fixture entry is `{ "input": {...}, "output": {...} }`. Regenerate with `pnpm spec`.
 
@@ -140,12 +142,39 @@ and enters `force`; `release` plays the release click and enters `up`. A host wi
 
 Clip files hold mono 16-bit little-endian PCM in base64, at sample rate `sr`.
 
-- Keyboard (`sr` 24000): `press` (6 takes), `release` (6), `space` (1). Pick a random take, never the
-  same index twice in a row. Rate `0.985 + rand * 0.03`. Gain `0.85 * (0.85 + rand * 0.15)`.
-  Space bar presses use `space`; all releases use `release`.
+- Keyboard (`sr` 32000): one take per clip. Clip names are `<sound>-<force>-down` (press) and
+  `<sound>-<force>-up` (release). `force` is `soft` (a normal press) or `hard` (a forceful press).
+  `power` has one force: `power-down` and `power-up`. When `<sound>-<force>-down` does not exist, use
+  `<sound>-down` (same for `up`).
+- On each press, pick `hard` with the chance `hardness` (default 0.2), else `soft`. Keep the force per
+  sound class. A release uses the force of the last press of its class (`soft` if none).
+  Rate `0.985 + rand * 0.03`. Gain `0.85 * (0.85 + rand * 0.15)`.
+- Key sound classes (`KeyCap.sound`). Each was recorded on the Norwegian (ISO) MacBook keyboard:
+
+  | Sound | Norwegian keys |
+  | --- | --- |
+  | `key` | letters, digits, symbols, F1 to F12, fn, control, option (1u) |
+  | `mod` | command, left shift (1.25u) |
+  | `tab` | tab (1.25u), escape and delete (1.5u) |
+  | `caps` | caps lock |
+  | `wide` | right shift (2.25u) |
+  | `enter` | return |
+  | `space` | space bar |
+  | `arrow` | the half-height arrow keys |
+  | `power` | Touch ID (power button) |
+
+- Other layouts use the same rules (`keySound` in `keyboard.ts`), in this order:
+  1. Touch ID is `power`. The space bar is `space`. An arrow key lower than 0.75 of the key height is
+     `arrow`.
+  2. `Enter` is `enter`. `CapsLock` is `caps`. `Tab` and `Escape` are `tab`.
+  3. All other keys go by width in key units, `(w + gap) / 64`: 1.75 and up is `wide`, 1.4 and up is
+     `tab`, 1.15 and up is `mod`, else `key`.
+
+  Examples: ANSI left shift (2.25u) and JIS shifts (1.75u) are `wide`. JIS delete and the kana keys
+  (1.25u) are `mod`. The full-height left and right arrows on Magic Keyboard are `key`.
 - Trackpad (`sr` 48000): `press` (3), `release` (2), `force` (1). Rate
   `(force ? 0.9 : 1) * (0.99 + rand * 0.02)`. Gain `force ? 0.85 : 0.75`. Filter: high shelf at
   2 kHz, -14 dB, then low-pass at 5 kHz, Q 0.5.
 
-Sources (CC0): Freesound #853602 "Typing on Laptop Keyboard #2" by justamudkip (2021 14-inch MacBook
-Pro); Freesound #467490 "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
+Sources: keyboard, recorded for this project on a MacBook with the Norwegian layout (`recordings/`);
+trackpad (CC0), Freesound #467490 "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).

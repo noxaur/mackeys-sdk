@@ -157,7 +157,7 @@ let color = Color(mk: device.theme.legend)   // MacKeysUI helper
 - `MacBookView(finish:layout:custom:backlight:sound:captureKeyboard:idleOff:sizing:showLid:controller:trackpadController:)`
 - `MacTrackpadView(finish:sound:sizing:controller:)`
 - `MacKeysSizing` (`.scale(CGFloat)`, `.fitWidth`)
-- `ClickSound` (`shared`, `enabled`, `volume`, `close()`)
+- `ClickSound` (`shared`, `enabled`, `volume`, `hardness`, `close()`)
 - `Color(mk:)`, `Gradient.swiftUI`, `svgPath(_:) -> Path`
 
 ## Spec files
@@ -230,7 +230,7 @@ Compared with `spec/reference/screens` (2x, same page, SF Pro in both), the mean
 
 ## Sound attribution
 
-The click sounds are CC0 recordings from Freesound:
-
-- Keyboard: Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip (2021 14-inch MacBook Pro).
-- Trackpad: Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
+- Keyboard: recorded for this project on a MacBook with the Norwegian layout, a soft and a hard press of
+  each key class (`spec/recordings`). See the SPEC "Sound" section.
+- Trackpad: a CC0 recording, Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook
+  Pro).

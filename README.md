@@ -87,10 +87,12 @@ pnpm --dir examples/svelte-demo dev
 
 ## Sounds
 
-The click sounds are CC0 recordings:
-
-- Keys: Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip (2021 14-inch MacBook Pro).
-- Trackpad: Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
+- Keys: recorded for this project on a MacBook with the Norwegian layout. Each key class has a normal
+  (soft) press and a hard press, each with its release. The power button (Touch ID) has one press.
+  The source files are in `spec/recordings`. `scripts/cut-clicks.py` cuts them into
+  `spec/keyboard-clicks.json`. The SPEC "Sound" section tells which key plays which recording.
+- Trackpad: a CC0 recording, Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook
+  Pro).
 
 Apple, Mac, MacBook, iMac, Magic Keyboard, Touch ID and Force Touch are trademarks of Apple Inc.
 This project is not affiliated with Apple.

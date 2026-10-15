@@ -277,8 +277,8 @@ difference 0.5 to 1.5 of 255):
 - The legend font file is `/System/Library/Fonts/SFNS.ttf` (then `HelveticaNeue.ttc`). Without them (not
   macOS), legends are not drawn.
 - The first frame after a change waits for the background images (see above).
-- Sound: `rodio` plays the clips with the SPEC's random take, rate and gain (the clip is resampled
-  for the rate). The trackpad filter (high shelf 2 kHz -14 dB, then low-pass 5 kHz Q 0.5) is a pair of RBJ
+- Sound: `rodio` plays the clips with the SPEC's soft or hard choice, rate and gain (the clip is resampled
+  for the rate). `VoicePicker::hardness` sets the chance of a hard press. The trackpad filter (high shelf 2 kHz -14 dB, then low-pass 5 kHz Q 0.5) is a pair of RBJ
   biquads applied once when the clips load. When no audio device exists, the player does nothing.
   Build without sound with `--no-default-features`.
 
@@ -290,10 +290,10 @@ difference 0.5 to 1.5 of 255):
 
 ## Sound attribution
 
-The click sounds are CC0 recordings from Freesound:
-
-- Keyboard: Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip (2021 14-inch MacBook Pro).
-- Trackpad: Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
+- Keyboard: recorded for this project on a MacBook with the Norwegian layout, a soft and a hard press of
+  each key class (`spec/recordings`). See the SPEC "Sound" section.
+- Trackpad: a CC0 recording, Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook
+  Pro).
 
 ## License
 

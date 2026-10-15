@@ -1,8 +1,9 @@
 import AVFoundation
 import MacKeysCore
 
-/// Plays the recorded CC0 clicks with AVAudioEngine. Each key press picks a different take (never the same
-/// one twice in a row), with a small random rate and level change. Trackpad clicks go through a high shelf
+/// Plays the recorded clicks with AVAudioEngine. A key press plays its key class's soft or hard recording
+/// (hard with the chance `hardness`), with a small random rate and level change. A release uses the force of
+/// the last press of that class. Trackpad clicks go through a high shelf
 /// (2 kHz, -14 dB) and a low-pass (5 kHz, Q 0.5). The engine starts on the first sound.
 /// Audio is optional: when the engine cannot start, every call does nothing.
 @MainActor
@@ -13,6 +14,8 @@ public final class ClickSound: SoundSink {
     public var enabled = true
     /// Master volume, 0 to 1.
     public var volume: Float = 1
+    /// The chance, 0 to 1, that a key press uses the hard recording.
+    public var hardness: Double = 0.2
 
     private struct Voice {
         let player: AVAudioPlayerNode
@@ -25,24 +28,23 @@ public final class ClickSound: SoundSink {
     private var keyVoices: [Voice] = []
     private var padVoices: [Voice] = []
     private var nextKey = 0, nextPad = 0
-    private var lastKey = -1
+    private var force: [KeySound: KeyForce] = [:]
     private let poolSize = 6
     private var observer: NSObjectProtocol?
 
-    public init(volume: Float = 1) {
+    public init(volume: Float = 1, hardness: Double = 0.2) {
         self.volume = volume
+        self.hardness = hardness
     }
 
     public func key(_ kind: KeySound, up: Bool) {
         guard enabled, let _ = ready() else { return }
-        let list = up ? buffers["release"] ?? [] : (kind == .space ? buffers["space"] ?? [] : buffers["press"] ?? [])
+        if !up { force[kind] = Double.random(in: 0..<1) < hardness ? .hard : .soft }
+        let list = buffers[keyClipName(kind, force[kind] ?? .soft, up: up)] ?? []
         guard !list.isEmpty, !keyVoices.isEmpty else { return }
-        var i = Int.random(in: 0..<list.count)
-        if list.count > 1 && i == lastKey { i = (i + 1) % list.count }
-        lastKey = i
         let v = keyVoices[nextKey]
         nextKey = (nextKey + 1) % keyVoices.count
-        play(v, list[i], rate: Float(0.985 + Double.random(in: 0..<1) * 0.03), gain: volume * 0.85 * Float(0.85 + Double.random(in: 0..<1) * 0.15))
+        play(v, list[Int.random(in: 0..<list.count)], rate: Float(0.985 + Double.random(in: 0..<1) * 0.03), gain: volume * 0.85 * Float(0.85 + Double.random(in: 0..<1) * 0.15))
     }
 
     public func trackpad(_ kind: TrackpadSound) {
@@ -98,9 +100,9 @@ public final class ClickSound: SoundSink {
             }
         }
         buffers = [
-            "press": make(kb, "press", kbFormat), "release": make(kb, "release", kbFormat), "space": make(kb, "space", kbFormat),
             "tp-press": make(tp, "press", tpFormat), "tp-release": make(tp, "release", tpFormat), "tp-force": make(tp, "force", tpFormat)
         ]
+        for name in kb.clips.keys { buffers[name] = make(kb, name, kbFormat) }
 
         let e = AVAudioEngine()
         let main = e.mainMixerNode

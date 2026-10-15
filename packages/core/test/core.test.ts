@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { FINISHES, KeyboardController, LAYOUTS, TrackpadController, buildKeyboard, decodeClip, keyboardTheme, topCase, trackpad, KEYBOARD_CLIPS } from '../src';
+import { FINISHES, KeyboardController, LAYOUTS, TrackpadController, buildKeyboard, decodeClip, keyboardTheme, keyClipName, topCase, trackpad, KEYBOARD_CLIPS, KEY_SOUNDS } from '../src';
 
 const fixture = (n: string) => JSON.parse(readFileSync(join(__dirname, '../../../spec/fixtures', n), 'utf8'));
 
@@ -102,8 +102,40 @@ describe('controllers', () => {
 
 describe('audio', () => {
   it('decodes the recorded clips', () => {
-    const d = decodeClip((KEYBOARD_CLIPS.press as string[])[0]);
-    expect(d.length).toBe(1680);
+    const d = decodeClip((KEYBOARD_CLIPS['key-soft-down'] as string[])[0]);
+    expect(d.length).toBeGreaterThan(0.05 * KEYBOARD_CLIPS.sr);
     expect(Math.max(...Array.from(d).map(Math.abs))).toBeLessThanOrEqual(1);
+  });
+  it('maps the Norwegian keys to the recordings of their size', () => {
+    const kb = buildKeyboard({ finish: 'pro-space-black', layout: 'no' });
+    const sound = (id: string) => kb.keys.find((k) => k.id === id)!.sound;
+    const want: Record<string, string> = {
+      KeyA: 'key', F5: 'key', Fn: 'key', ControlLeft: 'key', AltLeft: 'key', IntlBackslash: 'key', Backquote: 'key',
+      MetaLeft: 'mod', MetaRight: 'mod', ShiftLeft: 'mod',
+      Escape: 'tab', Tab: 'tab', Backspace: 'tab',
+      CapsLock: 'caps', ShiftRight: 'wide', Enter: 'enter', Space: 'space',
+      ArrowUp: 'arrow', ArrowLeft: 'arrow', TouchID: 'power'
+    };
+    for (const [id, s] of Object.entries(want)) expect(sound(id), id).toBe(s);
+  });
+  it('maps other layouts by key size', () => {
+    const us = buildKeyboard({ finish: 'pro-space-black', layout: 'en-us' });
+    const ja = buildKeyboard({ finish: 'pro-space-black', layout: 'ja' });
+    const mk = buildKeyboard({ finish: 'imac-blue', layout: 'en-us' });
+    const s = (kb: typeof us, id: string) => kb.keys.find((k) => k.id === id)!.sound;
+    expect([s(us, 'ShiftLeft'), s(us, 'Backslash'), s(us, 'Backspace'), s(us, 'Enter'), s(us, 'CapsLock')]).toEqual(['wide', 'key', 'tab', 'enter', 'caps']);
+    expect([s(ja, 'ShiftLeft'), s(ja, 'ShiftRight'), s(ja, 'Backspace'), s(ja, 'Tab'), s(ja, 'Lang1'), s(ja, 'CapsLock')]).toEqual(['wide', 'wide', 'mod', 'tab', 'mod', 'caps']);
+    // Magic Keyboard left and right arrows are full height: a normal key.
+    expect([s(mk, 'ArrowLeft'), s(mk, 'ArrowUp')]).toEqual(['key', 'arrow']);
+  });
+  it('has a soft and a hard press and release for every key sound', () => {
+    for (const k of KEY_SOUNDS)
+      for (const force of ['soft', 'hard'] as const)
+        for (const up of [false, true]) {
+          const name = keyClipName(k, force, up);
+          expect((KEYBOARD_CLIPS[name] as string[] | undefined)?.length, name).toBe(1);
+        }
+    expect(keyClipName('key', 'hard', false)).toBe('key-hard-down');
+    expect(keyClipName('power', 'hard', true)).toBe('power-up');
   });
 });

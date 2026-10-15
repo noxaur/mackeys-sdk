@@ -1,6 +1,6 @@
 // Recorded click sounds, played with Web Audio.
-// Keyboard: a press, its release and a space bar, cut from a CC0 recording of a 2021 14-inch MacBook Pro
-// (Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip).
+// Keyboard: a press and a release for each key class (see KeySound), soft and hard, recorded on a MacBook
+// with the Norwegian layout. `scripts/cut-clicks.py` cuts them from `spec/recordings`.
 // Trackpad: Force Touch press, release and force click, from a CC0 recording of a 2019 MacBook Pro
 // (Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf).
 import type { SoundSink } from './controller';
@@ -17,6 +17,18 @@ export interface ClipSet {
 
 export const KEYBOARD_CLIPS = keyboardClips as unknown as ClipSet;
 export const TRACKPAD_CLIPS = trackpadClips as unknown as ClipSet;
+
+/** `soft` is a normal key press, `hard` a forceful one. */
+export type KeyForce = 'soft' | 'hard';
+
+/**
+ * The keyboard clip for a key sound: `<sound>-<force>-down` or `<sound>-<force>-up`.
+ * A sound with one force (`power`) has `<sound>-down` and `<sound>-up`.
+ */
+export function keyClipName(kind: KeySound, force: KeyForce, up: boolean): string {
+  const name = kind + '-' + force + (up ? '-up' : '-down');
+  return name in KEYBOARD_CLIPS ? name : kind + (up ? '-up' : '-down');
+}
 
 /** Decodes one base64 clip to float samples in -1..1. */
 export function decodeClip(b64: string): Float32Array {
@@ -38,22 +50,26 @@ export interface ClickSoundOptions {
   volume?: number;
   /** Share an existing AudioContext. */
   context?: AudioContext;
+  /** The chance, 0 to 1, that a key press uses the hard recording. Default 0.2. */
+  hardness?: number;
 }
 
 /**
- * Plays the recorded clicks. Each press picks a different take, never the same one twice in a row,
- * with a small random pitch and level change. The AudioContext starts on the first sound,
- * so call it from a user gesture.
+ * Plays the recorded clicks. A key press plays its key class's soft or hard recording (hard with the chance
+ * `hardness`), with a small random pitch and level change. A release uses the force of the last press of
+ * that class. The AudioContext starts on the first sound, so call it from a user gesture.
  */
 export class ClickSound implements SoundSink {
   enabled = true;
   volume: number;
+  hardness: number;
   private ctx: AC | null;
   private bufs: Record<string, AudioBuffer[]> | null = null;
-  private lastKey = -1;
+  private force: Partial<Record<KeySound, KeyForce>> = {};
 
   constructor(opts: ClickSoundOptions = {}) {
     this.volume = opts.volume ?? 1;
+    this.hardness = opts.hardness ?? 0.2;
     this.ctx = opts.context ?? null;
   }
 
@@ -74,10 +90,9 @@ export class ClickSound implements SoundSink {
         buf.getChannelData(0).set(d);
         return buf;
       });
+    const keys = Object.keys(KEYBOARD_CLIPS).filter((k) => Array.isArray(KEYBOARD_CLIPS[k]));
     this.bufs = {
-      press: make(KEYBOARD_CLIPS, 'press'),
-      release: make(KEYBOARD_CLIPS, 'release'),
-      space: make(KEYBOARD_CLIPS, 'space'),
+      ...Object.fromEntries(keys.map((k) => [k, make(KEYBOARD_CLIPS, k)])),
       tpPress: make(TRACKPAD_CLIPS, 'press'),
       tpRelease: make(TRACKPAD_CLIPS, 'release'),
       tpForce: make(TRACKPAD_CLIPS, 'force')
@@ -92,12 +107,11 @@ export class ClickSound implements SoundSink {
     try {
       if (ctx.state === 'suspended') ctx.resume();
       const B = this.buffers(ctx);
-      const list = up ? B.release : kind === 'space' ? B.space : B.press;
-      let i = Math.floor(Math.random() * list.length);
-      if (list.length > 1 && i === this.lastKey) i = (i + 1) % list.length;
-      this.lastKey = i;
+      if (!up) this.force[kind] = Math.random() < this.hardness ? 'hard' : 'soft';
+      const list = B[keyClipName(kind, this.force[kind] ?? 'soft', up)];
+      if (!list?.length) return;
       const src = ctx.createBufferSource();
-      src.buffer = list[i];
+      src.buffer = list[Math.floor(Math.random() * list.length)];
       src.playbackRate.value = 0.985 + Math.random() * 0.03;
       const g = ctx.createGain();
       g.gain.value = this.volume * 0.85 * (0.85 + Math.random() * 0.15);

@@ -1,8 +1,8 @@
 //! Recorded click sounds: clip decoding, take selection and the trackpad filter. Port of the
 //! framework-free parts of `audio.ts`. Playback lives in the UI crate.
 //!
-//! Keyboard: a press, its release and a space bar, cut from a CC0 recording of a 2021 14-inch MacBook
-//! Pro (Freesound #853602, "Typing on Laptop Keyboard #2" by justamudkip).
+//! Keyboard: a press and a release for each key class (see [`KeySound`]), soft and hard, recorded on a
+//! MacBook with the Norwegian layout (`spec/recordings`, cut by `scripts/cut-clicks.py`).
 //! Trackpad: Force Touch press, release and force click, from a CC0 recording of a 2019 MacBook Pro
 //! (Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf).
 use crate::controller::TrackpadSound;
@@ -19,7 +19,7 @@ pub const TRACKPAD_CLIPS_JSON: &str = include_str!(concat!(env!("OUT_DIR"), "/tr
 pub struct ClipSet {
     pub source: String,
     pub sr: u32,
-    /// Base64 takes by kind (`press`, `release`, `space`, `force`).
+    /// Base64 takes by clip name (`key-soft-down`, `power-up`, `press`, `force` ...).
     pub clips: HashMap<String, Vec<String>>,
 }
 
@@ -58,6 +58,36 @@ pub fn keyboard_clips() -> &'static ClipSet {
 pub fn trackpad_clips() -> &'static ClipSet {
     static C: OnceLock<ClipSet> = OnceLock::new();
     C.get_or_init(|| ClipSet::parse(TRACKPAD_CLIPS_JSON).expect("trackpad-clicks.json"))
+}
+
+/// `Soft` is a normal key press, `Hard` a forceful one.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
+pub enum KeyForce {
+    Soft,
+    Hard,
+}
+
+/// The keyboard clip for a key sound: `<sound>-<force>-down` or `<sound>-<force>-up`.
+/// A sound with one force (`power`) has `<sound>-down` and `<sound>-up`.
+pub fn key_clip_name(kind: KeySound, force: KeyForce, up: bool) -> &'static str {
+    static NAMES: OnceLock<HashMap<(KeySound, KeyForce, bool), &'static str>> = OnceLock::new();
+    let names = NAMES.get_or_init(|| {
+        let clips = &keyboard_clips().clips;
+        let mut m = HashMap::new();
+        for k in KeySound::ALL {
+            for f in [KeyForce::Soft, KeyForce::Hard] {
+                for up in [false, true] {
+                    let dir = if up { "up" } else { "down" };
+                    let force = if f == KeyForce::Hard { "hard" } else { "soft" };
+                    let full = format!("{}-{force}-{dir}", k.name());
+                    let name = if clips.contains_key(&full) { full } else { format!("{}-{dir}", k.name()) };
+                    m.insert((k, f, up), &*Box::leak(name.into_boxed_str()));
+                }
+            }
+        }
+        m
+    });
+    names[&(kind, force, up)]
 }
 
 /// Decodes standard base64 (with or without padding). Skips whitespace and unknown characters.
@@ -128,46 +158,42 @@ impl Rng {
 /// One click to play: which take, at what playback rate and gain.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Voice {
-    /// `press`, `release`, `space` (keyboard) or `press`, `release`, `force` (trackpad).
+    /// A keyboard clip name ([`key_clip_name`]) or `press`, `release`, `force` (trackpad).
     pub kind: &'static str,
     pub take: usize,
     pub rate: f64,
     pub gain: f64,
 }
 
-/// Picks keyboard takes: never the same index twice in a row, rate `0.985 + rand * 0.03`, gain
-/// `0.85 * (0.85 + rand * 0.15)`.
+/// Picks keyboard clips: a press is hard with the chance `hardness`, else soft; a release uses the force
+/// of the last press of its class. Rate `0.985 + rand * 0.03`, gain `0.85 * (0.85 + rand * 0.15)`.
 #[derive(Clone, Debug)]
 pub struct VoicePicker {
     rng: Rng,
-    last_key: Option<usize>,
+    /// The chance, 0 to 1, that a key press uses the hard recording. Default 0.2.
+    pub hardness: f64,
+    force: HashMap<KeySound, KeyForce>,
 }
 
 impl Default for VoicePicker {
     fn default() -> Self {
-        VoicePicker { rng: Rng::from_time(), last_key: None }
+        VoicePicker { rng: Rng::from_time(), hardness: 0.2, force: HashMap::new() }
     }
 }
 
 impl VoicePicker {
     pub fn with_seed(seed: u64) -> Self {
-        VoicePicker { rng: Rng::new(seed), last_key: None }
+        VoicePicker { rng: Rng::new(seed), ..Default::default() }
     }
 
     pub fn key(&mut self, kind: KeySound, up: bool) -> Voice {
-        let name = if up {
-            "release"
-        } else if kind == KeySound::Space {
-            "space"
-        } else {
-            "press"
-        };
-        let n = keyboard_clips().clips.get(name).map(|l| l.len()).unwrap_or(1).max(1);
-        let mut i = (self.rng.next_f64() * n as f64) as usize % n;
-        if n > 1 && Some(i) == self.last_key {
-            i = (i + 1) % n;
+        if !up {
+            let hard = self.rng.next_f64() < self.hardness;
+            self.force.insert(kind, if hard { KeyForce::Hard } else { KeyForce::Soft });
         }
-        self.last_key = Some(i);
+        let name = key_clip_name(kind, self.force.get(&kind).copied().unwrap_or(KeyForce::Soft), up);
+        let n = keyboard_clips().clips.get(name).map(|l| l.len()).unwrap_or(1).max(1);
+        let i = (self.rng.next_f64() * n as f64) as usize % n;
         let rate = 0.985 + self.rng.next_f64() * 0.03;
         let gain = 0.85 * (0.85 + self.rng.next_f64() * 0.15);
         Voice { kind: name, take: i, rate, gain }
@@ -267,9 +293,16 @@ mod tests {
     #[test]
     fn clips() {
         let k = keyboard_clips();
-        assert_eq!(k.sr, 24000);
-        assert_eq!(k.clips["press"].len(), 6);
-        assert_eq!(k.decode("press")[0].len(), 4480 / 4 * 3 / 2);
+        assert_eq!(k.sr, 32000);
+        for kind in KeySound::ALL {
+            for f in [KeyForce::Soft, KeyForce::Hard] {
+                for up in [false, true] {
+                    assert_eq!(k.clips[key_clip_name(kind, f, up)].len(), 1);
+                }
+            }
+        }
+        assert_eq!(key_clip_name(KeySound::Power, KeyForce::Hard, false), "power-down");
+        assert!(k.decode("key-soft-down")[0].len() > 1600);
         let t = trackpad_clips();
         assert_eq!(t.sr, 48000);
         assert_eq!(t.clips["force"].len(), 1);
@@ -278,14 +311,18 @@ mod tests {
     }
 
     #[test]
-    fn picker_never_repeats() {
+    fn picker_mixes_forces_and_matches_releases() {
         let mut p = VoicePicker::with_seed(7);
-        let mut last = None;
-        for _ in 0..200 {
+        let mut hard = 0;
+        for _ in 0..500 {
             let v = p.key(KeySound::Key, false);
-            assert_ne!(Some(v.take), last);
             assert!(v.rate >= 0.985 && v.rate <= 1.015);
-            last = Some(v.take);
+            let r = p.key(KeySound::Key, true);
+            assert_eq!(r.kind, v.kind.replace("-down", "-up"));
+            hard += (v.kind == "key-hard-down") as u32;
         }
+        assert!((50..150).contains(&hard), "hard {hard}");
+        p.hardness = 0.0;
+        assert_eq!(p.key(KeySound::Enter, false).kind, "enter-soft-down");
     }
 }

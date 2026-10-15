@@ -90,14 +90,19 @@ pub struct ClipBank {
 impl ClipBank {
     /// Decodes every take (a few milliseconds).
     pub fn load() -> ClipBank {
-        use mackeys_core::{filter_trackpad_clip, keyboard_clips, trackpad_clips};
+        use mackeys_core::{filter_trackpad_clip, key_clip_name, keyboard_clips, trackpad_clips, KeyForce, KeySound};
         use std::sync::Arc;
         let k = keyboard_clips();
         let t = trackpad_clips();
         let arc = |v: Vec<Vec<f32>>| v.into_iter().map(Arc::from).collect::<Vec<Arc<[f32]>>>();
         let mut key = std::collections::HashMap::new();
-        for kind in ["press", "release", "space"] {
-            key.insert(kind, arc(k.decode(kind)));
+        for kind in KeySound::ALL {
+            for force in [KeyForce::Soft, KeyForce::Hard] {
+                for up in [false, true] {
+                    let name = key_clip_name(kind, force, up);
+                    key.entry(name).or_insert_with(|| arc(k.decode(name)));
+                }
+            }
         }
         let mut trackpad = std::collections::HashMap::new();
         for kind in ["press", "release", "force"] {
