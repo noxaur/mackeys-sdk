@@ -17,6 +17,7 @@ NPM_PACKAGES="packages/core/package.json packages/react/package.json packages/sv
 CARGO_WORKSPACE="rust/Cargo.toml"
 CARGO_GPUI="rust/crates/mackeys-gpui/Cargo.toml"
 CARGO_LOCK="rust/Cargo.lock"
+CARGO_CORE_DATA="rust/crates/mackeys-core/data"
 SWIFT_README="swift/README.md"
 
 BUMP=""
@@ -87,6 +88,11 @@ FILES="$NPM_PACKAGES $CARGO_WORKSPACE $CARGO_GPUI $CARGO_LOCK $SWIFT_README"
 echo "Release: $CURRENT -> $NEW"
 echo "Files:"
 for f in $FILES; do echo "  $f"; done
+if scripts/vendor-data.sh --check 2>/dev/null; then
+  echo "  ($CARGO_CORE_DATA is up to date)"
+else
+  echo "  $CARGO_CORE_DATA (refreshed from spec/)"
+fi
 
 if [ "$DRY_RUN" = 1 ]; then
   echo "Dry run: no changes made."
@@ -119,7 +125,11 @@ for f in $FILES; do
   git diff --quiet -- "$f" && die "$f did not change; check the file format"
 done
 
-git add $FILES
+# Rust: refresh the spec data that the published mackeys-core crate ships (it has no spec/ folder).
+scripts/vendor-data.sh
+scripts/vendor-data.sh --check
+
+git add $FILES "$CARGO_CORE_DATA"
 git commit -q -m "Release $NEW"
 git tag -a "$NEW" -m "Release $NEW"
 echo "Committed and tagged $NEW."
@@ -132,7 +142,11 @@ else
 fi
 
 cat <<EOF
-Publish with:
+Publish with (from a clean checkout of the tag):
   pnpm -r build && pnpm -r publish --access public
   (cd rust && cargo publish -p mackeys-core && cargo publish -p mackeys-gpui)
+Notes:
+  - pnpm -r publish refuses a branch that is not main. From a worktree branch, add --no-git-checks.
+  - cargo publish needs no --allow-dirty: rust/crates/mackeys-core/data/ is committed and refreshed above.
+  - Publish mackeys-core first; mackeys-gpui depends on the published mackeys-core $NEW.
 EOF

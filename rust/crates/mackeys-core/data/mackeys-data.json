@@ -1,0 +1,1461 @@
+{
+ "version": 1,
+ "unit": 64,
+ "rowPitch": 62.3,
+ "models": {
+  "pro": {
+   "W": 1053,
+   "H": 745,
+   "kbY": 65.8,
+   "wellPad": 8,
+   "padW": 437,
+   "padY": 454,
+   "padH": 272.7,
+   "hingeX": 125,
+   "grille": true,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ]
+  },
+  "neo": {
+   "W": 1002,
+   "H": 695,
+   "kbY": 49.4,
+   "wellPad": 7,
+   "padW": 390.5,
+   "padY": 434.9,
+   "padH": 243.5,
+   "hingeX": 131,
+   "grille": false,
+   "radius": [
+    30,
+    30,
+    32,
+    32
+   ]
+  },
+  "mk": {
+   "W": 939,
+   "H": 387,
+   "kbY": 11,
+   "wellPad": 0,
+   "padW": 0,
+   "padY": 0,
+   "padH": 0,
+   "hingeX": 0,
+   "grille": false,
+   "radius": [
+    18,
+    18,
+    18,
+    18
+   ]
+  },
+  "air": {
+   "W": 1024,
+   "H": 724,
+   "kbY": 50.6,
+   "wellPad": 7,
+   "padW": 432.5,
+   "padY": 437,
+   "padH": 270.1,
+   "hingeX": 120,
+   "grille": false,
+   "radius": [
+    20,
+    20,
+    26,
+    26
+   ]
+  }
+ },
+ "finishes": [
+  {
+   "id": "pro-space-black",
+   "name": "MacBook Pro · Space Black",
+   "model": "pro",
+   "dark": true,
+   "deck": [
+    "#4a484b",
+    "#2d2b2e"
+   ],
+   "pad": [
+    "#423f43",
+    "#2b292c"
+   ],
+   "side": [
+    "#1d1c1e",
+    "#0f0e10"
+   ],
+   "lid": [
+    "#7a787d",
+    "#3c3b3e",
+    "#232224"
+   ],
+   "edge": "rgba(255,255,255,.13)",
+   "dot": "rgba(0,0,0,.55)",
+   "wall": "radial-gradient(60% 45% at 52% 12%, #f8dcb4 0%, rgba(248,220,180,0) 75%), radial-gradient(55% 45% at 86% 92%, #f2b47c 0%, rgba(242,180,124,0) 72%), radial-gradient(90% 70% at 20% 30%, #f2c58a 0%, rgba(242,197,138,0) 60%), radial-gradient(80% 80% at 85% 70%, #2f7fe0 0%, rgba(47,127,224,0) 65%), linear-gradient(160deg, #3d7fd0 0%, #9fc3ea 30%, #f3d7aa 52%, #e8a868 66%, #2f66b8 100%)",
+   "ribbon": [
+    "#1a4fc0",
+    "#fff0d4",
+    "#123a94",
+    1,
+    "#7fd0ff"
+   ]
+  },
+  {
+   "id": "pro-silver",
+   "name": "MacBook Pro · Silver",
+   "model": "pro",
+   "dark": false,
+   "deck": [
+    "#dfdfe1",
+    "#e5e6e8"
+   ],
+   "pad": [
+    "#dadbdd",
+    "#e0e1e3"
+   ],
+   "side": [
+    "#bdbec1",
+    "#9c9da0"
+   ],
+   "lid": [
+    "#f0f0f2",
+    "#cbccce",
+    "#a5a6a9"
+   ],
+   "edge": "rgba(255,255,255,.95)",
+   "dot": "rgba(30,30,34,.6)",
+   "wall": "radial-gradient(60% 45% at 52% 12%, #fbe8cf 0%, rgba(251,232,207,0) 75%), radial-gradient(55% 45% at 86% 92%, #f7d3a8 0%, rgba(247,211,168,0) 72%), radial-gradient(90% 70% at 20% 30%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(80% 80% at 85% 70%, #4f9cf0 0%, rgba(79,156,240,0) 65%), linear-gradient(160deg, #6aaef5 0%, #cfe3fa 32%, #f6e8d2 52%, #b8c8f2 70%, #4d84d8 100%)",
+   "ribbon": [
+    "#2f78e0",
+    "#fff4e0",
+    "#1f5cc0",
+    0,
+    "#8fd8ff"
+   ]
+  },
+  {
+   "id": "air-midnight",
+   "name": "MacBook Air · Midnight",
+   "model": "air",
+   "dark": true,
+   "deck": [
+    "#48505c",
+    "#535b68"
+   ],
+   "pad": [
+    "#4a525e",
+    "#545c69"
+   ],
+   "side": [
+    "#343a44",
+    "#22262d"
+   ],
+   "lid": [
+    "#c6c9ce",
+    "#7d838c",
+    "#464c56"
+   ],
+   "edge": "rgba(225,232,245,.22)",
+   "dot": "rgba(0,0,0,.6)",
+   "wall": "radial-gradient(90% 70% at 25% 30%, #6f9de6 0%, rgba(111,157,230,0) 60%), radial-gradient(80% 80% at 85% 75%, #1f4fa3 0%, rgba(31,79,163,0) 65%), linear-gradient(160deg, #1d3a74 0%, #3f74c9 38%, #9dbdec 58%, #2b5aa8 78%, #142a58 100%)",
+   "ribbon": [
+    "#1c3f96",
+    "#d6e4fa",
+    "#122d70",
+    1,
+    "#8fb8f0"
+   ]
+  },
+  {
+   "id": "air-starlight",
+   "name": "MacBook Air · Starlight",
+   "model": "air",
+   "dark": false,
+   "deck": [
+    "#e8e1d7",
+    "#eee7dd"
+   ],
+   "pad": [
+    "#e8e1d7",
+    "#ede6dc"
+   ],
+   "side": [
+    "#d3cabc",
+    "#b2a899"
+   ],
+   "lid": [
+    "#f7f4f0",
+    "#ddd6cb",
+    "#b9b0a2"
+   ],
+   "edge": "rgba(255,253,248,.95)",
+   "dot": "rgba(60,50,30,.5)",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #f0c98a 0%, rgba(240,201,138,0) 55%), radial-gradient(80% 70% at 85% 10%, #fff3dc 0%, rgba(255,243,220,0) 60%), radial-gradient(60% 50% at 55% 55%, #d9a463 0%, rgba(217,164,99,0) 60%), linear-gradient(165deg, #f6e9d3 0%, #e3c597 55%, #b98a52 100%)",
+   "ribbon": [
+    "#7f9fcf",
+    "#fff1d8",
+    "#5f80b8",
+    0,
+    "#f2b27a"
+   ]
+  },
+  {
+   "id": "air-sky-blue",
+   "name": "MacBook Air · Sky Blue",
+   "model": "air",
+   "dark": false,
+   "deck": [
+    "#cdd8de",
+    "#d5e0e6"
+   ],
+   "pad": [
+    "#c9d4da",
+    "#cfdae0"
+   ],
+   "side": [
+    "#b3c0c7",
+    "#94a1a8"
+   ],
+   "lid": [
+    "#eff2f4",
+    "#ced8dd",
+    "#a7b4bb"
+   ],
+   "edge": "rgba(250,253,255,.95)",
+   "dot": "rgba(30,40,50,.5)",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #6fb4e8 0%, rgba(111,180,232,0) 55%), radial-gradient(80% 70% at 85% 10%, #e9f6ff 0%, rgba(233,246,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #9fd3f2 0%, rgba(159,211,242,0) 60%), linear-gradient(165deg, #d9eefb 0%, #9cc9ea 55%, #5b95c7 100%)",
+   "ribbon": [
+    "#4f9be0",
+    "#f2fbff",
+    "#f2b27a",
+    0,
+    "#9fd6ff"
+   ]
+  },
+  {
+   "id": "air-silver",
+   "name": "MacBook Air · Silver",
+   "model": "air",
+   "dark": false,
+   "deck": [
+    "#dadbdd",
+    "#e2e3e5"
+   ],
+   "pad": [
+    "#d3d4d6",
+    "#d8d9db"
+   ],
+   "side": [
+    "#bdbec1",
+    "#9fa0a3"
+   ],
+   "lid": [
+    "#f3f3f4",
+    "#d4d5d7",
+    "#adaeb1"
+   ],
+   "edge": "rgba(255,255,255,.95)",
+   "dot": "rgba(30,30,34,.5)",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #b9c2d0 0%, rgba(185,194,208,0) 55%), radial-gradient(80% 70% at 85% 10%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #d6dce6 0%, rgba(214,220,230,0) 60%), linear-gradient(165deg, #f1f3f6 0%, #cfd5de 55%, #9aa3b1 100%)",
+   "ribbon": [
+    "#8fa6c8",
+    "#ffffff",
+    "#c9a7d8",
+    0
+   ]
+  },
+  {
+   "id": "neo-silver",
+   "name": "MacBook Neo · Silver",
+   "model": "neo",
+   "dark": false,
+   "deck": [
+    "#dcdde0",
+    "#e2e3e5"
+   ],
+   "pad": [
+    "#dadbdd",
+    "#dcdddf"
+   ],
+   "side": [
+    "#bfc0c3",
+    "#a2a3a6"
+   ],
+   "lid": [
+    "#f2f2f4",
+    "#e0e1e3",
+    "#b6b7ba"
+   ],
+   "edge": "rgba(255,255,255,.95)",
+   "dot": "transparent",
+   "kf": "#eaebed",
+   "kl": "#434446",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #c3c9e6 0%, rgba(195,201,230,0) 55%), radial-gradient(80% 70% at 85% 10%, #ffffff 0%, rgba(255,255,255,0) 60%), radial-gradient(60% 50% at 55% 55%, #dcdff0 0%, rgba(220,223,240,0) 60%), linear-gradient(165deg, #f3f4f8 0%, #d3d7e6 55%, #9ea5c0 100%)",
+   "ribbon": [
+    "#9aa6e0",
+    "#ffffff",
+    "#e0b3d0",
+    0
+   ]
+  },
+  {
+   "id": "neo-blush",
+   "name": "MacBook Neo · Blush",
+   "model": "neo",
+   "dark": false,
+   "deck": [
+    "#e9d0d0",
+    "#edd5d5"
+   ],
+   "pad": [
+    "#e6cdcd",
+    "#e8d0d0"
+   ],
+   "side": [
+    "#d4b9b9",
+    "#b99d9d"
+   ],
+   "lid": [
+    "#f7e6e5",
+    "#ead0cf",
+    "#c9abab"
+   ],
+   "edge": "rgba(255,248,248,.95)",
+   "dot": "transparent",
+   "kf": "#f1dfdf",
+   "kl": "#4d4845",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #f2a7b4 0%, rgba(242,167,180,0) 55%), radial-gradient(80% 70% at 85% 10%, #fff1f1 0%, rgba(255,241,241,0) 60%), radial-gradient(60% 50% at 55% 55%, #f7c6c6 0%, rgba(247,198,198,0) 60%), linear-gradient(165deg, #fbe7e7 0%, #efbcbf 55%, #c98390 100%)",
+   "ribbon": [
+    "#f07f98",
+    "#ffe6e9",
+    "#b98fe0",
+    0
+   ]
+  },
+  {
+   "id": "neo-citrus",
+   "name": "MacBook Neo · Citrus",
+   "model": "neo",
+   "dark": false,
+   "deck": [
+    "#e7e593",
+    "#edeb98"
+   ],
+   "pad": [
+    "#e6e592",
+    "#e8e794"
+   ],
+   "side": [
+    "#d0ce7c",
+    "#b3b163"
+   ],
+   "lid": [
+    "#f3f1b0",
+    "#e2e08d",
+    "#bebc69"
+   ],
+   "edge": "rgba(255,255,235,.9)",
+   "dot": "transparent",
+   "kf": "#f4f3bc",
+   "kl": "#47414b",
+   "wall": "radial-gradient(110% 80% at 25% 105%, #d9e04a 0%, rgba(217,224,74,0) 55%), radial-gradient(80% 70% at 85% 10%, #fffbd6 0%, rgba(255,251,214,0) 60%), radial-gradient(60% 50% at 55% 55%, #f0ec7a 0%, rgba(240,236,122,0) 60%), linear-gradient(165deg, #fbf8c9 0%, #ece57c 55%, #b9b23a 100%)",
+   "ribbon": [
+    "#c9d22e",
+    "#fffbd6",
+    "#5fc7a8",
+    0
+   ]
+  },
+  {
+   "id": "neo-indigo",
+   "name": "MacBook Neo · Indigo",
+   "model": "neo",
+   "dark": true,
+   "deck": [
+    "#4f5a70",
+    "#59647a"
+   ],
+   "pad": [
+    "#4d586e",
+    "#525d73"
+   ],
+   "side": [
+    "#38425a",
+    "#262e40"
+   ],
+   "lid": [
+    "#8a94ab",
+    "#5d6880",
+    "#353f55"
+   ],
+   "edge": "rgba(220,228,250,.2)",
+   "dot": "transparent",
+   "kf": "#8e99b7",
+   "kl": "#2c3232",
+   "wall": "radial-gradient(90% 70% at 25% 30%, #a79cf2 0%, rgba(167,156,242,0) 60%), radial-gradient(80% 80% at 85% 75%, #3a46c8 0%, rgba(58,70,200,0) 65%), linear-gradient(160deg, #262c78 0%, #5560d8 38%, #c3b8f6 58%, #4a52c8 78%, #1c2160 100%)",
+   "ribbon": [
+    "#3a3fc0",
+    "#ece6ff",
+    "#262a96",
+    1,
+    "#a9a6ff"
+   ]
+  },
+  {
+   "id": "imac-silver",
+   "name": "iMac · Silver",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#e1e2e4",
+    "#d4d5d9"
+   ],
+   "pad": [
+    "#e1e2e4",
+    "#d4d5d9"
+   ],
+   "side": [
+    "#bfc0c3",
+    "#a1a2a5"
+   ],
+   "lid": [
+    "#ececee",
+    "#d4d5d9",
+    "#aaaaae"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-blue",
+   "name": "iMac · Blue",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#d8e0eb",
+    "#c7d2e2"
+   ],
+   "pad": [
+    "#d8e0eb",
+    "#c7d2e2"
+   ],
+   "side": [
+    "#b3bdcb",
+    "#97a0ac"
+   ],
+   "lid": [
+    "#e6ebf2",
+    "#c7d2e2",
+    "#9fa8b5"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-purple",
+   "name": "iMac · Purple",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#dfdce9",
+    "#d1cde0"
+   ],
+   "pad": [
+    "#dfdce9",
+    "#d1cde0"
+   ],
+   "side": [
+    "#bcb8ca",
+    "#9f9caa"
+   ],
+   "lid": [
+    "#eae8f1",
+    "#d1cde0",
+    "#a7a4b3"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-pink",
+   "name": "iMac · Pink",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#f0d8de",
+    "#eac7d0"
+   ],
+   "pad": [
+    "#f0d8de",
+    "#eac7d0"
+   ],
+   "side": [
+    "#d3b3bb",
+    "#b2979e"
+   ],
+   "lid": [
+    "#f6e6ea",
+    "#eac7d0",
+    "#bb9fa6"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-orange",
+   "name": "iMac · Orange",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#f1dcd3",
+    "#ebcdc0"
+   ],
+   "pad": [
+    "#f1dcd3",
+    "#ebcdc0"
+   ],
+   "side": [
+    "#d4b8ad",
+    "#b39c92"
+   ],
+   "lid": [
+    "#f6e8e3",
+    "#ebcdc0",
+    "#bca49a"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-yellow",
+   "name": "iMac · Yellow",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#ece4ce",
+    "#e4d9b9"
+   ],
+   "pad": [
+    "#ece4ce",
+    "#e4d9b9"
+   ],
+   "side": [
+    "#cdc3a6",
+    "#ada58d"
+   ],
+   "lid": [
+    "#f3eee0",
+    "#e4d9b9",
+    "#b6ae94"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  },
+  {
+   "id": "imac-green",
+   "name": "iMac · Green",
+   "model": "mk",
+   "dark": false,
+   "deck": [
+    "#d6e3db",
+    "#c4d7cc"
+   ],
+   "pad": [
+    "#d6e3db",
+    "#c4d7cc"
+   ],
+   "side": [
+    "#b0c2b8",
+    "#95a39b"
+   ],
+   "lid": [
+    "#e4ede8",
+    "#c4d7cc",
+    "#9daca3"
+   ],
+   "edge": "rgba(255,255,255,.9)",
+   "dot": "transparent",
+   "kf": "#f6f7f9",
+   "kl": "#4a4a4c",
+   "wall": "linear-gradient(165deg, #f1f3f6 0%, #cfd5de 100%)",
+   "ribbon": [
+    "#d0d6e0",
+    "#ffffff",
+    "#a8b0bd",
+    0
+   ]
+  }
+ ],
+ "layouts": [
+  {
+   "id": "en-us",
+   "name": "English (US)",
+   "iso": false,
+   "en": true,
+   "num": "~` !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=",
+   "q": "Q W E R T Y U I O P {[ }] |\\",
+   "a": "A S D F G H J K L :; \"'",
+   "z": "Z X C V B N M <, >. ?/"
+  },
+  {
+   "id": "en-gb",
+   "name": "English (UK)",
+   "iso": true,
+   "en": false,
+   "num": "±§ !1 @2€ £3# $4 %5 ^6 &7 *8 (9 )0 _- +=",
+   "q": "Q W E R T Y U I O P {[ }]",
+   "a": "A S D F G H J K L :; \"' |\\",
+   "x": "~`",
+   "z": "Z X C V B N M <, >. ?/"
+  },
+  {
+   "id": "de",
+   "name": "German",
+   "iso": true,
+   "en": false,
+   "num": "°^ !1 \"2 §3 $4 %5 &6 /7 (8 )9 =0 ?ß `´",
+   "q": "Q W E|€ R T Z U I O P Ü *+",
+   "a": "A S D F G H J K L|@ Ö Ä '#",
+   "x": "><",
+   "z": "Y X C V B N M ;, :. _-"
+  },
+  {
+   "id": "fr",
+   "name": "French",
+   "iso": true,
+   "en": false,
+   "num": "#@ 1& 2é 3\" 4' 5( 6§ 7è 8! 9ç 0à °) _-",
+   "q": "A Z E R T Y U I O P ¨^ *$€",
+   "a": "Q S D F G H J K L M %ù £`",
+   "x": "><",
+   "z": "W X C V B N ?, .; /: +="
+  },
+  {
+   "id": "es",
+   "name": "Spanish",
+   "iso": true,
+   "en": false,
+   "num": "ªº\\ !1| \"2@ ·3# $4 %5 &6 /7 (8 )9 =0 ?' ¿¡",
+   "q": "Q W E|€ R T Y U I O P ^`[ *+]",
+   "a": "A S D F G H J K L Ñ ¨´{ Ç|}",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "sv-fi",
+   "name": "Swedish / Finnish",
+   "iso": true,
+   "en": false,
+   "num": "°§ !1 \"2@ #3 €4 %5 &6 /7 (8 )9 =0 ?+ `´",
+   "q": "Q W E R T Y U I O P Å ^¨",
+   "a": "A S D F G H J K L Ö Ä *'",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "no",
+   "name": "Norwegian",
+   "iso": true,
+   "en": false,
+   "num": "§' !1 \"2 #3 $4€ %5 &6 /7 (8 )9 =0 ?+ `´",
+   "q": "Q W E R T Y U I O P Å ^¨",
+   "a": "A S D F G H J K L Ø Æ *@",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "da",
+   "name": "Danish",
+   "iso": true,
+   "en": false,
+   "num": "§$ !1 \"2 #3 €4 %5 &6 /7 (8 )9 =0 ?+ `´",
+   "q": "Q W E R T Y U I O P Å ^¨",
+   "a": "A S D F G H J K L Æ Ø *'@",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "it",
+   "name": "Italian",
+   "iso": true,
+   "en": false,
+   "num": "|\\ !1 \"2 £3 $4 %5 &6 /7 (8 )9 =0 ?' ^ì",
+   "q": "Q W E|€ R T Y U I O P éè[ *+]",
+   "a": "A S D F G H J K L çò@ °à# §ù",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "ja",
+   "name": "Japanese",
+   "iso": false,
+   "en": false,
+   "jis": true
+  },
+  {
+   "id": "nl",
+   "name": "Dutch",
+   "iso": true,
+   "en": false,
+   "num": "±§ !1 @2€ #3 $4 %5 ^6 &7 *8 (9 )0 _- +=",
+   "q": "Q W E R T Y U I O P {[ }]",
+   "a": "A S D F G H J K L :; \"' |\\",
+   "x": "~`",
+   "z": "Z X C V B N M <, >. ?/"
+  },
+  {
+   "id": "en-intl",
+   "name": "English (International)",
+   "iso": true,
+   "en": false,
+   "num": "±§ !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=",
+   "q": "Q W E R T Y U I O P {[ }]",
+   "a": "A S D F G H J K L :; \"' |\\",
+   "x": "~`",
+   "z": "Z X C V B N M <, >. ?/"
+  },
+  {
+   "id": "ch",
+   "name": "Swiss",
+   "iso": true,
+   "en": false,
+   "num": "°§ +1 \"2 *3# ç4 %5 &6 /7 (8 )9 =0 ?' `^",
+   "q": "Q W E|€ R T Z U I O P èü !¨",
+   "a": "A S D F G|@ H J K L éö àä £$",
+   "x": "><",
+   "z": "Y X C V B N M ;, :. _-"
+  },
+  {
+   "id": "pt",
+   "name": "Portuguese",
+   "iso": true,
+   "en": false,
+   "num": "±§ !1 \"2@ #3€ $4 %5 &6 /7 (8 )9 =0 ?' *+",
+   "q": "Q W E R T Y U I O P ªº `´",
+   "a": "A S D F G H J K L Ç ^~ |\\",
+   "x": "><",
+   "z": "Z X C V B N M ;, :. _-"
+  },
+  {
+   "id": "ru",
+   "name": "Russian",
+   "iso": true,
+   "en": false,
+   "num": "±§¦<> !1 @2¦\"· #3¦№· $4¦%· %5¦:· ^6¦,· &7¦.· *8¦;· (9 )0 _- +=",
+   "q": "Q¦Й W¦Ц E¦У R¦К T¦Е Y¦Н U¦Г I¦Ш O¦Щ P¦З {[¦·Х }]¦·Ъ",
+   "a": "A¦Ф S¦Ы D¦В F¦А G¦П H¦₽Р J¦О K¦Л L¦Д :;¦·Ж \"'¦·Э |\\¦·Ё",
+   "x": "~`¦[]",
+   "z": "Z¦Я X¦Ч C¦С V¦М B¦И N¦Т M¦Ь <,¦·Б >.¦·Ю ?/"
+  },
+  {
+   "id": "ko",
+   "name": "Korean",
+   "iso": false,
+   "en": false,
+   "caps": "한/A",
+   "num": "~₩ !1 @2 #3 $4 %5 ^6 &7 *8 (9 )0 _- +=",
+   "q": "ㅃㅂ¦Q· ㅉㅈ¦W· ㄸㄷ¦E· ㄲㄱ¦R· ㅆㅅ¦T· ·ㅛ¦Y· ·ㅕ¦U· ·ㅑ¦I· ㅒㅐ¦O· ㅖㅔ¦P· {[ }] |\\",
+   "a": "·ㅁ¦A· ·ㄴ¦S· ·ㅇ¦D· ·ㄹ¦F· ·ㅎ¦G· ·ㅗ¦H· ·ㅓ¦J· ·ㅏ¦K· ·ㅣ¦L· :; \"'",
+   "z": "·ㅋ¦Z· ·ㅌ¦X· ·ㅊ¦C· ·ㅍ¦V· ·ㅠ¦B· ·ㅜ¦N· ·ㅡ¦M· <, >. ?/"
+  }
+ ],
+ "defaultCustomLayout": {
+  "kind": "ISO",
+  "num": "§ 1 2 3 4 5 6 7 8 9 0 - =",
+  "q": "Q W E R T Y U I O P [ ]",
+  "a": "A S D F G H J K L ; ' \\",
+  "x": "`",
+  "z": "Z X C V B N M , . /"
+ },
+ "jis": {
+  "num": [
+   [
+    "!",
+    "1",
+    "ぬ",
+    "",
+    1.25
+   ],
+   [
+    "\"",
+    "2",
+    "ふ"
+   ],
+   [
+    "#",
+    "3",
+    "あ",
+    "ぁ"
+   ],
+   [
+    "$",
+    "4",
+    "う",
+    "ぅ"
+   ],
+   [
+    "%",
+    "5",
+    "え",
+    "ぇ"
+   ],
+   [
+    "&",
+    "6",
+    "お",
+    "ぉ"
+   ],
+   [
+    "'",
+    "7",
+    "や",
+    "ゃ"
+   ],
+   [
+    "(",
+    "8",
+    "ゆ",
+    "ゅ"
+   ],
+   [
+    ")",
+    "9",
+    "よ",
+    "ょ"
+   ],
+   [
+    "",
+    "0",
+    "わ",
+    "を"
+   ],
+   [
+    "=",
+    "-",
+    "ほ"
+   ],
+   [
+    "~",
+    "^",
+    "へ"
+   ],
+   [
+    "|",
+    "¥",
+    "ー"
+   ]
+  ],
+  "qLetters": [
+   [
+    "Q",
+    "た"
+   ],
+   [
+    "W",
+    "て"
+   ],
+   [
+    "E",
+    "い",
+    "ぃ"
+   ],
+   [
+    "R",
+    "す"
+   ],
+   [
+    "T",
+    "か"
+   ],
+   [
+    "Y",
+    "ん"
+   ],
+   [
+    "U",
+    "な"
+   ],
+   [
+    "I",
+    "に"
+   ],
+   [
+    "O",
+    "ら"
+   ],
+   [
+    "P",
+    "せ"
+   ]
+  ],
+  "qSymbols": [
+   [
+    "`",
+    "@",
+    "゛"
+   ],
+   [
+    "{",
+    "[",
+    "゜",
+    "「"
+   ]
+  ],
+  "aLetters": [
+   [
+    "A",
+    "ち"
+   ],
+   [
+    "S",
+    "と"
+   ],
+   [
+    "D",
+    "し"
+   ],
+   [
+    "F",
+    "は"
+   ],
+   [
+    "G",
+    "き"
+   ],
+   [
+    "H",
+    "く"
+   ],
+   [
+    "J",
+    "ま"
+   ],
+   [
+    "K",
+    "の"
+   ],
+   [
+    "L",
+    "り"
+   ]
+  ],
+  "aSymbols": [
+   [
+    "+",
+    ";",
+    "れ"
+   ],
+   [
+    "*",
+    ":",
+    "け"
+   ],
+   [
+    "}",
+    "]",
+    "む",
+    "」"
+   ]
+  ],
+  "zLetters": [
+   [
+    "Z",
+    "つ",
+    "っ"
+   ],
+   [
+    "X",
+    "さ"
+   ],
+   [
+    "C",
+    "そ"
+   ],
+   [
+    "V",
+    "ひ"
+   ],
+   [
+    "B",
+    "こ"
+   ],
+   [
+    "N",
+    "み"
+   ],
+   [
+    "M",
+    "も"
+   ]
+  ],
+  "zSymbols": [
+   [
+    "<",
+    ",",
+    "ね",
+    "、"
+   ],
+   [
+    ">",
+    ".",
+    "る",
+    "。"
+   ],
+   [
+    "?",
+    "/",
+    "め",
+    "・"
+   ],
+   [
+    "_",
+    "",
+    "ろ"
+   ]
+  ]
+ },
+ "glyphs": {
+  "fkeys": [
+   {
+    "name": "brightness down",
+    "w": 10.5,
+    "h": 10.5,
+    "viewBox": [
+     0,
+     0,
+     10.5,
+     10.5
+    ],
+    "stroke": "M3.65 5.25a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0M8.65 5.25L9.85 5.25M7.65 7.65L8.5 8.5M5.25 8.65L5.25 9.85M2.85 7.65L2 8.5M1.85 5.25L0.65 5.25M2.85 2.85L2 2M5.25 1.85L5.25 0.65M7.65 2.85L8.5 2",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 11.24,
+    "drawH": 11.24
+   },
+   {
+    "name": "brightness up",
+    "w": 11.4,
+    "h": 11.4,
+    "viewBox": [
+     0,
+     0,
+     11.4,
+     11.4
+    ],
+    "stroke": "M3.5 5.7a2.2 2.2 0 1 0 4.4 0a2.2 2.2 0 1 0 -4.4 0M9.3 5.7L10.8 5.7M8.25 8.25L9.31 9.31M5.7 9.3L5.7 10.8M3.15 8.25L2.09 9.31M2.1 5.7L0.6 5.7M3.15 3.15L2.09 2.09M5.7 2.1L5.7 0.6M8.25 3.15L9.31 2.09",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 12.2,
+    "drawH": 12.2
+   },
+   {
+    "name": "Mission Control",
+    "w": 15.8,
+    "h": 10.5,
+    "viewBox": [
+     0,
+     0,
+     15.8,
+     10.5
+    ],
+    "stroke": "M1.55 0.55h3.9a1 1 0 0 1 1 1v2.2a1 1 0 0 1 -1 1h-3.9a1 1 0 0 1 -1 -1v-2.2a1 1 0 0 1 1 -1zM1.55 5.75h3.9a1 1 0 0 1 1 1v2.2a1 1 0 0 1 -1 1h-3.9a1 1 0 0 1 -1 -1v-2.2a1 1 0 0 1 1 -1zM10.4 0.55h3.85a1 1 0 0 1 1 1v7.4a1 1 0 0 1 -1 1h-3.85a1 1 0 0 1 -1 -1v-7.4a1 1 0 0 1 1 -1z",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 16.91,
+    "drawH": 11.24
+   },
+   {
+    "name": "Spotlight",
+    "w": 10.5,
+    "h": 10.5,
+    "viewBox": [
+     0,
+     0,
+     10.5,
+     10.5
+    ],
+    "stroke": "M0.7 4.3a3.6 3.6 0 1 0 7.2 0a3.6 3.6 0 1 0 -7.2 0M6.9 6.9L9.95 9.95",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 11.24,
+    "drawH": 11.24
+   },
+   {
+    "name": "Dictation",
+    "w": 8.2,
+    "h": 12.3,
+    "viewBox": [
+     0,
+     0,
+     8.2,
+     12.3
+    ],
+    "stroke": "M4.1 0.55h0a1.7 1.7 0 0 1 1.7 1.7v2.8a1.7 1.7 0 0 1 -1.7 1.7h-0a1.7 1.7 0 0 1 -1.7 -1.7v-2.8a1.7 1.7 0 0 1 1.7 -1.7zM.6 5.2a3.5 3.5 0 0 0 7 0M4.1 8.75v2.6M2.55 11.75h3.1",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 8.77,
+    "drawH": 13.16
+   },
+   {
+    "name": "Do Not Disturb",
+    "w": 10.5,
+    "h": 10.5,
+    "viewBox": [
+     5,
+     3.8,
+     15.2,
+     15.2
+    ],
+    "stroke": "M19.5 14.6A7.6 7.6 0 0 1 9.4 4.5a7.6 7.6 0 1 0 10.1 10.1z",
+    "fill": "",
+    "strokeWidth": 1.6,
+    "drawW": 11.24,
+    "drawH": 11.24
+   },
+   {
+    "name": "previous track",
+    "w": 14.9,
+    "h": 8.8,
+    "viewBox": [
+     0,
+     0,
+     14.9,
+     8.8
+    ],
+    "stroke": "M7 .55L.55 4.4L7 8.25zM14.35 .55L7.8 4.4L14.35 8.25z",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 15.94,
+    "drawH": 9.42
+   },
+   {
+    "name": "play or pause",
+    "w": 14,
+    "h": 8.8,
+    "viewBox": [
+     0,
+     0,
+     14,
+     8.8
+    ],
+    "stroke": "M.55 .55L6.7 4.4L.55 8.25zM9.7 .55v7.7M13.45 .55v7.7",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 14.98,
+    "drawH": 9.42
+   },
+   {
+    "name": "next track",
+    "w": 15.8,
+    "h": 8.8,
+    "viewBox": [
+     0,
+     0,
+     15.8,
+     8.8
+    ],
+    "stroke": "M.55 .55L7.2 4.4L.55 8.25zM8.2 .55L15.25 4.4L8.2 8.25z",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 16.91,
+    "drawH": 9.42
+   },
+   {
+    "name": "mute",
+    "w": 9.6,
+    "h": 9.6,
+    "viewBox": [
+     0,
+     0,
+     9.6,
+     9.6
+    ],
+    "stroke": "M.55 3.5h2.1L5.4 1.1v7.4L2.65 6.1H.55zM.9 .8L9.05 8.8",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 10.27,
+    "drawH": 10.27
+   },
+   {
+    "name": "volume down",
+    "w": 10.5,
+    "h": 9.6,
+    "viewBox": [
+     0,
+     0,
+     10.5,
+     9.6
+    ],
+    "stroke": "M.55 3.5h2.2L5.8 .75v8.1L2.75 6.1H.55zM7.7 2.9A2.6 2.6 0 0 1 7.7 6.8",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 11.24,
+    "drawH": 10.27
+   },
+   {
+    "name": "volume up",
+    "w": 14.9,
+    "h": 10.5,
+    "viewBox": [
+     0,
+     0,
+     14.9,
+     10.5
+    ],
+    "stroke": "M.55 3.9h2.3L6.1 .8v8.9L2.85 6.6H.55zM7.9 3.3A2.4 2.4 0 0 1 7.9 7.2M9.7 2A4.2 4.2 0 0 1 9.7 8.5M11.5 .8A6 6 0 0 1 11.5 9.7",
+    "fill": "",
+    "strokeWidth": 1.05,
+    "drawW": 15.94,
+    "drawH": 11.24
+   }
+  ],
+  "mods": {
+   "ctrl": {
+    "name": "control",
+    "w": 10.2,
+    "h": 6,
+    "viewBox": [
+     0,
+     0,
+     10.2,
+     6
+    ],
+    "stroke": "M.6 5.4L5.1 .6L9.6 5.4",
+    "fill": "",
+    "strokeWidth": 1.1
+   },
+   "opt": {
+    "name": "option",
+    "w": 12.6,
+    "h": 11.2,
+    "viewBox": [
+     0,
+     0,
+     12.6,
+     11.2
+    ],
+    "stroke": "M.6 .9H4.6L8.4 10.3H12M8.5 .9H12",
+    "fill": "",
+    "strokeWidth": 1.1
+   },
+   "cmd": {
+    "name": "command",
+    "w": 11.6,
+    "h": 11.6,
+    "viewBox": [
+     3.2,
+     3.2,
+     17.6,
+     17.6
+    ],
+    "stroke": "M9 9V6.5A2.5 2.5 0 1 0 6.5 9H17.5A2.5 2.5 0 1 0 15 6.5V17.5A2.5 2.5 0 1 0 17.5 15H6.5A2.5 2.5 0 1 0 9 17.5Z",
+    "fill": "",
+    "strokeWidth": 1.6
+   }
+  },
+  "icons": {
+   "tab": {
+    "name": "tab",
+    "w": 12.3,
+    "h": 9,
+    "viewBox": [
+     0,
+     0,
+     12.3,
+     9
+    ],
+    "stroke": "M.6 4.5H10.3M6.85 1.05L10.3 4.5L6.85 7.95M11.7 .6V8.4",
+    "fill": "",
+    "strokeWidth": 1.05
+   },
+   "caps": {
+    "name": "caps lock",
+    "w": 12.4,
+    "h": 12.6,
+    "viewBox": [
+     0,
+     0,
+     12.4,
+     12.6
+    ],
+    "stroke": "M6.2 .65L11.75 5.85H8.85V8.45H3.55V5.85H.65ZM3.55 10.3H8.85V11.95H3.55Z",
+    "fill": "",
+    "strokeWidth": 1.05
+   },
+   "shift": {
+    "name": "shift",
+    "w": 12.7,
+    "h": 11,
+    "viewBox": [
+     0,
+     0,
+     12.7,
+     11
+    ],
+    "stroke": "M6.35 .65L12.05 6.35H9.05V10.35H3.65V6.35H.65Z",
+    "fill": "",
+    "strokeWidth": 1.05
+   },
+   "del": {
+    "name": "delete",
+    "w": 12.7,
+    "h": 11,
+    "viewBox": [
+     0,
+     0,
+     12.7,
+     11
+    ],
+    "stroke": "M4.3 .65H11.05A1 1 0 0 1 12.05 1.65V9.35A1 1 0 0 1 11.05 10.35H4.3L.65 5.5ZM6.2 3.4L9.6 7.6M9.6 3.4L6.2 7.6",
+    "fill": "",
+    "strokeWidth": 1.05
+   },
+   "ret": {
+    "name": "return",
+    "w": 12.3,
+    "h": 11,
+    "viewBox": [
+     0,
+     0,
+     12.3,
+     11
+    ],
+    "stroke": "M11.65 .6V6.1A1.2 1.2 0 0 1 10.45 7.3H1.3M4.5 4.1L1.2 7.3L4.5 10.5",
+    "fill": "",
+    "strokeWidth": 1.05
+   }
+  },
+  "globe": {
+   "name": "globe",
+   "w": 13,
+   "h": 13,
+   "viewBox": [
+    3,
+    3,
+    18,
+    18
+   ],
+   "stroke": "M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0M3 12h18M12 3c2.6 2.5 3.8 5.6 3.8 9s-1.2 6.5-3.8 9c-2.6-2.5-3.8-5.6-3.8-9s1.2-6.5 3.8-9z",
+   "fill": "",
+   "strokeWidth": 1.45
+  },
+  "arrows": {
+   "up": {
+    "name": "up arrow",
+    "w": 6.4,
+    "h": 5.6,
+    "viewBox": [
+     0,
+     0,
+     6.4,
+     5.6
+    ],
+    "stroke": "",
+    "fill": "M3.2 .3L6.1 5.3H.3Z",
+    "strokeWidth": 0
+   },
+   "down": {
+    "name": "down arrow",
+    "w": 6.4,
+    "h": 5.6,
+    "viewBox": [
+     0,
+     0,
+     6.4,
+     5.6
+    ],
+    "stroke": "",
+    "fill": "M3.2 5.3L.3 .3H6.1Z",
+    "strokeWidth": 0
+   },
+   "left": {
+    "name": "left arrow",
+    "w": 5.6,
+    "h": 6.4,
+    "viewBox": [
+     0,
+     0,
+     5.6,
+     6.4
+    ],
+    "stroke": "",
+    "fill": "M.3 3.2L5.3 .3V6.1Z",
+    "strokeWidth": 0
+   },
+   "right": {
+    "name": "right arrow",
+    "w": 5.6,
+    "h": 6.4,
+    "viewBox": [
+     0,
+     0,
+     5.6,
+     6.4
+    ],
+    "stroke": "",
+    "fill": "M5.3 3.2L.3 .3V6.1Z",
+    "strokeWidth": 0
+   }
+  }
+ }
+}
