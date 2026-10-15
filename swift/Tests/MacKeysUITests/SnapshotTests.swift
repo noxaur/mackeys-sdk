@@ -82,6 +82,7 @@ struct SnapshotTests {
         s.key(.key, up: false)
         s.key(.space, up: false)
         s.key(.wide, up: true)
+        for k in KeySound.allCases { s.key(k, up: false); s.key(k, up: true) }
         s.trackpad(.press)
         s.trackpad(.force)
         s.trackpad(.release)

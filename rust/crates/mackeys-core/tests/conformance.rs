@@ -269,3 +269,27 @@ fn trackpad_phases() {
     t.tick(t0 + Duration::from_secs(5));
     assert_eq!(t.phase(), TrackpadPhase::Up);
 }
+
+#[test]
+fn norwegian_key_sounds() {
+    let kb = build_keyboard(&KeyboardOptions { finish: Some("pro-space-black".into()), layout: Some("no".into()), ..Default::default() });
+    let want = [
+        ("KeyA", KeySound::Key),
+        ("F5", KeySound::Key),
+        ("Fn", KeySound::Key),
+        ("MetaLeft", KeySound::Mod),
+        ("ShiftLeft", KeySound::Mod),
+        ("Escape", KeySound::Tab),
+        ("Tab", KeySound::Tab),
+        ("Backspace", KeySound::Tab),
+        ("CapsLock", KeySound::Caps),
+        ("ShiftRight", KeySound::Wide),
+        ("Enter", KeySound::Enter),
+        ("Space", KeySound::Space),
+        ("ArrowUp", KeySound::Arrow),
+        ("TouchID", KeySound::Power),
+    ];
+    for (id, s) in want {
+        assert_eq!(kb.keys.iter().find(|k| k.id == id).map(|k| k.sound), Some(s), "{id}");
+    }
+}

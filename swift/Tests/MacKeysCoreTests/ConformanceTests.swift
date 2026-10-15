@@ -157,15 +157,28 @@ struct UtilTests {
 
     @Test func clipsDecode() throws {
         let kb = try #require(ClipSet.keyboard)
-        #expect(kb.sr == 24000)
-        #expect(kb.samples("press").count == 6)
-        #expect(kb.samples("release").count == 6)
-        #expect(kb.samples("space").count == 1)
+        #expect(kb.sr == 32000)
+        for k in KeySound.allCases {
+            for f in [KeyForce.soft, .hard] {
+                for up in [false, true] { #expect(kb.samples(keyClipName(k, f, up: up, in: kb)).count == 1) }
+            }
+        }
+        #expect(keyClipName(.power, .hard, up: false, in: kb) == "power-down")
         let tp = try #require(ClipSet.trackpad)
         #expect(tp.sr == 48000)
         #expect(tp.samples("press").count == 3)
         #expect(tp.samples("force").count == 1)
-        #expect(kb.samples("press")[0].allSatisfy { $0 >= -1 && $0 <= 1 })
+        #expect(kb.samples("key-soft-down")[0].allSatisfy { $0 >= -1 && $0 <= 1 })
+    }
+
+    @Test func norwegianKeySounds() {
+        let kb = buildKeyboard(finish: .proSpaceBlack, layout: .no)
+        let want: [String: KeySound] = [
+            "KeyA": .key, "F5": .key, "Fn": .key, "MetaLeft": .mod, "ShiftLeft": .mod, "Escape": .tab, "Tab": .tab,
+            "Backspace": .tab, "CapsLock": .caps, "ShiftRight": .wide, "Enter": .enter, "Space": .space,
+            "ArrowUp": .arrow, "TouchID": .power
+        ]
+        for (id, s) in want { #expect(kb.keys.first { $0.id == id }?.sound == s, "\(id)") }
     }
 
     @Test func keyCodes() {

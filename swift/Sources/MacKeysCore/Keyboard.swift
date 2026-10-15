@@ -16,7 +16,27 @@ public enum KeyKind: String, Codable, Sendable {
     case char, dual, quad, jis, word, icon, mod, fn, fkey, touchid, space, arrow, kana
 }
 
-public enum KeySound: String, Codable, Sendable { case key, wide, space }
+/// The click recording a key plays. The classes come from the Norwegian (ISO) MacBook keyboard, where each
+/// one was recorded: `key` (letters, F keys, fn, control, option), `mod` (command and left shift, 1.25u),
+/// `tab` (tab, escape and delete, 1.25u to 1.5u), `caps` (caps lock), `wide` (right shift, 2.25u),
+/// `enter` (return), `space`, `arrow` (half-height arrows) and `power` (Touch ID).
+public enum KeySound: String, Codable, Sendable, CaseIterable { case key, mod, tab, caps, wide, enter, space, arrow, power }
+
+/// Picks the recording for a key on any layout. Keys with a role on the Norwegian keyboard keep it
+/// (return, caps lock, tab, escape, space, Touch ID, half-height arrows). Every other key goes by its
+/// width in key units: 1.75u and up `wide`, 1.4u and up `tab`, 1.15u and up `mod`, else `key`.
+public func keySound(id: String, kind: KeyKind, units: Double, halfHeight: Bool) -> KeySound {
+    if kind == .touchid { return .power }
+    if kind == .space { return .space }
+    if kind == .arrow && halfHeight { return .arrow }
+    if id == "Enter" { return .enter }
+    if id == "CapsLock" { return .caps }
+    if id == "Tab" || id == "Escape" { return .tab }
+    if units >= 1.75 { return .wide }
+    if units >= 1.4 { return .tab }
+    if units >= 1.15 { return .mod }
+    return .key
+}
 
 public struct Legend: Codable, Sendable, Equatable {
     public enum Align: String, Codable, Sendable { case left, center, right }
@@ -348,7 +368,7 @@ public func buildKeyboard(finish: String, layout: String, custom: CustomLayout? 
         let k = KeyCap(
             id: id, label: p.label, kind: p.kind, row: row, x: x, y: y, w: w, h: h,
             radius: p.kind == .arrow ? 4 : 5,
-            sound: tags.contains("space") ? .space : (w > 1.4 * U ? .wide : .key),
+            sound: keySound(id: id, kind: p.kind, units: (w + G) / U, halfHeight: h < KH * 0.75),
             legends: legends,
             icon: p.icon.map { $0(w, h) },
             iso: nil, homeBar: homeBar, capsLed: capsLed,

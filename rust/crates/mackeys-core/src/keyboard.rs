@@ -39,12 +39,72 @@ pub enum KeyKind {
     Kana,
 }
 
+/// The click recording a key plays. The classes come from the Norwegian (ISO) MacBook keyboard, where
+/// each one was recorded: `Key` (letters, F keys, fn, control, option), `Mod` (command and left shift,
+/// 1.25u), `Tab` (tab, escape and delete, 1.25u to 1.5u), `Caps` (caps lock), `Wide` (right shift,
+/// 2.25u), `Enter` (return), `Space`, `Arrow` (half-height arrows) and `Power` (Touch ID).
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, Eq, Hash)]
 #[serde(rename_all = "camelCase")]
 pub enum KeySound {
     Key,
+    Mod,
+    Tab,
+    Caps,
     Wide,
+    Enter,
     Space,
+    Arrow,
+    Power,
+}
+
+impl KeySound {
+    pub const ALL: [KeySound; 9] = [
+        KeySound::Key,
+        KeySound::Mod,
+        KeySound::Tab,
+        KeySound::Caps,
+        KeySound::Wide,
+        KeySound::Enter,
+        KeySound::Space,
+        KeySound::Arrow,
+        KeySound::Power,
+    ];
+
+    /// The spec name (`key`, `mod`, ...).
+    pub fn name(self) -> &'static str {
+        match self {
+            KeySound::Key => "key",
+            KeySound::Mod => "mod",
+            KeySound::Tab => "tab",
+            KeySound::Caps => "caps",
+            KeySound::Wide => "wide",
+            KeySound::Enter => "enter",
+            KeySound::Space => "space",
+            KeySound::Arrow => "arrow",
+            KeySound::Power => "power",
+        }
+    }
+}
+
+/// Picks the recording for a key on any layout. Keys with a role on the Norwegian keyboard keep it
+/// (return, caps lock, tab, escape, space, Touch ID, half-height arrows). Every other key goes by its
+/// width in key units: 1.75u and up `Wide`, 1.4u and up `Tab`, 1.15u and up `Mod`, else `Key`.
+pub fn key_sound(id: &str, kind: KeyKind, units: f64, half_height: bool) -> KeySound {
+    match kind {
+        KeyKind::Touchid => return KeySound::Power,
+        KeyKind::Space => return KeySound::Space,
+        KeyKind::Arrow if half_height => return KeySound::Arrow,
+        _ => {}
+    }
+    match id {
+        "Enter" => KeySound::Enter,
+        "CapsLock" => KeySound::Caps,
+        "Tab" | "Escape" => KeySound::Tab,
+        _ if units >= 1.75 => KeySound::Wide,
+        _ if units >= 1.4 => KeySound::Tab,
+        _ if units >= 1.15 => KeySound::Mod,
+        _ => KeySound::Key,
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq, Eq)]
@@ -651,6 +711,7 @@ pub fn build_keyboard(opts: &KeyboardOptions) -> KeyboardGeometry {
             }
         };
         let kind = p.kind();
+        let sound = key_sound(&id, kind, (w + g_) / u_, h < kh * 0.75);
         keys.push(KeyCap {
             id,
             label: p.label.clone(),
@@ -661,13 +722,7 @@ pub fn build_keyboard(opts: &KeyboardOptions) -> KeyboardGeometry {
             w,
             h,
             radius: if kind == KeyKind::Arrow { 4.0 } else { 5.0 },
-            sound: if tags.contains(&"space") {
-                KeySound::Space
-            } else if w > 1.4 * u_ {
-                KeySound::Wide
-            } else {
-                KeySound::Key
-            },
+            sound,
             legends,
             icon: p.icon.as_ref().map(|f| f(w, h)),
             iso: None,

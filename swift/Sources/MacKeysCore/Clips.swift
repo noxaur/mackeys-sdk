@@ -1,14 +1,15 @@
 import Foundation
 
-// Recorded click sounds (CC0).
-// Keyboard: Freesound #853602 "Typing on Laptop Keyboard #2" by justamudkip (2021 14-inch MacBook Pro).
-// Trackpad: Freesound #467490 "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
+// Recorded click sounds.
+// Keyboard: a press and a release for each key class (see `KeySound`), soft and hard, recorded on a MacBook
+// with the Norwegian layout (`spec/recordings`, cut by `scripts/cut-clicks.py`).
+// Trackpad (CC0): Freesound #467490 "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook Pro).
 
 /// A clip set: mono 16-bit little-endian PCM, base64 encoded, at sample rate `sr`.
 public struct ClipSet: Sendable, Equatable {
     public var source: String
     public var sr: Double
-    /// Takes by kind (`press`, `release`, `space`, `force`), base64 encoded.
+    /// Takes by clip name (`key-soft-down`, `power-up`, `press`, `force` ...), base64 encoded.
     public var clips: [String: [String]]
 
     public init(json data: Data) throws {
@@ -33,10 +34,21 @@ public struct ClipSet: Sendable, Equatable {
         return try? ClipSet(json: data)
     }
 
-    /// Keyboard clicks: `press` (6 takes), `release` (6), `space` (1), at 24 kHz.
+    /// Keyboard clicks: `<sound>-<force>-down` and `-up` for every `KeySound` (one take each), at 32 kHz.
     public static let keyboard: ClipSet? = load("keyboard-clicks")
     /// Trackpad clicks: `press` (3), `release` (2), `force` (1), at 48 kHz.
     public static let trackpad: ClipSet? = load("trackpad-clicks")
+}
+
+/// `soft` is a normal key press, `hard` a forceful one.
+public enum KeyForce: String, Sendable { case soft, hard }
+
+/// The keyboard clip for a key sound: `<sound>-<force>-down` or `<sound>-<force>-up`.
+/// A sound with one force (`power`) has `<sound>-down` and `<sound>-up`.
+public func keyClipName(_ kind: KeySound, _ force: KeyForce, up: Bool, in set: ClipSet? = ClipSet.keyboard) -> String {
+    let name = "\(kind.rawValue)-\(force.rawValue)-\(up ? "up" : "down")"
+    if set?.clips[name] != nil { return name }
+    return "\(kind.rawValue)-\(up ? "up" : "down")"
 }
 
 /// Decodes one base64 clip to float samples in -1...1.

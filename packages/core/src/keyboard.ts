@@ -41,7 +41,33 @@ export type KeyKind =
   | 'arrow'
   | 'kana';
 
-export type KeySound = 'key' | 'wide' | 'space';
+/**
+ * The click recording a key plays. The classes come from the Norwegian (ISO) MacBook keyboard, where each
+ * one was recorded: `key` (letters, F keys, fn, control, option), `mod` (command and left shift, 1.25u),
+ * `tab` (tab, escape and delete, 1.25u to 1.5u), `caps` (caps lock), `wide` (right shift, 2.25u),
+ * `enter` (return), `space`, `arrow` (half-height arrows) and `power` (Touch ID).
+ */
+export type KeySound = 'key' | 'mod' | 'tab' | 'caps' | 'wide' | 'enter' | 'space' | 'arrow' | 'power';
+
+export const KEY_SOUNDS: readonly KeySound[] = ['key', 'mod', 'tab', 'caps', 'wide', 'enter', 'space', 'arrow', 'power'];
+
+/**
+ * Picks the recording for a key on any layout. Keys with a role on the Norwegian keyboard keep it
+ * (return, caps lock, tab, escape, space, Touch ID, half-height arrows). Every other key goes by its
+ * width in key units: 1.75u and up `wide`, 1.4u and up `tab`, 1.15u and up `mod`, else `key`.
+ */
+export function keySound(id: string, kind: KeyKind, units: number, halfHeight: boolean): KeySound {
+  if (kind === 'touchid') return 'power';
+  if (kind === 'space') return 'space';
+  if (kind === 'arrow' && halfHeight) return 'arrow';
+  if (id === 'Enter') return 'enter';
+  if (id === 'CapsLock') return 'caps';
+  if (id === 'Tab' || id === 'Escape') return 'tab';
+  if (units >= 1.75) return 'wide';
+  if (units >= 1.4) return 'tab';
+  if (units >= 1.15) return 'mod';
+  return 'key';
+}
 
 export interface Legend {
   text: string;
@@ -318,7 +344,7 @@ export function buildKeyboard(opts: KeyboardOptions = {}): KeyboardGeometry {
       w,
       h,
       radius: p.kind === 'arrow' ? 4 : 5,
-      sound: tags.includes('space') ? 'space' : w > 1.4 * U ? 'wide' : 'key',
+      sound: keySound(id, p.kind, (w + G) / U, h < KH * 0.75),
       legends,
       icon: p.icon ? p.icon(w, h) : null,
       iso: null,

@@ -10,19 +10,17 @@ fn rms(b: &[f32]) -> f32 {
 #[test]
 fn key_clicks_mix_to_audible_output() {
     let bank = ClipBank::load();
-    assert_eq!(bank.key_sr, 24000);
+    assert_eq!(bank.key_sr, 32000);
     let mut picker = VoicePicker::with_seed(7);
     let mut buf = vec![0f32; bank.key_sr as usize];
-    // A typing burst: press and release of five keys and the space bar, 80 ms apart.
-    for (i, (kind, up)) in [(KeySound::Key, false), (KeySound::Key, true), (KeySound::Wide, false), (KeySound::Space, false), (KeySound::Space, true), (KeySound::Key, false)]
-        .into_iter()
-        .enumerate()
-    {
+    // A typing burst: a press and a release of every key class, 40 ms apart.
+    let burst = KeySound::ALL.iter().flat_map(|&k| [(k, false), (k, true)]);
+    for (i, (kind, up)) in burst.enumerate() {
         let v = picker.key(kind, up);
         let (take, _) = bank.take(&v, false).expect("take");
         let s = render_voice(take, v.rate, v.gain);
         assert!(!s.is_empty());
-        mix_into(&mut buf, i * 1920, &s);
+        mix_into(&mut buf, i * 1280, &s);
     }
     let level = rms(&buf);
     let peak = buf.iter().fold(0f32, |m, s| m.max(s.abs()));
