@@ -75,6 +75,13 @@ Svelte:
 
 Swift and Rust: see [swift/README.md](swift/README.md) and [rust/README.md](rust/README.md).
 
+## Docs
+
+- [Getting started](docs/getting-started.md): install and first render for each SDK.
+- [TypeScript API](docs/api.md): components, hooks, controllers and engine functions.
+- [Ids](docs/ids.md): finish, layout and key ids, and the custom layout syntax.
+- [llms.txt](llms.txt): an index of these docs for LLMs and coding agents.
+
 ## Demos
 
 ```bash
