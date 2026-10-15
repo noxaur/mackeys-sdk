@@ -7,7 +7,7 @@ import { DVORAK, HELLO, HELLO_SHOWN, keysFor } from './words';
 
 type Id = LayoutId | 'custom';
 const IDS: Id[] = [...LAYOUTS.map((l) => l.id), 'custom'];
-const NAME = (id: Id) => (id === 'custom' ? 'Custom · Dvorak' : LAYOUTS.find((l) => l.id === id)!.name);
+const NAME = (id: Id) => (id === 'custom' ? 'Your own · Dvorak' : LAYOUTS.find((l) => l.id === id)!.name);
 
 /** A keyboard that keeps changing its layout and says hello in each language. */
 export function Localisation({ active }: { active: boolean }) {
@@ -39,9 +39,9 @@ export function Localisation({ active }: { active: boolean }) {
     <section id="languages" ref={box as React.RefObject<HTMLElement>}>
       <div className="wrap">
         <div className="section-head">
-          <div className="mono">Localisation</div>
-          <h2>Any language. Any layout.</h2>
-          <p>Seventeen layouts ship with the SDK, from ANSI to ISO to JIS, with every legend measured on the real keys. Or write your own rows and get a custom layout.</p>
+          <div className="mono">Languages</div>
+          <h2>Any language.</h2>
+          <p>Seventeen keyboard languages are ready to use. Each key shows the same letters as on a real Mac. You can also make your own.</p>
         </div>
         <div className="loc">
           <div className="loc-list" role="list">
@@ -55,13 +55,11 @@ export function Localisation({ active }: { active: boolean }) {
                 }}
               >
                 <span>{NAME(l)}</span>
-                <span>{l}</span>
               </button>
             ))}
             {!auto && (
               <button onClick={() => setAuto(true)} style={{ color: 'var(--led)' }}>
-                <span>resume</span>
-                <span>▶</span>
+                <span>Play all ▶</span>
               </button>
             )}
           </div>
@@ -70,9 +68,7 @@ export function Localisation({ active }: { active: boolean }) {
               <b key={id} className="loc-kbd">
                 {HELLO_SHOWN[id] ?? word}
               </b>
-              <span>
-                {NAME(id)} · {custom ? 'ANSI' : LAYOUTS.find((l) => l.id === id)?.jis ? 'JIS' : LAYOUTS.find((l) => l.id === id)?.iso ? 'ISO' : 'ANSI'}
-              </span>
+              <span>{NAME(id)}</span>
             </div>
             <div ref={ref}>
               <div key={id} className="loc-kbd">

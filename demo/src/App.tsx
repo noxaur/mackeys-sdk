@@ -3,10 +3,9 @@ import { SoundContext } from './sound';
 import { Intro } from './Intro';
 import { KeyField } from './KeyField';
 import { Nav } from './Nav';
-import { Playground } from './Playground';
+import { Presets } from './Presets';
 import { Sdks } from './Sdks';
 import { Localisation } from './Localisation';
-import { Styles } from './Styles';
 import { Footer } from './Footer';
 
 const SOUND = { on: true, setOn: () => {} };
@@ -20,10 +19,9 @@ export function App() {
       <div className="page">
         <Nav />
         <main>
-          <Playground active={ready} />
-          <Sdks />
+          <Presets />
           <Localisation active={ready} />
-          <Styles />
+          <Sdks />
         </main>
         <Footer />
       </div>

@@ -1,7 +1,7 @@
 # MacKeys demo site
 
-The public site for the SDK: a sound gate, a typed intro, a playground, a localisation loop, a
-style lab with a sideways shelf of finishes, and a footer made of key caps. It uses the real
+The public site for the SDK: a typed intro, a style picker with a sideways shelf of 23 styles, a
+languages loop, install cards, and a footer made of key caps. It links to the typing demo. It uses the real
 `@mackeys/react` components and the recorded click sounds.
 
 The site builds the SDK from source (`packages/core/src`, `packages/react/src`), so a deploy needs
@@ -54,12 +54,11 @@ Cloudflare.
 
 | File | Section |
 | --- | --- |
-| `src/SoundGate.tsx` | First screen: asks to enable sound. The click starts the AudioContext. |
 | `src/Intro.tsx` | The title types itself on a MacBook Pro, then the screen slides away. |
 | `src/KeyField.tsx` | Random keys from every layout behind the whole page, shown in a circle around the pointer. |
-| `src/Playground.tsx` | Type on your keyboard or click the keys. Any of the 17 layouts. |
-| `src/Sdks.tsx` | The five SDKs and the spec, with install commands. |
+| `src/Presets.tsx` | Top of the page: a big keyboard in the chosen style, key light controls, and the shelf of styles with filters. |
 | `src/Localisation.tsx` | A keyboard that cycles every layout and says hello in each language. |
-| `src/Styles.tsx` | Finishes, backlight controls, custom themes, and the sideways 3D shelf. |
+| `src/Sdks.tsx` | Install cards for React, Svelte, Swift and Rust. |
 | `src/Footer.tsx` | Links and the MACKEYS wordmark made of seven key caps. |
+| `src/links.ts` | The GitHub and typing demo links. |
 | `src/Device.tsx` | A keyboard on its deck, built from the SDK parts, with a controller ref. |

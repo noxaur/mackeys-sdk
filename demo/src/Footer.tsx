@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { KeyCap, Keys, UNIT, buildKeyboard, keyboardTheme, useKeyboardController } from '@mackeys/react';
 import { useFit } from './fit';
+import { DEMO, REPO } from './links';
 import { useSound } from './sound';
 
-const REPO = 'https://github.com/noxaur/mackeys-sdk';
 const WORD = 'MACKEYS';
 
 /** The wordmark is seven real key caps. They press and click. */
@@ -39,41 +39,39 @@ export function Footer() {
           <div>
             <h4>Explore</h4>
             <ul>
-              <li><a href="#play">Playground</a></li>
+              <li><a href="#top">Styles</a></li>
               <li><a href="#languages">Languages</a></li>
-              <li><a href="#styles">Styles</a></li>
+              <li><a href={DEMO} target="_blank" rel="noreferrer">Typing demo</a></li>
             </ul>
           </div>
           <div>
-            <h4>SDKs</h4>
+            <h4>Get it</h4>
             <ul>
               <li><a href="https://www.npmjs.com/package/@mackeys/react" target="_blank" rel="noreferrer">React</a></li>
               <li><a href="https://www.npmjs.com/package/@mackeys/svelte" target="_blank" rel="noreferrer">Svelte</a></li>
               <li><a href={REPO + '/tree/main/swift'} target="_blank" rel="noreferrer">Swift</a></li>
               <li><a href="https://crates.io/crates/mackeys-gpui" target="_blank" rel="noreferrer">Rust</a></li>
-              <li><a href="https://www.npmjs.com/package/@mackeys/core" target="_blank" rel="noreferrer">Core</a></li>
             </ul>
           </div>
           <div>
-            <h4>Resources</h4>
+            <h4>More</h4>
             <ul>
               <li><a href={REPO} target="_blank" rel="noreferrer">GitHub</a></li>
-              <li><a href={REPO + '/blob/main/spec/SPEC.md'} target="_blank" rel="noreferrer">Spec</a></li>
               <li><a href={REPO + '/tree/main/examples'} target="_blank" rel="noreferrer">Examples</a></li>
-              <li><a href={REPO + '/issues'} target="_blank" rel="noreferrer">Issues</a></li>
+              <li><a href={REPO + '/issues'} target="_blank" rel="noreferrer">Report a problem</a></li>
             </ul>
           </div>
           <div>
             <h4>Legal</h4>
             <ul>
               <li><a href={REPO + '/blob/main/LICENSE'} target="_blank" rel="noreferrer">MIT License</a></li>
-              <li><a href="https://freesound.org/s/467490/" target="_blank" rel="noreferrer">Trackpad sound · CC0</a></li>
+              <li><a href="https://freesound.org/s/467490/" target="_blank" rel="noreferrer">Trackpad sound</a></li>
             </ul>
           </div>
         </div>
         <div className="foot-note">
-          <span>Key clicks recorded on a Norwegian MacBook for this project.</span>
-          <span>Apple, Mac, MacBook, iMac, Magic Keyboard, Touch ID and Force Touch are trademarks of Apple Inc. Not affiliated with Apple.</span>
+          <span>We recorded the key sounds on a real MacBook.</span>
+          <span>Apple, Mac, MacBook and iMac are trademarks of Apple Inc. We are not part of Apple.</span>
         </div>
       </div>
       <Mark />
