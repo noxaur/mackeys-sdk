@@ -1,0 +1,94 @@
+/* The styles page at /styles: one big live keyboard, its controls, and every style below. */
+.sp { padding-top: clamp(84px, 11vh, 120px); }
+.sp > section { padding: 0; }
+.sp > .sp-all { padding: clamp(72px, 10vh, 120px) 0; }
+
+/* ---- stage ---- */
+.sp-stage { margin-top: clamp(24px, 4vh, 44px); overflow-x: clip; }
+.sp-fit { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.sp-dev { position: relative; z-index: 1; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.55)); }
+.sp-glow {
+  position: absolute; left: 50%; top: 48%; width: min(1300px, 120%); height: 120%; transform: translate(-50%, -50%);
+  border-radius: 50%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 55%, transparent);
+  filter: blur(30px); opacity: 0; animation: fadein 800ms ease 80ms forwards;
+}
+
+/* ---- under the keyboard: the name, one row of key caps, the code ---- */
+.sp-panel { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; scroll-margin-top: 80px; }
+.sp-name { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; width: min(480px, 100%); }
+.sp-arrow { width: 44px; height: 44px; padding: 0; font-size: 17px; flex: none; color: var(--fg-2); }
+.sp-arrow:hover { color: var(--fg); }
+.sp-title { min-width: 0; text-align: center; }
+.sp-title h1 { margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: clamp(32px, 4.2vw, 56px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; animation: wipe 380ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+.sp-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* The layout picker is a key cap with the native menu over it. */
+.sp-select { position: relative; padding: 0 34px 0 16px; }
+.sp-select::after { content: ''; position: absolute; right: 15px; top: 50%; width: 6px; height: 6px; margin-top: -5px; border: solid var(--fg-3); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); pointer-events: none; }
+.sp-select select { appearance: none; -webkit-appearance: none; border: 0; padding: 0; margin: 0; background: none; font: inherit; color: inherit; cursor: pointer; outline: none; }
+.sp-select select option { background: var(--bg-2); color: var(--fg); }
+.sp-select:has(select:focus-visible) { outline: 2px solid #0a84ff; outline-offset: 2px; }
+
+/* The light cap opens to sixteen brightness steps while the light is on. */
+.sp-lightcap { gap: 0; padding: 0; overflow: hidden; }
+.sp-lightcap:active { transform: none; }
+.sp-lightbtn { display: inline-flex; align-items: center; gap: 8px; height: 100%; padding: 0 16px; border: 0; background: none; font: inherit; color: var(--fg-2); cursor: pointer; }
+.sp-lightbtn:active { transform: translateY(1px); }
+.sp-lightbtn:focus-visible { outline: 2px solid #0a84ff; outline-offset: -4px; border-radius: 7px; }
+.sp-lightbtn .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--fg-3); transition: background 150ms, box-shadow 150ms; }
+.sp-lightcap.on .sp-lightbtn { color: var(--fg); }
+.sp-lightcap.on .dot { background: var(--led); box-shadow: 0 0 6px var(--led); }
+.sp-steps { position: relative; display: flex; align-items: center; gap: 2px; height: 100%; max-width: 0; padding: 0; opacity: 0; transition: max-width 320ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 200ms, padding 320ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.sp-lightcap.on .sp-steps { max-width: 120px; padding: 0 16px 0 2px; opacity: 1; }
+.sp-steps i { width: 4px; height: 12px; border-radius: 1px; background: rgba(255, 255, 255, 0.12); transition: background 120ms, box-shadow 120ms; }
+.sp-steps i.lit { background: #f2f5ff; box-shadow: 0 0 4px rgba(242, 245, 255, 0.5); }
+.sp-steps input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.sp-lightcap:has(input:focus-visible) { outline: 2px solid #0a84ff; outline-offset: 2px; }
+
+/* A color well on a key cap, for your mix. */
+.sp-colorcap { position: relative; padding-left: 10px; cursor: pointer; }
+.sp-colorcap input { width: 20px; height: 20px; padding: 0; border: 0; border-radius: 5px; background: none; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2); }
+.sp-colorcap input::-webkit-color-swatch-wrapper { padding: 0; }
+.sp-colorcap input::-webkit-color-swatch { border: 0; border-radius: 5px; }
+.sp-colorcap input::-moz-color-swatch { border: 0; border-radius: 5px; }
+.sp-colorcap:has(input:focus-visible) { outline: 2px solid #0a84ff; outline-offset: 2px; }
+
+.sp-copy { min-width: 128px; }
+.sp-copy.done { color: #137a2b; }
+
+
+/* ---- every style: keyboards on the page, no boxes ---- */
+.sp-all { display: flex; flex-direction: column; gap: clamp(48px, 7vh, 80px); }
+.sp-group h2 { display: flex; align-items: baseline; gap: 10px; margin: 0 0 22px; padding-bottom: 14px; border-bottom: 1px solid var(--line); font-size: clamp(20px, 2vw, 26px); font-weight: 500; letter-spacing: -0.02em; }
+.sp-group h2 span { font-size: 15px; font-weight: 400; color: var(--fg-3); letter-spacing: 0; }
+.sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 36px 28px; }
+.sp-card { position: relative; display: flex; flex-direction: column; gap: 12px; }
+.sp-card-hit { position: absolute; inset: -8px; z-index: 2; padding: 0; border: 0; border-radius: 12px; background: none; cursor: pointer; }
+.sp-card-hit:focus-visible { outline: 2px solid #0a84ff; outline-offset: 0; }
+.sp-thumb { display: flex; align-items: center; justify-content: center; aspect-ratio: 1053 / 470; pointer-events: none; transition: transform 260ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 260ms; filter: brightness(0.82); }
+.sp-card:hover .sp-thumb { transform: translateY(-4px); filter: brightness(1); }
+.sp-card.on .sp-thumb { filter: brightness(1) drop-shadow(0 14px 22px rgba(0, 0, 0, 0.6)); transform: translateY(-4px); }
+.sp-card-meta { display: flex; align-items: center; gap: 8px; }
+.sp-card-name { font-size: 15px; color: var(--fg-2); transition: color 150ms; }
+.sp-card:hover .sp-card-name, .sp-card.on .sp-card-name { color: var(--fg); }
+.sp-card.on .sp-card-meta::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--led); box-shadow: 0 0 6px var(--led); }
+.sp-card-kind { margin-top: -10px; font-size: 13px; color: var(--fg-3); }
+
+@media (max-width: 640px) {
+  .sp-name { gap: 12px; }
+  .sp-arrow { width: 40px; height: 40px; }
+  .sp-row { gap: 10px; }
+  .sp-row .cap { height: 36px; font-size: 12px; }
+  .sp-select { padding-left: 12px; }
+  .sp-lightbtn { padding: 0 12px; }
+  .sp-copy { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-title h1, .sp-glow { animation: none; opacity: 1; }
+  .sp-thumb, .sp-steps { transition: none; }
+  .sp-card:hover .sp-thumb, .sp-card.on .sp-thumb { transform: none; }
+}

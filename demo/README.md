@@ -1,7 +1,7 @@
 # MacKeys demo site
 
 The public site for the SDK: a typed intro, a sideways slider of 23 styles, a languages loop,
-install panel, and a footer made of key caps. `/demo` is a typing test, and the site serves `llms.txt`. It uses the real
+install panel, and a footer made of key caps. `/demo` is a typing test, `/styles` shows every style with its controls, and the site serves `llms.txt`. It uses the real
 `@mackeys/react` components and the recorded click sounds.
 
 The site builds the SDK from source (`packages/core/src`, `packages/react/src`), so a deploy needs
@@ -63,6 +63,8 @@ Cloudflare.
 | `src/Presets.tsx` | Top of the page: a sideways slider of every style. The middle keyboard is big, tilted and live. Horizontal scroll, drag or click only; vertical scroll stays with the page. |
 | `src/Localisation.tsx` | A keyboard that morphs through every layout and types a greeting in each language, only while all of it is on screen. |
 | `src/Sdks.tsx` | Key cap tabs for React, Svelte, Swift and Rust, a MacBook top case in one color for each, and the install command. |
+| `src/StylesPage.tsx` | The styles page at `/styles`: a big live keyboard, layout and key light controls, the colors and one line of React to copy, a grid of every style, and "Your mix" with your own key and letter colors. The address holds the style, so you can share a link. |
+| `src/styleList.ts` | The list of styles. The slider and the styles page both use it. |
 | `src/TypingDemo.tsx` | The typing test at `/demo` (`src/main.tsx` picks the page from the path). The keyboard is the SDK keyboard with its sounds. |
 | `src/Footer.tsx` | Links and the MACKEYS wordmark made of seven key caps. |
 | `src/links.ts` | The GitHub and typing demo links. |

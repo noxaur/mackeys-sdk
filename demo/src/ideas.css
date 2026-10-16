@@ -1,0 +1,82 @@
+/* ---- /ideas: prototype sections, only loaded on that page ---- */
+.ideas main { padding-top: 64px; }
+.idea { padding: clamp(48px, 8vh, 96px) 0; border-bottom: 1px solid var(--line); }
+.idea:last-child { border-bottom: 0; }
+.idea-head { display: flex; align-items: flex-start; gap: 16px; margin-bottom: clamp(24px, 4vh, 40px); }
+.idea-n {
+  flex: none; display: grid; place-items: center; width: 32px; height: 32px; margin-top: 2px; border-radius: 7px;
+  font-family: var(--mono); font-size: 13px; color: var(--led);
+  background: radial-gradient(125% 110% at 50% 100%, var(--key-face-2) 0%, var(--key-face) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), inset 0 1.5px 0 rgba(255, 255, 255, 0.1), 0 2px 0 var(--key-edge);
+}
+.idea-head h2 { margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+.idea-head p { margin: 6px 0 0; color: var(--fg-2); font-size: 16px; max-width: 52ch; }
+.idea-stage { display: flex; justify-content: center; width: 100%; min-width: 0; }
+.idea-note { margin: 16px 0 0; color: var(--fg-3); font-size: 14px; }
+
+/* 1. press any key */
+.idea-inspect { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.inspect-card {
+  width: min(100%, 560px); display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 24px 20px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2);
+}
+.inspect-label { font-size: clamp(40px, 8vw, 72px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; min-height: 1em; max-width: 100%; overflow-wrap: anywhere; text-align: center; animation: pop 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.inspect-label.wait { color: var(--fg-3); font-size: clamp(28px, 5vw, 44px); animation: none; }
+.inspect-card dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; margin: 0; font-family: var(--mono); font-size: 13px; }
+.inspect-card dl div { display: flex; gap: 8px; }
+.inspect-card dt { color: var(--fg-3); }
+.inspect-card dd { margin: 0; color: var(--led); }
+.inspect-trail { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; min-height: 30px; }
+.inspect-trail .cap { color: var(--fg-2); min-width: 30px; }
+.inspect-trail .cap:first-child { color: var(--fg); }
+@keyframes pop { from { opacity: 0; transform: translateY(6px) scale(0.96); } to { opacity: 1; transform: none; } }
+
+/* 2. sound wall */
+.idea-sounds { display: flex; flex-direction: column; align-items: center; }
+.sound-grid { display: grid; grid-template-columns: repeat(16, minmax(0, 1fr)); gap: 10px; width: min(100%, 820px); }
+.sound-pad { height: 72px; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 10px 12px; min-width: 0; touch-action: manipulation; }
+.sound-name { font-size: 15px; color: var(--fg); white-space: nowrap; }
+.sound-hint { font-family: var(--sans); font-size: 12px; color: var(--fg-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.sound-pad.on .sound-hint { color: var(--led); }
+.sound-pad.tp { --key-face: #2a2a2d; --key-face-2: #333336; border-radius: 10px; }
+@media (max-width: 640px) {
+  .sound-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+  .sound-pad { height: 64px; padding: 8px 9px; }
+  .sound-pad.tp { grid-column: span 4 !important; }
+}
+
+/* 3. every color: the key faces fade from one color to the next, and keys slide when the shape changes */
+@property --mk-f0 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --mk-f1 { syntax: '<color>'; inherits: true; initial-value: transparent; }
+@property --mk-lc { syntax: '<color>'; inherits: true; initial-value: transparent; }
+.idea-morph { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.morph-stage { align-items: center; }
+.morph-stage .mk-kbd { transition: --mk-f0 700ms ease, --mk-f1 700ms ease, --mk-lc 700ms ease; }
+.morph-stage .mk-k { transition: transform 95ms cubic-bezier(.2, .75, .3, 1), filter 95ms ease-out, box-shadow 95ms ease-out, color 700ms ease, text-shadow 700ms ease, left 520ms cubic-bezier(0.2, 0.7, 0.2, 1), top 520ms cubic-bezier(0.2, 0.7, 0.2, 1), width 520ms cubic-bezier(0.2, 0.7, 0.2, 1), height 520ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+.morph-stage > div > div > div { transition: background 700ms ease, width 520ms ease, height 520ms ease; }
+.morph-info { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+.morph-info b { font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.02em; animation: pop 320ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.morph-info span { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
+.morph-dots { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; max-width: 560px; }
+.morph-dot { width: 22px; height: 22px; padding: 0; border: 0; border-radius: 50%; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 2px 0 #000; transition: transform 120ms; }
+.morph-dot:hover { transform: translateY(-1px); }
+.morph-dot.on { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--led); }
+.morph-dot:focus-visible { outline: 2px solid #0a84ff; outline-offset: 3px; }
+
+/* 4. the whole desk */
+.idea-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 2fr); gap: clamp(16px, 3vw, 40px); align-items: end; }
+.idea-row figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 0; }
+.idea-row figcaption { font-size: 14px; color: var(--fg-2); text-align: center; }
+.row-slot { position: relative; display: flex; justify-content: center; width: 100%; }
+.row-tp { justify-content: center; }
+.row-ripple { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px; border-radius: 50%; border: 2px solid var(--led); pointer-events: none; animation: ripple 700ms ease-out both; }
+@keyframes ripple { from { opacity: 0.9; transform: scale(0.4); } to { opacity: 0; transform: scale(4); } }
+@media (max-width: 900px) {
+  .idea-row { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+  .row-tp { max-width: 220px; margin-inline: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inspect-label, .morph-info b, .row-ripple { animation: none; }
+  .morph-stage .mk-kbd, .morph-stage .mk-k { transition: none; }
+}

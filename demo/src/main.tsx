@@ -3,6 +3,16 @@ import { App } from './App';
 import { TypingDemo } from './TypingDemo';
 import './styles.css';
 
-// One static site: /demo is the typing test, every other path is the landing page.
-const demo = /^\/demo\/?$/.test(location.pathname);
-createRoot(document.getElementById('root')!).render(demo ? <TypingDemo /> : <App />);
+// One static site. Each path loads its own page code, so the landing page stays small.
+const path = location.pathname.replace(/\/+$/, '');
+const root = createRoot(document.getElementById('root')!);
+const PAGES: Record<string, () => Promise<React.ReactElement>> = {
+  // /ideas holds prototype sections to compare.
+  '/ideas': () => import('./ideas/Ideas').then(({ Ideas }) => <Ideas />),
+  '/styles': () => import('./StylesPage').then(({ StylesPage }) => <StylesPage />),
+  '/languages': () => import('./pages/Languages').then(({ Languages }) => <Languages />),
+  '/install': () => import('./pages/Install').then(({ Install }) => <Install />)
+};
+// /demo is the typing test, every other path is the landing page.
+if (PAGES[path]) PAGES[path]().then((page) => root.render(page));
+else root.render(path === '/demo' ? <TypingDemo /> : <App />);
