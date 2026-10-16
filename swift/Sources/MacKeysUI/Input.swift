@@ -40,6 +40,8 @@ final class KeyCaptureMonitor {
 
     func start() {
         guard monitor == nil else { return }
+        // stop() removes the focus observer. The window can be the same one, so its didSet does not run again.
+        if resign == nil { observeWindow() }
         monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .keyUp, .flagsChanged]) { [weak self] event in
             nonisolated(unsafe) let e = event
             let consume = MainActor.assumeIsolated { self?.consumes(e) ?? false }

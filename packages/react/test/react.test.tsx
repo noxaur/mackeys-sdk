@@ -33,9 +33,39 @@ describe('MacKeyboard', () => {
     expect(container.querySelector('[data-key="KeyQ"]')!.className).toContain('mk-dn');
     expect(container.querySelector('[data-key="MetaLeft"]')!.className).toContain('mk-dn');
   });
+  it('leaves keys typed in a text field to the page', () => {
+    const { container } = render(
+      <>
+        <input data-testid="field" />
+        <MacKeyboard capture="window" sound={false} />
+      </>
+    );
+    const field = container.querySelector('input')!;
+    const ev = new KeyboardEvent('keydown', { code: 'KeyA', bubbles: true, cancelable: true });
+    act(() => {
+      field.dispatchEvent(ev);
+    });
+    expect(ev.defaultPrevented).toBe(false);
+    expect(container.querySelector('[data-key="KeyA"]')!.className).not.toContain('mk-dn');
+  });
 });
 
 describe('MacTrackpad and MacBook', () => {
+  it('releases a key-held trackpad when it loses focus', () => {
+    vi.useFakeTimers();
+    const onForceClick = vi.fn();
+    const { container } = render(<MacTrackpad sound={false} onForceClick={onForceClick} />);
+    const pad = container.querySelector('button.mk-tp')!;
+    fireEvent.keyDown(pad, { key: ' ' });
+    expect(pad.className).toContain('mk-dn');
+    fireEvent.blur(pad);
+    expect(pad.className).not.toContain('mk-dn');
+    act(() => {
+      vi.advanceTimersByTime(600);
+    });
+    expect(onForceClick).not.toHaveBeenCalled();
+    vi.useRealTimers();
+  });
   it('force clicks after a hold', () => {
     vi.useFakeTimers();
     const onForceClick = vi.fn();

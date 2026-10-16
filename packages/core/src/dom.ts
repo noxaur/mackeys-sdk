@@ -6,6 +6,22 @@ import { Gradient, Shadow, cssColor, cssGradient, cssShadows } from './util';
 
 export type StyleMap = Record<string, string>;
 
+/** Input types that take no typed text, so key capture can still use their keys. */
+const PLAIN_INPUTS = new Set(['button', 'checkbox', 'color', 'file', 'image', 'radio', 'reset', 'submit']);
+
+/**
+ * True when a key event's target edits text or uses the keys itself: a text input, a textarea, a select,
+ * a range slider or contenteditable. Window key capture leaves those events to the page.
+ */
+export function isEditableTarget(target: EventTarget | null): boolean {
+  const el = target as (HTMLElement & { type?: string }) | null;
+  if (!el || typeof el.tagName !== 'string') return false;
+  const tag = el.tagName.toUpperCase();
+  if (tag === 'TEXTAREA' || tag === 'SELECT') return true;
+  if (tag === 'INPUT') return !PLAIN_INPUTS.has((el.type || 'text').toLowerCase());
+  return el.isContentEditable === true || el.getAttribute?.('contenteditable') === 'true';
+}
+
 export const FONT_STACK = 'system-ui, -apple-system, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif';
 
 /** The stylesheet every DOM renderer injects once. All selectors start with `mk-`. */
