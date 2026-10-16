@@ -234,3 +234,22 @@ Compared with `spec/reference/screens` (2x, same page, SF Pro in both), the mean
   each key class (`spec/recordings`). See the SPEC "Sound" section.
 - Trackpad: a CC0 recording, Freesound #467490, "MacBook Pro trackpad (48/24)" by neilraouf (2019 MacBook
   Pro).
+
+## Compose your own keyboard
+
+`MacKeyboardView` draws the whole keyboard. To draw something on or between the keys, use the parts:
+`MacKeyboardDeckView` (deck and well), `MacDeckLayout` (where each key sits) and `MacKeyCap` (one key, with
+`pressed:` and `legends:`). `MacKeyCap.outline(of:)` returns the key's shape.
+
+```swift
+let device = macDevice(finish: .proSilver, layout: .enUS)
+let layout = MacDeckLayout(device)
+ZStack(alignment: .topLeading) {
+    MacKeyboardDeckView(device: device)
+    ForEach(device.keyboard.keys) { key in
+        let f = layout.frame(of: key)
+        MacKeyCap(key: key, theme: device.theme, legends: false)
+            .offset(x: f.minX - MacKeyCap.padding, y: f.minY - MacKeyCap.padding)
+    }
+}
+```

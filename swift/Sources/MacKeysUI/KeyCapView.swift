@@ -45,6 +45,8 @@ struct KeyCapCanvas: View, @preconcurrency Animatable {
     var face: CGRect? = nil
     /// Sub-pixel rest of the key position, in px at scale 1.
     var shift: CGSize = .zero
+    /// False leaves the legends, icon, caps lock LED and home bar off, for a cap that carries your own content.
+    var legends = true
 
     var animatableData: Double {
         get { press }
@@ -52,12 +54,12 @@ struct KeyCapCanvas: View, @preconcurrency Animatable {
     }
 
     var body: some View {
-        let k = key, t = theme, p = press, c = caps, a = art, s = scale, f = face, sh = shift
+        let k = key, t = theme, p = press, c = caps, a = art, s = scale, f = face, sh = shift, lg = legends
         Canvas { ctx, _ in
             ctx.scaleBy(x: s, y: s)
             ctx.translateBy(x: keyPad + sh.width, y: keyPad + sh.height)
             if p <= 0.0001 {
-                KeyCapCanvas.draw(&ctx, k, t, highlight: 1, caps: c, art: a, face: f)
+                KeyCapCanvas.draw(&ctx, k, t, highlight: 1, caps: c, art: a, face: f, legends: lg)
                 return
             }
             // transform-origin is the key center; brightness covers the shadows and glows too.
@@ -68,14 +70,14 @@ struct KeyCapCanvas: View, @preconcurrency Animatable {
                 l.translateBy(x: k.w / 2, y: k.h / 2 + 0.45 * p)
                 l.scaleBy(x: sc, y: sc)
                 l.translateBy(x: -k.w / 2, y: -k.h / 2)
-                KeyCapCanvas.draw(&l, k, t, highlight: 1 - p, caps: c, art: a, face: f)
+                KeyCapCanvas.draw(&l, k, t, highlight: 1 - p, caps: c, art: a, face: f, legends: lg)
             }
         }
         .frame(width: (k.w + 2 * keyPad) * s, height: (k.h + 2 * keyPad) * s)
     }
 
     /// `highlight` is the opacity of the box key's top highlight (it fades out as the key goes down).
-    static func draw(_ ctx: inout GraphicsContext, _ k: KeyCap, _ t: KeyboardTheme, highlight: Double, caps: Bool, art: KeyArt, face: CGRect? = nil) {
+    static func draw(_ ctx: inout GraphicsContext, _ k: KeyCap, _ t: KeyboardTheme, highlight: Double, caps: Bool, art: KeyArt, face: CGRect? = nil, legends: Bool = true) {
         let rect = face ?? CGRect(x: 0, y: 0, width: k.w, height: k.h)
         let face1 = Color(mk: t.face1), face0 = Color(mk: t.face0)
         let legend = Color(mk: t.legend)
@@ -103,46 +105,48 @@ struct KeyCapCanvas: View, @preconcurrency Animatable {
             ctx.drawInsetShadows(inset, box)
         }
 
-        // Legends.
-        for l in k.legends {
-            let text = CSSText(l.text, size: l.size, tracking: l.tracking * l.size)
-            let x: CGFloat
-            switch l.align {
-            case .center: x = (k.w - text.width) / 2
-            case .left: x = l.inset
-            case .right: x = k.w - l.inset - text.width
+        if legends {
+            // Legends.
+            for l in k.legends {
+                let text = CSSText(l.text, size: l.size, tracking: l.tracking * l.size)
+                let x: CGFloat
+                switch l.align {
+                case .center: x = (k.w - text.width) / 2
+                case .left: x = l.inset
+                case .right: x = k.w - l.inset - text.width
+                }
+                let origin = CGPoint(x: x, y: l.top)
+                ctx.drawGlows(t.legendGlow) { g, color in text.draw(&g, at: origin, color: color) }
+                text.draw(&ctx, at: origin, color: t.legend)
             }
-            let origin = CGPoint(x: x, y: l.top)
-            ctx.drawGlows(t.legendGlow) { g, color in text.draw(&g, at: origin, color: color) }
-            text.draw(&ctx, at: origin, color: t.legend)
-        }
 
-        // Icon.
-        if k.icon != nil {
-            let lw = art.iconLineWidth
-            let style = StrokeStyle(lineWidth: lw, lineCap: .round, lineJoin: .round)
-            func icon(_ g: inout GraphicsContext, _ color: Color) {
-                if !art.iconFill.isEmpty { g.fill(art.iconFill, with: .color(color)) }
-                if !art.iconStroke.isEmpty, lw > 0 { g.stroke(art.iconStroke, with: .color(color), style: style) }
+            // Icon.
+            if k.icon != nil {
+                let lw = art.iconLineWidth
+                let style = StrokeStyle(lineWidth: lw, lineCap: .round, lineJoin: .round)
+                func icon(_ g: inout GraphicsContext, _ color: Color) {
+                    if !art.iconFill.isEmpty { g.fill(art.iconFill, with: .color(color)) }
+                    if !art.iconStroke.isEmpty, lw > 0 { g.stroke(art.iconStroke, with: .color(color), style: style) }
+                }
+                ctx.drawGlows(t.iconGlow) { g, color in icon(&g, Color(mk: color)) }
+                icon(&ctx, legend)
             }
-            ctx.drawGlows(t.iconGlow) { g, color in icon(&g, Color(mk: color)) }
-            icon(&ctx, legend)
-        }
 
-        // Caps lock LED.
-        if let led = k.capsLed {
-            let r = CGRect(x: led.x, y: led.y, width: led.d, height: led.d)
-            if caps {
-                ctx.drawGlows(t.capsLedGlow) { g, color in g.fill(Path(ellipseIn: r), with: .color(Color(mk: color))) }
-                ctx.fill(Path(ellipseIn: r), with: .color(Color(mk: t.capsLedOn)))
-            } else {
-                ctx.fill(Path(ellipseIn: r), with: .color(Color(mk: t.capsLedOff)))
+            // Caps lock LED.
+            if let led = k.capsLed {
+                let r = CGRect(x: led.x, y: led.y, width: led.d, height: led.d)
+                if caps {
+                    ctx.drawGlows(t.capsLedGlow) { g, color in g.fill(Path(ellipseIn: r), with: .color(Color(mk: color))) }
+                    ctx.fill(Path(ellipseIn: r), with: .color(Color(mk: t.capsLedOn)))
+                } else {
+                    ctx.fill(Path(ellipseIn: r), with: .color(Color(mk: t.capsLedOff)))
+                }
             }
-        }
 
-        // Home bar (F and J).
-        if let hb = k.homeBar {
-            ctx.fill(roundedRect(CGRect(x: hb.x, y: hb.y, width: hb.w, height: hb.h), [1, 1, 1, 1]), with: .color(Color(mk: t.homeBar)))
+            // Home bar (F and J).
+            if let hb = k.homeBar {
+                ctx.fill(roundedRect(CGRect(x: hb.x, y: hb.y, width: hb.w, height: hb.h), [1, 1, 1, 1]), with: .color(Color(mk: t.homeBar)))
+            }
         }
 
         // Touch ID.
