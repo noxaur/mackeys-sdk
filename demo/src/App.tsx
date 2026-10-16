@@ -10,6 +10,9 @@ import { Footer } from './Footer';
 
 const SOUND = { on: true, setOn: () => {} };
 
+// The intro always plays over the top of the page, so a reload starts at the top too.
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 export function App() {
   const [ready, setReady] = useState(false);
   return (

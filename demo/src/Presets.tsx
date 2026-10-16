@@ -3,7 +3,7 @@ import { BacklightOptions, FINISHES, FinishId, KeyboardTheme } from '@mackeys/re
 import { Device } from './Device';
 import { click, useSound } from './sound';
 
-interface Preset {
+export interface Preset {
   id: string;
   name: string;
   kind: string;
@@ -12,10 +12,10 @@ interface Preset {
   theme?: Partial<KeyboardTheme>;
 }
 
-const KIND: Record<string, string> = { pro: 'MacBook Pro', air: 'MacBook Air', neo: 'MacBook Neo', mk: 'iMac' };
+export const KIND: Record<string, string> = { pro: 'MacBook Pro', air: 'MacBook Air', neo: 'MacBook Neo', mk: 'iMac' };
 
 // Your own styles change any color of the keys: faces, edges, letters and the light.
-const OWN: Preset[] = [
+export const OWN: Preset[] = [
   { id: 'phosphor', name: 'Phosphor', kind: 'Your own', finish: 'pro-space-black', theme: { face0: '#0c100cff', face1: '#161c16ff', outline: '#3ddc5c4d', highlight: '#3ddc5c33', legend: '#3ddc5cff', capsLedOn: '#3ddc5cff', homeBar: '#3ddc5c99' } },
   { id: 'blueprint', name: 'Blueprint', kind: 'Your own', finish: 'pro-silver', theme: { face0: '#0d3b8fff', face1: '#1552c2ff', outline: '#ffffff33', highlight: '#ffffff4d', legend: '#ffffffff', homeBar: '#ffffffcc', capsLedOff: '#ffffff40' } },
   { id: 'paper', name: 'Paper', kind: 'Your own', finish: 'pro-space-black', theme: { face0: '#e7e5dfff', face1: '#f8f7f3ff', outline: '#00000026', highlight: '#ffffffff', legend: '#1a1a1aff', homeBar: '#1a1a1a99', capsLedOff: '#00000026' } },
@@ -24,7 +24,7 @@ const OWN: Preset[] = [
   { id: 'lit-pink', name: 'Pink light', kind: 'Your own', finish: 'air-midnight', backlight: { on: true, level: 14, room: 'dark', color: '#ff9ad5', bleed: 0.8 } }
 ];
 
-const PRESETS: Preset[] = [...FINISHES.map((f) => ({ id: f.id, name: f.name.split(' · ')[1] ?? f.name, kind: KIND[f.model], finish: f.id })), ...OWN];
+export const PRESETS: Preset[] = [...FINISHES.map((f) => ({ id: f.id, name: f.name.split(' · ')[1] ?? f.name, kind: KIND[f.model], finish: f.id })), ...OWN];
 
 /** Natural width of a keyboard deck, in px. */
 const DECK_W = 1053;

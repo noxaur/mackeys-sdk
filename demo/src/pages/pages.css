@@ -1,0 +1,26 @@
+/* ---- inner pages: /styles, /languages, /install ---- */
+.inner main { padding-top: 56px; }
+.inner-head { padding: clamp(40px, 8vh, 96px) 0 clamp(16px, 3vh, 32px); }
+.inner-head h1 { margin: 0 0 12px; font-size: clamp(36px, 6vw, 72px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.02; }
+.inner-head p { margin: 0; max-width: 56ch; color: var(--fg-2); font-size: clamp(16px, 1.6vw, 19px); }
+.inner-stage { padding: clamp(16px, 4vh, 40px) 0; }
+.stage { display: flex; justify-content: center; width: 100%; min-width: 0; }
+.stage-info { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-top: 20px; }
+.stage-info b { font-size: clamp(22px, 2.6vw, 30px); font-weight: 500; letter-spacing: -0.02em; }
+.stage-info span { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
+.snippet { display: block; width: fit-content; max-width: 100%; margin: 16px auto 0; padding: 10px 14px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); font-family: var(--mono); font-size: 12px; color: var(--fg-2); white-space: pre; }
+.inner-group { padding: clamp(24px, 5vh, 56px) 0; border-top: 1px solid var(--line); }
+.inner-group h2 { margin: 0 0 16px; font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fg-3); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line-2); border-radius: 999px; background: none; font: inherit; font-size: 14px; color: var(--fg-2); cursor: pointer; transition: color 150ms, border-color 150ms; }
+.chip:hover { color: var(--fg); }
+.chip.on { color: var(--fg); border-color: var(--led); }
+.chip:focus-visible { outline: 2px solid #0a84ff; outline-offset: 2px; }
+.swatch { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 16px; }
+.card { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); }
+.card h2 { margin: 0; font-family: var(--sans); font-size: 20px; font-weight: 500; letter-spacing: -0.01em; text-transform: none; color: var(--fg); }
+.card .get-cmd { border: 1px solid var(--line); border-radius: 8px; }
+.card pre { flex: 1; margin: 0; padding: 12px 14px; overflow-x: auto; border-radius: 8px; background: var(--bg); font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--fg-2); }
+.card a { font-family: var(--mono); font-size: 12px; color: var(--fg-2); }
+.card a:hover { color: var(--fg); }

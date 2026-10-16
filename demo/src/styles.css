@@ -81,12 +81,25 @@ button { font: inherit; color: inherit; }
   font-size: clamp(34px, 7vw, 104px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02;
   text-align: center; max-width: 14ch; margin: 0; min-height: 1.02em;
 }
-.intro-title .caret { display: inline-block; width: 0.06em; height: 0.9em; margin-left: 0.06em; vertical-align: -0.08em; background: var(--led); animation: blink 1s steps(2) infinite; }
-.intro-kbd { animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-.intro.out { pointer-events: none; animation: fade 700ms ease 300ms both; }
+.intro-title .caret { display: inline-block; width: 0.06em; height: 0.9em; margin-left: 0.06em; vertical-align: -0.08em; background: var(--fg); animation: blink 1s steps(2) infinite; }
+/* The caret takes no space, so the letters stay where they are while it moves. */
+.intro-word .caret { position: absolute; }
+.intro-word { display: inline-block; white-space: nowrap; }
+.intro-word > span:not(.caret) { display: inline-block; opacity: 0; }
+.intro-word > span.on { opacity: 1; }
+.intro-stage { position: relative; perspective: 1400px; perspective-origin: 50% 0; }
+/* The keyboard tilts up and settles flat. */
+.intro-kbd { position: relative; transform-origin: 50% 100%; animation: tiltin 1100ms cubic-bezier(0.16, 0.84, 0.24, 1) both; }
+/* Exit: the title and the keyboard fade away while the page shows under them. */
+.intro.out { pointer-events: none; animation: fade 650ms ease 300ms both; }
+.intro.out .caret { display: none; }
 .intro.out .intro-title { animation: lift 700ms cubic-bezier(0.6, 0, 0.2, 1) both; }
-.intro.out .intro-kbd { animation: drop 800ms cubic-bezier(0.6, 0, 0.2, 1) both; }
+.intro.out .intro-kbd { animation: flyout 900ms cubic-bezier(0.55, 0, 0.2, 1) both; }
 .intro-skip { position: absolute; right: 24px; bottom: 24px; opacity: 0; animation: fadein 600ms ease 1200ms both; }
+@media (prefers-reduced-motion: reduce) {
+  .intro-kbd, .intro.out .intro-title, .intro.out .intro-kbd { animation: none; }
+  .intro.out { animation: fade 400ms ease both; }
+}
 
 @keyframes blink { to { visibility: hidden; } }
 @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
@@ -94,9 +107,15 @@ button { font: inherit; color: inherit; }
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 @keyframes lift { to { opacity: 0; transform: translateY(-60px) scale(0.96); filter: blur(6px); } }
 @keyframes drop { to { opacity: 0; transform: translateY(120px) scale(0.98); } }
+@keyframes tiltin {
+  0% { opacity: 0; transform: translateY(60px) rotateX(40deg) scale(0.86); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes flyout { 0% { opacity: 1; transform: none; } 100% { opacity: 0; transform: translateY(-4%) scale(1.25); } }
 
 /* ---- page ---- */
-.page { position: relative; z-index: 1; }
+/* Safety net only. Each wide part clips itself; this stops a future one from making the page scroll sideways. */
+.page { position: relative; z-index: 1; overflow-x: clip; }
 .page.hidden { visibility: hidden; }
 
 .nav {
@@ -113,6 +132,8 @@ button { font: inherit; color: inherit; }
 .nav .links { display: flex; gap: 22px; font-family: var(--mono); font-size: 12px; color: var(--fg-2); }
 .nav .links a:hover { color: var(--fg); }
 @media (max-width: 420px) { .nav .links { gap: 14px; } }
+/* On the smallest phones the brand and the three links do not fit in one row. Drop " / sdk". */
+@media (max-width: 359px) { .nav .brand span { display: none; } }
 
 section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 .section-head { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: clamp(28px, 4vh, 48px); max-width: 720px; }
@@ -126,7 +147,8 @@ section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 .hero-head h1 { font-size: clamp(38px, 5.2vw, 76px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.02; margin: 0; text-wrap: balance; }
 .hero-head p { color: var(--fg-2); font-size: clamp(16px, 1.6vw, 19px); margin: 0; }
 
-.shelf { position: relative; }
+/* The floor glow is wider than a phone screen. Clip it on the x axis only, so it never makes the page scroll sideways. */
+.shelf { position: relative; overflow-x: clip; }
 .shelf::before, .shelf::after { content: ''; position: absolute; top: 0; bottom: 0; width: max(var(--gutter), 6vw); z-index: 101; pointer-events: none; }
 .shelf::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
 .shelf::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
@@ -164,10 +186,12 @@ section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 @keyframes wipe { from { opacity: 0; transform: translateY(10px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
 
 /* ---- install: key cap tabs and a MacBook top case ---- */
-.get { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
-@media (max-width: 900px) { .get { grid-template-columns: minmax(0, 1fr); } }
-.get-side .section-head { margin-bottom: 32px; }
-.get-tabs { display: flex; flex-wrap: wrap; gap: 12px; }
+/* No headline here: the tabs sit centered on top of the MacBook card. */
+.get { display: flex; flex-direction: column; align-items: center; gap: clamp(20px, 3vw, 32px); }
+.get-side { width: 100%; }
+.get .get-code { width: min(100%, 720px); }
+.get-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+@media (max-width: 440px) { .get-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } }
 .get-tab { color: var(--fg-2); }
 .get-tab.on { color: var(--fg); }
 /* The chosen platform stays down, like a key that is held, and its light is on. */
@@ -208,13 +232,31 @@ section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 @media (max-width: 900px) { .loc-list { flex-direction: row; flex-wrap: wrap; gap: 4px 10px; border: 0; } .loc-list button { border: 0; padding: 4px 0; } .loc-list button.on::after { display: none; } }
 
 /* ---- footer ---- */
-footer { position: relative; border-top: 1px solid var(--line); padding-top: 72px; overflow: hidden; background: linear-gradient(to bottom, transparent, rgba(10, 10, 11, 0.9) 40%); }
-.foot-links { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 17px; }
-.foot-links a { color: var(--fg-2); }
-.foot-links a:hover { color: var(--fg); }
-.foot-note { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
-.foot-mark { margin-top: 48px; display: flex; justify-content: center; }
+.foot {
+  position: relative; border-top: 1px solid var(--line);
+  padding: clamp(56px, 9vh, 96px) 0 max(28px, calc(env(safe-area-inset-bottom) + 16px));
+  background: linear-gradient(to bottom, rgba(10, 10, 11, 0.6), var(--bg) 45%);
+}
+.foot-top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px clamp(32px, 5vw, 80px); align-items: start; }
+.foot-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.foot-name { font-family: var(--mono); font-size: 17px; font-weight: 500; letter-spacing: -0.02em; color: var(--fg); white-space: pre; }
+.foot-name span { color: var(--fg-3); transition: color 150ms; }
+.foot-name:hover span { color: var(--fg-2); }
+.foot-brand p { margin: 0; max-width: 34ch; color: var(--fg-2); font-size: 15px; line-height: 1.55; }
+.foot-ver { font-family: var(--mono); font-size: 12px; color: var(--fg-3); padding: 3px 8px; border: 1px solid var(--line-2); border-radius: 6px; }
+.foot-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+.foot-group h3 { margin: 0 0 14px; font-size: 14px; font-weight: 500; color: var(--fg-3); }
+.foot-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.foot-group a { display: inline-flex; align-items: center; gap: 6px; padding: 2px 0; font-size: 15px; color: var(--fg-2); transition: color 150ms; }
+.foot-group a span { font-size: 11px; color: var(--fg-3); transition: color 150ms, transform 150ms; }
+.foot-group a:hover { color: var(--fg); }
+.foot-group a:hover span { color: var(--led); transform: translate(1px, -1px); }
+.foot-group a:focus-visible, .foot-name:focus-visible { outline: 2px solid #0a84ff; outline-offset: 3px; border-radius: 4px; }
+.foot-mark { margin-top: clamp(56px, 8vh, 88px); display: flex; justify-content: center; }
 .foot-mark .mk-k { cursor: pointer; }
+.foot-note { display: flex; justify-content: space-between; gap: 8px 24px; flex-wrap: wrap; margin-top: clamp(32px, 5vh, 56px); padding-top: 18px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--fg-3); }
+@media (max-width: 900px) { .foot-top { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .foot-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } .foot-note { flex-direction: column; } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -223,3 +265,5 @@ footer { position: relative; border-top: 1px solid var(--line); padding-top: 72p
   .slide-glow { animation: none; opacity: 1; }
     .slide-tilt { transform: none; }
 }
+
+@media (max-width: 640px) { .nav .links { gap: 16px; } .nav .links .opt { display: none; } }
