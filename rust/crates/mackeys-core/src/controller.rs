@@ -157,6 +157,10 @@ impl KeyboardController {
     pub fn set_idle_off_at(&mut self, d: Option<Duration>, now: Instant) {
         self.idle_off = d;
         self.arm_idle(now);
+        if d.is_none_or(|d| d.is_zero()) && self.idle {
+            self.idle = false;
+            self.revision += 1;
+        }
     }
 
     pub fn state(&self) -> KeyboardState {
@@ -240,11 +244,20 @@ impl KeyboardController {
     }
 
     pub fn release_all(&mut self, source: InputSource) {
+        self.release_all_after(None, source);
+    }
+
+    /// Releases every key with one release sound: the sound class of `lead` when it is down, else `Key`.
+    fn release_all_after(&mut self, lead: Option<&str>, source: InputSource) {
         if self.down.is_empty() {
             return;
         }
+        let kind = match lead {
+            Some(id) if self.is_down(id) => self.info(id).1,
+            _ => KeySound::Key,
+        };
         if let Some(s) = self.sound.as_mut() {
-            s.key(KeySound::Key, true);
+            s.key(kind, true);
         }
         let ids = std::mem::take(&mut self.down);
         for id in ids {
@@ -276,12 +289,12 @@ impl KeyboardController {
         let modifier = ["Meta", "Control", "Alt", "Shift"].iter().any(|p| id.starts_with(p));
         let chord = (e.meta_key || e.ctrl_key) && !modifier;
         let prevent = !chord && id != "Tab";
+        if e.repeat {
+            return prevent;
+        }
         // macOS sends one key down when caps lock turns on and one key up when it turns off.
         if id == "CapsLock" {
             self.tap_at(id, InputSource::Keyboard, now);
-            return prevent;
-        }
-        if e.repeat {
             return prevent;
         }
         self.press_at(id, InputSource::Keyboard, now);
@@ -300,7 +313,7 @@ impl KeyboardController {
         // macOS sends no key up for keys typed while command is held, so command's release lets go of
         // everything.
         if code == "MetaLeft" || code == "MetaRight" {
-            self.release_all(InputSource::Keyboard);
+            self.release_all_after(Some(code), InputSource::Keyboard);
             return;
         }
         if self.keys.contains_key(code) {

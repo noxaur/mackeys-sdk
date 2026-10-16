@@ -242,6 +242,51 @@ fn keyboard_idle() {
 }
 
 #[test]
+fn command_up_plays_the_command_release_sound() {
+    let log = Log::default();
+    let mut c = kb_controller(&log, None);
+    let t0 = Instant::now();
+    c.handle_key_down_at(&KeyDownInput { code: "MetaLeft".into(), ..Default::default() }, t0);
+    c.handle_key_up_at("MetaLeft", t0);
+    assert_eq!(*log.0.borrow(), vec!["Mod", "Mod-up"]);
+    // Focus loss has no lead key, so it keeps the plain key sound.
+    c.press_at("MetaLeft", InputSource::Api, t0);
+    c.release_all(InputSource::Keyboard);
+    assert_eq!(log.0.borrow().last().unwrap(), "Key-up");
+}
+
+#[test]
+fn caps_lock_ignores_auto_repeat() {
+    let log = Log::default();
+    let mut c = kb_controller(&log, None);
+    let t0 = Instant::now();
+    c.handle_key_down_at(&KeyDownInput { code: "CapsLock".into(), ..Default::default() }, t0);
+    for i in 1..8 {
+        let at = t0 + Duration::from_millis(35 * i);
+        c.tick(at);
+        let r = KeyDownInput { code: "CapsLock".into(), repeat: true, ..Default::default() };
+        assert!(c.handle_key_down_at(&r, at));
+    }
+    let presses = c.take_events().iter().filter(|e| e.kind == KeyEventType::Press).count();
+    assert_eq!(presses, 1);
+    assert!(c.caps());
+}
+
+#[test]
+fn idle_off_never_lights_the_backlight_again() {
+    let log = Log::default();
+    let t0 = Instant::now();
+    let mut c = kb_controller(&log, None);
+    c.set_idle_off_at(idle_delay("5s"), t0);
+    c.tick(t0 + Duration::from_secs(6));
+    assert!(c.idle());
+    let rev = c.revision();
+    c.set_idle_off_at(idle_delay("never"), t0 + Duration::from_secs(7));
+    assert!(!c.idle());
+    assert!(c.revision() > rev);
+}
+
+#[test]
 fn trackpad_phases() {
     let log = Log::default();
     let t0 = Instant::now();
