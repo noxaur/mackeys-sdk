@@ -1,19 +1,22 @@
 # MacKeys SDK
 
-> MacKeys draws interactive Mac keyboards and Force Touch trackpads: MacBook Pro, MacBook Air, MacBook Neo and the iMac Magic Keyboard with Touch ID. It has 17 finishes, 17 layouts, a backlight model, physical key input and recorded click sounds. The same engine has SDKs for React, Svelte 5, plain TypeScript, Swift (SwiftUI) and Rust (GPUI).
+> MacKeys draws interactive Mac keyboards and Force Touch trackpads: MacBook Pro, MacBook Air, MacBook Neo and the iMac Magic Keyboard with Touch ID. It has 17 finishes, 17 layouts, a backlight model, physical key input and recorded click sounds. The same engine has SDKs for React, Svelte 5, Vue 3.5+, Web Components (plain DOM, Angular, Solid, Lit), plain TypeScript, Swift (SwiftUI) and Rust (GPUI). Version 0.2.1, MIT license.
 
 Use these facts first:
 
-- Pick one SDK. Web apps use `@mackeys/react` or `@mackeys/svelte`. Each re-exports all of `@mackeys/core`, so do not also install `@mackeys/core`. Use `@mackeys/core` alone only for a custom renderer (canvas, WebGL, server-side geometry).
-- The three components are `MacBook` (lid, keyboard, trackpad), `MacKeyboard` (keyboard deck only) and `MacTrackpad` (trackpad only).
-- Every prop is optional. The defaults are `finish="pro-space-black"`, `layout="en-us"`, backlight off, sound on, `capture="focus"`, `scale={1}`.
+- Pick one SDK. Web apps use `@mackeys/react`, `@mackeys/svelte`, `@mackeys/vue` or `@mackeys/elements`. Each re-exports all of `@mackeys/core`, so do not also install `@mackeys/core`. Use `@mackeys/core` alone only for a custom renderer (canvas, WebGL, server-side geometry).
+- The three components are `MacBook` (lid, keyboard, trackpad), `MacKeyboard` (keyboard deck only) and `MacTrackpad` (trackpad only). In `@mackeys/elements` they are the custom elements `<mac-book>`, `<mac-keyboard>` and `<mac-trackpad>`. Import `@mackeys/elements/define` once to register them.
+- Every prop is optional. The defaults are `finish="pro-space-black"`, `layout="en-us"`, backlight off, sound on, `capture="focus"`, `scale={1}`, `view="top-down"`.
 - Key ids are W3C `KeyboardEvent.code` values (`KeyA`, `ShiftLeft`, `Enter`), plus `Fn` and `TouchID`.
 - At `scale={1}`, one key pitch is 64 px. A `MacBook` with its lid is about 1293 x 955 px. Set `scale` (for example `0.5`) to fit the page.
 - Physical typing goes to the keyboard only while one of its keys has focus. Set `capture="window"` to show every key press on the page.
-- React event props are camelCase (`onKeyDown`, `onForceClick`). Svelte event props are lower case (`onkeydown`, `onforceclick`).
+- Event names differ per SDK. React: `onKeyDown`, `onKeyUp`, `onPress`, `onForceClick`, `onRelease`. Svelte: `onkeydown`, `onkeyup`, `onpress`, `onforceclick`, `onrelease`. Vue: `@keydown`, `@keyup`, `@press`, `@forceclick`, `@release`. Web Components: DOM events `mk-keydown`, `mk-keyup`, `mk-press`, `mk-forceclick`, `mk-release`.
+- Key events are `{ type, id, label, sound, source }`.
 - An unknown finish id gives `pro-space-black`. An unknown layout id gives `en-us`. There is no error.
 - Only `pro-*` and `air-*` finishes have a backlight. `imac-*` finishes are Magic Keyboards and have no lid and no trackpad.
+- `backlight.idleOff` (`'never'`, `'5s'`, `'10s'`, `'30s'`, `'1m'`, `'5m'` or ms) turns the light off after inactivity.
 - Browsers start audio only after a user gesture, so the first click sound plays after the first click or key press.
+- To draw on or between single keys in SwiftUI, use the per-key views `MacKeyCap`, `MacKeyboardDeckView` and `MacDeckLayout` instead of `MacKeyboardView`. On the web, use the `Keys` component with `buildKeyboard` and `keyboardTheme`.
 
 ## Docs
 
@@ -23,16 +26,26 @@ Use these facts first:
 
 ## Packages
 
-- [@mackeys/react](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/react/README.md): React 18+ components and hooks.
+- [@mackeys/react](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/react/README.md): React 18+ components (`MacBook`, `MacKeyboard`, `MacTrackpad`, `Keys`) and hooks (`useKeyboardController`, `useTrackpadController`).
 - [@mackeys/svelte](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/svelte/README.md): Svelte 5 components (runes).
+- [@mackeys/vue](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/vue/README.md): Vue 3.5+ components and composables (`useKeyboardController`, `useTrackpadController`, `useWindowKeys`). They render on the server too.
+- [@mackeys/elements](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/elements/README.md): Web Components in a shadow root, and a DOM renderer (`mountMacKeyboard`, `mountMacTrackpad`, `mountMacBook`) for any framework or none.
 - [@mackeys/core](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/core/README.md): the TypeScript engine with no UI dependency.
-- [Swift (MacKeysUI, MacKeysCore)](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/swift/README.md): SwiftUI views for macOS 14+, Swift 6.
+- [Swift (MacKeysUI, MacKeysCore)](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/swift/README.md): SwiftUI views for macOS 14+, Swift 6. `MacBookView`, `MacKeyboardView`, `MacTrackpadView`, and the per-key views `MacKeyCap`, `MacKeyboardDeckView` and `MacDeckLayout`.
 - [Rust (mackeys-gpui, mackeys-core)](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/rust/README.md): GPUI views for macOS, Rust 1.88+.
 
 ## Examples
 
 - [React demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/react-demo/src/main.tsx): pickers for part, finish, layout, view and backlight.
 - [Svelte demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/svelte-demo/src/App.svelte): the same demo in Svelte 5.
+- [Vue demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/vue-demo/src/App.vue): the same demo in Vue 3.
+- [Web Components demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/elements-demo/src/main.ts): the same demo with `<mac-book>`, `<mac-keyboard>` and `<mac-trackpad>`.
+
+## Site
+
+- [MacKeys site](https://mackeys.perwko.com/): all styles on a slider, a keyboard that types in each language, and install commands per platform.
+- [Typing demo](https://mackeys.perwko.com/demo): a typing test on a MacKeys keyboard with sound.
+- [Site llms.txt](https://mackeys.perwko.com/llms.txt): a short version of this file with code for each SDK.
 
 ## Optional
 

@@ -100,10 +100,6 @@ export function Sdks() {
     <section id="get">
       <div className="wrap get">
         <div className="get-side">
-          <div className="section-head">
-            <h2>One keyboard. Every app.</h2>
-            <p>The same keys, colors and sounds on the web, the Mac and the desktop. Free and open source.</p>
-          </div>
           <div className="get-tabs" role="tablist" aria-label="Platform">
             {SDKS.map((x, i) => (
               <button

@@ -1,21 +1,25 @@
 # MacKeys SDK
 
-> MacKeys draws interactive Mac keyboards and Force Touch trackpads for React, Svelte, SwiftUI and Rust (GPUI). Every SDK gives the same devices, finishes, layouts, backlight and recorded click sounds. MIT license.
+> MacKeys draws interactive Mac keyboards and Force Touch trackpads for React, Svelte, Vue, Web Components, SwiftUI and Rust (GPUI). Every SDK gives the same devices, finishes, layouts, backlight and recorded click sounds. Version 0.2.1, MIT license.
 
 - Devices: MacBook Pro 14/16, MacBook Air 13/15, MacBook Neo, and the iMac Magic Keyboard with Touch ID. Each device comes as the keyboard deck, the full top case with its trackpad, or the trackpad alone.
 - Finishes (17): `pro-space-black`, `pro-silver`, `air-midnight`, `air-starlight`, `air-sky-blue`, `air-silver`, `neo-silver`, `neo-blush`, `neo-citrus`, `neo-indigo`, `imac-silver`, `imac-blue`, `imac-purple`, `imac-pink`, `imac-orange`, `imac-yellow`, `imac-green`.
 - Layouts (17): `en-us`, `en-gb`, `en-intl`, `de`, `fr`, `es`, `sv-fi`, `no`, `da`, `it`, `ja` (JIS), `nl`, `ch`, `pt`, `ru`, `ko`, and `custom` (your own ISO or ANSI rows).
-- Backlight (Pro and Air only): `{ on, level: 0-16, room: 'daylight' | 'dark', bleed: 0-1, color }`.
+- Backlight (Pro and Air only): `{ on, level: 0-16, room: 'daylight' | 'dark', bleed: 0-1, color, idleOff }`. `idleOff` is `'never'`, `'5s'`, `'10s'`, `'30s'`, `'1m'`, `'5m'` or ms.
 - Input: click the keys, or type on the physical keyboard (`capture: 'focus' | 'window' | 'none'`). Caps lock has a working LED. The trackpad clicks; a held click becomes a force click.
-- Sound: recorded MacBook key and trackpad clicks. `sound` is on by default.
+- Sound: recorded MacBook key and trackpad clicks. `sound` is on by default. Browsers play sound only after the first click or key press.
+- Key ids are `KeyboardEvent.code` values such as `KeyA` or `MetaLeft`, plus `Fn` and `TouchID`. Key events are `{ type, id, label, sound, source }`.
+- Install one web package only. Each one re-exports all of `@mackeys/core`.
 
 ## Packages
 
-- [@mackeys/react](https://github.com/noxaur/mackeys-sdk/tree/main/packages/react): `npm i @mackeys/react`. Components `MacBook`, `MacKeyboard`, `MacTrackpad` for React 18+, plus the parts (`Keys`, `buildKeyboard`, `keyboardTheme`, `topCase`, `useKeyboardController`) to build your own.
+- [@mackeys/react](https://github.com/noxaur/mackeys-sdk/tree/main/packages/react): `npm i @mackeys/react`. Components `MacBook`, `MacKeyboard`, `MacTrackpad` for React 18+, plus the parts (`Keys`, `buildKeyboard`, `keyboardTheme`, `topCase`, `useKeyboardController`, `useTrackpadController`) to build your own.
 - [@mackeys/svelte](https://github.com/noxaur/mackeys-sdk/tree/main/packages/svelte): `npm i @mackeys/svelte`. The same components for Svelte 5.
+- [@mackeys/vue](https://github.com/noxaur/mackeys-sdk/tree/main/packages/vue): `npm i @mackeys/vue`. The same components for Vue 3.5+, with composables. They render on the server too.
+- [@mackeys/elements](https://github.com/noxaur/mackeys-sdk/tree/main/packages/elements): `npm i @mackeys/elements`. Web Components `<mac-book>`, `<mac-keyboard>`, `<mac-trackpad>`, and a DOM renderer (`mountMacBook`, `mountMacKeyboard`, `mountMacTrackpad`). Use it in plain HTML, Angular, Solid, Lit or any other framework.
 - [@mackeys/core](https://github.com/noxaur/mackeys-sdk/tree/main/packages/core): `npm i @mackeys/core`. The TypeScript engine with no UI: geometry, themes, layouts, controllers and sounds as plain numbers. The other SDKs follow it.
 - [Swift](https://github.com/noxaur/mackeys-sdk/tree/main/swift): Swift package `https://github.com/noxaur/mackeys-sdk.git`, products `MacKeysUI` and `MacKeysCore`. SwiftUI, macOS 14+, Swift 6.
-- [Rust](https://github.com/noxaur/mackeys-sdk/tree/main/rust): `cargo add mackeys-gpui` (GPUI views) or `cargo add mackeys-core` (engine).
+- [Rust](https://github.com/noxaur/mackeys-sdk/tree/main/rust): `cargo add mackeys-gpui` (GPUI views) or `cargo add mackeys-core` (engine). Rust 1.88+.
 
 ## React
 
@@ -27,7 +31,7 @@ import { MacBook, MacKeyboard, MacTrackpad } from '@mackeys/react';
 <MacTrackpad finish="pro-silver" onForceClick={() => console.log('force')} />
 ```
 
-`MacKeyboard` props: `finish`, `layout`, `custom`, `backlight`, `sound`, `capture`, `highlight` (key ids shown as pressed), `scale` (1 key = 64 px at 1), `view` (`'top-down' | 'angled'`), `onKeyDown`, `onKeyUp`, `className`, `style`. `MacBook` adds the trackpad props and `lid` (default true). Key events are `{ type, id, label, sound, source }`, where `id` is a `KeyboardEvent.code` such as `KeyA` or `MetaLeft`.
+`MacKeyboard` props: `finish`, `layout`, `custom`, `backlight`, `sound`, `capture`, `highlight` (key ids shown as pressed), `scale` (1 key = 64 px at 1), `view` (`'top-down' | 'angled'`), `onKeyDown`, `onKeyUp`, `className`, `style`. `MacTrackpad` has `forceDelayMs` (default 500), `onPress`, `onForceClick` and `onRelease`. `MacBook` has the props of both, plus `lid` (default true).
 
 ## Svelte
 
@@ -39,6 +43,42 @@ import { MacBook, MacKeyboard, MacTrackpad } from '@mackeys/react';
 <MacKeyboard finish="imac-blue" layout="de" onkeydown={(e) => console.log(e.id)} />
 ```
 
+Svelte event props are lower case: `onkeydown`, `onkeyup`, `onpress`, `onforceclick`, `onrelease`.
+
+## Vue
+
+```vue
+<script setup lang="ts">
+import { MacBook, MacKeyboard, MacTrackpad, type KeyEvent } from '@mackeys/vue';
+</script>
+
+<template>
+  <MacBook finish="air-starlight" layout="fr" :scale="0.6" />
+  <MacKeyboard finish="pro-space-black" capture="window" :backlight="{ on: true, level: 12, room: 'dark' }" @keydown="(e: KeyEvent) => console.log(e.id)" />
+  <MacTrackpad finish="neo-indigo" @forceclick="() => console.log('force')" />
+</template>
+```
+
+The props are the same as in React. The events are `keydown`, `keyup`, `press`, `forceclick` and `release`.
+
+## Web Components
+
+```html
+<script type="module">
+  import '@mackeys/elements/define';
+</script>
+
+<mac-book finish="air-midnight" layout="en-gb" view="angled" scale="0.6"></mac-book>
+<mac-keyboard finish="pro-space-black" capture="window" backlight="on" backlight-level="12" room="dark"></mac-keyboard>
+<mac-trackpad finish="neo-indigo"></mac-trackpad>
+
+<script type="module">
+  document.querySelector('mac-keyboard').addEventListener('mk-keydown', (e) => console.log(e.detail.id));
+</script>
+```
+
+The events are `mk-keydown`, `mk-keyup`, `mk-press`, `mk-forceclick` and `mk-release`. They bubble out of the shadow root.
+
 ## SwiftUI
 
 ```swift
@@ -48,6 +88,21 @@ import MacKeysCore
 
 MacBookView(finish: .proSpaceBlack, layout: .enUS, sizing: .fitWidth)
 MacBookView(finish: .airStarlight, layout: .de, sizing: .fitWidth, showLid: false)
+```
+
+To draw on or between the keys, build the keyboard from the per-key views: `MacKeyboardDeckView` (deck and well), `MacDeckLayout` (where each key sits) and `MacKeyCap` (one key, with `pressed:` and `legends:`).
+
+```swift
+let device = macDevice(finish: .proSilver, layout: .enUS)
+let layout = MacDeckLayout(device)
+ZStack(alignment: .topLeading) {
+    MacKeyboardDeckView(device: device)
+    ForEach(device.keyboard.keys) { key in
+        let f = layout.frame(of: key)
+        MacKeyCap(key: key, theme: device.theme, legends: false)
+            .offset(x: f.minX - MacKeyCap.padding, y: f.minY - MacKeyCap.padding)
+    }
+}
 ```
 
 ## Rust (GPUI)
@@ -64,8 +119,14 @@ MacBook::new(window, cx)
     .scale(0.8)
 ```
 
+## Site
+
+- [Home](/): all styles on a slider, a keyboard that types in each language, and install commands per platform.
+- [Typing demo](/demo): a typing test on a MacKeys keyboard with sound.
+
 ## Optional
 
+- [Docs](https://github.com/noxaur/mackeys-sdk/tree/main/docs): getting started, the TypeScript API, and all ids.
+- [Full llms.txt](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/llms.txt): the repository index of docs and package READMEs.
 - [Spec](https://github.com/noxaur/mackeys-sdk/blob/main/spec/SPEC.md): the shared data and golden fixtures that every port passes.
-- [Examples](https://github.com/noxaur/mackeys-sdk/tree/main/examples): React and Svelte demo apps.
-- [Typing demo](/demo)
+- [Examples](https://github.com/noxaur/mackeys-sdk/tree/main/examples): React, Svelte, Vue and Web Components demo apps.

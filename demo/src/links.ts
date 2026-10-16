@@ -1,5 +1,7 @@
 export const REPO = 'https://github.com/noxaur/mackeys-sdk';
 /** The typing demo. */
 export const DEMO = '/demo';
-/** Every style, with controls. */
+/** The pages of the site. */
 export const STYLES = '/styles';
+export const LANGUAGES = '/languages';
+export const INSTALL = '/install';
