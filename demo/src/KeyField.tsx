@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { KeyCap, KeyboardController, KeyboardGeometry, Keys, LAYOUT_IDS, UNIT, ROW_PITCH, buildKeyboard, keyboardTheme, injectStyles } from '@mackeys/react';
+import { KeyCap, KeyboardController, KeyboardGeometry, Keys, LAYOUT_IDS, UNIT, ROW_PITCH, buildKeyboard, keyboardTheme, injectStyles, themeVars } from '@mackeys/react';
 
 // A field of single keys from every layout, matte and unlit, that covers the whole page.
-// Only a soft circle around the pointer shows them.
+// Only a soft circle around the pointer shows them. The key under the pointer presses and lights up.
 
 function rng(seed: number) {
   let s = seed >>> 0 || 1;
@@ -27,6 +27,15 @@ function pool(): KeyCap[] {
 }
 
 const EMPTY = { down: new Set<string>(), caps: false, idle: false };
+
+// The backlit look of a key, applied to one key at a time. Removing it fades the light out.
+const LIT = themeVars(keyboardTheme('pro-space-black', { on: true, level: 16, room: 'dark' }), false);
+const LIT_VARS = ['--mk-lc', '--mk-ls', '--mk-lk', '--mk-icf'] as const;
+
+/** Visual only: these keys belong to no controller, so they make no sound. */
+function keyAt(root: HTMLElement, r: number, c: number) {
+  return root.querySelector<HTMLElement>(`[data-key="f${r}-${c}"]`);
+}
 
 export function KeyField() {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,10 +67,46 @@ export function KeyField() {
       el.style.setProperty('--fy', y.toFixed(1) + 'px');
       raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.3 ? requestAnimationFrame(step) : 0;
     };
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const off = new Map<HTMLElement, number>();
+    const light = (k: HTMLElement, ms: number) => {
+      for (const v of LIT_VARS) k.style.setProperty(v, LIT[v]);
+      clearTimeout(off.get(k));
+      off.set(k, window.setTimeout(() => LIT_VARS.forEach((v) => k.style.removeProperty(v)), ms));
+    };
+    const press = (k: HTMLElement, ms: number) => {
+      k.classList.add('mk-dn');
+      window.setTimeout(() => k.classList.remove('mk-dn'), ms);
+    };
+    const cell = (x: number, y: number) => [Math.floor((y + ROW_PITCH / 2) / ROW_PITCH), Math.floor((x + UNIT / 2) / UNIT)];
+    let last = '';
     const move = (nx: number, ny: number) => {
       tx = nx;
       ty = ny;
       if (!raf) raf = requestAnimationFrame(step);
+      if (reduce) return;
+      const [r, c] = cell(nx, ny);
+      if (r + ',' + c === last) return;
+      last = r + ',' + c;
+      const k = keyAt(el, r, c);
+      if (!k) return;
+      press(k, 120);
+      light(k, 650);
+    };
+    // A click on the page presses the key under it and lights a ring around it.
+    const down = (e: PointerEvent) => {
+      if (reduce) return;
+      const [r, c] = cell(e.clientX, e.clientY);
+      for (let dr = -2; dr <= 2; dr++)
+        for (let dc = -2; dc <= 2; dc++) {
+          const k = keyAt(el, r + dr, c + dc);
+          if (!k) continue;
+          const d = Math.max(Math.abs(dr), Math.abs(dc));
+          window.setTimeout(() => {
+            press(k, 140);
+            light(k, 900 - d * 150);
+          }, d * 70);
+        }
     };
     step();
     const onMouse = (e: MouseEvent) => move(e.clientX, e.clientY);
@@ -72,7 +117,10 @@ export function KeyField() {
     window.addEventListener('mousemove', onMouse, { passive: true });
     window.addEventListener('touchstart', onTouch, { passive: true });
     window.addEventListener('touchmove', onTouch, { passive: true });
+    window.addEventListener('pointerdown', down, { passive: true });
     return () => {
+      window.removeEventListener('pointerdown', down);
+      off.forEach((t) => clearTimeout(t));
       cancelAnimationFrame(raf);
       window.removeEventListener('mousemove', onMouse);
       window.removeEventListener('touchstart', onTouch);

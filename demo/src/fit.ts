@@ -27,16 +27,16 @@ export function useFit(natural: number, max = 1, min = 0.2, naturalH = 0, reserv
   return [ref, scale] as const;
 }
 
-/** True while the element is on screen. */
-export function useOnScreen(margin = '0px') {
-  const ref = useRef<HTMLElement | null>(null);
+/** True while all of the element is on screen. */
+export function useFullyOnScreen() {
+  const ref = useRef<HTMLDivElement | null>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setSeen(e.isIntersecting), { rootMargin: margin });
+    const io = new IntersectionObserver(([e]) => setSeen(e.isIntersecting && e.intersectionRatio > 0.98), { threshold: [0, 0.5, 0.9, 0.98, 1] });
     io.observe(el);
     return () => io.disconnect();
-  }, [margin]);
+  }, []);
   return [ref, seen] as const;
 }

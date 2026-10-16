@@ -7,15 +7,13 @@ export function Nav() {
         mackeys<span> / sdk</span>
       </a>
       <div className="links">
-        <a href="#top">Styles</a>
-        <a href="#languages">Languages</a>
-        <a href="#get">Get it</a>
-        <a href={DEMO} target="_blank" rel="noreferrer">
+        <a href={DEMO}>
           Demo
         </a>
         <a href={REPO} target="_blank" rel="noreferrer">
           GitHub
         </a>
+        <a href="/llms.txt">llms.txt</a>
       </div>
     </nav>
   );

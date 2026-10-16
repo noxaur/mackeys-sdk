@@ -1,0 +1,26 @@
+/* The typing test at /demo. Same look as the "mackeys demo" artifact. */
+.td {
+  min-height: 100vh; display: flex; flex-direction: column; gap: 28px;
+  padding: 32px clamp(16px, 5vw, 72px) 28px;
+  background: #151619; color: #d8d6cf; line-height: normal;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+.td a { color: #8b8e95; }
+.td a:hover { color: #d8d6cf; }
+.td button { background: none; border: 0; cursor: pointer; padding: 0; }
+.td button:focus-visible, .td a:focus-visible, .td textarea:focus-visible { outline: 2px solid #79d2a6; outline-offset: 2px; border-radius: 4px; }
+.td-head, .td-main, .td-foot { width: 100%; max-width: 1040px; margin: 0 auto; }
+.td-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.td-main { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.td-foot { position: static; padding: 0; border: 0; background: none; overflow: visible; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-size: 12px; color: #8b8e95; }
+.td-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+.td-pill:hover, .td-icon:hover { color: #d8d6cf !important; }
+.td-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 18px; background: #1b1c20; border-radius: 8px; padding: 8px 18px; font-size: 13px; }
+.td-text { font: inherit; font-size: 14px; color: #d8d6cf; background: #1b1c20; border: 0; border-radius: 8px; padding: 14px 16px; resize: vertical; }
+.td-words { font-size: 26px; }
+.td-caret { position: absolute; width: 2px; height: 30px; margin-left: -1px; border-radius: 1px; transition: left .09s linear, top .18s ease-out; }
+.td-caret.idle { animation: td-blink 1s step-end infinite; }
+@keyframes td-blink { 50% { opacity: 0; } }
+.td-kb { display: flex; }
+.td kbd { font: inherit; background: #222328; color: #c9c7c0; padding: 2px 7px; border-radius: 4px; }
+@media (max-width: 760px) { .td-words { font-size: 17px; } .td-kb { display: none; } }

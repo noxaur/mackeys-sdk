@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview --port 5176",
     "typecheck": "tsc --noEmit -p .",
-    "deploy": "vite build && wrangler deploy"
+    "deploy": "vite build && void deploy --platform cloudflare --dir dist --spa"
   },
   "dependencies": {
     "@mackeys/core": "workspace:*",
@@ -19,8 +19,9 @@
     "@types/node": "^22.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
     "typescript": "^5.6.0",
-    "vite": "^5.4.0"
+    "vite": "^8.3.4",
+    "void": "^0.28.0"
   }
 }

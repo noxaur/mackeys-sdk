@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "source": {
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "mackeys-demo",
+    "account_id": "865dded96630ca6a533584a80efad356",
+    "compatibility_date": "2026-10-01",
+    "assets": {
+      "directory": "./dist",
+      "not_found_handling": "single-page-application"
+    }
+  },
+  "resolved": {
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "mackeys-demo",
+    "account_id": "865dded96630ca6a533584a80efad356",
+    "compatibility_date": "2026-10-01",
+    "assets": {
+      "directory": "./dist",
+      "not_found_handling": "single-page-application"
+    }
+  },
+  "text": "{\n  // Cloudflare Workers with static assets. `pnpm deploy` builds and uploads `dist/`.\n  // Add a custom domain (mackeys.your-domain.tld) in the Cloudflare dashboard, or set `routes` here.\n  \"$schema\": \"node_modules/wrangler/config-schema.json\",\n  \"name\": \"mackeys-demo\",\n  \"account_id\": \"865dded96630ca6a533584a80efad356\",\n  \"compatibility_date\": \"2026-10-01\",\n  \"assets\": {\n    \"directory\": \"./dist\",\n    \"not_found_handling\": \"single-page-application\"\n  }\n}\n"
+}

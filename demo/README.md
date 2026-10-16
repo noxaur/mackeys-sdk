@@ -1,7 +1,7 @@
 # MacKeys demo site
 
-The public site for the SDK: a typed intro, a style picker with a sideways shelf of 23 styles, a
-languages loop, install cards, and a footer made of key caps. It links to the typing demo. It uses the real
+The public site for the SDK: a typed intro, a sideways slider of 23 styles, a languages loop,
+install panel, and a footer made of key caps. `/demo` is a typing test, and the site serves `llms.txt`. It uses the real
 `@mackeys/react` components and the recorded click sounds.
 
 The site builds the SDK from source (`packages/core/src`, `packages/react/src`), so a deploy needs
@@ -29,14 +29,18 @@ The static site lands in `demo/dist`.
 
 ## Deploy to Cloudflare
 
-Option A, Workers with static assets (`wrangler.jsonc`):
+Option A, [Void](https://void.cloud) to your own Cloudflare account. `void.config.ts` holds the Worker
+name, the account and the SPA fallback; commit it with `void.lock.json`.
 
 ```bash
 pnpm --dir demo deploy
 ```
 
-Then add the custom domain (for example `mackeys.example.com`) to the worker under
-Settings → Domains & Routes in the Cloudflare dashboard.
+The site runs at https://mackeys.perwko.com. To add a custom domain, run this in `demo/`:
+
+```bash
+npx void domain add mackeys.example.com
+```
 
 Option B, Cloudflare Pages or Workers Builds connected to the GitHub repository:
 
@@ -56,9 +60,11 @@ Cloudflare.
 | --- | --- |
 | `src/Intro.tsx` | The title types itself on a MacBook Pro, then the screen slides away. |
 | `src/KeyField.tsx` | Random keys from every layout behind the whole page, shown in a circle around the pointer. |
-| `src/Presets.tsx` | Top of the page: a big keyboard in the chosen style, key light controls, and the shelf of styles with filters. |
-| `src/Localisation.tsx` | A keyboard that cycles every layout and says hello in each language. |
-| `src/Sdks.tsx` | Install cards for React, Svelte, Swift and Rust. |
+| `src/Presets.tsx` | Top of the page: a sideways slider of every style. The middle keyboard is big, tilted and live. Horizontal scroll, drag or click only; vertical scroll stays with the page. |
+| `src/Localisation.tsx` | A keyboard that morphs through every layout and types a greeting in each language, only while all of it is on screen. |
+| `src/Sdks.tsx` | Key cap tabs for React, Svelte, Swift and Rust, a MacBook top case in one color for each, and the install command. |
+| `src/TypingDemo.tsx` | The typing test at `/demo` (`src/main.tsx` picks the page from the path). The keyboard is the SDK keyboard with its sounds. |
 | `src/Footer.tsx` | Links and the MACKEYS wordmark made of seven key caps. |
 | `src/links.ts` | The GitHub and typing demo links. |
+| `public/llms.txt` | A short guide to the SDK for language models. |
 | `src/Device.tsx` | A keyboard on its deck, built from the SDK parts, with a controller ref. |

@@ -1,27 +1,28 @@
 import { KeyboardGeometry, LayoutId } from '@mackeys/react';
 
-/** "Hello" in the language of each layout. Korean is written as jamo, one key per character. */
-export const HELLO: Record<LayoutId | 'custom', string> = {
-  'en-us': 'hello',
-  'en-gb': 'hello',
-  de: 'hallo',
-  fr: 'bonjour',
-  es: 'hola',
-  'sv-fi': 'hej',
-  no: 'hei',
-  da: 'hej',
-  it: 'ciao',
-  ja: 'こんにちは',
-  nl: 'hallo',
-  'en-intl': 'hello',
-  ch: 'grüezi',
-  pt: 'olá',
-  ru: 'привет',
-  ko: 'ㅇㅏㄴㄴㅕㅇ',
-  custom: 'hello'
+/** "Hello, nice to meet you" in the language of each layout. Korean is written as jamo, one key per character. */
+export const PHRASE: Record<LayoutId | 'custom', string> = {
+  'en-us': 'hello, nice to meet you',
+  'en-gb': 'hello, lovely to meet you',
+  de: 'hallo, schön dich kennenzulernen',
+  fr: 'bonjour, ravi de te rencontrer',
+  es: 'hola, encantado de conocerte',
+  'sv-fi': 'hej, trevligt att träffas',
+  no: 'hei, hyggelig å møte deg',
+  da: 'hej, rart at møde dig',
+  it: 'ciao, piacere di conoscerti',
+  ja: 'こんにちは、はしめまして',
+  nl: 'hallo, leuk je te ontmoeten',
+  'en-intl': 'hello, nice to meet you',
+  ch: 'grüezi, freut mi sehr',
+  pt: 'olá, muito prazer',
+  ru: 'привет, рад знакомству',
+  ko: 'ㅇㅏㄴㄴㅕㅇㅎㅏㅅㅔㅇㅛ, ㅂㅏㄴㄱㅏㅂㅅㅡㅂㄴㅣㄷㅏ',
+  custom: 'hello, nice to meet you'
 };
 
-export const HELLO_SHOWN: Partial<Record<LayoutId | 'custom', string>> = { ko: '안녕', custom: 'hello' };
+/** The phrase as people read it, where it is not the same as the keys typed. */
+export const PHRASE_SHOWN: Partial<Record<LayoutId | 'custom', string>> = { ja: 'こんにちは、はじめまして', ko: '안녕하세요, 반갑습니다' };
 
 /** Dvorak on an ANSI deck, as a custom layout. */
 export const DVORAK = {
@@ -43,7 +44,8 @@ export function charMap(g: KeyboardGeometry): Map<string, string> {
   for (const k of g.keys) {
     // Base legends first, so a shifted symbol does not shadow a letter.
     const legends = [...k.legends].sort((a, b) => (a.slot === 'b' ? -1 : 0) - (b.slot === 'b' ? -1 : 0));
-    for (const l of legends) for (const c of l.text) put(strip(c), k.id);
+    // Word legends like "esc" or "tab" are names, not letters.
+    for (const l of legends) if ([...l.text].length === 1) put(strip(l.text), k.id);
     if (k.id === 'Space') put(' ', k.id);
   }
   return m;

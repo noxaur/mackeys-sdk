@@ -1,66 +1,143 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { FINISHES, MacBook, buildKeyboard, topCase } from '@mackeys/react';
 import { REPO } from './links';
-import { click } from './sound';
+import { click, useSound } from './sound';
+import { keysFor } from './words';
 
 const SDKS = [
-  { name: 'React', cmd: 'npm i @mackeys/react', text: 'For websites and web apps made with React.', href: REPO + '/tree/main/packages/react' },
-  { name: 'Svelte', cmd: 'npm i @mackeys/svelte', text: 'For websites and web apps made with Svelte.', href: REPO + '/tree/main/packages/svelte' },
-  { name: 'Swift', cmd: 'github.com/noxaur/mackeys-sdk', text: 'For Mac apps made with SwiftUI.', href: REPO + '/tree/main/swift' },
-  { name: 'Rust', cmd: 'cargo add mackeys-gpui', text: 'For desktop apps made with Rust.', href: REPO + '/tree/main/rust' }
+  {
+    name: 'React',
+    finish: 'air-sky-blue' as const,
+    cmd: 'npm i @mackeys/react',
+    href: REPO + '/tree/main/packages/react'
+  },
+  {
+    name: 'Svelte',
+    finish: 'neo-blush' as const,
+    cmd: 'npm i @mackeys/svelte',
+    href: REPO + '/tree/main/packages/svelte'
+  },
+  {
+    name: 'Swift',
+    finish: 'neo-citrus' as const,
+    cmd: 'github.com/noxaur/mackeys-sdk',
+    href: REPO + '/tree/main/swift'
+  },
+  {
+    name: 'Rust',
+    finish: 'air-midnight' as const,
+    cmd: 'cargo add mackeys-gpui',
+    href: REPO + '/tree/main/rust'
+  }
 ];
 
-const STATS = [
-  ['4', 'kinds of Mac'],
-  ['17', 'colors'],
-  ['17', 'languages'],
-  ['16', 'light steps'],
-  ['9', 'key sounds']
-];
+type Finish = (typeof SDKS)[number]['finish'];
+/** Natural size of a MacBook top case: the keyboard and the trackpad, without the lid. */
+const deck = (finish: Finish) => topCase(finish, buildKeyboard({ finish, layout: 'en-us' }), { parts: 'full' });
+const DECK_W = Math.max(...SDKS.map((x) => deck(x.finish).width));
+const DECK_H = Math.max(...SDKS.map((x) => deck(x.finish).height + 10));
 
-function Cmd({ cmd }: { cmd: string }) {
+/** The same keyboard and trackpad in every app. Each platform gets its own MacBook color, and the keyboard types its name. */
+function Desk({ finish, name }: { finish: Finish; name: string }) {
+  const { on } = useSound();
+  const box = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.5);
+  const [down, setDown] = useState<string[]>([]);
+  const first = useRef(true);
+  const keys = useMemo(() => keysFor(buildKeyboard({ finish, layout: 'en-us' }), name.toLowerCase()), [finish, name]);
+
+  useEffect(() => {
+    const el = box.current;
+    if (!el) return;
+    const fit = () => setScale(el.clientWidth / DECK_W);
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    const timers: number[] = [];
+    keys.forEach((k, n) => {
+      const t = 160 + n * 120;
+      timers.push(
+        window.setTimeout(() => {
+          setDown([k]);
+          if (on) click('key');
+        }, t),
+        window.setTimeout(() => {
+          setDown([]);
+          if (on) click('key', true);
+        }, t + 70)
+      );
+    });
+    return () => timers.forEach(clearTimeout);
+  }, [keys]);
+
+  return (
+    <div className="desk" ref={box} style={{ height: DECK_H * scale }}>
+      <MacBook finish={finish} layout="en-us" lid={false} sound={on} scale={scale} highlight={down} />
+    </div>
+  );
+}
+
+export function Sdks() {
+  const [n, setN] = useState(0);
   const [copied, setCopied] = useState(false);
+  const s = SDKS[n];
+  const color = FINISHES.find((f) => f.id === s.finish)!.name;
   const copy = () => {
-    navigator.clipboard?.writeText(cmd).then(() => {
+    navigator.clipboard?.writeText(s.cmd).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
     });
   };
   return (
-    <button className="cmd" onPointerDown={() => click('tab')} onPointerUp={() => click('tab', true)} onClick={copy} title="Copy">
-      <span>{cmd}</span>
-      <span>{copied ? 'copied' : 'copy'}</span>
-    </button>
-  );
-}
-
-export function Sdks() {
-  return (
     <section id="get">
-      <div className="wrap">
-        <div className="section-head">
-          <div className="mono">Get it</div>
-          <h2>One keyboard. Every app.</h2>
-          <p>The keys, colors and sounds are the same on the web, on the Mac and on the desktop. It is free and open source.</p>
+      <div className="wrap get">
+        <div className="get-side">
+          <div className="section-head">
+            <h2>One keyboard. Every app.</h2>
+            <p>The same keys, colors and sounds on the web, the Mac and the desktop. Free and open source.</p>
+          </div>
+          <div className="get-tabs" role="tablist" aria-label="Platform">
+            {SDKS.map((x, i) => (
+              <button
+                key={x.name}
+                role="tab"
+                aria-selected={i === n}
+                className={'cap get-tab' + (i === n ? ' on' : '')}
+                onPointerDown={() => click('mod')}
+                onPointerUp={() => click('mod', true)}
+                onClick={() => {
+                  setN(i);
+                  setCopied(false);
+                }}
+              >
+                <span className="dot" />
+                {x.name}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="grid">
-          {SDKS.map((s) => (
-            <article className="card" key={s.name}>
-              <h3>{s.name}</h3>
-              <p>{s.text}</p>
-              <Cmd cmd={s.cmd} />
-              <a className="more" href={s.href} target="_blank" rel="noreferrer">
-                How to use it →
-              </a>
-            </article>
-          ))}
-        </div>
-        <div className="stats">
-          {STATS.map(([n, l]) => (
-            <div key={l}>
-              <b>{n}</b>
-              <span>{l}</span>
-            </div>
-          ))}
+
+        <div className="get-code" role="tabpanel" aria-label={s.name}>
+          <div className="get-bar">
+            <span>{color}</span>
+            <a href={s.href} target="_blank" rel="noreferrer">
+              How to use it →
+            </a>
+          </div>
+          <Desk finish={s.finish} name={s.name} />
+          <button className="get-cmd" onClick={copy} title="Copy">
+            <span className="p">{s.name === 'Swift' ? 'package' : '$'}</span>
+            <span className="v">{s.cmd}</span>
+            <span className="cap small">{copied ? 'copied' : 'copy'}</span>
+          </button>
         </div>
       </div>
     </section>
