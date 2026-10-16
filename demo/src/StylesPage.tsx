@@ -4,13 +4,11 @@ import {
   FINISHES,
   FinishId,
   KeyboardController,
-  KeyboardTheme,
   LAYOUTS,
   LayoutId,
   buildKeyboard,
   getFinish,
   isEditableTarget,
-  keyboardTheme,
   parseColor,
   topCase
 } from '@mackeys/react';
@@ -18,7 +16,6 @@ import { Device } from './Device';
 import { Footer } from './Footer';
 import { KeyField } from './KeyField';
 import { Nav } from './Nav';
-import { REPO } from './links';
 import { DECK_W, KIND, PRESETS, Preset, hasLight } from './styleList';
 import { SoundContext, click } from './sound';
 import { useFit } from './fit';
@@ -139,18 +136,6 @@ function snippet(p: Preset, layout: LayoutId, light: Light) {
   return `<MacKeyboard ${a.join(' ')} />`;
 }
 
-/** Colors of the style that people ask for: the case, the keys, the letters and the light. */
-function swatches(p: Preset, light: Light) {
-  const t: KeyboardTheme = { ...keyboardTheme(p.finish, light), ...p.theme };
-  const out = [
-    { name: 'Case', c: hex(getFinish(p.finish).deck[0]) },
-    { name: 'Keys', c: hex(t.face1) },
-    { name: 'Letters', c: hex(t.legend) }
-  ];
-  if (light.on && hasLight(p.finish)) out.push({ name: 'Light', c: hex(light.color) });
-  return out;
-}
-
 /** Copies text, and shows "Copied" on the button for a moment. */
 function useCopy() {
   const [done, setDone] = useState('');
@@ -172,11 +157,10 @@ export function StylesPage() {
   const [layout, setLayout] = useState<LayoutId>(init.layout);
   const [light, setLight] = useState<Light>(init.light);
   const [mix, setMix] = useState<Mix>(init.mix);
-  const [typed, setTyped] = useState(false);
   const [done, copy] = useCopy();
   const kbd = useRef<KeyboardController>(null);
-  const stage = useRef<HTMLElement>(null);
-  const [fitRef, scale] = useFit(DECK_W, 1, 0.2, DECK_H, 400);
+  const stage = useRef<HTMLDivElement>(null);
+  const [fitRef, scale] = useFit(DECK_W, 1, 0.2, DECK_H, 330);
 
   const mixed = useMemo(() => mixPreset(mix), [mix]);
   const all = useMemo(() => [...PRESETS, mixed], [mixed]);
@@ -198,7 +182,7 @@ export function StylesPage() {
       else if (p.backlight) setLight(LIGHT);
       if (scroll && stage.current) {
         const r = stage.current.getBoundingClientRect();
-        if (r.top < 0 || r.top > innerHeight * 0.4) window.scrollTo({ top: scrollY + r.top - 72, behavior: 'smooth' });
+        if (r.top < 0 || r.top > innerHeight * 0.4) window.scrollTo({ top: scrollY + r.top - 88, behavior: 'smooth' });
       }
     },
     [p]
@@ -229,7 +213,6 @@ export function StylesPage() {
   }, [step]);
 
   const code = snippet(p, layout, light);
-  const colors = swatches(p, light);
 
   return (
     <SoundContext.Provider value={SOUND}>
@@ -237,12 +220,69 @@ export function StylesPage() {
       <div className="page">
         <Nav />
         <main className="sp">
-          <header className="wrap sp-head">
-            <h1>Styles</h1>
-            <p>Every Mac keyboard color, and a few of our own. Pick one, type on it, then copy it into your app.</p>
-          </header>
+          <div className="wrap sp-panel" ref={stage}>
+            <div className="sp-name">
+              <button type="button" className="cap sp-arrow" aria-label="Previous style" onClick={() => (click('mod'), step(-1))}>
+                ←
+              </button>
+              <div className="sp-title" aria-live="polite">
+                <h1 key={p.id}>{p.name}</h1>
+              </div>
+              <button type="button" className="cap sp-arrow" aria-label="Next style" onClick={() => (click('mod'), step(1))}>
+                →
+              </button>
+            </div>
 
-          <section className="sp-stage" ref={stage} aria-label="Selected style">
+            <div className="sp-row">
+              <label className="cap sp-select">
+                <span className="sr">Layout</span>
+                <select value={layout} onChange={(e) => (click('mod'), setLayout(e.target.value as LayoutId))}>
+                  {LAYOUTS.map((l) => (
+                    <option key={l.id} value={l.id}>
+                      {l.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              {lit && (
+                <div className={'cap sp-lightcap' + (light.on ? ' on' : '')}>
+                  <button type="button" className="sp-lightbtn" aria-pressed={light.on} onClick={() => (click('mod'), setLight(light.on ? { ...light, on: false } : { ...light, on: true, room: 'dark' }))}>
+                    <span className="dot" /> Light
+                  </button>
+                  {/* Sixteen steps, as macOS shows the keyboard brightness. A real slider lies over them for keys and screen readers. */}
+                  <span className="sp-steps" aria-hidden={!light.on}>
+                    {Array.from({ length: 16 }, (_, i) => (
+                      <i key={i} className={i < light.level ? 'lit' : ''} />
+                    ))}
+                    <input type="range" min={1} max={16} value={light.level} tabIndex={light.on ? 0 : -1} aria-label="Brightness" onChange={(e) => setLight({ ...light, level: +e.target.value })} />
+                  </span>
+                </div>
+              )}
+
+              {p.id === MIX_ID && (
+                <>
+                  <label className="cap sp-colorcap">
+                    <input type="color" value={mix.keys} onChange={(e) => setMix({ ...mix, keys: e.target.value })} />
+                    Keys
+                  </label>
+                  <label className="cap sp-colorcap">
+                    <input type="color" value={mix.letters} onChange={(e) => setMix({ ...mix, letters: e.target.value })} />
+                    Letters
+                  </label>
+                  <button type="button" className="cap" onClick={() => (click('mod'), setMix({ ...mix, keys: randomColor(), letters: randomColor() }))}>
+                    Shuffle
+                  </button>
+                </>
+              )}
+
+              <button type="button" className={'cap light sp-copy' + (done === 'code' ? ' done' : '')} onClick={() => (click('key'), copy('code', p.theme ? JSON.stringify(p.theme, null, 2) : code))}>
+                {done === 'code' ? 'Copied' : p.theme ? 'Copy colors' : 'Copy code'}
+              </button>
+            </div>
+          </div>
+
+          <section className="sp-stage" aria-label="Selected style">
             <div className="wrap sp-fit" ref={fitRef}>
               <div className="sp-glow" key={p.id} aria-hidden="true" />
               <Device
@@ -254,126 +294,9 @@ export function StylesPage() {
                 theme={p.theme}
                 scale={scale}
                 capture="none"
-                onKeyDown={() => setTyped(true)}
               />
-              <p className={'sp-hint' + (typed ? ' gone' : '')}>
-                Type on your keyboard or click the keys. <kbd>←</kbd> <kbd>→</kbd> change the style.
-              </p>
             </div>
           </section>
-
-          <div className="wrap sp-panel">
-            <div className="sp-name">
-              <button type="button" className="cap small" aria-label="Previous style" onClick={() => (click('mod'), step(-1))}>
-                ←
-              </button>
-              <div className="sp-title" aria-live="polite">
-                <b key={p.id}>{p.name}</b>
-                <span key={p.id + '-k'}>
-                  {p.kind} · {index + 1} of {all.length}
-                </span>
-              </div>
-              <button type="button" className="cap small" aria-label="Next style" onClick={() => (click('mod'), step(1))}>
-                →
-              </button>
-            </div>
-
-            <div className="sp-controls">
-              <label className="sp-field">
-                <span>Layout</span>
-                <select value={layout} onChange={(e) => setLayout(e.target.value as LayoutId)}>
-                  {LAYOUTS.map((l) => (
-                    <option key={l.id} value={l.id}>
-                      {l.name}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              {lit ? (
-                <div className="sp-light" role="group" aria-label="Key light">
-                  <button type="button" className={'cap small' + (light.on ? ' on' : '')} aria-pressed={light.on} onClick={() => (click('mod'), setLight({ ...light, on: !light.on }))}>
-                    <span className="dot" /> Light
-                  </button>
-                  <label className={'sp-field sp-range' + (light.on ? '' : ' off')}>
-                    <span>Brightness</span>
-                    <input type="range" min={1} max={16} value={light.level} disabled={!light.on} onChange={(e) => setLight({ ...light, level: +e.target.value })} />
-                  </label>
-                  <button type="button" className={'cap small' + (light.room === 'dark' ? ' on' : '')} aria-pressed={light.room === 'dark'} disabled={!light.on} onClick={() => (click('mod'), setLight({ ...light, room: light.room === 'dark' ? 'daylight' : 'dark' }))}>
-                    Dark room
-                  </button>
-                  <label className={'sp-color' + (light.on ? '' : ' off')} title="Light color">
-                    <input type="color" value={hex(light.color)} disabled={!light.on} onChange={(e) => setLight({ ...light, color: e.target.value })} aria-label="Light color" />
-                  </label>
-                </div>
-              ) : (
-                <p className="sp-nolight">This model has no key light.</p>
-              )}
-            </div>
-
-            {p.id === MIX_ID && (
-              <div className="sp-mix" role="group" aria-label="Your mix">
-                <label className="sp-field">
-                  <span>Case</span>
-                  <select value={mix.base} onChange={(e) => setMix({ ...mix, base: e.target.value as FinishId })}>
-                    {FINISHES.map((f) => (
-                      <option key={f.id} value={f.id}>
-                        {f.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="sp-pick">
-                  <input type="color" value={mix.keys} onChange={(e) => setMix({ ...mix, keys: e.target.value })} />
-                  <span>Keys</span>
-                </label>
-                <label className="sp-pick">
-                  <input type="color" value={mix.letters} onChange={(e) => setMix({ ...mix, letters: e.target.value })} />
-                  <span>Letters</span>
-                </label>
-                <button type="button" className="cap small" onClick={() => (click('mod'), setMix({ ...mix, keys: randomColor(), letters: randomColor() }))}>
-                  Surprise me
-                </button>
-              </div>
-            )}
-
-            <div className="sp-take">
-              <div className="sp-swatches">
-                {colors.map((s) => (
-                  <button type="button" key={s.name} className="sp-swatch" onClick={() => copy(s.name, s.c)} title={'Copy ' + s.c}>
-                    <i style={{ background: s.c }} />
-                    <span>{s.name}</span>
-                    <code>{done === s.name ? 'Copied' : s.c}</code>
-                  </button>
-                ))}
-              </div>
-              <div className="sp-code">
-                <code title={code}>
-                  <em>React</em> {code}
-                </code>
-                {p.theme ? (
-                  <button type="button" className="cap small" onClick={() => copy('code', JSON.stringify(p.theme, null, 2))}>
-                    {done === 'code' ? 'Copied' : 'Copy colors'}
-                  </button>
-                ) : (
-                  <button type="button" className="cap small" onClick={() => copy('code', code)}>
-                    {done === 'code' ? 'Copied' : 'Copy code'}
-                  </button>
-                )}
-                <button type="button" className="cap small" onClick={() => copy('link', location.href)}>
-                  {done === 'link' ? 'Copied' : 'Copy link'}
-                </button>
-              </div>
-              {p.theme && (
-                <p className="sp-note">
-                  This style changes the key colors. Give the colors to the <code>Keys</code> part as its <code>theme</code>.{' '}
-                  <a href={REPO + '/tree/main/packages/react'} target="_blank" rel="noreferrer">
-                    How
-                  </a>
-                </p>
-              )}
-            </div>
-          </div>
 
           <section className="wrap sp-all" aria-label="All styles">
             {GROUPS.map((g) => {
@@ -405,7 +328,6 @@ function randomColor() {
 
 function Card({ p, on, light, onPick }: { p: Preset; on: boolean; light?: BacklightOptions; onPick: () => void }) {
   const [ref, scale] = useFit(DECK_W, 1, 0.05);
-  const t: KeyboardTheme = { ...keyboardTheme(p.finish), ...p.theme };
   return (
     <div className={'sp-card' + (on ? ' on' : '')}>
       {/* The keyboard holds its own buttons, so the button that picks the card lies over it, not around it. */}
@@ -415,11 +337,6 @@ function Card({ p, on, light, onPick }: { p: Preset; on: boolean; light?: Backli
       </div>
       <div className="sp-card-meta">
         <span className="sp-card-name">{p.name}</span>
-        <span className="sp-dots" aria-hidden="true">
-          <i style={{ background: getFinish(p.finish).deck[0] }} />
-          <i style={{ background: t.face1 }} />
-          <i style={{ background: t.legend }} />
-        </span>
       </div>
       {p.kind !== KIND[getFinish(p.finish).model] && <span className="sp-card-kind">{p.id === MIX_ID ? 'Pick your own colors' : 'On a ' + KIND[getFinish(p.finish).model] + ' case'}</span>}
     </div>
