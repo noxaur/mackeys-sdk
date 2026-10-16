@@ -9,7 +9,7 @@ const root = createRoot(document.getElementById('root')!);
 const PAGES: Record<string, () => Promise<React.ReactElement>> = {
   // /ideas holds prototype sections to compare.
   '/ideas': () => import('./ideas/Ideas').then(({ Ideas }) => <Ideas />),
-  '/styles': () => import('./pages/Styles').then(({ Styles }) => <Styles />),
+  '/styles': () => import('./StylesPage').then(({ StylesPage }) => <StylesPage />),
   '/languages': () => import('./pages/Languages').then(({ Languages }) => <Languages />),
   '/install': () => import('./pages/Install').then(({ Install }) => <Install />)
 };
