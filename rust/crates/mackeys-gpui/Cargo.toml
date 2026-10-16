@@ -12,7 +12,7 @@ default = ["sound"]
 sound = ["dep:rodio"]
 
 [dependencies]
-mackeys-core = { path = "../mackeys-core", version = "0.1.1" }
+mackeys-core = { path = "../mackeys-core", version = "0.2.0" }
 gpui = { version = "0.2.2", features = ["runtime_shaders"] }
 rodio = { version = "0.21", default-features = false, features = ["playback"], optional = true }
 # Full-color art: SVG documents rasterized with resvg, legends shaped with rustybuzz from the system font.

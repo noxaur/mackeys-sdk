@@ -1,6 +1,6 @@
 {
   "name": "@mackeys/elements",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Interactive Mac keyboards and Force Touch trackpads as Web Components and a framework-free DOM renderer.",
   "license": "MIT",
   "repository": {

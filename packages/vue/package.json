@@ -1,6 +1,6 @@
 {
   "name": "@mackeys/vue",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Interactive Mac keyboards and Force Touch trackpads for Vue 3.",
   "license": "MIT",
   "repository": {
