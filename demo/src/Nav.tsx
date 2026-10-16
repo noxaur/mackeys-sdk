@@ -1,12 +1,15 @@
-import { DEMO, REPO } from './links';
+import { DEMO, REPO, STYLES } from './links';
 
 export function Nav() {
   return (
     <nav className="nav">
-      <a className="brand" href="#top" aria-label="mackeys sdk, back to top">
+      <a className="brand" href={location.pathname === '/' ? '#top' : '/'} aria-label="mackeys sdk, home">
         mackeys<span> / sdk</span>
       </a>
       <div className="links">
+        <a href={STYLES} aria-current={location.pathname.startsWith(STYLES) ? 'page' : undefined}>
+          Styles
+        </a>
         <a href={DEMO}>
           Demo
         </a>

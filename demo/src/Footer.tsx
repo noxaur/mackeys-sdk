@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { KeyCap, Keys, UNIT, buildKeyboard, keyboardTheme, useKeyboardController } from '@mackeys/react';
 import { useFit } from './fit';
-import { DEMO, REPO } from './links';
+import { DEMO, REPO, STYLES } from './links';
 import { useSound } from './sound';
 
 const WORD = 'MACKEYS';
@@ -36,6 +36,7 @@ export function Footer() {
     <footer>
       <div className="wrap">
         <div className="foot-links">
+          <a href={STYLES}>Styles</a>
           <a href={DEMO}>Demo</a>
           <a href={REPO} target="_blank" rel="noreferrer">GitHub</a>
           <a href="/llms.txt">llms.txt</a>

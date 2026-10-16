@@ -112,7 +112,7 @@ button { font: inherit; color: inherit; }
 .nav .brand:hover span { color: var(--fg-2); }
 .nav .links { display: flex; gap: 22px; font-family: var(--mono); font-size: 12px; color: var(--fg-2); }
 .nav .links a:hover { color: var(--fg); }
-@media (max-width: 420px) { .nav .links { gap: 14px; } }
+@media (max-width: 420px) { .nav .links { gap: 14px; } .nav .links a[href="/llms.txt"] { display: none; } }
 
 section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 .section-head { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: clamp(28px, 4vh, 48px); max-width: 720px; }
@@ -223,3 +223,4 @@ footer { position: relative; border-top: 1px solid var(--line); padding-top: 72p
   .slide-glow { animation: none; opacity: 1; }
     .slide-tilt { transform: none; }
 }
+.nav .links a[aria-current='page'] { color: var(--fg); }
