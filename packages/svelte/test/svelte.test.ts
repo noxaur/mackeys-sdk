@@ -25,9 +25,38 @@ describe('MacKeyboard', () => {
     expect(container.querySelector('[data-key="Enter"] .mk-isoshape')).not.toBeNull();
     expect(container.querySelector('[data-key="KeyZ"]')!.textContent!.trim()).toBe('Y');
   });
+  it('leaves keys typed in a text field to the page', () => {
+    const { container } = render(MacKeyboard, { props: { capture: 'window', sound: false } });
+    const field = document.createElement('input');
+    document.body.appendChild(field);
+    const ev = new KeyboardEvent('keydown', { code: 'KeyA', bubbles: true, cancelable: true });
+    field.dispatchEvent(ev);
+    flushSync();
+    expect(ev.defaultPrevented).toBe(false);
+    expect(container.querySelector('[data-key="KeyA"]')!.className).not.toContain('mk-dn');
+    // A key typed outside a field still reaches the keyboard.
+    window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyQ' }));
+    flushSync();
+    expect(container.querySelector('[data-key="KeyQ"]')!.className).toContain('mk-dn');
+    field.remove();
+  });
 });
 
 describe('MacTrackpad and MacBook', () => {
+  it('releases a key-held trackpad when it loses focus', async () => {
+    vi.useFakeTimers();
+    const onforceclick = vi.fn();
+    const { container } = render(MacTrackpad, { props: { sound: false, onforceclick } });
+    const pad = container.querySelector('button.mk-tp')!;
+    await fireEvent.keyDown(pad, { key: ' ' });
+    expect(pad.className).toContain('mk-dn');
+    await fireEvent.blur(pad);
+    expect(pad.className).not.toContain('mk-dn');
+    vi.advanceTimersByTime(600);
+    flushSync();
+    expect(onforceclick).not.toHaveBeenCalled();
+    vi.useRealTimers();
+  });
   it('force clicks after a hold', async () => {
     vi.useFakeTimers();
     const onforceclick = vi.fn();

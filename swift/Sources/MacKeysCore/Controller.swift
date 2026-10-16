@@ -83,6 +83,7 @@ public final class KeyboardController {
     public func setIdleOff(_ ms: Int?) {
         idleOffMs = ms
         armIdle()
+        if (ms ?? 0) <= 0, idle { idle = false }
     }
 
     public func has(_ id: String) -> Bool { keys[id] != nil }
@@ -146,8 +147,14 @@ public final class KeyboardController {
     }
 
     public func releaseAll(source: InputSource = .api) {
+        releaseAll(after: nil, source: source)
+    }
+
+    /// Releases every key with one release sound: the sound class of `lead` when it is down, else `.key`.
+    private func releaseAll(after lead: String?, source: InputSource) {
         if down.isEmpty { return }
-        sound?.key(.key, up: true)
+        let kind = lead.flatMap { down.contains($0) ? keys[$0]?.sound : nil } ?? .key
+        sound?.key(kind, up: true)
         let ids = Array(down)
         down.removeAll()
         for id in ids {
@@ -168,12 +175,12 @@ public final class KeyboardController {
         let isMod = ["Meta", "Control", "Alt", "Shift"].contains { id.hasPrefix($0) }
         let chord = (metaKey || ctrlKey) && !isMod
         let prevent = !chord && id != "Tab"
+        if isRepeat { return prevent }
         // macOS sends one key down when caps lock turns on and one key up when it turns off.
         if id == "CapsLock" {
             tap(id, source: .keyboard)
             return prevent
         }
-        if isRepeat { return prevent }
         press(id, source: .keyboard)
         return prevent
     }
@@ -185,7 +192,7 @@ public final class KeyboardController {
         }
         // macOS sends no key up for keys typed while command is held, so command's release lets go of everything.
         if id == "MetaLeft" || id == "MetaRight" {
-            releaseAll(source: .keyboard)
+            releaseAll(after: id, source: .keyboard)
             return
         }
         if keys[id] != nil { release(id, source: .keyboard) }

@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers with static assets. `pnpm deploy` builds and uploads `dist/`.
+  // Add a custom domain (mackeys.your-domain.tld) in the Cloudflare dashboard, or set `routes` here.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mackeys-demo",
+  "account_id": "865dded96630ca6a533584a80efad356",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

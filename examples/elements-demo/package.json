@@ -1,0 +1,8 @@
+{
+  "name": "elements-demo",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite --port 5177", "build": "vite build" },
+  "dependencies": { "@mackeys/elements": "workspace:*" },
+  "devDependencies": { "vite": "^5.4.0", "typescript": "^5.6.0" }
+}

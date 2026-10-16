@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { FINISHES, KeyboardController, LAYOUTS, TrackpadController, buildKeyboard, decodeClip, keyboardTheme, keyClipName, topCase, trackpad, KEYBOARD_CLIPS, KEY_SOUNDS } from '../src';
+import { ClickSound, FINISHES, KeyboardController, isEditableTarget, LAYOUTS, TrackpadController, buildKeyboard, decodeClip, keyboardTheme, keyClipName, topCase, trackpad, KEYBOARD_CLIPS, KEY_SOUNDS } from '../src';
 
 const fixture = (n: string) => JSON.parse(readFileSync(join(__dirname, '../../../spec/fixtures', n), 'utf8'));
 
@@ -75,6 +75,46 @@ describe('controllers', () => {
     c.dispose();
     vi.useRealTimers();
   });
+  it('plays the command release sound when command goes up', () => {
+    const sound = { key: vi.fn(), trackpad: vi.fn() };
+    const c = new KeyboardController({ keys: buildKeyboard().keys, sound });
+    c.handleKeyDown({ code: 'MetaLeft' });
+    c.handleKeyUp({ code: 'MetaLeft' });
+    expect(sound.key.mock.calls).toEqual([['mod', false], ['mod', true]]);
+    // Focus loss has no lead key, so it keeps the plain key sound.
+    c.press('MetaLeft');
+    c.releaseAll('keyboard');
+    expect(sound.key.mock.calls.at(-1)).toEqual(['key', true]);
+    c.dispose();
+  });
+  it('ignores caps lock auto-repeat', () => {
+    vi.useFakeTimers();
+    const c = new KeyboardController({ keys: buildKeyboard().keys });
+    let presses = 0;
+    c.onKey((e) => (presses += e.type === 'press' ? 1 : 0));
+    c.handleKeyDown({ code: 'CapsLock' });
+    for (let i = 0; i < 7; i++) {
+      vi.advanceTimersByTime(35);
+      expect(c.handleKeyDown({ code: 'CapsLock', repeat: true })).toBe(true);
+    }
+    expect(presses).toBe(1);
+    expect(c.getState().caps).toBe(true);
+    c.dispose();
+    vi.useRealTimers();
+  });
+  it('lights the backlight again when the idle delay becomes never', () => {
+    vi.useFakeTimers();
+    const c = new KeyboardController({ keys: buildKeyboard().keys, idleOffMs: 5000 });
+    const states: boolean[] = [];
+    c.subscribe((s) => states.push(s.idle));
+    vi.advanceTimersByTime(6000);
+    expect(c.getState().idle).toBe(true);
+    c.setIdleOff(null);
+    expect(c.getState().idle).toBe(false);
+    expect(states).toEqual([true, false]);
+    c.dispose();
+    vi.useRealTimers();
+  });
   it('turns the backlight off after the idle delay and back on with a key', () => {
     vi.useFakeTimers();
     const c = new KeyboardController({ keys: buildKeyboard().keys, idleOffMs: 5000 });
@@ -137,5 +177,28 @@ describe('audio', () => {
         }
     expect(keyClipName('key', 'hard', false)).toBe('key-hard-down');
     expect(keyClipName('power', 'hard', true)).toBe('power-up');
+  });
+});
+
+describe('audio', () => {
+  it('leaves a caller-owned AudioContext open on close', () => {
+    const context = { close: vi.fn() } as unknown as AudioContext;
+    new ClickSound({ context }).close();
+    expect(context.close).not.toHaveBeenCalled();
+  });
+});
+
+describe('dom', () => {
+  it('finds the key event targets that window capture must leave alone', () => {
+    const el = (tag: string, attrs: Record<string, string> = {}) => ({ tagName: tag, type: attrs.type, isContentEditable: attrs.ce === 'true', getAttribute: (n: string) => (n === 'contenteditable' ? attrs.ce ?? null : null) }) as unknown as EventTarget;
+    expect(isEditableTarget(el('INPUT'))).toBe(true);
+    expect(isEditableTarget(el('INPUT', { type: 'range' }))).toBe(true);
+    expect(isEditableTarget(el('TEXTAREA'))).toBe(true);
+    expect(isEditableTarget(el('SELECT'))).toBe(true);
+    expect(isEditableTarget(el('DIV', { ce: 'true' }))).toBe(true);
+    expect(isEditableTarget(el('INPUT', { type: 'checkbox' }))).toBe(false);
+    expect(isEditableTarget(el('BUTTON'))).toBe(false);
+    expect(isEditableTarget(el('DIV'))).toBe(false);
+    expect(isEditableTarget(null)).toBe(false);
   });
 });

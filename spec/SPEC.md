@@ -127,12 +127,13 @@ Keyboard:
 - `release(id)`: ignore when up. Play the release sound. Mark up.
 - Physical key down: unknown codes are ignored. Prevent the default action for every known key except
   `Tab` and command or control chords. `CapsLock` taps (press, then release after 110 ms) on both
-  down and up, because macOS reports one event per toggle. Auto-repeat is ignored.
+  down and up, because macOS reports one event per toggle. Auto-repeat is ignored, also for `CapsLock`.
 - Physical key up: `MetaLeft` or `MetaRight` up releases every key (macOS sends no key up for keys
-  typed while command is held).
+  typed while command is held). The one release sound uses the command key's `sound` class when
+  command is down, else `key`.
 - Focus loss releases every key (one release sound).
 - Idle: after `idleOffMs` without a press, `idle` becomes true and the backlight goes off.
-  Delays: never, 5 s, 10 s, 30 s, 1 min, 5 min.
+  Delays: never, 5 s, 10 s, 30 s, 1 min, 5 min. Setting the delay to never clears idle.
 
 Trackpad: `press` plays the press click and enters `down`; after 500 ms held it plays the force click
 and enters `force`; `release` plays the release click and enters `up`. A host with real pressure input

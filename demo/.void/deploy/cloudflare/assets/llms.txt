@@ -1,0 +1,71 @@
+# MacKeys SDK
+
+> MacKeys draws interactive Mac keyboards and Force Touch trackpads for React, Svelte, SwiftUI and Rust (GPUI). Every SDK gives the same devices, finishes, layouts, backlight and recorded click sounds. MIT license.
+
+- Devices: MacBook Pro 14/16, MacBook Air 13/15, MacBook Neo, and the iMac Magic Keyboard with Touch ID. Each device comes as the keyboard deck, the full top case with its trackpad, or the trackpad alone.
+- Finishes (17): `pro-space-black`, `pro-silver`, `air-midnight`, `air-starlight`, `air-sky-blue`, `air-silver`, `neo-silver`, `neo-blush`, `neo-citrus`, `neo-indigo`, `imac-silver`, `imac-blue`, `imac-purple`, `imac-pink`, `imac-orange`, `imac-yellow`, `imac-green`.
+- Layouts (17): `en-us`, `en-gb`, `en-intl`, `de`, `fr`, `es`, `sv-fi`, `no`, `da`, `it`, `ja` (JIS), `nl`, `ch`, `pt`, `ru`, `ko`, and `custom` (your own ISO or ANSI rows).
+- Backlight (Pro and Air only): `{ on, level: 0-16, room: 'daylight' | 'dark', bleed: 0-1, color }`.
+- Input: click the keys, or type on the physical keyboard (`capture: 'focus' | 'window' | 'none'`). Caps lock has a working LED. The trackpad clicks; a held click becomes a force click.
+- Sound: recorded MacBook key and trackpad clicks. `sound` is on by default.
+
+## Packages
+
+- [@mackeys/react](https://github.com/noxaur/mackeys-sdk/tree/main/packages/react): `npm i @mackeys/react`. Components `MacBook`, `MacKeyboard`, `MacTrackpad` for React 18+, plus the parts (`Keys`, `buildKeyboard`, `keyboardTheme`, `topCase`, `useKeyboardController`) to build your own.
+- [@mackeys/svelte](https://github.com/noxaur/mackeys-sdk/tree/main/packages/svelte): `npm i @mackeys/svelte`. The same components for Svelte 5.
+- [@mackeys/core](https://github.com/noxaur/mackeys-sdk/tree/main/packages/core): `npm i @mackeys/core`. The TypeScript engine with no UI: geometry, themes, layouts, controllers and sounds as plain numbers. The other SDKs follow it.
+- [Swift](https://github.com/noxaur/mackeys-sdk/tree/main/swift): Swift package `https://github.com/noxaur/mackeys-sdk.git`, products `MacKeysUI` and `MacKeysCore`. SwiftUI, macOS 14+, Swift 6.
+- [Rust](https://github.com/noxaur/mackeys-sdk/tree/main/rust): `cargo add mackeys-gpui` (GPUI views) or `cargo add mackeys-core` (engine).
+
+## React
+
+```tsx
+import { MacBook, MacKeyboard, MacTrackpad } from '@mackeys/react';
+
+<MacBook finish="pro-space-black" layout="en-us" backlight={{ on: true, level: 12, room: 'dark' }} lid={false} />
+<MacKeyboard finish="imac-blue" layout="de" scale={0.6} capture="window" onKeyDown={(e) => console.log(e.id, e.label)} />
+<MacTrackpad finish="pro-silver" onForceClick={() => console.log('force')} />
+```
+
+`MacKeyboard` props: `finish`, `layout`, `custom`, `backlight`, `sound`, `capture`, `highlight` (key ids shown as pressed), `scale` (1 key = 64 px at 1), `view` (`'top-down' | 'angled'`), `onKeyDown`, `onKeyUp`, `className`, `style`. `MacBook` adds the trackpad props and `lid` (default true). Key events are `{ type, id, label, sound, source }`, where `id` is a `KeyboardEvent.code` such as `KeyA` or `MetaLeft`.
+
+## Svelte
+
+```svelte
+<script>
+  import { MacKeyboard } from '@mackeys/svelte';
+</script>
+
+<MacKeyboard finish="imac-blue" layout="de" onkeydown={(e) => console.log(e.id)} />
+```
+
+## SwiftUI
+
+```swift
+import SwiftUI
+import MacKeysUI
+import MacKeysCore
+
+MacBookView(finish: .proSpaceBlack, layout: .enUS, sizing: .fitWidth)
+MacBookView(finish: .airStarlight, layout: .de, sizing: .fitWidth, showLid: false)
+```
+
+## Rust (GPUI)
+
+```rust
+use mackeys_gpui::{Backlight, MacBook, MacKeysAssets, Room};
+
+// Run the app with `.with_assets(MacKeysAssets::new())`, then in a window:
+MacBook::new(window, cx)
+    .finish("pro-silver")
+    .layout("en-gb")
+    .backlight(Backlight::lit(12.0, Room::Dark))
+    .sound(true)
+    .scale(0.8)
+```
+
+## Optional
+
+- [Spec](https://github.com/noxaur/mackeys-sdk/blob/main/spec/SPEC.md): the shared data and golden fixtures that every port passes.
+- [Examples](https://github.com/noxaur/mackeys-sdk/tree/main/examples): React and Svelte demo apps.
+- [Typing demo](/demo)

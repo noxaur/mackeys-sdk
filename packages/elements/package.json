@@ -1,0 +1,50 @@
+{
+  "name": "@mackeys/elements",
+  "version": "0.2.0",
+  "description": "Interactive Mac keyboards and Force Touch trackpads as Web Components and a framework-free DOM renderer.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noxaur/mackeys-sdk.git",
+    "directory": "packages/elements"
+  },
+  "homepage": "https://github.com/noxaur/mackeys-sdk#readme",
+  "bugs": "https://github.com/noxaur/mackeys-sdk/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./define": {
+      "types": "./dist/define.d.ts",
+      "import": "./dist/define.js",
+      "require": "./dist/define.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/define.js",
+    "./dist/define.cjs"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/define.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@mackeys/core": "workspace:*"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

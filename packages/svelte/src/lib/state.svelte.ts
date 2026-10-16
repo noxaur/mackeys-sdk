@@ -1,4 +1,4 @@
-import { KeyboardController, TrackpadController, type KeyEvent, type KeyboardState, type TrackpadPhase } from '@mackeys/core';
+import { isEditableTarget, KeyboardController, TrackpadController, type KeyEvent, type KeyboardState, type TrackpadPhase } from '@mackeys/core';
 
 /** Wraps a KeyboardController in runes state. Call from a component's script. */
 export function keyboardState(controller: KeyboardController) {
@@ -28,6 +28,8 @@ export function windowKeys(enabled: () => boolean, controller: KeyboardControlle
   $effect(() => {
     if (!enabled()) return;
     const down = (e: KeyboardEvent) => {
+      // Typing in a text field, select or slider stays with the page.
+      if (isEditableTarget(e.target)) return;
       if (controller.handleKeyDown(e)) e.preventDefault();
     };
     const up = (e: KeyboardEvent) => controller.handleKeyUp(e);

@@ -1,0 +1,40 @@
+# MacKeys SDK
+
+> MacKeys draws interactive Mac keyboards and Force Touch trackpads: MacBook Pro, MacBook Air, MacBook Neo and the iMac Magic Keyboard with Touch ID. It has 17 finishes, 17 layouts, a backlight model, physical key input and recorded click sounds. The same engine has SDKs for React, Svelte 5, plain TypeScript, Swift (SwiftUI) and Rust (GPUI).
+
+Use these facts first:
+
+- Pick one SDK. Web apps use `@mackeys/react` or `@mackeys/svelte`. Each re-exports all of `@mackeys/core`, so do not also install `@mackeys/core`. Use `@mackeys/core` alone only for a custom renderer (canvas, WebGL, server-side geometry).
+- The three components are `MacBook` (lid, keyboard, trackpad), `MacKeyboard` (keyboard deck only) and `MacTrackpad` (trackpad only).
+- Every prop is optional. The defaults are `finish="pro-space-black"`, `layout="en-us"`, backlight off, sound on, `capture="focus"`, `scale={1}`.
+- Key ids are W3C `KeyboardEvent.code` values (`KeyA`, `ShiftLeft`, `Enter`), plus `Fn` and `TouchID`.
+- At `scale={1}`, one key pitch is 64 px. A `MacBook` with its lid is about 1293 x 955 px. Set `scale` (for example `0.5`) to fit the page.
+- Physical typing goes to the keyboard only while one of its keys has focus. Set `capture="window"` to show every key press on the page.
+- React event props are camelCase (`onKeyDown`, `onForceClick`). Svelte event props are lower case (`onkeydown`, `onforceclick`).
+- An unknown finish id gives `pro-space-black`. An unknown layout id gives `en-us`. There is no error.
+- Only `pro-*` and `air-*` finishes have a backlight. `imac-*` finishes are Magic Keyboards and have no lid and no trackpad.
+- Browsers start audio only after a user gesture, so the first click sound plays after the first click or key press.
+
+## Docs
+
+- [Getting started](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/docs/getting-started.md): install and first render for React, Svelte, plain TypeScript, Swift and Rust, plus common tasks and mistakes.
+- [TypeScript API](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/docs/api.md): every component prop, hook, controller, engine function and type of `@mackeys/core`, `@mackeys/react` and `@mackeys/svelte`.
+- [Ids](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/docs/ids.md): all finish ids, layout ids, key ids per layout type, and the custom layout syntax.
+
+## Packages
+
+- [@mackeys/react](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/react/README.md): React 18+ components and hooks.
+- [@mackeys/svelte](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/svelte/README.md): Svelte 5 components (runes).
+- [@mackeys/core](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/packages/core/README.md): the TypeScript engine with no UI dependency.
+- [Swift (MacKeysUI, MacKeysCore)](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/swift/README.md): SwiftUI views for macOS 14+, Swift 6.
+- [Rust (mackeys-gpui, mackeys-core)](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/rust/README.md): GPUI views for macOS, Rust 1.88+.
+
+## Examples
+
+- [React demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/react-demo/src/main.tsx): pickers for part, finish, layout, view and backlight.
+- [Svelte demo](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/examples/svelte-demo/src/App.svelte): the same demo in Svelte 5.
+
+## Optional
+
+- [Spec](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/spec/SPEC.md): the rendering contract, geometry units, sound rules and conformance rules for ports and custom renderers.
+- [Repository README](https://raw.githubusercontent.com/noxaur/mackeys-sdk/main/README.md): overview, monorepo commands and sound attribution.

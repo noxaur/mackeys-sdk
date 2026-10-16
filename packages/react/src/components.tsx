@@ -12,6 +12,7 @@ import {
   cssColor,
   getFinish,
   injectStyles,
+  isEditableTarget,
   keyboardTheme,
   lidModel,
   parseStyle,
@@ -137,6 +138,8 @@ function useWindowKeys(enabled: boolean, controller: { handleKeyDown: (e: Keyboa
   useEffect(() => {
     if (!enabled) return;
     const down = (e: KeyboardEvent) => {
+      // Typing in a text field, select or slider stays with the page.
+      if (isEditableTarget(e.target)) return;
       if (controller.handleKeyDown(e)) e.preventDefault();
     };
     const up = (e: KeyboardEvent) => controller.handleKeyUp(e);
@@ -223,6 +226,8 @@ function TrackpadButton({ controller, phase, label, style, grain }: { controller
       onKeyUp={(e) => {
         if (e.key === ' ' || e.key === 'Enter') controller.release('keyboard');
       }}
+      // A key held when focus moves away never sends its key up.
+      onBlur={() => controller.release('keyboard')}
     >
       <Grain opacity={grain} freq={1.1} />
     </button>
