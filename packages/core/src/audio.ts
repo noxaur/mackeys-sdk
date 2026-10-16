@@ -48,7 +48,7 @@ type AC = AudioContext;
 export interface ClickSoundOptions {
   /** Master volume, 0 to 1. Default 1. */
   volume?: number;
-  /** Share an existing AudioContext. */
+  /** Share an existing AudioContext. `close()` leaves a shared context open. */
   context?: AudioContext;
   /** The chance, 0 to 1, that a key press uses the hard recording. Default 0.2. */
   hardness?: number;
@@ -64,6 +64,8 @@ export class ClickSound implements SoundSink {
   volume: number;
   hardness: number;
   private ctx: AC | null;
+  /** True when the caller passed the context in. The caller then owns it. */
+  private shared: boolean;
   private bufs: Record<string, AudioBuffer[]> | null = null;
   private force: Partial<Record<KeySound, KeyForce>> = {};
 
@@ -71,6 +73,7 @@ export class ClickSound implements SoundSink {
     this.volume = opts.volume ?? 1;
     this.hardness = opts.hardness ?? 0.2;
     this.ctx = opts.context ?? null;
+    this.shared = !!opts.context;
   }
 
   private context(): AC | null {
@@ -156,8 +159,9 @@ export class ClickSound implements SoundSink {
   }
 
   close() {
-    this.ctx?.close?.();
+    if (!this.shared) this.ctx?.close?.();
     this.ctx = null;
+    this.shared = false;
     this.bufs = null;
   }
 }

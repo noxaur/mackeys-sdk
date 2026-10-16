@@ -15,6 +15,39 @@ final class SoundSpy: SoundSink {
 struct ControllerTests {
     let kb = buildKeyboard(finish: .proSpaceBlack, layout: .enUS)
 
+    @Test func commandUpPlaysTheCommandReleaseSound() {
+        let spy = SoundSpy()
+        let c = KeyboardController(keys: kb.keys, sound: spy)
+        c.handleKeyDown(code: "MetaLeft")
+        c.handleKeyUp(code: "MetaLeft")
+        #expect(spy.keys.map(\.0) == [.mod, .mod])
+        #expect(spy.keys.map(\.1) == [false, true])
+        // Focus loss has no lead key, so it keeps the plain key sound.
+        c.press("MetaLeft")
+        c.releaseAll(source: .keyboard)
+        #expect(spy.keys.last?.0 == .key)
+    }
+
+    @Test func capsLockIgnoresAutoRepeat() {
+        let c = KeyboardController(keys: kb.keys, tapMs: 0)
+        var presses = 0
+        c.onKey = { if $0.type == .press { presses += 1 } }
+        c.handleKeyDown(code: "CapsLock")
+        c.release("CapsLock")
+        // With the key up again, a repeat that is not ignored presses and toggles caps lock.
+        for _ in 0..<7 { #expect(c.handleKeyDown(code: "CapsLock", isRepeat: true)) }
+        #expect(presses == 1)
+        #expect(c.caps)
+    }
+
+    @Test func idleOffNeverLightsTheBacklightAgain() async throws {
+        let c = KeyboardController(keys: kb.keys, idleOffMs: 20)
+        try await Task.sleep(for: .milliseconds(200))
+        #expect(c.idle)
+        c.setIdleOff(nil)
+        #expect(!c.idle)
+    }
+
     @Test func pressAndRelease() {
         let spy = SoundSpy()
         let c = KeyboardController(keys: kb.keys, sound: spy)

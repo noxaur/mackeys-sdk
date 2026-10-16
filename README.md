@@ -10,6 +10,8 @@ Each SDK gives you the same devices, finishes, layouts, backlight and click soun
 | `@mackeys/core` | [packages/core](packages/core) | TypeScript engine (no UI) |
 | `@mackeys/react` | [packages/react](packages/react) | React 18+ |
 | `@mackeys/svelte` | [packages/svelte](packages/svelte) | Svelte 5 |
+| `@mackeys/vue` | [packages/vue](packages/vue) | Vue 3.5+ |
+| `@mackeys/elements` | [packages/elements](packages/elements) | Web Components and plain DOM (Angular, Solid, Lit, any HTML page) |
 | `MacKeys` | [swift](swift) | Swift 6, SwiftUI, macOS 14+ |
 | `mackeys-core`, `mackeys-gpui` | [rust](rust) | Rust, GPUI |
 
@@ -73,7 +75,27 @@ Svelte:
 <MacKeyboard finish="imac-blue" layout="de" onkeydown={(e) => console.log(e.id)} />
 ```
 
+Vue:
+
+```vue
+<MacTrackpad finish="neo-citrus" @forceclick="onForce" />
+```
+
+Web Components (any framework, or none):
+
+```html
+<script type="module">import '@mackeys/elements/define';</script>
+<mac-book finish="air-midnight" layout="en-gb" view="angled" scale="0.6"></mac-book>
+```
+
 Swift and Rust: see [swift/README.md](swift/README.md) and [rust/README.md](rust/README.md).
+
+## Docs
+
+- [Getting started](docs/getting-started.md): install and first render for each SDK.
+- [TypeScript API](docs/api.md): components, hooks, controllers and engine functions.
+- [Ids](docs/ids.md): finish, layout and key ids, and the custom layout syntax.
+- [llms.txt](llms.txt): an index of these docs for LLMs and coding agents.
 
 ## Demos
 
@@ -83,6 +105,14 @@ pnpm --dir examples/react-demo dev
 
 ```bash
 pnpm --dir examples/svelte-demo dev
+```
+
+```bash
+pnpm --dir examples/vue-demo dev
+```
+
+```bash
+pnpm --dir examples/elements-demo dev
 ```
 
 ## Sounds

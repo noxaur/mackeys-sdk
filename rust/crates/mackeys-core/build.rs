@@ -10,11 +10,17 @@ const FILES: [&str; 3] = ["mackeys-data.json", "keyboard-clicks.json", "trackpad
 fn main() {
     let dir = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
     let out = PathBuf::from(env::var("OUT_DIR").unwrap());
+    println!("cargo:rerun-if-changed=build.rs");
     for f in FILES {
         let spec = dir.join("../../../spec").join(f);
         let vendored = dir.join("data").join(f);
-        println!("cargo:rerun-if-changed={}", spec.display());
-        println!("cargo:rerun-if-changed={}", vendored.display());
+        // Cargo treats a missing rerun-if-changed path as changed and reruns on every build, so watch
+        // only the files that exist. A published crate has no spec/ folder.
+        for p in [&spec, &vendored] {
+            if p.exists() {
+                println!("cargo:rerun-if-changed={}", p.display());
+            }
+        }
         let src = if spec.exists() {
             spec
         } else if vendored.exists() {

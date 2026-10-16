@@ -17,6 +17,7 @@
   onpointercancel={() => controller.release('pointer')}
   onkeydown={(e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); if (!e.repeat) controller.press('keyboard'); } }}
   onkeyup={(e) => { if (e.key === ' ' || e.key === 'Enter') controller.release('keyboard'); }}
+  onblur={() => controller.release('keyboard')}
 >
   {#if grain > 0}<Grain opacity={grain} freq={1.1} />{/if}
 </button>

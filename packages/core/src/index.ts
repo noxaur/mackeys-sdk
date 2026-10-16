@@ -5,6 +5,7 @@ export * from './theme';
 export * from './controller';
 export * from './audio';
 export * from './dom';
+export * from './lid';
 
 import { buildKeyboard, KeyboardGeometry, KeyboardOptions } from './keyboard';
 import { BacklightOptions, keyboardTheme, KeyboardTheme, topCase, TopCaseGeometry } from './theme';

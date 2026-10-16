@@ -82,6 +82,10 @@ export class KeyboardController {
   setIdleOff(ms: number | null) {
     this.idleOffMs = ms;
     this.armIdle();
+    if (!ms && this.idle) {
+      this.idle = false;
+      this.notify();
+    }
   }
 
   getState(): KeyboardState {
@@ -140,8 +144,14 @@ export class KeyboardController {
   }
 
   releaseAll(source: InputSource = 'api') {
+    this.releaseAllAfter(null, source);
+  }
+
+  /** Releases every key with one release sound: the sound class of `lead` when it is down, else `key`. */
+  private releaseAllAfter(lead: string | null, source: InputSource) {
     if (!this.down.size) return;
-    this.sound?.key('key', true);
+    const kind = (lead !== null && this.down.has(lead) ? this.keys.get(lead)?.sound : undefined) ?? 'key';
+    this.sound?.key(kind, true);
     const ids = [...this.down];
     this.down.clear();
     ids.forEach((id) => this.emitOnly({ type: 'release', id, label: this.keys.get(id)?.label ?? id, sound: this.keys.get(id)?.sound ?? 'key', source }));
@@ -163,12 +173,12 @@ export class KeyboardController {
     if (!this.keys.has(id)) return false;
     const chord = (e.metaKey || e.ctrlKey) && !/^(Meta|Control|Alt|Shift)/.test(id);
     const prevent = !chord && id !== 'Tab';
+    if (e.repeat) return prevent;
     // macOS sends one key down when caps lock turns on and one key up when it turns off.
     if (id === 'CapsLock') {
       this.tap(id, 'keyboard');
       return prevent;
     }
-    if (e.repeat) return prevent;
     this.press(id, 'keyboard');
     return prevent;
   }
@@ -181,7 +191,7 @@ export class KeyboardController {
     }
     // macOS sends no key up for keys typed while command is held, so command's release lets go of everything.
     if (id === 'MetaLeft' || id === 'MetaRight') {
-      this.releaseAll('keyboard');
+      this.releaseAllAfter(id, 'keyboard');
       return;
     }
     if (this.keys.has(id)) this.release(id, 'keyboard');
