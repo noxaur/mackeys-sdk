@@ -163,25 +163,28 @@ section { position: relative; padding: clamp(72px, 10vh, 140px) 0; }
 .slide-info span { font-family: var(--mono); font-size: 12px; color: var(--fg-3); animation: wipe 420ms cubic-bezier(0.2, 0.7, 0.2, 1) 60ms both; }
 @keyframes wipe { from { opacity: 0; transform: translateY(10px); clip-path: inset(0 0 100% 0); } to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
 
-/* ---- install: key cap tabs and a MacBook top case ---- */
-.get { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
-@media (max-width: 900px) { .get { grid-template-columns: minmax(0, 1fr); } }
-.get-side .section-head { margin-bottom: 32px; }
-.get-tabs { display: flex; flex-wrap: wrap; gap: 12px; }
-.get-tab { color: var(--fg-2); }
-.get-tab.on { color: var(--fg); }
-/* The chosen platform stays down, like a key that is held, and its light is on. */
-.get-tab.on { transform: translateY(2px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 0 var(--key-edge), 0 1px 4px rgba(0, 0, 0, 0.5); }
-.get-code { display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); overflow: hidden; min-width: 0; }
-.desk { display: flex; justify-content: center; margin: clamp(28px, 4vw, 56px) clamp(20px, 3vw, 40px); }
-.get-bar { display: flex; justify-content: space-between; gap: 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
-.get-bar a { color: var(--fg-2); }
-.get-bar a:hover { color: var(--fg); }
-.get-cmd { width: 100%; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border: 0; border-top: 1px solid var(--line); background: rgba(255, 255, 255, 0.02); font-family: var(--mono); font-size: 14px; color: var(--fg); text-align: left; cursor: pointer; }
-.get-cmd .p { color: var(--led); flex: none; }
-.get-cmd .v { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.get-cmd .cap { flex: none; color: var(--fg-2); }
-.get-cmd:hover .cap { color: var(--fg); }
+/* ---- install: one big key per platform, in its MacBook color ---- */
+.get { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.get-head { justify-items: center; }
+.get-keys { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px) clamp(12px, 1.6vw, 22px); }
+@media (max-width: 760px) { .get-keys { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.get-keys li { display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 0; }
+.big-key {
+  width: 100%; aspect-ratio: 1.6; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;
+  padding: clamp(14px, 1.6vw, 22px); border: 0; border-radius: clamp(12px, 1.4vw, 18px); cursor: pointer; text-align: left;
+  color: var(--ink);
+  background: radial-gradient(125% 110% at 50% 100%, var(--face-2) 0%, var(--face) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 6px 0 var(--edge), 0 10px 28px rgba(0, 0, 0, 0.55);
+  transition: transform 120ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 120ms, filter 150ms;
+}
+.big-key:hover { filter: brightness(1.05); transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), inset 0 2px 0 rgba(255, 255, 255, 0.35), 0 8px 0 var(--edge), 0 14px 32px rgba(0, 0, 0, 0.55); }
+.big-key:active, .big-key.done { transform: translateY(6px); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 0 0 var(--edge), 0 2px 8px rgba(0, 0, 0, 0.55); filter: brightness(0.95); transition-duration: 30ms; }
+.big-key:focus-visible { outline: 2px solid #0a84ff; outline-offset: 4px; }
+.big-key-cmd { font-family: var(--mono); font-size: clamp(10px, 0.95vw, 12px); opacity: 0.7; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.big-key.done .big-key-cmd { opacity: 1; }
+.big-key-name { font-size: clamp(22px, 2.8vw, 38px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; }
+.get-link { font-family: var(--mono); font-size: 12px; color: var(--fg-3); transition: color 150ms; }
+.get-link:hover { color: var(--fg); }
 .stats { display: flex; flex-wrap: wrap; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 48px; }
 .stats div { flex: 1 1 140px; padding: 18px 0; border-right: 1px solid var(--line); padding-right: 16px; }
 .stats div:last-child { border-right: 0; }
