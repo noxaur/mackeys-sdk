@@ -1,9 +1,55 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "react-demo", "runtimeExecutable": "pnpm", "runtimeArgs": ["--dir", "examples/react-demo", "dev"], "port": 5173 },
-    { "name": "svelte-demo", "runtimeExecutable": "pnpm", "runtimeArgs": ["--dir", "examples/svelte-demo", "dev"], "port": 5174 },
-    { "name": "vue-demo", "runtimeExecutable": "pnpm", "runtimeArgs": ["--dir", "examples/vue-demo", "dev"], "port": 5175 },
-    { "name": "elements-demo", "runtimeExecutable": "pnpm", "runtimeArgs": ["--dir", "examples/elements-demo", "dev"], "port": 5177 }
+    {
+      "name": "react-demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "examples/react-demo",
+        "dev"
+      ],
+      "port": 5173
+    },
+    {
+      "name": "svelte-demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "examples/svelte-demo",
+        "dev"
+      ],
+      "port": 5174
+    },
+    {
+      "name": "vue-demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "examples/vue-demo",
+        "dev"
+      ],
+      "port": 5175
+    },
+    {
+      "name": "elements-demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "examples/elements-demo",
+        "dev"
+      ],
+      "port": 5177
+    },
+    {
+      "name": "demo",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "--dir",
+        "demo",
+        "dev"
+      ],
+      "port": 5176
+    }
   ]
 }

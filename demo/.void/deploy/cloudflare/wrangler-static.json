@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mackeys-demo",
+  "account_id": "865dded96630ca6a533584a80efad356",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "../../../dist",
+    "not_found_handling": "single-page-application",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [
+    {
+      "pattern": "mackeys.perwko.com",
+      "custom_domain": true
+    }
+  ],
+  "main": "static-edge.mjs",
+  "no_bundle": false,
+  "durable_objects": {
+    "bindings": []
+  },
+  "queues": {
+    "producers": [],
+    "consumers": []
+  },
+  "triggers": {
+    "crons": []
+  },
+  "containers": [],
+  "workflows": [],
+  "version_metadata": {
+    "binding": "__VOID_VERSION_METADATA"
+  }
+}
