@@ -1,6 +1,6 @@
 {
   "name": "@mackeys/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Mac keyboard and trackpad engine: geometry, themes, layouts, controllers and click sounds.",
   "license": "MIT",
   "repository": {
