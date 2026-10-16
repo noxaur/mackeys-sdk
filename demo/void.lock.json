@@ -5,6 +5,12 @@
     "name": "mackeys-demo",
     "account_id": "865dded96630ca6a533584a80efad356",
     "compatibility_date": "2026-10-01",
+    "routes": [
+      {
+        "pattern": "mackeys.perwko.com",
+        "custom_domain": true
+      }
+    ],
     "assets": {
       "directory": "./dist",
       "not_found_handling": "single-page-application"
@@ -18,7 +24,13 @@
     "assets": {
       "directory": "./dist",
       "not_found_handling": "single-page-application"
-    }
+    },
+    "routes": [
+      {
+        "pattern": "mackeys.perwko.com",
+        "custom_domain": true
+      }
+    ]
   },
-  "text": "{\n  // Cloudflare Workers with static assets. `pnpm deploy` builds and uploads `dist/`.\n  // Add a custom domain (mackeys.your-domain.tld) in the Cloudflare dashboard, or set `routes` here.\n  \"$schema\": \"node_modules/wrangler/config-schema.json\",\n  \"name\": \"mackeys-demo\",\n  \"account_id\": \"865dded96630ca6a533584a80efad356\",\n  \"compatibility_date\": \"2026-10-01\",\n  \"assets\": {\n    \"directory\": \"./dist\",\n    \"not_found_handling\": \"single-page-application\"\n  }\n}\n"
+  "text": "{\n  \"$schema\": \"node_modules/wrangler/config-schema.json\",\n  \"name\": \"mackeys-demo\",\n  \"account_id\": \"865dded96630ca6a533584a80efad356\",\n  \"compatibility_date\": \"2026-10-01\",\n  \"assets\": {\n    \"directory\": \"./dist\",\n    \"not_found_handling\": \"single-page-application\"\n  },\n  \"routes\": [\n    {\n      \"pattern\": \"mackeys.perwko.com\",\n      \"custom_domain\": true\n    }\n  ]\n}\n"
 }

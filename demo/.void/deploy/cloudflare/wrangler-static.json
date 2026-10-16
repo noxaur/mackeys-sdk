@@ -10,6 +10,12 @@
     "run_worker_first": true,
     "html_handling": "auto-trailing-slash"
   },
+  "routes": [
+    {
+      "pattern": "mackeys.perwko.com",
+      "custom_domain": true
+    }
+  ],
   "main": "static-edge.mjs",
   "no_bundle": false,
   "durable_objects": {

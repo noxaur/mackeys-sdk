@@ -7,6 +7,9 @@ export default defineConfig({
     "name": "mackeys-demo",
     "account_id": "865dded96630ca6a533584a80efad356",
     "compatibility_date": "2026-10-01",
+    "routes": [
+      { "pattern": "mackeys.perwko.com", "custom_domain": true }
+    ],
     "assets": {
       "directory": "./dist",
       "not_found_handling": "single-page-application"
